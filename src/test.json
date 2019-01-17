@@ -1,0 +1,93 @@
+{
+  "12345": {
+    "name" :"John Doe",
+    "date" : "12-25-18",
+    "preExam": "Lorem ipsum",
+    "loc": {
+        "questions": "???",
+        "commands": "!!!"
+      },
+    "bestGaze": "Lorem ipsum syndullum.",
+    "visual": "",
+    "facialPalsy": "",
+    "motorArm":{
+      "left": 0,
+      "right": 0
+    },
+    "motorLeg": "",
+    "limbAtaxia": "",
+    "sensory" : "",
+    "bestLanguage" : "",
+    "disarthria" : "",
+    "extinctionAndInattention" : ""
+  },
+
+  "24680": {
+    "name" :"Jane Doe",
+    "date" : "1-10-18",
+    "preExam": "Ipsum Lorem",
+    "loc": {
+        "questions": "Are you related to John?",
+        "commands": "Please turn around."
+      },
+    "bestGaze": "Syndullum.",
+    "visual": "abcdefghigk",
+    "facialPalsy": "possible",
+    "motorArm":{
+      "left": 15,
+      "right": 25
+    },
+    "motorLeg": 30,
+    "limbAtaxia": 35,
+    "sensory" : 10,
+    "bestLanguage" : "English",
+    "disarthria" : "Hello World!",
+    "extinctionAndInattention" : "Yes"
+  },
+
+  "13579": {
+      "name" :"Lisa Grega",
+      "date" : "1-5-18",
+      "preExam": "Everything seems to check out.",
+      "loc": {
+          "questions": "What is today's date?",
+          "commands": "Finger-to-nose"
+        },
+      "bestGaze": "Eyes remained focus",
+      "visual": "Vision unimpaired",
+      "facialPalsy": "No symptoms",
+      "motorArm":{
+        "left": 0,
+        "right": 0
+      },
+      "motorLeg": 0,
+      "limbAtaxia": 0,
+      "sensory" : 3,
+      "bestLanguage" : "French",
+      "disarthria" : "Unclear",
+      "extinctionAndInattention" : "No"
+    },
+
+    "92122": {
+        "name" :"Andrew Nguyen",
+        "date" : "1-17-18",
+        "preExam": "Very dangerously serious seeming symptoms.",
+        "loc": {
+            "questions": "Who are you?",
+            "commands": "Line walk"
+          },
+        "bestGaze": "Eyes cannot focus",
+        "visual": "Near blindness",
+        "facialPalsy": "Several symptoms",
+        "motorArm":{
+          "left": 100,
+          "right": 20
+        },
+        "motorLeg": 33,
+        "limbAtaxia": 64,
+        "sensory" : 82,
+        "bestLanguage" : "Vietnamese",
+        "disarthria" : "Definite",
+        "extinctionAndInattention" : "Absolutely"
+      }
+}
