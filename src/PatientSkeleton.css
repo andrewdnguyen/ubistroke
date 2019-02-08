@@ -1,0 +1,146 @@
+.canvas-div {
+  width: 650px;
+  height: 620px;
+  background-image: url("./img/body-ref2.jpg");
+  background-size: 700px 600px;
+}
+
+/* Tooltip text */
+div.node .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 105%;
+}
+
+/* Tooltip text */
+div.node .tooltiptextleft {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 105%;
+}
+
+div.node:hover .tooltiptext {
+  visibility: visible;
+}
+
+div.node:hover .tooltiptextleft {
+  visibility: visible;
+}
+
+.chart-div{
+  background-color: purple;
+  position: absolute;
+  top: 500px;
+  width: 650px;
+}
+
+.ct-chart{
+}
+
+div.node{
+  background-color: red;
+  border-radius: 50px;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+
+}
+
+div.node:hover{
+  background-color: red;
+  border-radius: 50px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+
+}
+
+div.head{
+  top: 100px;
+  left: 355px;
+}
+
+div.neck{
+  top: 150px;
+  left: 355px;
+}
+
+div.shoulderLeft{
+  top: 180px;
+  left: 390px;
+}
+
+div.shoulderRight{
+  top: 180px;
+  left: 315px;
+}
+
+div.elbowLeft{
+  top: 230px;
+  left: 430px;
+}
+
+div.elbowRight{
+  top: 230px;
+  left: 275px;
+}
+
+div.wristLeft{
+  top: 270px;
+  left: 465px;
+}
+
+div.wristRight{
+  top: 270px;
+  left: 240px;
+}
+
+div.spine{
+  top: 230px;
+  left: 355px;
+}
+
+div.hip{
+  top: 325px;
+  left: 355px;
+}
+
+div.kneeLeft{
+  top: 450px;
+  left: 380px;
+}
+
+div.kneeRight{
+  top: 450px;
+  left: 325px;
+}
+
+div.ankleLeft{
+  top: 525px;
+  left: 385px;
+}
+
+div.ankleRight{
+  top: 525px;
+  left: 325px;
+}

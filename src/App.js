@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PatientInfo from './PatientInfo';
+import PatientSkeleton from './PatientSkeleton'
 
     //removed header/ element
 const App = () => (
@@ -18,11 +19,15 @@ const Subject = ({match}) => (
 
   <div class = "row">
   <div class="col-md-6">
-  <Link to="/patients"><button id="back-button" class="btn btn-primary">&lt;&lt; Back</button></Link>
+  <div class="white-background">
+  <Link to="/patients"><button id="back-button" class="btn btn-block btn-primary">&lt;&lt; Back</button></Link>
+  </div>
   <PatientInfo patientId={match.params.subjectID}/>
   </div>
   <div class="col-md-6">
-    <img src={require('./img/body.PNG')} alt="Prototype vision for body representation."></img>
+    <br/>
+    <br/>
+    <PatientSkeleton/>
   </div>
 
   </div>
@@ -44,24 +49,26 @@ const Home = () => (
 const About = () => <h2>About</h2>;
 
 const Patients = ({ match }) => (
-  <div>
-    <h2>Patients</h2>
-    <ul>
-      <li>
-        <Link to={`subjects/12345`}>John Doe (ID: 12345)</Link>
-      </li>
-      <li>
-        <Link to={`subjects/24680`}>Jane Doe (ID: 24680)</Link>
-      </li>
-      <li>
-        <Link to={`subjects/13579`}>Lisa Grega (ID: 13579)</Link>
-      </li>
-      <li>
-        <Link to={`subjects/92122`}>Andrew Nguyen (ID: 92122)</Link>
-      </li>
-    </ul>
+  <div style={{
+          position: 'absolute', left: '50%', top: '50%',
+          transform: 'translate(-50%, -50%)'
+      }}>
+    <h1 style={{color: 'white'}}><center>Patients</center></h1>
+        <Link to={`subjects/12345`}><button class="btn btn-lg btn-primary btn-block">John Doe (ID: 12345)</button></Link>
+        <br/>
+        <br/>
+        <Link to={`subjects/24680`}><button class="btn btn-lg btn-primary btn-block">Jane Doe (ID: 24680)</button></Link>
+        <br/>
+        <br/>
+        <Link to={`subjects/13579`}><button class="btn btn-lg btn-primary btn-block">Lisa Grega (ID: 13579)</button></Link>
+        <br/>
+        <br/>
+        <Link to={`subjects/92122`}><button class="btn btn-lg btn-primary btn-block">Andrew Nguyen (ID: 92122)</button></Link>
+        <br/>
+        <br/>
+        <Link to="/"><button class="btn btn-lg btn-primary btn-block">&lt;&lt; Go Back</button></Link>
 
-    <Link to="/"><button class="btn btn-primary">&lt;&lt; Back</button></Link>
+
   </div>
 );
 
