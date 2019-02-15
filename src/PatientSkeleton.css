@@ -1,8 +1,12 @@
 .canvas-div {
   width: 650px;
   height: 620px;
-  background-image: url("./img/body-ref2.jpg");
+  background-image: url("/img/body-ref3.jpg");
   background-size: 700px 600px;
+}
+
+.kinect-video{
+  position: absolute;
 }
 
 /* Tooltip text */
@@ -51,10 +55,16 @@ div.node:hover .tooltiptextleft {
   background-color: purple;
   position: absolute;
   top: 500px;
+  height: 200px;
   width: 650px;
+  overflow: scroll;
 }
 
 .ct-chart{
+  height: 190px;
+  width: 15000px;
+  border:1px dotted #ccc;
+  background-color: #ccc;
 }
 
 div.node{
@@ -77,67 +87,67 @@ div.node:hover{
 
 div.head{
   top: 100px;
-  left: 355px;
+  left: 340px;
 }
 
 div.neck{
   top: 150px;
-  left: 355px;
+  left: 340px;
 }
 
 div.shoulderLeft{
   top: 180px;
-  left: 390px;
+  left: 380px;
 }
 
 div.shoulderRight{
   top: 180px;
-  left: 315px;
+  left: 300px;
 }
 
 div.elbowLeft{
-  top: 230px;
-  left: 430px;
+  top: 250px;
+  left: 400px;
 }
 
 div.elbowRight{
-  top: 230px;
-  left: 275px;
+  top: 250px;
+  left: 285px;
 }
 
 div.wristLeft{
-  top: 270px;
-  left: 465px;
+  top: 320px;
+  left: 410px;
 }
 
 div.wristRight{
-  top: 270px;
-  left: 240px;
+  top: 320px;
+  left: 275px;
 }
 
 div.spine{
   top: 230px;
-  left: 355px;
+  left: 340px;
 }
 
 div.hip{
   top: 325px;
-  left: 355px;
+  left: 340px;
 }
 
 div.kneeLeft{
-  top: 450px;
-  left: 380px;
+  top: 425px;
+  left: 360px;
 }
 
 div.kneeRight{
-  top: 450px;
+  top: 425px;
   left: 325px;
 }
 
 div.ankleLeft{
   top: 525px;
-  left: 385px;
+  left: 355px;
 }
 
 div.ankleRight{

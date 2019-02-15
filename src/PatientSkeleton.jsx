@@ -31,6 +31,10 @@ displayOff = e =>{
   render() {
     return (
       <div class="canvas-div">
+      <video class="kinect-video" width="270" controls>
+      <source src="/Videos/test-video.mp4" type="video/mp4"></source>
+      Your browser does not support HTML5 video.
+      </video>
         <div class="head node" onClick={this.displayOn}><span class="tooltiptext">Head</span></div>
         <div class="neck node" onClick={this.displayOn}><span class="tooltiptext">Neck</span></div>
         <div class="shoulderLeft node" onClick={this.displayOn}><span class="tooltiptext">Left Shoulder</span></div>
