@@ -12,3 +12,53 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.white-background{
+  background-color: white;
+}
+
+.chart-div{
+  position: absolute;
+  top: 500px;
+  height: 250px;
+  width: 650px;
+  overflow: scroll;
+}
+
+.ct-chart{
+  height: 190px;
+  width: 15000px;
+  background-color: #563d7c;
+}
+
+.ct-grid.ct-vertical:nth-of-type(14){
+  stroke-width: 3;
+  stroke: red;
+}
+.ct-grid.ct-vertical:nth-of-type(12) {
+  stroke-width: 3;
+  stroke: yellow;
+}
+
+.ct-series-a .ct-line,
+.ct-series-a .ct-point {
+  stroke: white;
+}
+
+.ct-label {
+    font-size: 15px;
+    color: white;
+}
+
+.ct-grids .ct-horizontal {
+   stroke-width: 3;
+}
+
+.ct-grids .ct-vertical {
+   stroke-width: 3;
+}

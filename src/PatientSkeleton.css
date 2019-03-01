@@ -51,7 +51,7 @@ div.node:hover .tooltiptextleft {
   visibility: visible;
 }
 
-.chart-div{
+/* .chart-div{
   background-color: purple;
   position: absolute;
   top: 500px;
@@ -65,7 +65,7 @@ div.node:hover .tooltiptextleft {
   width: 15000px;
   border:1px dotted #ccc;
   background-color: #ccc;
-}
+} */
 
 div.node{
   background-color: red;

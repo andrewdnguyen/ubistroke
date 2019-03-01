@@ -2,6 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PatientInfo from './PatientInfo';
 import PatientSkeleton from './PatientSkeleton'
+import ChartistGraph from "react-chartist";
+import {
+  dailySalesChart
+} from "./charts.jsx";
 
     //removed header/ element
 const App = () => (
@@ -11,6 +15,7 @@ const App = () => (
       <Route path="/about" component={About} />
       <Route path="/patients" component={Patients} />
       <Route path="/subjects/:subjectID" component={Subject} />
+      <Route path="/charttest" component={Test} />
     </div>
   </Router>
 );
@@ -46,6 +51,19 @@ const Home = () => (
       <Link to="/patients"><button class="btn btn-lg btn-primary">Open Patient Files (Enabled)</button></Link>
 </div>
 );
+
+const Test = () => (
+  <div class="jumbotron chart-div" style={{backgroundColor: "#563d7c", color:"white"}}>
+  <ChartistGraph
+    className="ct-chart"
+    data={dailySalesChart.data}
+    type="Line"
+    options={dailySalesChart.options}
+    listener={dailySalesChart.animation}
+  />
+  </div>
+);
+
 const About = () => <h2>About</h2>;
 
 const Patients = ({ match }) => (

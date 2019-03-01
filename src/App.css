@@ -2,27 +2,16 @@
   text-align: center;
 }
 
-#back-button{
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.col-centered{
-    float: none;
-    margin: 0 auto;
-}
-
-.white-background{
-  background-color: white;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
 }
 
-
+#back-button{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
 .App-header {
   background-color: #282c34;
@@ -46,22 +35,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-/*
- * Cover
- */
-
-.cover {
-  padding: 0 1.5rem;
-}
-
-.cover .btn-lg {
-  padding: .75rem 1.25rem;
-  font-weight: 700;
-}
-
-/* Padding for spacing */
-.inner {
-  padding: 2rem;
 }
