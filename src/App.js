@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PatientInfo from './PatientInfo';
-import PatientSkeleton from './PatientSkeleton'
+import PatientSkeleton from './PatientSkeleton';
 import ChartistGraph from "react-chartist";
 import {
   dailySalesChart
@@ -31,7 +31,6 @@ const Subject = ({match}) => (
   </div>
   <div class="col-md-6">
     <br/>
-    <br/>
     <PatientSkeleton/>
   </div>
 
@@ -54,13 +53,7 @@ const Home = () => (
 
 const Test = () => (
   <div class="jumbotron chart-div" style={{backgroundColor: "#563d7c", color:"white"}}>
-  <ChartistGraph
-    className="ct-chart"
-    data={dailySalesChart.data}
-    type="Line"
-    options={dailySalesChart.options}
-    listener={dailySalesChart.animation}
-  />
+
   </div>
 );
 

@@ -172,6 +172,9 @@ this.setState({
         <h1>Pt. Date of Birth: {Test[this.state.id].dob}</h1>
         <h1>Hospital: {Test[this.state.id].hospital}</h1>
         <h1>Examination Date: {Test[this.state.id].date}</h1>
+        <h1>Last Known Well: 3 hours ago</h1>
+        <h1>Blood Pressure: 150/70</h1>
+        <h1>Glucose Levels: 130 mg/dL</h1>
         <h1>NIHSS Total Score: {parseInt(this.state.loc.value) + parseInt(this.state.loc.questionValue) + parseInt(this.state.loc.commandValue) +
         parseInt(this.state.bestGaze.value) + parseInt(this.state.visual.value) + parseInt(this.state.facialPalsy.value) + parseInt(this.state.motorArm.left.value)
         + parseInt(this.state.motorArm.right.value) + parseInt(this.state.motorLeg.left.value) + parseInt(this.state.motorLeg.right.value)

@@ -9,6 +9,29 @@
   position: absolute;
 }
 
+.displayReading{
+  position: absolute;
+  top:200px;
+  left: 30px;
+}
+
+.displayNote{
+  position: absolute;
+  top:100px;
+  left: 500px;
+}
+
+.closeChart{
+  position: absolute;
+  top:300px;
+  left: 100px;
+}
+
+.switchChart{
+  position: absolute;
+  top:330px;
+  left: 100px;
+}
 /* Tooltip text */
 div.node .tooltiptext {
   visibility: hidden;
@@ -86,71 +109,71 @@ div.node:hover{
 }
 
 div.head{
-  top: 100px;
+  top: 90px;
   left: 340px;
 }
 
 div.neck{
-  top: 150px;
+  top: 140px;
   left: 340px;
 }
 
 div.shoulderLeft{
-  top: 180px;
+  top: 170px;
   left: 380px;
 }
 
 div.shoulderRight{
-  top: 180px;
+  top: 170px;
   left: 300px;
 }
 
 div.elbowLeft{
-  top: 250px;
+  top: 240px;
   left: 400px;
 }
 
 div.elbowRight{
-  top: 250px;
+  top: 240px;
   left: 285px;
 }
 
 div.wristLeft{
-  top: 320px;
+  top: 310px;
   left: 410px;
 }
 
 div.wristRight{
-  top: 320px;
+  top: 310px;
   left: 275px;
 }
 
 div.spine{
-  top: 230px;
+  top: 220px;
   left: 340px;
 }
 
 div.hip{
-  top: 325px;
+  top: 315px;
   left: 340px;
 }
 
 div.kneeLeft{
-  top: 425px;
+  top: 415px;
   left: 360px;
 }
 
 div.kneeRight{
-  top: 425px;
+  top: 415px;
   left: 325px;
 }
 
 div.ankleLeft{
-  top: 525px;
+  top: 515px;
   left: 355px;
 }
 
 div.ankleRight{
-  top: 525px;
+  top: 515px;
   left: 325px;
 }

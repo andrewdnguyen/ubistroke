@@ -24,8 +24,8 @@ code {
 
 .chart-div{
   position: absolute;
-  top: 500px;
-  height: 250px;
+  top: 550px;
+  height: 210px;
   width: 650px;
   overflow: scroll;
 }
