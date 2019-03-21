@@ -46,7 +46,7 @@ componentWillMount() {
     const data = result.data;
     let newData = [];
     for (let i = 0; i < data.length; i++){
-      if(i%17 === 0){
+      if(i%5 === 0){
         newData.push(data[i].Time);
       }
       else{
