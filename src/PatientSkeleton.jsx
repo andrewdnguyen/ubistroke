@@ -5,11 +5,26 @@ import ChartistGraph from "react-chartist";
 import {
   dailySalesChart
 } from "./charts.jsx";
-import * as d3 from 'd3';
 import * as Papa from 'papaparse';
 import data from './data/test-data.csv';
+import { Player } from 'video-react';
 
-
+var listener = {
+  draw: function(data) {
+    if (data.type === "point") {
+      data.element._node.onclick = function() {
+        //this.setState({currentTime: data.meta});
+        var str = window.location.href;
+        var link1 = str.substring(0,36);
+        console.log(data.meta);
+        var str2 = data.meta;
+        var link2 = str2.substring(3,8);
+        var value = link2.split(':').reverse().reduce((prev, curr, i) => prev + curr*Math.pow(60, i), 0);
+        window.location = link1 + "/" + value;
+    }
+  }
+}
+}
 
 class PatientSkeleton extends Component {
   constructor(props){
@@ -23,11 +38,15 @@ class PatientSkeleton extends Component {
       csvData: {},
       currentJoint: "No",
       nodeValue: -1,
-      yAxis: true
+      yAxis: true,
+      time: props.time
   }
 
+console.log(this.state.time);
     // Bind this to function updateData (This eliminates the error)
 this.updateData = this.updateData.bind(this);
+this.seek = this.seek.bind(this);
+
 }
 
 componentWillMount() {
@@ -40,6 +59,22 @@ componentWillMount() {
       // Here this is also available. So we can call our custom class method
       complete: this.updateData
     });
+}
+
+
+handleStateChange(state, prevState) {
+  // copy player state to this component's state
+  this.setState({
+    player: state,
+    currentTime: state.currentTime
+  });
+}
+
+
+seek(seconds) {
+  return () => {
+    this.refs.player.seek(seconds);
+  };
 }
 
     updateData(result) {
@@ -65,7 +100,8 @@ displayHeadX = e =>{
   this.setState({ displayGraph: false });
   let newData = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newData.push(this.state.csvData[i].HeadX);
+    let newObj = {value: this.state.csvData[i].HeadX, meta: this.state.csvData[i].Time}
+    newData.push(newObj);
   }
   this.setState({ data: { ...this.state.data, series: [newData]} });
   this.setState({ currentJoint: "Head"});
@@ -77,7 +113,8 @@ displayNeckX = e =>{
   this.setState({ displayGraph: false });
   let newData = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newData.push(this.state.csvData[i].NeckX);
+    let newObj = {value: this.state.csvData[i].NeckX, meta: this.state.csvData[i].Time}
+    newData.push(newObj);
   }
   this.setState({ data: { ...this.state.data, series: [newData]} });
   this.setState({ currentJoint: "Neck"});
@@ -89,7 +126,8 @@ displayBaseX = e =>{
   this.setState({ displayGraph: false });
   let newData = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newData.push(this.state.csvData[i].SpineBaseX);
+    let newObj = {value: this.state.csvData[i].SpineBaseX, meta: this.state.csvData[i].Time}
+    newData.push(newObj);
   }
   this.setState({ data: { ...this.state.data, series: [newData]} });
   this.setState({ currentJoint: "Spine Base"});
@@ -101,7 +139,8 @@ displaySpineX = e =>{
   this.setState({ displayGraph: false });
   let newData = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newData.push(this.state.csvData[i].SpineMidX);
+    let newObj = {value: this.state.csvData[i].SpineMidX, meta: this.state.csvData[i].Time}
+    newData.push(newObj);
   }
   this.setState({ data: { ...this.state.data, series: [newData]} });
   this.setState({ currentJoint: "Spine Mid"});
@@ -114,8 +153,10 @@ displayShoulderX = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].ShoulderLeftX);
-    newDataR.push(this.state.csvData[i].ShoulderRightX);
+    let newObj = {value: this.state.csvData[i].ShoulderLeftX, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].ShoulderRightX, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataL);
@@ -131,8 +172,11 @@ displayElbowX = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].ElbowLeftX);
-    newDataR.push(this.state.csvData[i].ElbowRightX);
+    let newObj = {value: this.state.csvData[i].ElbowLeftX, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].ElbowRightX, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
+
   }
   let newDataCombined = [];
   newDataCombined.push(newDataL);
@@ -148,8 +192,10 @@ displayElbowRX = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].ElbowLeftX);
-    newDataR.push(this.state.csvData[i].ElbowRightX);
+    let newObj = {value: this.state.csvData[i].ElbowLeftX, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].ElbowRightX, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataR);
@@ -165,8 +211,10 @@ displayShoulderRX = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].ShoulderLeftX);
-    newDataR.push(this.state.csvData[i].ShoulderRightX);
+    let newObj = {value: this.state.csvData[i].ShoulderLeftX, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].ShoulderRightX, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataR);
@@ -182,8 +230,10 @@ displayWristX = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].WristLeftX);
-    newDataR.push(this.state.csvData[i].WristRightX);
+    let newObj = {value: this.state.csvData[i].WristLeftX, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].WristRightX, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataL);
@@ -199,8 +249,10 @@ displayWristRX = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].WristLeftX);
-    newDataR.push(this.state.csvData[i].WristRightX);
+    let newObj = {value: this.state.csvData[i].WristLeftX, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].WristRightX, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataR);
@@ -216,8 +268,10 @@ displayKneeX = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].KneeLeftX);
-    newDataR.push(this.state.csvData[i].KneeRightX);
+    let newObj = {value: this.state.csvData[i].KneeLeftX, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].KneeRightX, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataL);
@@ -233,8 +287,10 @@ displayKneeRX = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].KneeLeftX);
-    newDataR.push(this.state.csvData[i].KneeRightX);
+    let newObj = {value: this.state.csvData[i].KneeLeftX, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].KneeRightX, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataR);
@@ -250,8 +306,10 @@ displayAnkleX = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].AnkleLeftX);
-    newDataR.push(this.state.csvData[i].AnkleRightX);
+    let newObj = {value: this.state.csvData[i].AnkleLeftX, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].AnkleRightX, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataL);
@@ -267,8 +325,10 @@ displayAnkleRX = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].AnkleLeftX);
-    newDataR.push(this.state.csvData[i].AnkleRightX);
+    let newObj = {value: this.state.csvData[i].AnkleLeftX, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].AnkleRightX, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataR);
@@ -284,7 +344,8 @@ displayHead = e =>{
   this.setState({ displayGraph: false });
   let newData = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newData.push(this.state.csvData[i].HeadY);
+    let newObj = {value: this.state.csvData[i].HeadY, meta: this.state.csvData[i].Time}
+    newData.push(newObj);
   }
   this.setState({ data: { ...this.state.data, series: [newData]} });
   this.setState({ currentJoint: "Head"});
@@ -296,7 +357,8 @@ displayNeck = e =>{
   this.setState({ displayGraph: false });
   let newData = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newData.push(this.state.csvData[i].NeckY);
+    let newObj = {value: this.state.csvData[i].NeckY, meta: this.state.csvData[i].Time}
+    newData.push(newObj);
   }
   this.setState({ data: { ...this.state.data, series: [newData]} });
   this.setState({ currentJoint: "Neck"});
@@ -308,7 +370,8 @@ displayBase = e =>{
   this.setState({ displayGraph: false });
   let newData = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newData.push(this.state.csvData[i].SpineBaseY);
+    let newObj = {value: this.state.csvData[i].SpineBaseY, meta: this.state.csvData[i].Time}
+    newData.push(newObj);
   }
   this.setState({ data: { ...this.state.data, series: [newData]} });
   this.setState({ currentJoint: "Spine Base"});
@@ -319,7 +382,8 @@ displaySpine = e =>{
   this.setState({ displayGraph: false });
   let newData = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newData.push(this.state.csvData[i].SpineMidY);
+    let newObj = {value: this.state.csvData[i].SpineMidY, meta: this.state.csvData[i].Time}
+    newData.push(newObj);
   }
   this.setState({ data: { ...this.state.data, series: [newData]} });
   this.setState({ currentJoint: "Spine Mid"});
@@ -332,8 +396,10 @@ displayShoulder = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].ShoulderLeftY);
-    newDataR.push(this.state.csvData[i].ShoulderRightY);
+    let newObj = {value: this.state.csvData[i].ShoulderLeftY, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].ShoulderRightY, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataL);
@@ -349,8 +415,10 @@ displayElbow = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].ElbowLeftY);
-    newDataR.push(this.state.csvData[i].ElbowRightY);
+    let newObj = {value: this.state.csvData[i].ElbowLeftY, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].ElbowRightY, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataL);
@@ -366,8 +434,10 @@ displayElbowR = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].ElbowLeftY);
-    newDataR.push(this.state.csvData[i].ElbowRightY);
+    let newObj = {value: this.state.csvData[i].ElbowLeftY, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].ElbowRightY, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataR);
@@ -383,8 +453,10 @@ displayShoulderR = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].ShoulderLeftY);
-    newDataR.push(this.state.csvData[i].ShoulderRightY);
+    let newObj = {value: this.state.csvData[i].ShoulderLeftY, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].ShoulderRightY, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataR);
@@ -400,8 +472,10 @@ displayWrist = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].WristLeftY);
-    newDataR.push(this.state.csvData[i].WristRightY);
+    let newObj = {value: this.state.csvData[i].WristLeftY, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].WristRightY, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataL);
@@ -417,8 +491,10 @@ displayWristR = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].WristLeftY);
-    newDataR.push(this.state.csvData[i].WristRightY);
+    let newObj = {value: this.state.csvData[i].WristLeftY, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].WristRightY, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataR);
@@ -434,8 +510,10 @@ displayKnee = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].KneeLeftY);
-    newDataR.push(this.state.csvData[i].KneeRightY);
+    let newObj = {value: this.state.csvData[i].KneeLeftY, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].KneeRightY, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataL);
@@ -451,8 +529,10 @@ displayKneeR = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].KneeLeftY);
-    newDataR.push(this.state.csvData[i].KneeRightY);
+    let newObj = {value: this.state.csvData[i].KneeLeftY, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].KneeRightY, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataR);
@@ -468,8 +548,10 @@ displayAnkle = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].AnkleLeftY);
-    newDataR.push(this.state.csvData[i].AnkleRightY);
+    let newObj = {value: this.state.csvData[i].AnkleLeftY, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].AnkleRightY, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataL);
@@ -485,8 +567,10 @@ displayAnkleR = e =>{
   let newDataL = [];
   let newDataR = [];
   for (let i = 0; i < this.state.csvData.length; i++){
-    newDataL.push(this.state.csvData[i].AnkleLeftY);
-    newDataR.push(this.state.csvData[i].AnkleRightY);
+    let newObj = {value: this.state.csvData[i].AnkleLeftY, meta: this.state.csvData[i].Time}
+    newDataL.push(newObj);
+    let newObj2 = {value: this.state.csvData[i].AnkleRightY, meta: this.state.csvData[i].Time}
+    newDataR.push(newObj2);
   }
   let newDataCombined = [];
   newDataCombined.push(newDataR);
@@ -609,28 +693,27 @@ switchY = e =>{
   render() {
     return (
       <div class="canvas-div">
-        <video class="kinect-video" width="270" controls>
-        <source src="/Videos/test-video.mp4" type="video/mp4"></source>
-        Your browser does not support HTML5 video.
-        </video>
+      <Player fluid={false} width={240} ref="player" startTime={this.state.time}>
+        <source src="/Videos/test-video.mp4"></source>
+      </Player>
         <div class = "displayReading">
           <h6>Currently displaying: <br/> {this.state.currentJoint}</h6>
           <h6>Axis: { (this.state.yAxis)  ? <h6>Y</h6> : <h6>X</h6>}</h6>
         </div>
-        <div class="head node" onClick={this.displayHead}><span class="tooltiptext">Head</span></div>
-        <div class="neck node" onClick={this.displayNeck}><span class="tooltiptext">Neck</span></div>
-        <div class="shoulderLeft node" onClick={this.displayShoulder}><span class="tooltiptext">Left Shoulder</span></div>
-        <div class="shoulderRight node" onClick={this.displayShoulderR}><span class="tooltiptextleft">Right Shoulder</span></div>
-        <div class="elbowRight node" onClick={this.displayElbowR}><span class="tooltiptextleft">Right Elbow</span></div>
-        <div class="elbowLeft node" onClick={this.displayElbow}><span class="tooltiptext">Left Elbow</span></div>
-        <div class="wristLeft node" onClick={this.displayWrist}><span class="tooltiptext">Left Wrist</span></div>
-        <div class="wristRight node" onClick={this.displayWristR}><span class="tooltiptextleft">Right Wrist</span></div>
-        <div class="spine node" onClick={this.displaySpine}><span class="tooltiptext">Spine Mid</span></div>
-        <div class="hip node" onClick={this.displayBase}><span class="tooltiptext">Spine Base</span></div>
-        <div class="kneeLeft node" onClick={this.displayKnee}><span class="tooltiptext">Left Knee</span></div>
-        <div class="kneeRight node" onClick={this.displayKneeR}><span class="tooltiptextleft">Right Knee</span></div>
-        <div class="ankleLeft node" onClick={this.displayAnkle}><span class="tooltiptext">Left Ankle</span></div>
-        <div class="ankleRight node" onClick={this.displayAnkleR}><span class="tooltiptextleft">Right Ankle</span></div>
+        <div class="head1 node1" onClick={this.displayHead}><span class="tooltiptext">Head</span></div>
+        <div class="neck1 node1" onClick={this.displayNeck}><span class="tooltiptext">Neck</span></div>
+        <div class="shoulderLeft1 node1" onClick={this.displayShoulder}><span class="tooltiptext">Left Shoulder</span></div>
+        <div class="shoulderRight1 node1" onClick={this.displayShoulderR}><span class="tooltiptextleft">Right Shoulder</span></div>
+        <div class="elbowRight1 node1" onClick={this.displayElbowR}><span class="tooltiptextleft">Right Elbow</span></div>
+        <div class="elbowLeft1 node1" onClick={this.displayElbow}><span class="tooltiptext">Left Elbow</span></div>
+        <div class="wristLeft1 node1" onClick={this.displayWrist}><span class="tooltiptext">Left Wrist</span></div>
+        <div class="wristRight1 node1" onClick={this.displayWristR}><span class="tooltiptextleft">Right Wrist</span></div>
+        <div class="spine1 node1" onClick={this.displaySpine}><span class="tooltiptext">Spine Mid</span></div>
+        <div class="hip1 node1" onClick={this.displayBase}><span class="tooltiptext">Spine Base</span></div>
+        <div class="kneeLeft1 node1" onClick={this.displayKnee}><span class="tooltiptext">Left Knee</span></div>
+        <div class="kneeRight1 node1" onClick={this.displayKneeR}><span class="tooltiptextleft">Right Knee</span></div>
+        <div class="ankleLeft1 node1" onClick={this.displayAnkle}><span class="tooltiptext">Left Ankle</span></div>
+        <div class="ankleRight1 node1" onClick={this.displayAnkleR}><span class="tooltiptextleft">Right Ankle</span></div>
         { (this.state.displayGraph)  ? <div></div> : <div>
               <button class="closeChart" onClick={this.displayOff}>&times; Close Chart</button>
               { (this.state.yAxis)  ? <button class="switchChart" onClick={this.switchX}>Switch to X Data</button> : <button class="switchChart" onClick={this.switchY}>Switch to Y Data</button>
@@ -638,6 +721,7 @@ switchY = e =>{
               <div class="chart-div">
 
                       <ChartistGraph
+                      listener={listener}
                       className="ct-chart"
                       data={this.state.data}
                       type="Line"

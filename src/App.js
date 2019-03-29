@@ -1,11 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PatientInfo from './PatientInfo';
-import PatientSkeleton from './PatientSkeleton';
+import PatientSkeleton from './PatientSkeleton.jsx';
+import PatientSkeletonNew from './PatientSkeletonNew.jsx';
 import ChartistGraph from "react-chartist";
 import {
   dailySalesChart
 } from "./charts.jsx";
+
+
 
     //removed header/ element
 const App = () => (
@@ -14,7 +17,8 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/patients" component={Patients} />
-      <Route path="/subjects/:subjectID" component={Subject} />
+      <Route path="/subjects/:subjectID/:time?" component={Subject} />
+      <Route path="/subjecttest/:subjectID/:time?" component={SubjectTest} />
       <Route path="/charttest" component={Test} />
     </div>
   </Router>
@@ -31,7 +35,25 @@ const Subject = ({match}) => (
   </div>
   <div class="col-md-6">
     <br/>
-    <PatientSkeleton/>
+    <PatientSkeleton time={match.params.time}/>
+  </div>
+
+  </div>
+
+);
+
+const SubjectTest = ({match}) => (
+
+  <div class = "row">
+  <div class="col-md-6">
+  <div class="white-background">
+  <Link to="/patients"><button id="back-button" class="btn btn-block btn-primary">&lt;&lt; Back</button></Link>
+  </div>
+  <PatientInfo patientId={match.params.subjectID}/>
+  </div>
+  <div class="col-md-6">
+    <br/>
+    <PatientSkeletonNew time={match.params.time}/>
   </div>
 
   </div>
@@ -68,7 +90,7 @@ const Patients = ({ match }) => (
         <Link to={`subjects/12345`}><button class="btn btn-lg btn-primary btn-block">John Doe (ID: 12345)</button></Link>
         <br/>
         <br/>
-        <Link to={`subjects/24680`}><button class="btn btn-lg btn-primary btn-block">Jane Doe (ID: 24680)</button></Link>
+        <Link to={`subjecttest/24680`}><button class="btn btn-lg btn-primary btn-block">Jane Doe (ID: 24680)</button></Link>
         <br/>
         <br/>
         <Link to={`subjects/13579`}><button class="btn btn-lg btn-primary btn-block">Lisa Grega (ID: 13579)</button></Link>

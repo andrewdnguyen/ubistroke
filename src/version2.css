@@ -1,0 +1,316 @@
+div.drawn-head{
+  background-color: green;
+  border-radius: 100px;
+  position: absolute;
+  border-style: solid;
+  border-width: medium;
+  border-color:black;
+  width: 75px;
+  height: 75px;
+  top: 65px;
+  left: 315px;
+}
+
+div.drawn-neck{
+  background-color: green;
+  border-radius: px;
+  position: absolute;
+  border-style: solid;
+  border-width: medium;
+  border-color:black;
+  width: 44px;
+  height: 35px;
+  top: 134px;
+  left: 331px;
+}
+
+div.drawn-eye-left{
+  background-color: green;
+  border-radius: 15px;
+  border-style: solid;
+  border-width: medium;
+  border-color:black;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 75px;
+  left: 355px;
+}
+
+div.drawn-eye-right{
+  background-color: green;
+  border-radius: 15px;
+  border-style: solid;
+  border-width: medium;
+  border-color:black;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 75px;
+  left: 325px;
+}
+
+div.drawn-mouth{
+  background-color: green;
+  border-radius: 0px;
+  border-style: solid;
+  border-width: medium;
+  border-color:black;
+  position: absolute;
+  width: 25px;
+  height: 10px;
+  top: 110px;
+  left: 340px;
+}
+
+div.drawn-arm-right{
+  background-color: green;
+  border-radius: 0px;
+  border-style: solid;
+  border-width: medium;
+  border-color:black;
+  position: absolute;
+  width: 50px;
+  height: 175px;
+  top: 166px;
+  left: 250px;
+}
+
+div.drawn-arm-left{
+  background-color: red;
+  border-radius: 0px;
+  border-style: solid;
+  border-width: medium;
+  border-color:black;
+  position: absolute;
+  width: 50px;
+  height: 175px;
+  top: 166px;
+  left: 410px;
+}
+
+div.drawn-body{
+  background-color: green;
+  border-style: solid;
+  border-width: medium;
+  border-color:black;
+  border-radius: 0px;
+  position: absolute;
+  width: 100px;
+  height: 175px;
+  top: 166px;
+  left: 305px;
+}
+
+div.drawn-leg-left{
+  border-style: solid;
+  border-width: medium;
+  border-color:black;
+  background-color: yellow;
+  border-radius: 0px;
+  position: absolute;
+  width: 50px;
+  height: 200px;
+  top: 345px;
+  left: 357px;
+}
+
+div.drawn-leg-right{
+  border-style: solid;
+  border-width: medium;
+  border-color:black;
+  background-color: green;
+  border-radius: 0px;
+  position: absolute;
+  width: 50px;
+  height: 200px;
+  top: 345px;
+  left: 303px;
+}
+
+.canvas-div {
+  width: 650px;
+  height: 620px;
+  background-image: url("/img/body-ref3.jpg");
+  background-size: 700px 600px;
+}
+
+.canvas-div2 {
+  width: 650px;
+  height: 620px;
+  background-size: 700px 600px;
+  background-color: white;
+}
+
+.kinect-video{
+  position: absolute;
+}
+
+.displayReading{
+  position: absolute;
+  top:200px;
+  left: 30px;
+}
+
+.displayNote{
+  position: absolute;
+  top:100px;
+  left: 500px;
+}
+
+.closeChart{
+  position: absolute;
+  top:300px;
+  left: 100px;
+}
+
+.switchChart{
+  position: absolute;
+  top:330px;
+  left: 100px;
+}
+/* Tooltip text */
+div.node .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 105%;
+}
+
+/* Tooltip text */
+div.node .tooltiptextleft {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 105%;
+}
+
+div.node:hover .tooltiptext {
+  visibility: visible;
+}
+
+div.node:hover .tooltiptextleft {
+  visibility: visible;
+}
+
+/* .chart-div{
+  background-color: purple;
+  position: absolute;
+  top: 500px;
+  height: 200px;
+  width: 650px;
+  overflow: scroll;
+}
+
+.ct-chart{
+  height: 190px;
+  width: 15000px;
+  border:1px dotted #ccc;
+  background-color: #ccc;
+} */
+
+div.node{
+  background-color: black;
+  border-radius: 50px;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+
+}
+
+div.node:hover{
+  background-color: white;
+  border-radius: 50px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+
+}
+
+div.head{
+  top: 90px;
+  left: 340px;
+}
+
+div.neck{
+  top: 140px;
+  left: 340px;
+}
+
+div.shoulderLeft{
+  top: 170px;
+  left: 423px;
+}
+
+div.shoulderRight{
+  top: 170px;
+  left: 263px;
+}
+
+div.elbowLeft{
+  top: 240px;
+  left: 423px;
+}
+
+div.elbowRight{
+  top: 240px;
+  left: 263px;
+}
+
+div.wristLeft{
+  top: 310px;
+  left: 423px;
+}
+
+div.wristRight{
+  top: 310px;
+  left: 263px;
+}
+
+div.spine{
+  top: 200px;
+  left: 340px;
+}
+
+div.hip{
+  top: 295px;
+  left: 340px;
+}
+
+div.kneeLeft{
+  top: 420px;
+  left: 370px;
+}
+
+div.kneeRight{
+  top: 420px;
+  left: 315px;
+}
+
+div.ankleLeft{
+  top: 515px;
+  left: 370px;
+}
+
+div.ankleRight{
+  top: 515px;
+  left: 315px;
+}
