@@ -22,18 +22,12 @@ code {
   background-color: white;
 }
 
-.chart-div{
-  position: absolute;
-  top: 550px;
-  height: 210px;
-  width: 650px;
-  overflow: scroll;
-}
+
 
 .ct-chart{
   height: 190px;
   width: 30000px;
-  background-color: #563d7c;
+  background-color: #5f6266;
 }
 
 .ct-grid.ct-vertical:nth-of-type(14){

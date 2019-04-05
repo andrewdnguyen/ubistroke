@@ -5,8 +5,10 @@
   background-size: 700px 600px;
 }
 
+
+
 .canvas-div2 {
-  width: 650px;
+  width: 100%;
   height: 620px;
   background-size: 700px 600px;
   background-color: white;
@@ -28,17 +30,6 @@
   left: 500px;
 }
 
-.closeChart{
-  position: absolute;
-  top:300px;
-  left: 100px;
-}
-
-.switchChart{
-  position: absolute;
-  top:330px;
-  left: 100px;
-}
 /* Tooltip text */
 div.node1 .tooltiptext {
   visibility: hidden;

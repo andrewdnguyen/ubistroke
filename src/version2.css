@@ -1,14 +1,33 @@
+#left-symbol{
+  position: absolute;
+  left: 460px;
+  top: 70px;
+}
+
+#right-symbol{
+  position: absolute;
+  left: 310px;
+  top: 70px;
+}
+
+div.user-options{
+  position:absolute;
+  top:420px;
+  left: 500px;
+  width: 150px;
+  height: 100px;
+}
 div.drawn-head{
   background-color: green;
-  border-radius: 100px;
+  border-radius: 110px;
   position: absolute;
-  border-style: solid;
+  border-style: none;
   border-width: medium;
   border-color:black;
-  width: 75px;
-  height: 75px;
-  top: 65px;
-  left: 315px;
+  width: 70px;
+  height: 90px;
+  top: 70px;
+  left: 362px;
 }
 
 div.drawn-neck{
@@ -21,7 +40,7 @@ div.drawn-neck{
   width: 44px;
   height: 35px;
   top: 134px;
-  left: 331px;
+  left: 351px;
 }
 
 div.drawn-eye-left{
@@ -33,8 +52,8 @@ div.drawn-eye-left{
   position: absolute;
   width: 25px;
   height: 25px;
-  top: 75px;
-  left: 355px;
+  top: 85px;
+  left: 400px;
 }
 
 div.drawn-eye-right{
@@ -46,8 +65,8 @@ div.drawn-eye-right{
   position: absolute;
   width: 25px;
   height: 25px;
-  top: 75px;
-  left: 325px;
+  top: 85px;
+  left: 365px;
 }
 
 div.drawn-mouth{
@@ -59,87 +78,221 @@ div.drawn-mouth{
   position: absolute;
   width: 25px;
   height: 10px;
-  top: 110px;
-  left: 340px;
+  top: 130px;
+  left: 384px;
 }
 
-div.drawn-arm-right{
+div.drawn-upper-arm-right{
   background-color: green;
-  border-radius: 0px;
-  border-style: solid;
+  border-radius: 30px;
+  border-style: none;
   border-width: medium;
   border-color:black;
   position: absolute;
-  width: 50px;
-  height: 175px;
-  top: 166px;
-  left: 250px;
-}
-
-div.drawn-arm-left{
-  background-color: red;
-  border-radius: 0px;
-  border-style: solid;
-  border-width: medium;
-  border-color:black;
-  position: absolute;
-  width: 50px;
-  height: 175px;
-  top: 166px;
-  left: 410px;
-}
-
-div.drawn-body{
-  background-color: green;
-  border-style: solid;
-  border-width: medium;
-  border-color:black;
-  border-radius: 0px;
-  position: absolute;
-  width: 100px;
-  height: 175px;
+  width: 35px;
+  height: 90px;
   top: 166px;
   left: 305px;
 }
 
-div.drawn-leg-left{
-  border-style: solid;
+div.drawn-lower-arm-right{
+  background-color: green;
+  border-radius: 30px;
+  border-style: none;
   border-width: medium;
   border-color:black;
-  background-color: yellow;
-  border-radius: 0px;
   position: absolute;
-  width: 50px;
-  height: 200px;
-  top: 345px;
-  left: 357px;
+  width: 25px;
+  height: 65px;
+  top: 250px;
+  left: 310px;
 }
 
-div.drawn-leg-right{
-  border-style: solid;
+div.drawn-hand-right{
+  background-color: green;
+  border-radius: 10px;
+  border-style: none;
+  border-width: medium;
+  border-color:black;
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  top: 310px;
+  left: 313px;
+}
+
+div.drawn-arm-left{
+  background-color: red;
+}
+
+div.drawn-upper-arm-left{
+  background-color: red;
+  border-radius: 30px;
+  border-style: none;
+  border-width: medium;
+  border-color:black;
+  position: absolute;
+  width: 35px;
+  height: 90px;
+  top: 166px;
+  left: 450px;
+}
+
+div.drawn-lower-arm-left{
+  background-color: red;
+  border-radius: 30px;
+  border-style: none;
+  border-width: medium;
+  border-color:black;
+  position: absolute;
+  width: 25px;
+  height: 65px;
+  top: 250px;
+  left: 455px;
+}
+
+div.drawn-hand-left{
+  background-color: red;
+  border-radius: 10px;
+  border-style: none;
+  border-width: medium;
+  border-color:black;
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  top: 310px;
+  left: 458px;
+}
+
+div.drawn-body-left{
+  background-color: green;
+  border-style: none;
+  border-width: medium;
+  border-color:black;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-right-style: solid;
+  position: absolute;
+  width: 50px;
+  height: 175px;
+  top: 166px;
+  left: 345px;
+}
+
+div.drawn-body-right{
+  background-color: green;
+  border-style: none;
+  border-width: medium;
+  border-color:black;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  position: absolute;
+  width: 50px;
+  height: 175px;
+  top: 166px;
+  left: 395px;
+}
+
+div.drawn-upper-leg-right{
+  border-style: none;
   border-width: medium;
   border-color:black;
   background-color: green;
-  border-radius: 0px;
+  border-radius: 50px;
   position: absolute;
-  width: 50px;
-  height: 200px;
+  width: 30px;
+  height: 115px;
   top: 345px;
-  left: 303px;
+  left: 355px;
 }
 
+div.drawn-lower-leg-right{
+  border-style: none;
+  border-width: medium;
+  border-color:black;
+  background-color: green;
+  border-radius: 50px;
+  position: absolute;
+  width: 25px;
+  height: 80px;
+  top: 454px;
+  left: 355px;
+}
+
+div.drawn-foot-right{
+  border-style: none;
+  border-width: medium;
+  border-color:black;
+  background-color: green;
+  border-radius: 50px;
+  position: absolute;
+  width: 25px;
+  height: 15px;
+  top: 534px;
+  left: 355px;
+}
+
+div.drawn-upper-leg-left{
+  border-style: none;
+  border-width: medium;
+  border-color:black;
+  background-color: yellow;
+  border-radius: 50px;
+  position: absolute;
+  width: 30px;
+  height: 115px;
+  top: 345px;
+  left: 407px;
+}
+
+div.drawn-lower-leg-left{
+  border-style: none;
+  border-width: medium;
+  border-color:black;
+  background-color: yellow;
+  border-radius: 50px;
+  position: absolute;
+  width: 25px;
+  height: 80px;
+  top: 454px;
+  left: 410px;
+}
+
+div.drawn-foot-left{
+  border-style: none;
+  border-width: medium;
+  border-color:black;
+  background-color: yellow;
+  border-radius: 50px;
+  position: absolute;
+  width: 25px;
+  height: 15px;
+  top: 534px;
+  left: 410px;
+}
+
+
+
 .canvas-div {
-  width: 650px;
+  width: 100%;
   height: 620px;
   background-image: url("/img/body-ref3.jpg");
   background-size: 700px 600px;
 }
 
 .canvas-div2 {
-  width: 650px;
+  width: 100%;
   height: 620px;
   background-size: 700px 600px;
   background-color: white;
+}
+
+.chart-div{
+  position: absolute;
+  top: 550px;
+  height: 210px;
+  width: 97%;
+  overflow: scroll;
 }
 
 .kinect-video{
@@ -148,7 +301,7 @@ div.drawn-leg-right{
 
 .displayReading{
   position: absolute;
-  top:200px;
+  top:445px;
   left: 30px;
 }
 
@@ -159,15 +312,15 @@ div.drawn-leg-right{
 }
 
 .closeChart{
-  position: absolute;
-  top:300px;
-  left: 100px;
+  top: 0px;
+  width: 95%;
+  position: relative;
 }
 
 .switchChart{
-  position: absolute;
-  top:330px;
-  left: 100px;
+  position: relative;
+  width: 95%;
+  top: 5px;
 }
 /* Tooltip text */
 div.node .tooltiptext {
@@ -247,70 +400,70 @@ div.node:hover{
 
 div.head{
   top: 90px;
-  left: 340px;
+  left: 383px;
 }
 
 div.neck{
-  top: 140px;
-  left: 340px;
+  top: 150px;
+  left: 383px;
 }
 
 div.shoulderLeft{
   top: 170px;
-  left: 423px;
+  left: 430px;
 }
 
 div.shoulderRight{
   top: 170px;
-  left: 263px;
+  left: 325px;
 }
 
 div.elbowLeft{
   top: 240px;
-  left: 423px;
+  left: 455px;
 }
 
 div.elbowRight{
   top: 240px;
-  left: 263px;
+  left: 310px;
 }
 
 div.wristLeft{
-  top: 310px;
-  left: 423px;
+  top: 305px;
+  left: 455px;
 }
 
 div.wristRight{
-  top: 310px;
-  left: 263px;
+  top: 305px;
+  left: 310px;
 }
 
 div.spine{
-  top: 200px;
-  left: 340px;
+  top: 220px;
+  left: 383px;
 }
 
 div.hip{
-  top: 295px;
-  left: 340px;
+  top: 325px;
+  left: 383px;
 }
 
 div.kneeLeft{
-  top: 420px;
-  left: 370px;
+  top: 440px;
+  left: 410px;
 }
 
 div.kneeRight{
-  top: 420px;
-  left: 315px;
+  top: 440px;
+  left: 355px;
 }
 
 div.ankleLeft{
   top: 515px;
-  left: 370px;
+  left: 410px;
 }
 
 div.ankleRight{
   top: 515px;
-  left: 315px;
+  left: 355px;
 }

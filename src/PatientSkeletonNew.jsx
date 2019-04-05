@@ -21,7 +21,7 @@ class PatientSkeletonNew extends Component {
         series: [[157, 187, 22, 146, 61, 198, 52, 77, 194, 87, 1, 149, 131, 112, 59, 142, 37, 248, 249, 219, 35, 232, 21, 130, 225, 54, 120, 124, 18, 86, 222, 137, 238]],
       },
       csvData: {},
-      currentJoint: "No",
+      currentJoint: "None",
       nodeValue: -1,
       yAxis: true,
       canvasSize: 0
@@ -729,20 +729,41 @@ test = e => {
   render() {
     return (
       <div class="canvas-div2">
-      <Player fluid={false} width={240} ref="player" startTime={this.state.time}>
+      <Player fluid={false} width={285} ref="player" startTime={this.state.time}>
         <source src="/Videos/test-video.mp4"></source>
       </Player>
         <div class = "displayReading">
-          <h6>Currently displaying: <br/> {this.state.currentJoint}</h6>
-          <h6>Axis: { (this.state.yAxis)  ? <h6>Y</h6> : <h6>X</h6>}</h6>
+          <h5>Currently displaying: <br/> {this.state.currentJoint}  { (this.state.yAxis)  ? "Y" : "X"} Axis</h5>
         </div>
 
+        <h1 id="left-symbol"> L </h1>
+        <h1 id="right-symbol"> R </h1>
+
         <div class="drawn-head"></div>
-        <div class="drawn-neck"></div>
         <div class="drawn-arm-left"></div>
-        <div class="drawn-arm-right"></div>
-        <div class="drawn-body"></div>
-        <div class="drawn-leg-left"></div>
+        <div class="drawn-arm-right">
+        <div class="drawn-upper-arm-right"></div>
+        <div class="drawn-lower-arm-right"></div>
+        <div class="drawn-hand-right"></div>
+        </div>
+
+        <div class="drawn-arm-left">
+        <div class="drawn-upper-arm-left"></div>
+        <div class="drawn-lower-arm-left"></div>
+        <div class="drawn-hand-left"></div>
+        </div>
+
+        <div class="drawn-body-left"></div>
+        <div class="drawn-body-right"></div>
+
+        <div class="drawn-upper-leg-left"></div>
+        <div class="drawn-lower-leg-left"></div>
+        <div class="drawn-foot-left"></div>
+
+        <div class="drawn-upper-leg-right"></div>
+        <div class="drawn-lower-leg-right"></div>
+        <div class="drawn-foot-right"></div>
+
         <div class="drawn-leg-right"></div>
         <div class="drawn-eye-left"></div>
         <div class="drawn-eye-right"></div>
@@ -768,10 +789,12 @@ test = e => {
         :
         <div><button class="showNodes" onClick={this.displayToggle}>&times; Show Nodes</button></div>
       }
-        { (this.state.displayGraph)  ? <div></div> : <div>
-              <button class="closeChart" onClick={this.displayOff}>&times; Close Chart</button>
-              { (this.state.yAxis)  ? <button class="switchChart" onClick={this.switchX}>Switch to X Data</button> : <button class="switchChart" onClick={this.switchY}>Switch to Y Data</button>
+        { (this.state.displayGraph)  ? <div></div> : <div><div class="user-options">
+              <h5><center>User Options</center></h5>
+              <center><button class="closeChart" onClick={this.displayOff}>&times; Close Chart</button></center>
+              { (this.state.yAxis)  ? <center><button class="switchChart" onClick={this.switchX}>Switch to X Data</button></center> : <center><button class="switchChart" onClick={this.switchY}>Switch to Y Data</button></center>
                     }
+              </div>
               <div class="chart-div" onClick={this.graphClick}>
 
                       <ChartistGraph
