@@ -736,8 +736,8 @@ test = e => {
           <h5>Currently displaying: <br/> {this.state.currentJoint}  { (this.state.yAxis)  ? "Y" : "X"} Axis</h5>
         </div>
 
-        <h1 id="left-symbol"> L </h1>
-        <h1 id="right-symbol"> R </h1>
+        <h1 id="left-symbol"> R </h1>
+        <h1 id="right-symbol"> L </h1>
 
         <div class="drawn-head"></div>
         <div class="drawn-arm-left"></div>
@@ -768,23 +768,26 @@ test = e => {
         <div class="drawn-eye-left"></div>
         <div class="drawn-eye-right"></div>
         <div class="drawn-mouth"></div>
+
+        <img class="overlay-image" src="../img/body-ref3.jpg"></img>
+
         { (this.state.displayNodes) ?
         <div class="nodes">
         <button class="hideNodes" onClick={this.displayToggle}>&times; Hide Nodes</button>
         <div class="head node" onClick={this.displayHead}><span class="tooltiptext">Head</span></div>
         <div class="neck node" onClick={this.displayNeck}><span class="tooltiptext">Neck</span></div>
-        <div class="shoulderLeft node" onClick={this.displayShoulder}><span class="tooltiptext">Left Shoulder</span></div>
-        <div class="shoulderRight node" onClick={this.displayShoulderR}><span class="tooltiptextleft">Right Shoulder</span></div>
-        <div class="elbowRight node" onClick={this.displayElbowR}><span class="tooltiptextleft">Right Elbow</span></div>
-        <div class="elbowLeft node" onClick={this.displayElbow}><span class="tooltiptext">Left Elbow</span></div>
-        <div class="wristLeft node" onClick={this.displayWrist}><span class="tooltiptext">Left Wrist</span></div>
-        <div class="wristRight node" onClick={this.displayWristR}><span class="tooltiptextleft">Right Wrist</span></div>
+        <div class="shoulderLeft node" onClick={this.displayShoulder}><span class="tooltiptext">Right Shoulder</span></div>
+        <div class="shoulderRight node" onClick={this.displayShoulderR}><span class="tooltiptextleft">Left Shoulder</span></div>
+        <div class="elbowRight node" onClick={this.displayElbowR}><span class="tooltiptextleft">Left Elbow</span></div>
+        <div class="elbowLeft node" onClick={this.displayElbow}><span class="tooltiptext">Right Elbow</span></div>
+        <div class="wristLeft node" onClick={this.displayWrist}><span class="tooltiptext">Right Wrist</span></div>
+        <div class="wristRight node" onClick={this.displayWristR}><span class="tooltiptextleft">Left Wrist</span></div>
         <div class="spine node" onClick={this.displaySpine}><span class="tooltiptext">Spine Mid</span></div>
         <div class="hip node" onClick={this.displayBase}><span class="tooltiptext">Spine Base</span></div>
-        <div class="kneeLeft node" onClick={this.displayKnee}><span class="tooltiptext">Left Knee</span></div>
-        <div class="kneeRight node" onClick={this.displayKneeR}><span class="tooltiptextleft">Right Knee</span></div>
-        <div class="ankleLeft node" onClick={this.displayAnkle}><span class="tooltiptext">Left Ankle</span></div>
-        <div class="ankleRight node" onClick={this.displayAnkleR}><span class="tooltiptextleft">Right Ankle</span></div>
+        <div class="kneeLeft node" onClick={this.displayKnee}><span class="tooltiptext">Right Knee</span></div>
+        <div class="kneeRight node" onClick={this.displayKneeR}><span class="tooltiptextleft">Left Knee</span></div>
+        <div class="ankleLeft node" onClick={this.displayAnkle}><span class="tooltiptext">Right Ankle</span></div>
+        <div class="ankleRight node" onClick={this.displayAnkleR}><span class="tooltiptextleft">Left Ankle</span></div>
         </div>
         :
         <div><button class="showNodes" onClick={this.displayToggle}>&times; Show Nodes</button></div>

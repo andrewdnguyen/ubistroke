@@ -10,6 +10,15 @@
   top: 70px;
 }
 
+.overlay-image{
+  position:absolute;
+  left: 300px;
+  top: 70px;
+  height: 500px;
+  width: 190px;
+  opacity: 0.5;
+}
+
 div.user-options{
   position:absolute;
   top:420px;
@@ -203,7 +212,7 @@ div.drawn-upper-leg-right{
   width: 30px;
   height: 115px;
   top: 345px;
-  left: 355px;
+  left: 360px;
 }
 
 div.drawn-lower-leg-right{
@@ -216,7 +225,7 @@ div.drawn-lower-leg-right{
   width: 25px;
   height: 80px;
   top: 454px;
-  left: 355px;
+  left: 362px;
 }
 
 div.drawn-foot-right{
@@ -229,7 +238,7 @@ div.drawn-foot-right{
   width: 25px;
   height: 15px;
   top: 534px;
-  left: 355px;
+  left: 362px;
 }
 
 div.drawn-upper-leg-left{
@@ -242,7 +251,7 @@ div.drawn-upper-leg-left{
   width: 30px;
   height: 115px;
   top: 345px;
-  left: 407px;
+  left: 398px;
 }
 
 div.drawn-lower-leg-left{
@@ -255,7 +264,7 @@ div.drawn-lower-leg-left{
   width: 25px;
   height: 80px;
   top: 454px;
-  left: 410px;
+  left: 398px;
 }
 
 div.drawn-foot-left{
@@ -268,7 +277,7 @@ div.drawn-foot-left{
   width: 25px;
   height: 15px;
   top: 534px;
-  left: 410px;
+  left: 398px;
 }
 
 
@@ -450,20 +459,20 @@ div.hip{
 
 div.kneeLeft{
   top: 440px;
-  left: 410px;
+  left: 403px;
 }
 
 div.kneeRight{
   top: 440px;
-  left: 355px;
+  left: 360px;
 }
 
 div.ankleLeft{
   top: 515px;
-  left: 410px;
+  left: 400px;
 }
 
 div.ankleRight{
   top: 515px;
-  left: 355px;
+  left: 364px;
 }

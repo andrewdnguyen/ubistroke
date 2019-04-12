@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
 import Test from './test.json';
 import './PatientInfo.css';
-
+import firebase from "firebase";
+var config = {
+  apiKey: "AIzaSyDBFvjEfVbGK6njvCN49i68K-F8S_w5mus",
+  authDomain: "ubistroke.firebaseapp.com",
+  databaseURL: "https://ubistroke.firebaseio.com",
+  projectId: "ubistroke",
+  storageBucket: "ubistroke.appspot.com",
+  messagingSenderId: "466560050867"
+};
 
 
 class PatientInfo extends Component {
   constructor(props){
     super(props);
+    // this.app = firebase.initializeApp(config);
+    !firebase.apps.length ? this.app = firebase.initializeApp(config) : this.app = firebase.app();
+
+    this.database = this.app.database().ref().child('info');
     this.state = {
-      id: props.patientId,
+      loading: true,
+      test: {},
+      id: 12345,
       name :Test[props.patientId].name,
       date : Test[props.patientId].date,
       preExam: Test[props.patientId].preExam,
@@ -69,9 +83,21 @@ class PatientInfo extends Component {
         notes: Test[props.patientId].extinctionAndInattention.notes
       }
     };
-    console.log(this.state);
-
   }
+
+
+  getModules(){
+      let ref = this.database;
+      ref.once("value").then(dataSnapshot => {
+        this.response = dataSnapshot.val().data.patientArray;
+        //once the data is back, set the loading to false so it can be rendered
+        this.setState({ test: this.response, loading: false });
+      });
+    }
+
+    componentDidMount(){
+        this.getModules();
+    }
 
 updateInfo = e => {
   this.setState({
@@ -166,16 +192,17 @@ this.setState({
 }
 
   render() {
-    return (
+    let patientVar = this.state.test[this.props.patientIndex];
+    return this.state.loading ? (
+            <div>
+                loading...
+            </div>
+        ) :(
       <div className="info-side">
-        <h1>Subject ID: {this.state.id}</h1>
-        <h1>Pt. Date of Birth: {Test[this.state.id].dob}</h1>
-        <h1>Hospital: {Test[this.state.id].hospital}</h1>
-        <h1>Examination Date: {Test[this.state.id].date}</h1>
-        <h1>Last Known Well: 3 hours ago</h1>
-        <h1>Blood Pressure: 150/70</h1>
-        <h1>Glucose Levels: 130 mg/dL</h1>
-        <h1>NIHSS Total Score: {parseInt(this.state.loc.value) + parseInt(this.state.loc.questionValue) + parseInt(this.state.loc.commandValue) +
+        <h1>Subject ID: {patientVar.ID}</h1>
+        <h1>Age: {patientVar.Age}</h1>
+        <h1>Visit Date: {patientVar["Visit Date"]}</h1>
+        <h1>NIHSS Total Score: {parseInt(patientVar.NIHSS.loc.value) + parseInt(this.state.loc.questionValue) + parseInt(this.state.loc.commandValue) +
         parseInt(this.state.bestGaze.value) + parseInt(this.state.visual.value) + parseInt(this.state.facialPalsy.value) + parseInt(this.state.motorArm.left.value)
         + parseInt(this.state.motorArm.right.value) + parseInt(this.state.motorLeg.left.value) + parseInt(this.state.motorLeg.right.value)
         + parseInt(this.state.limbAtaxia.value) + parseInt(this.state.sensory.value) + parseInt(this.state.bestLanguage.value) + parseInt(this.state.dysarthria.value) +
@@ -183,8 +210,15 @@ this.setState({
 
         <br/><br/>
         <form>
-          <p>Pre-Exam Notes
-          <textarea rows="10" className="notes form-control" onChange={this.updatePreExam} name="preExam" value={this.state.preExam}/>
+          <p>Diagnosis
+          <textarea rows="4" className="notes form-control" onChange={this.updatePreExam} name="diagnosis" value={patientVar.Diagnosis}/>
+          <br/>
+          History
+          <textarea rows="4" className="notes form-control" onChange={this.updatePreExam} name="preExam" value={patientVar.History}/>
+          <br/>
+          Neuro-Exam
+          <textarea rows="4" className="notes form-control" onChange={this.updatePreExam} name="preExam" value={patientVar.NeuroExam}/>
+          <br/>
           <br/><br/>
           Level of Consciousness:
           <select class="form-control" id="loc" onChange={this.updateValue} value={this.state.loc.value}>
