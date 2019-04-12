@@ -1,0 +1,2932 @@
+{
+      "data": {
+            "patientArray": [
+                  {
+                        "ID": 30140601,
+                        "UbiStroke Label": "Patient_2",
+                        "Visit Date": "1/27/2016",
+                        "Age": "60",
+                        "Gender": "female",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (bleeding stroke): Left basal ganglia hemorrhage (bleed in the deep parts of the brain on the left side) caused by high blood pressure",
+                        "NeuroExam": "Exam: Right facial droop, mild weakness of the right arm and the right leg, slow finger taps/coordination on the right side, increased (brisk) reflexes on the right arm and leg",
+                        "NIHSS Text": "NIHSS: 3 (1-R facial droop, 1-R arm weakness, 1-R leg weakness)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 23259294,
+                        "UbiStroke Label": "Patient_3",
+                        "Visit Date": "1/27/2016",
+                        "Age": "63",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (bleeding stroke): Left basal ganglia hemorrhage (bleed in the deep parts of the brain on the left side) caused by high blood pressure",
+                        "NeuroExam": "Exam: Right facial droop, mild weakness (some drift noted) of the right arm, right leg intact, slow finger taps (incoordination) of the R hand, increased (brisk) reflexes in the right arm",
+                        "NIHSS Text": "NIHSS: 2 (1-R facial droop, 1-R leg weakness)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30194168,
+                        "UbiStroke Label": "Patient_4",
+                        "Visit Date": "1/27/2016",
+                        "Age": "47",
+                        "Gender": "female",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (no stroke): Evaluation for risk of stroke. No formal stroke diagnosis",
+                        "NeuroExam": "Exam: Neurological examination is completely normal and intact",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 26684282,
+                        "UbiStroke Label": "Patient_5",
+                        "Visit Date": "2/10/2016\t",
+                        "Age": "65",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (nonbleeding stroke): Left lateral medullary stroke (stroke on the left of the brainstem in an area called the medulla)",
+                        "NeuroExam": "Exam: Cannot see out of the left eye (due to previous surgery, not due to stroke), mild weakness of the left arm (drifts) and mild weakness of the left thigh",
+                        "NIHSS Text": "NIHSS: 2 (1-L arm weakness, 1-L leg weakness)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30132479,
+                        "UbiStroke Label": "Patient_6",
+                        "Visit Date": "3/2/2016",
+                        "Age": "68",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (nonbleeding stroke): Left middle cerebral artery stroke (stroke of the left side of the brain) along with stenting of the left internal carotid artery",
+                        "NeuroExam": "Exam: Neurological examination is completely normal and intact",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 24798076,
+                        "UbiStroke Label": "Patient_7",
+                        "Visit Date": "3/9/2016",
+                        "Age": "24",
+                        "Gender": "female",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (stroke of the brain veins): Cerebral venous thrombosis (clot in vein of brain)",
+                        "NeuroExam": "Exam: Neurological examination is completely normal and intact",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30199484,
+                        "UbiStroke Label": "Patient_8",
+                        "Visit Date": "3/9/2016",
+                        "Age": "52",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis: Amaurosis fugax (transient right eye blindness) with severe narrowing of the left internal carotid artery (left neck blood vessel) and received carotid endarterectomy (surgery to open up the blood vessel)",
+                        "NeuroExam": "Exam: Neurological examination is completely normal and intact",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30197707,
+                        "UbiStroke Label": "Patient_9",
+                        "Visit Date": "3/30/2016",
+                        "Age": "27",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (non-bleeding stroke): Left distal middle cerebral artery infarct (stroke of the left side of the brain) possibly caused by cardioembolic phenomenon (clot traveling to the brain from the heart)",
+                        "NeuroExam": "Exam: Neurological examination is completely normal and intact",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 23186703,
+                        "UbiStroke Label": "Patient_10",
+                        "Visit Date": "3/30/2016",
+                        "Age": "52",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (non-bleeding stroke): Small left medial longitudinal fasciculus stroke (stroke within the left side of the brainstem responsible for controlling movement of the left eye towards the right side)",
+                        "NeuroExam": "Exam: Very mild nystagmus (jerking eye movements) of the left eye when looking to the right side, otherwise normal neurological examination",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 17214933,
+                        "UbiStroke Label": "Patient_11",
+                        "Visit Date": "4/6/2016",
+                        "Age": "50",
+                        "Gender": "M",
+                        "History": "History: 50 M presented with headache, vertigo, occasional memory lapses, and L sided weakness, but MRI scan was normal and did not show any evidence of stroke. ",
+                        "Diagnosis": "Diagnosis (psychogenic/conversion disorder; not a stroke): Patient does not have a stroke despite complaining of L sided weakness. No MRI evidence of stroke. Diagnosed with conversion disorder (patient that fakes stroke symptoms).",
+                        "NeuroExam": "Exam: Intact memory, patient acts as if he is having left arm and leg weakness but he moves extremity up-and-down to pretend that weakness exists (giveway weakness). He also has normal muscle tone and normal reflexes which also goes against an old stroke in the past. Patient will also complain of numbness on the left side but this is also not real (this complaint happens on camera after he first says the face feels fine, and then later he reports the left half of his face is numb after reporting the left arm is numb. He also mentions no numbness on the R leg, which is also is not physiological). Decreased vision in left eye due to glaucoma.",
+                        "NIHSS Text": "NIHSS: 4 (this is not due to any stroke symptoms, but based on a fake stroke exam, 1-L arm weakness, 1-L leg weakness, 2-decreased sensation)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 6212088,
+                        "UbiStroke Label": "Patient_12",
+                        "Visit Date": "4/6/2016",
+                        "Age": "72",
+                        "Gender": "M",
+                        "History": "History: 72 M presented with symptoms of left face, arm, and leg weakness. MRI scan confirmed evidence of stroke within the right lentiform nucleus (located within the deeper parts of the brain, responsible for movement and coordination)",
+                        "Diagnosis": "",
+                        "NeuroExam": "Neurological exam: Mild circumducting gait, but no obvious weakness of the extremities. Remainder of exam normal.",
+                        "NIHSS Text": "NIHSS: 0 (gait is not accounted for in the NIHSS)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 11139144,
+                        "UbiStroke Label": "Patient_13",
+                        "Visit Date": "4/6/2016",
+                        "Age": "80",
+                        "Gender": "F",
+                        "History": "History: 80 F presented with symptoms of unsteady gait and dragging the left foot while walking after undergoing surgery (stapedectomy). Patient was found to have MRI evidence of R corona radiate and R putamen stroke (these strokes are located in the deep parts of the brain)",
+                        "Diagnosis": "Diagnosis: Stroke in the right corona radiata and right putamen from small-vessel etiology",
+                        "NeuroExam": "Neurological examination: Neurological exam completely normal and intact",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30285384,
+                        "UbiStroke Label": "Patient_14",
+                        "Visit Date": "4/6/2016",
+                        "Age": "",
+                        "Gender": "",
+                        "History": "History: Patient presented with symptoms of visual loss of the right upper quadrant in both eyes and was found to have a stroke in the left occipital lobe (the back of the brain on the left side, which is responsible for visual perception).",
+                        "Diagnosis": "",
+                        "NeuroExam": "Neurological examination: The main deficits include very mild visual field cut in the upper right quadrant of both of the eyes. Otherwise, patient has a normal motor and sensory examination",
+                        "NIHSS Text": "NIHSS: 1 (1-R superior quadrantanopsia, mild visual field cut)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 7263965,
+                        "UbiStroke Label": "Patient_15",
+                        "Visit Date": "4/6/2016",
+                        "Age": "60",
+                        "Gender": "F",
+                        "History": "History: 60 F presenting with drowsiness and decreased responsiveness after multiple medication overdoses. CT scan of the head showed an incidental old R sided stroke in the parietal region.",
+                        "Diagnosis": "Diagnosis: R parietal stroke in the setting of multiple medication overdose",
+                        "NeuroExam": "Neurological Exam: no focal deficits on exam, despite old stroke (likely recovered from old stroke)",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 21308622,
+                        "UbiStroke Label": "Patient_16",
+                        "Visit Date": "4/6/2016",
+                        "Age": "72",
+                        "Gender": "M",
+                        "History": "History: 72 M presenting with headache and vertigo and MRI was negative for a new stroke. Neurological exam: no focal deficits. ",
+                        "Diagnosis": "Diagnosis: BPPV (benign positional paroxysmal vertigo: disequilibrium caused by dislodged calcium in the inner ear).",
+                        "NeuroExam": "",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 23660533,
+                        "UbiStroke Label": "Patient_17",
+                        "Visit Date": "4/6/2016",
+                        "Age": "26",
+                        "Gender": "M",
+                        "History": "History: 26 M presenting with transient right sided weakness and word-finding difficulties. He also has a history of a tumor called, medulloblastoma (this tumor usually resides in the back of the brain), which was removed via surgery. ",
+                        "Diagnosis": "Diagnosis: TIA (transient ischemic attack - symptoms of stroke, but no brain damage to suggest he had a stroke)",
+                        "NeuroExam": "Neurological exam: end-gaze nystagmus when looking in both directions (this is essentially a rapid-beating of eyes that can be seen in tumors or strokes located in the back of the brain), mild R facial droop, and bilateral incoordination of the upper extremities",
+                        "NIHSS Text": "NIHSS: N/A (symptoms are from  the tumor, not from a stroke)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 15900913,
+                        "UbiStroke Label": "Patient_18",
+                        "Visit Date": "4/6/2016",
+                        "Age": "60",
+                        "Gender": "F",
+                        "History": "History: 60 F presenting with right sided numbness and weakness without language problems. Patient was found to have multiples strokes in the left frontal region, left thalamus (area that provides sensation), and right pons. Cause of strokes likely cardioembolic (clot travelling from the heart to the brain). ",
+                        "Diagnosis": "Diagnosis: Strokes secondary to possible cardioembolic etiology",
+                        "NeuroExam": "Neurological exam: R arm and leg mild motor weakness, and right face/arm/leg numbness.",
+                        "NIHSS Text": "NIHSS: 3 (1-R arm weakness, 1-R leg weakness, 1-decreased sensation)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 26490763,
+                        "UbiStroke Label": "Patient_19",
+                        "Visit Date": "4/6/2016",
+                        "Age": "71",
+                        "Gender": "F",
+                        "History": "History: 71 F presenting with symptoms right sided profound weakness as well as an inability to speak and get her words out. She was found to have a clot in the left middle cerebral artery causing a stroke in this vascular territory (this area of the brain is largely responsible for moving the right side of the body and for providing language capabilities such as speaking, writing, etc).",
+                        "Diagnosis": "Diagnosis: Left middle cerebral artery stroke likely caused by genetic deficiency in a protein called Factor V (a deficiency in this protein makes the blood thicker and more hypercoagulable)",
+                        "NeuroExam": "Neurological exam: R face droop, right arm and leg with very minimal movement, inability to produce words well (aphasia)",
+                        "NIHSS Text": "NIHSS: 9 (1-R facial droop, 3-R arm weakness, 3-R leg weakness, 2-moderate aphasia)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 17184466,
+                        "UbiStroke Label": "Patient_20",
+                        "Visit Date": "4/6/2016",
+                        "Age": "70",
+                        "Gender": "M",
+                        "History": "History: 70 M presented with symptoms of L sided weakness (arm more than leg) without other noticeable deficits. No language difficulty or neglect noticed at the time of presentation. MRI confirmed stroke in the R middle cerebral artery distribution. ",
+                        "Diagnosis": "Diagnosis: Scattered R MCA distribution stroke secondary to atheroembolic (clot traveled from the right internal carotid artery in the neck and into the brain) phenomenon from the R internal carotid artery",
+                        "NeuroExam": "Neurological exam: Mild L sided facial drooping, weakness of the distal (hand, wrist, forearm range from 1-2/5 on the motor scale) LUE compared to the proximal (shoulder is little less weak, but 2/5 on motor scale) portions, muscle tone is spastic (increased stiffening of the arm, expected with chronic strokes), increased reflexes on the L side, normal sensory exam",
+                        "NIHSS Text": "NIHSS: 5 (1-L facial droop, 3-L arm weakness, 1-L leg weakness)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30247689,
+                        "UbiStroke Label": "Patient_21",
+                        "Visit Date": "4/6/2016",
+                        "Age": "79",
+                        "Gender": "F",
+                        "History": "History: 79 F presented with symptoms of left sided weakness after having a stroke in 9/2016 likely within the R pons (this is an area located in the brainstem, underneath the actual brain). She also had an old stroke in the R thalamus (an area located within the deep part of the brain)",
+                        "Diagnosis": "Diagnosis: R pontine stroke with and old R thalamic stroke due to cardioembolism (clot traveling from the heart and into the brain)",
+                        "NeuroExam": "Neurological exam: Mild weakness of the left arm and leg, otherwise normal neurological exam",
+                        "NIHSS Text": "NIHSS: 2 (1-L arm weakness, 1-L leg weakness)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30297443,
+                        "UbiStroke Label": "Patient_22",
+                        "Visit Date": "4/6/2016",
+                        "Age": "59",
+                        "Gender": "M",
+                        "History": "History: 59 M presented with left sided weakness and slurred speech, without other symptoms. Found to have R middle cerebral artery stroke from severe narrowing of the right internal carotid artery (blood vessel in the neck) and received surgery to open this artery. ",
+                        "Diagnosis": "Diagnosis: R inferior division MCA stroke due to atheroembolic (clot traveled from the right internal carotid artery in the neck and into the brain) phenomenon from R internal carotid severe stenosis",
+                        "NeuroExam": "Neurological exam: Normal neurological exam during clinic, no residual left sided weakness, sensory loss, or slurred speech identified",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 13494604,
+                        "UbiStroke Label": "Patient_23",
+                        "Visit Date": "4/6/2016",
+                        "Age": "52",
+                        "Gender": "F",
+                        "History": "History: 52 F with unsteady gait, nausea, vomiting, vertigo, mild numbness of the R face, arm, and leg. She was found to have a stroke in the R cerebellum (this area is responsible for coordination of movement). Unclear cause for stroke.",
+                        "Diagnosis": "Diagnosis: R cerebellar stroke of unknown cause",
+                        "NeuroExam": "Neurological exam: unsteadiness towards the R side, but no weakness of the arms or legs, no sensory disturbances currently",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 15164486,
+                        "UbiStroke Label": "Patient_24",
+                        "Visit Date": "4/6/2016",
+                        "Age": "78",
+                        "Gender": "F",
+                        "History": "History: 78 F presented with recurrent vertigo and falls and slight R arm and leg weakness found to have a cerebellar stroke due to atherosclerosis of the blood vessels within the brain. ",
+                        "Diagnosis": "Diagnosis: Cerebellar stroke with atherosclerosis of the intracranial vessels (blood vessels in the brain)",
+                        "NeuroExam": "Neurological exam: Patient has mild weakness of the R arm and the R leg, she also has mild numbness to soft touch on the R arm and leg. The rest of her exam is essentially normal.",
+                        "NIHSS Text": "NIHSS: 3 (1-R arm weakness, 1-R leg weakness, 1-decreased sensation)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30002147,
+                        "UbiStroke Label": "Patient_25",
+                        "Visit Date": "4/6/2016",
+                        "Age": "74",
+                        "Gender": "F",
+                        "History": "History: 74 F presented with mild difficulty in speaking and getting her words out (the medical term is \u00d2mild aphasia\u00d3). She did not have any weakness of her arms or legs, and numbness or sensory deficits of the arms or legs. She was found to have a stroke in an area of the brain called the parietal lobe, on the left side (partly responsible for language processing).",
+                        "Diagnosis": "Diagnosis: Left parietal stroke caused by a blockage of the left internal carotid artery (blood vessel in the neck)",
+                        "NeuroExam": "Neurological exam: mild errors with speech, slurred speech noted. Otherwise the rest of her neurological exam is normal.",
+                        "NIHSS Text": "NIHSS: 2 (1-mild aphasia, 1-mild dysarthria)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 16952343,
+                        "UbiStroke Label": "Patient_26",
+                        "Visit Date": "4/6/2016",
+                        "Age": "80",
+                        "Gender": "M",
+                        "History": "History: 80 M presented with L perioral (around the mouth), hand, and foot numbness/tingling sensations and subsequently found to have a stroke located in the R thalamus confirmed on MRI scan. ",
+                        "Diagnosis": "Diagnosis: R thalamic lacunar (small stroke secondary to high blood pressure) stroke due to high blood pressure",
+                        "NeuroExam": "Neurological exam: Numbness to soft touch along the L upper and lower lips, patchy L cheek numbness, numbness in the L fingers and palm. No motor weakness, no other neurological deficits",
+                        "NIHSS Text": "NIHSS: 1 (1-L decreased sensation)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 21601919,
+                        "UbiStroke Label": "Patient_27",
+                        "Visit Date": "4/6/2016",
+                        "Age": "66",
+                        "Gender": "F",
+                        "History": "History: 66 F presented with mild gait unsteadiness without other symptoms. She was found to have a stroke in the R dorsal (top) pons (a region in the brainstem). She has a history of old R sided weakness from previous strokes diagnosed in 2006.",
+                        "Diagnosis": "Diagnosis: New R dorsal pons stroke due to uncontrolled high blood pressure. Old strokes also due to uncontrolled high blood pressure.",
+                        "NeuroExam": "Neurological exam: New findings include - dysmetria (unsteadiness/incoordination) of the left arm and left leg. Findings from the old stroke (in 2006) include - weakness of the right arm and right leg.",
+                        "NIHSS Text": "NIHSS: 2 (if only accounting for new symptoms, 2-L arm and  leg ataxia),",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 15834005,
+                        "UbiStroke Label": "Patient_28",
+                        "Visit Date": "4/6/2016",
+                        "Age": "69",
+                        "Gender": "F",
+                        "History": "History: 69 F presented with symptoms of R facial droop, slurred speech, occasional left arm heaviness that were transient in nature. MRI imaging has been negative for stroke. Symptoms originally thought to be due to TIA (transient ischemic attack - symptoms that look like stroke, but resolve spontaneously and there is no evidence of stroke on brain imaging), but now felt to be from anxiety.",
+                        "Diagnosis": "Diagnosis: Conversion/Anxiety disorder (not a real stroke, symptoms likely psychological)",
+                        "NeuroExam": "Neurological exam: Flat affect (does not show emotion on face, very montone), eyelid drooping of both eyes (not due to any stroke event), otherwise normal neurological exam",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30196793,
+                        "UbiStroke Label": "Patient_29",
+                        "Visit Date": "4/6/2016",
+                        "Age": "62",
+                        "Gender": "M",
+                        "History": "History: 62 M presented with symptoms of left sided weakness without other neurological symptoms. Patient diagnosed with stroke, but currently no imaging available to know exactly where the stroke is located.",
+                        "Diagnosis": "Diagnosis: R sided stroke (unclear location, no imaging available yet) likely due to uncontrolled high blood pressure",
+                        "NeuroExam": "Neurological exam: mild left facial droop, moderate weakness of the L upper and lower extremities, increased tone of the left arm and leg (developing spasm), reflexes are increased in the left arm and leg (more sensitive reflexes due to the stroke)",
+                        "NIHSS Text": "NIHSS: 3 (1-mild facial droop, 1-L arm weakness, 1-L leg weakness)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30322394,
+                        "UbiStroke Label": "Patient_30",
+                        "Visit Date": "4/6/2016",
+                        "Age": "31",
+                        "Gender": "M",
+                        "History": "History: 31 M presented with symptoms of dizziness, unsteadiness on the left side, possible numbness of the left side, and blurry vision. Patient was diagnosed with a stroke located in the left cerebellum (responsible for coordination of movements) and in the L lateral medullary region (also responsible for coordination, sensation, and can lead to dizziness). Cause of stroke unknown, but likely due to a dissection (tear in the vertebral artery, located in the back of the neck)",
+                        "Diagnosis": "",
+                        "NeuroExam": "Neurological exam: nystagmus (rapid beating movements of the eyes) towards the left while looking towards the left, normal vision, mild incoordination of the L arm and leg, no weakness of any of the arms or legs, mild numbness to soft touch on the left arm and leg, mild difficulty walking towards the left.",
+                        "NIHSS Text": "NIHSS: 3 (2-L arm and leg ataxia, 1-numbness left side)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 14701064,
+                        "UbiStroke Label": "Patient_31",
+                        "Visit Date": "4/6/2016",
+                        "Age": "55",
+                        "Gender": "M",
+                        "History": "History: 55 M presented with difficulty seeing out of the R side of his vision. Patient was diagnosed with stroke located in the left occipital area (the area of the brain responsible for visual perception towards the R side) and the left frontal area.",
+                        "Diagnosis": "Diagnosis: L occipital and L frontal lobe strokes likely due to hypercoagulable state (body is prone to making clots due to some other medical condition, such as cancer or liver disease) versus cardioembolic phenomenon (clots potentially forming from the heart, unknown why)",
+                        "NeuroExam": "Neurological exam: No visual perception on the right side of each eye (R homonymous hemianopsia), otherwise remainder of neurological exam is intact. ",
+                        "NIHSS Text": "NIHSS: 2 (2-complete visual field cut)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 10840130,
+                        "UbiStroke Label": "Patient_32",
+                        "Visit Date": "4/6/2016",
+                        "Age": "68",
+                        "Gender": "M",
+                        "History": "History: 68 M presented with difficulty seeing out of the L side of his vision Patient was diagnosed with a stroke located in the R occipital lobe (responsible for visual perception towards the L side) and in the R thalamus. He was also found to have an old stroke within the left parietal-occipital regions.",
+                        "Diagnosis": "Diagnosis: L occipital and thalamic strokes (R posterior cerebral artery distribution stroke) due to atrial fibrillation (abnormal heart rhythm)",
+                        "NeuroExam": "Neurological exam: left homonymous hemianopsia (cannot see from the left side of his vision), otherwise the remainder of his neurological exam is intact.",
+                        "NIHSS Text": "NIHSS: 2 (2-complete visual field cut)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30346153,
+                        "UbiStroke Label": "Patient_33",
+                        "Visit Date": "4/6/2016",
+                        "Age": "77",
+                        "Gender": "F",
+                        "History": "History: 77 F presented with generalized weakness, unsteady gait, and confusion. Patient was diagnosed with a few different small strokes located in the bilateral occipital and frontal-parietal regions. ",
+                        "Diagnosis": "Diagnosis: Bilateral occipital and frontal-parietal strokes due to an unclear source at this time. Potential causes for stroke include vasculitis (inflammation of the blood vessel wall) or cardioembolic.",
+                        "NeuroExam": "Neurological exam: No noticeable focal neurological deficits on physical exam",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 14419519,
+                        "UbiStroke Label": "Patient_34",
+                        "Visit Date": "4/6/2016",
+                        "Age": "48",
+                        "Gender": "M",
+                        "History": "History: 48 M with a history of stroke more than 20 years ago which caused difficulty getting words out, R sided weakness, and slurred speech. He was diagnosed with a stroke in the L middle cerebral artery distribution. Cause of stroke likely due to cocaine use (suspect cardioembolic phenomenon).",
+                        "Diagnosis": "Diagnosis: Old stroke in the L MCA distribution, likely due to cardioembolic phenomenon from cocaine use. Memory disturbances due to underlying metabolic issues versus psychiatric issues (e.g. depression)",
+                        "NeuroExam": "Neurological exam: Some difficulty with immediate compared to delayed memory recall (this is not stroke related). Weakness of the R upper extremity with drift without falling to the bed. R lower extremity very mild weakness with mild drift. No ataxia/incoordination noted. ",
+                        "NIHSS Text": "NIHSS: 2 (1-R arm weakness, 1-R leg weakness)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30333600,
+                        "UbiStroke Label": "Patient_35",
+                        "Visit Date": "4/6/2016",
+                        "Age": "61",
+                        "Gender": "M",
+                        "History": "History: 61 M with a history of hypertension presented with symptoms of R face, arm, and  leg weakness as well as slurred speech. He was diagnosed with a stroke located in the L pontine region. The cause of the stroke is likely due to high blood pressure.",
+                        "Diagnosis": "Diagnosis: L pontine stroke due to uncontrolled high blood pressure",
+                        "NeuroExam": "Neurological exam: Patient has weakness of the R upper extremity and R lower extremity with drift in both of these limbs. Also with mild R facial droop and slow speech. Otherwise no other deficits on examination.",
+                        "NIHSS Text": "NIHSS: 3 (1-R arm drift, 1-R leg drift, 1-mild R facial droop)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 12745105,
+                        "UbiStroke Label": "Patient_36",
+                        "Visit Date": "4/6/2016",
+                        "Age": "60",
+                        "Gender": "F",
+                        "History": "History: 60 F presenting with L facial droop, L sided weakness and  headaches. She was found to have a stroke in the R frontal lobe region caused by a plaque in the R internal carotid artery. In clinic today, her symptoms are essentially resolved.",
+                        "Diagnosis": "Diagnosis: R frontal lobe stroke due to an ulcerated plaque in the R internal carotid artery requiring surgery",
+                        "NeuroExam": "Neurological exam: No noticeable focal neurological deficits on her physical exam",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30345150,
+                        "UbiStroke Label": "Patient_37",
+                        "Visit Date": "4/6/2016",
+                        "Age": "56",
+                        "Gender": "M",
+                        "History": "History: 56 M with history of methamphetamine abuse had symptoms of L face, arm, and leg numbness and incoordination. He was found to have a hemorrhagic stroke located in the R thalamus. There some extension of the blood into the neighboring ventricle (intraventricular extension).",
+                        "Diagnosis": "Diagnosis: R thalamic hemorrhagic stroke due to uncontrolled high blood pressure, provoked by methamphetamine abuse",
+                        "NeuroExam": "Neurological exam: Decreased to soft touch on the L arm and leg, otherwise no other noticeable neurological deficits",
+                        "NIHSS Text": "NIHSS: 1 (1-decreased sensation of the left side)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 11924479,
+                        "UbiStroke Label": "Patient_38",
+                        "Visit Date": "4/6/2016",
+                        "Age": "53",
+                        "Gender": "M",
+                        "History": "History: 53 M with episodes of passing out, incidentally found to have old stroke in the R basal ganglia and scattered strokes in the cerebellum (both sides). Patient does not have any residual symptoms from his old strokes and the \u00d2passing out\u00d3 spell is not felt to be due to the stroke diagnosis.",
+                        "Diagnosis": "Diagnosis: R basal ganglia and scattered cerebellar strokes (all of them are old, and therefore, there is not residual deficits from these strokes)",
+                        "NeuroExam": "Neurological exam: Intact neurological exam",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "ID": 30318112,
+                        "UbiStroke Label": "Patient_39",
+                        "Visit Date": "4/6/2016",
+                        "Age": "72",
+                        "Gender": "M",
+                        "History": "History: 72 M presented with L sided face, arm, and leg weakness as well as decreased sensation on the L side. He was found to have a stroke in the R middle cerebral artery location and received intravenous thrombolytics (clot-busting medication through a peripheral IV line) and a procedure to physically remove the clot (called mechanical embolectomy)",
+                        "Diagnosis": "Diagnosis: R middle cerebral artery stroke of unknown cause",
+                        "NeuroExam": "Neurological exam: Patient has L sided facial droop, weakness of the L arm and leg (characterized as drift), intact sensation to light touch, and mild slurred speech",
+                        "NIHSS Text": "NIHSS: 7 (2-L facial droop, 3-L arm, 1-L leg, 1-dysarthria/slurred speech)",
+                        "NIHSS": {
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locQuestions": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "locCommands": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  }
+            ]
+      }
+}
