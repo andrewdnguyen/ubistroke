@@ -10,18 +10,19 @@
 \
 Immediate Action Items\ulnone \
 \
-- Import 10 subjects worth of body files and videos and use those\
+- Import 10 subjects worth of body files and videos and use those\ Need storage transfer Device
 - Remove human outline\ DONE
 - Remove transparency of the body parts\ DONE
 - Use \'93Ubistroke ID\'94 instead of MR number as Subject ID\ DONE
-- Highlight joints that are selected to be plotted, highlight the same color it\'92s displayed on the graph\
-- Create a gradient based on the NIHSS score of symptoms in the area\ 
+- Highlight joints that are selected to be plotted, highlight the same color it\'92s displayed on the graph\ Need to rework current implementation.
+- Create a gradient based on the NIHSS score of symptoms in the area\ WIP: Want to ask neurologists for more details.
 - Move all the user options to the corner, above right side of chart\ DONE
-- Add Z data user option\
-- Move \'93Hide Nodes\'94 into \'93User Options\'94\
-- Put currently displaying over the chart (\'93\'85 vs. Time (HH:MM:SS)\'94)\
+- Add Z data user option\ See joint highlighting.
+- Move \'93Hide Nodes\'94 into \'93User Options\'94\ DONE
+- Put currently displaying over the chart (\'93\'85 vs. Time (HH:MM:SS)\'94)\ Should be done after data feeding is reworked.
 - Put NIHSS symptoms of patient in a larger rectangle and put in top right corner\
 - Swap left and right labeling\ DONE
+- Make app more scaleable\ WIP
 \
 \ul Medium Priority\
 \ulnone \

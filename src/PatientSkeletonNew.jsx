@@ -10,6 +10,7 @@ import data from './data/test-data.csv';
 import { Player } from 'video-react';
 import './PatientInfo.css';
 import firebase from "firebase";
+import tooltips from 'chartist-plugin-tooltips-updated';
 var config = {
   apiKey: "AIzaSyDBFvjEfVbGK6njvCN49i68K-F8S_w5mus",
   authDomain: "ubistroke.firebaseapp.com",
@@ -85,6 +86,10 @@ handleStateChange(state, prevState) {
 
 }
 
+seeking(){
+
+}
+
 testMethod = e =>{
       console.log("value");
 }
@@ -93,6 +98,8 @@ onDrawHandler(e){
   if (e.type === "point") {
     e.element._node.onclick = function() {
       //this.setState({currentTime: data.meta});
+      e.element._node.setAttribute('style','stroke: ' + 'orange');
+      console.log(e.style);
       var str = window.location.href;
       var link1 = str.substring(0,36);
       var str2 = e.meta;
@@ -119,6 +126,42 @@ rightArmColor(){
   //console.log(this.state.database);
   let motorArmRight = this.getValue(patientVariable.motorArm.right.value);
   let determinator = motorArmRight;
+  if(determinator <= 1){
+    return "green";
+  }
+  else if(determinator <= 3){
+    return "yellow";
+  }
+  else{
+    return "red";
+  }
+
+}
+
+mouthColor(){
+  let index = parseInt(this.state.index);
+  let patientVariable = this.state.database[index].NIHSS;
+  //console.log(this.state.database);
+  let locQuestions = this.getValue(patientVariable.locQuestions.value);
+  let determinator = locQuestions;
+  if(determinator == 0){
+    return "green";
+  }
+  else if(determinator == 1){
+    return "yellow";
+  }
+  else{
+    return "red";
+  }
+
+}
+
+leftArmColor(){
+  let index = parseInt(this.state.index);
+  let patientVariable = this.state.database[index].NIHSS;
+  //console.log(this.state.database);
+  let motorArmLeft = this.getValue(patientVariable.motorArm.left.value);
+  let determinator = motorArmLeft;
   if(determinator <= 1){
     return "green";
   }
@@ -792,6 +835,8 @@ listSymptoms(){
   return table;
 }
 
+
+
   render() {
     return this.state.loading ? (
             <div>
@@ -799,9 +844,10 @@ listSymptoms(){
             </div>
         ) :(
       <div class="canvas-div2">
-      <Player fluid={false} width={285} ref="player" startTime={this.state.time}>
-        <source src="/Videos/test-video.mp4"></source>
+      <Player fluid={false} width={285} ref="player" startTime={this.state.time} onSeeked={this.seeking()}>
+        <source src="/Videos/test-video.mp4" ></source>
       </Player>
+
         <div class = "displayReading">
           <h5>Currently displaying: <br/> {this.state.currentJoint}  { (this.state.yAxis)  ? "Y" : "X"} Axis</h5>
         </div>
@@ -812,9 +858,9 @@ listSymptoms(){
         <div class="drawn-head"></div>
         <div class="drawn-arm-left"></div>
         <div class="drawn-arm-right">
-        <div class="drawn-upper-arm-right"></div>
-        <div class="drawn-lower-arm-right"></div>
-        <div class="drawn-hand-right"></div>
+        <div class="drawn-upper-arm-right" style={{backgroundColor: this.leftArmColor()}}></div>
+        <div class="drawn-lower-arm-right" style={{backgroundColor: this.leftArmColor()}}></div>
+        <div class="drawn-hand-right" style={{backgroundColor: this.leftArmColor()}}></div>
         </div>
 
         <div class="drawn-arm-left">
@@ -837,7 +883,7 @@ listSymptoms(){
         <div class="drawn-leg-right"></div>
         <div class="drawn-eye-left"></div>
         <div class="drawn-eye-right"></div>
-        <div class="drawn-mouth"></div>
+        <div class="drawn-mouth" style={{backgroundColor: this.mouthColor()}}></div>
 
         { (this.state.displayNodes) ?
         <div class="nodes">
@@ -890,7 +936,7 @@ listSymptoms(){
                       data={this.state.data}
                       type="Line"
                       options={dailySalesChart.options}
-                      plugins={dailySalesChart.animation}
+                      plugins= {dailySalesChart.animation}
                       /></div></div>}
       </div>
 
