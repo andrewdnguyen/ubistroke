@@ -45,7 +45,7 @@ const Subject = ({match}) => (
   </div>
   <div class="col-md-6">
     <br/>
-    <PatientSkeleton time={match.params.time}/>
+    <PatientSkeleton patientId={match.params.subjectID} time={match.params.time}/>
   </div>
 
   </div>

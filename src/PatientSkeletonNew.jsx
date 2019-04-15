@@ -8,12 +8,28 @@ import {
 import * as Papa from 'papaparse';
 import data from './data/test-data.csv';
 import { Player } from 'video-react';
+import './PatientInfo.css';
+import firebase from "firebase";
+var config = {
+  apiKey: "AIzaSyDBFvjEfVbGK6njvCN49i68K-F8S_w5mus",
+  authDomain: "ubistroke.firebaseapp.com",
+  databaseURL: "https://ubistroke.firebaseio.com",
+  projectId: "ubistroke",
+  storageBucket: "ubistroke.appspot.com",
+  messagingSenderId: "466560050867"
+};
 
 
 class PatientSkeletonNew extends Component {
   constructor(props){
     super(props);
+    // this.app = firebase.initializeApp(config);
+    let databaseData = JSON.parse(window.localStorage.getItem('storedDatabase'));
+    console.log(databaseData);
     this.state = {
+      loading: false,
+      index: this.props.patientIndex,
+      database: databaseData,
       displayGraph: true,
       diplayNodes: false,
       data: {
@@ -52,7 +68,7 @@ componentWillMount() {
 componentDidMount() {
   // subscribe state change
   this.refs.player.subscribeToStateChange(this.handleStateChange.bind(this));
-
+  // Your parse code, but not seperated in a function
 
 }
 
@@ -89,7 +105,31 @@ onDrawHandler(e){
 }
 
 
+getValue(input){
+  let returnValue = parseInt(input);
+  if(isNaN(returnValue)){
+    return 0;
+  }
+  return returnValue;
+}
 
+rightArmColor(){
+  let index = parseInt(this.state.index);
+  let patientVariable = this.state.database[index].NIHSS;
+  //console.log(this.state.database);
+  let motorArmRight = this.getValue(patientVariable.motorArm.right.value);
+  let determinator = motorArmRight;
+  if(determinator <= 1){
+    return "green";
+  }
+  else if(determinator <= 3){
+    return "yellow";
+  }
+  else{
+    return "red";
+  }
+
+}
 
 seek(seconds) {
   return () => {
@@ -726,8 +766,38 @@ test = e => {
   console.log(this.state.time);
 }
 
+listSymptoms(){
+  let table = []
+  let index = parseInt(this.state.index);
+  let array = this.state.database[index].NIHSS;
+  // Outer loop to create parent
+  for (let element in array) {
+    //Create the parent and add the children
+    if(element === "motorArm" || element === "motorLeg"){
+      //console.log(this.state.database[index].NIHSS[element]);
+      if(this.state.database[index].NIHSS[element].left.value != 0){
+        table.push(<div>{element} left: {this.state.database[index].NIHSS[element].left.value}</div>);
+      }
+      if(this.state.database[index].NIHSS[element].left.value != 0){
+        table.push(<div>{element} right: {this.state.database[index].NIHSS[element].left.value}</div>);
+      }
+
+    }
+    else{
+      if(this.state.database[index].NIHSS[element].value != 0){
+        table.push(<div>{element} : {this.state.database[index].NIHSS[element].value}</div>);
+      }
+    }
+  }
+  return table;
+}
+
   render() {
-    return (
+    return this.state.loading ? (
+            <div>
+                loading...
+            </div>
+        ) :(
       <div class="canvas-div2">
       <Player fluid={false} width={285} ref="player" startTime={this.state.time}>
         <source src="/Videos/test-video.mp4"></source>
@@ -748,9 +818,9 @@ test = e => {
         </div>
 
         <div class="drawn-arm-left">
-        <div class="drawn-upper-arm-left"></div>
-        <div class="drawn-lower-arm-left"></div>
-        <div class="drawn-hand-left"></div>
+        <div class="drawn-upper-arm-left" style={{backgroundColor: this.rightArmColor()}}></div>
+        <div class="drawn-lower-arm-left" style={{backgroundColor: this.rightArmColor()}}></div>
+        <div class="drawn-hand-left" style={{backgroundColor: this.rightArmColor()}}></div>
         </div>
 
         <div class="drawn-body-left"></div>
@@ -769,11 +839,8 @@ test = e => {
         <div class="drawn-eye-right"></div>
         <div class="drawn-mouth"></div>
 
-        <img class="overlay-image" src="../img/body-ref3.jpg"></img>
-
         { (this.state.displayNodes) ?
         <div class="nodes">
-        <button class="hideNodes" onClick={this.displayToggle}>&times; Hide Nodes</button>
         <div class="head node" onClick={this.displayHead}><span class="tooltiptext">Head</span></div>
         <div class="neck node" onClick={this.displayNeck}><span class="tooltiptext">Neck</span></div>
         <div class="shoulderLeft node" onClick={this.displayShoulder}><span class="tooltiptext">Right Shoulder</span></div>
@@ -790,14 +857,28 @@ test = e => {
         <div class="ankleRight node" onClick={this.displayAnkleR}><span class="tooltiptextleft">Left Ankle</span></div>
         </div>
         :
-        <div><button class="showNodes" onClick={this.displayToggle}>&times; Show Nodes</button></div>
+        <div></div>
       }
-        { (this.state.displayGraph)  ? <div></div> : <div><div class="user-options">
-              <h5><center>User Options</center></h5>
-              <center><button class="closeChart" onClick={this.displayOff}>&times; Close Chart</button></center>
-              { (this.state.yAxis)  ? <center><button class="switchChart" onClick={this.switchX}>Switch to X Data</button></center> : <center><button class="switchChart" onClick={this.switchY}>Switch to Y Data</button></center>
-                    }
-              </div>
+
+      <div class="user-options">
+            <h5><center>User Options</center></h5>
+            <center>{ (this.state.displayNodes) ? <button class="hideNodes" onClick={this.displayToggle}>&times; Hide Nodes</button> :
+            <button class="showNodes" onClick={this.displayToggle}>&times; Show Nodes</button> } </center>
+            {(this.state.displayGraph) ? <div></div> : <div><center><button class="closeChart" onClick={this.displayOff}>&times; Close Chart</button></center>
+            { (this.state.yAxis)  ? <center><button class="switchChart" onClick={this.switchX}>Switch to X Data</button></center> : <center><button class="switchChart" onClick={this.switchY}>Switch to Y Data</button></center>
+              }
+              </div>}
+
+      </div>
+
+      <div class="displayed-symptoms">
+        <h5><center>Symptoms</center></h5>
+        <div class = "symptoms">
+        {this.listSymptoms()}
+        </div>
+      </div>
+
+        { (this.state.displayGraph)  ? <div></div> : <div>
               <div class="chart-div" onClick={this.graphClick}>
 
                       <ChartistGraph

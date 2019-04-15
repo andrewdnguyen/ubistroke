@@ -1,6 +1,160 @@
 {
       "data": {
             "patientArray": [
+              {
+                    "ID": "XXXXXXXX",
+                    "UbiStroke Label": "Patient_Example",
+                    "Visit Date": "X/XX/XXXX",
+                    "Age": "N/A",
+                    "Gender": "N/A",
+                    "History": "",
+                    "Diagnosis": "Diagnostic Notes...",
+                    "NeuroExam": "Neurological Exam Results...",
+                    "NIHSS Text": "Overall NIHSS Notes...",
+                    "NIHSS": {
+                          "bestGaze": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "bestLanguage": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "dysarthria": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "extinctionAndInattention": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "facialPalsy": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "limbAtaxia": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "levelOfConsciousness": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "locQuestions": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "locCommands": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "motorArm": {
+                                "left": {
+                                      "notes": "",
+                                      "value": 0
+                                },
+                                "right": {
+                                      "notes": "",
+                                      "value": 0
+                                }
+                          },
+                          "motorLeg": {
+                                "left": {
+                                      "notes": "",
+                                      "value": 0
+                                },
+                                "right": {
+                                      "notes": "",
+                                      "value": 0
+                                }
+                          },
+                          "sensory": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "visual": {
+                                "notes": "",
+                                "value": 0
+                          }
+                    }
+              },
+              {
+                    "ID": 14292486,
+                    "UbiStroke Label": "Patient_1",
+                    "Visit Date": "1/24/2016",
+                    "Age": "N/A",
+                    "Gender": "N/A",
+                    "History": "",
+                    "Diagnosis": "To be filled in...",
+                    "NeuroExam": "To be filled in...",
+                    "NIHSS Text": "To be filled in...",
+                    "NIHSS": {
+                          "bestGaze": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "bestLanguage": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "dysarthria": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "extinctionAndInattention": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "facialPalsy": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "limbAtaxia": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "levelOfConsciousness": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "locQuestions": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "locCommands": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "motorArm": {
+                                "left": {
+                                      "notes": "",
+                                      "value": 0
+                                },
+                                "right": {
+                                      "notes": "",
+                                      "value": 0
+                                }
+                          },
+                          "motorLeg": {
+                                "left": {
+                                      "notes": "",
+                                      "value": 0
+                                },
+                                "right": {
+                                      "notes": "",
+                                      "value": 0
+                                }
+                          },
+                          "sensory": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "visual": {
+                                "notes": "",
+                                "value": 0
+                          }
+                    }
+              },
                   {
                         "ID": 30140601,
                         "UbiStroke Label": "Patient_2",

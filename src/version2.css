@@ -19,10 +19,22 @@
   opacity: 0.5;
 }
 
+div.displayed-symptoms{
+  position:absolute;
+  top:30px;
+  left: 72%;
+  width: 200px;
+}
+
+.symptoms{
+  max-height: 290px;
+  overflow-y: auto;
+}
+
 div.user-options{
   position:absolute;
-  top:420px;
-  left: 500px;
+  top:360px;
+  left: 72%;
   width: 150px;
   height: 100px;
 }
@@ -130,12 +142,8 @@ div.drawn-hand-right{
   left: 313px;
 }
 
-div.drawn-arm-left{
-  background-color: red;
-}
 
 div.drawn-upper-arm-left{
-  background-color: red;
   border-radius: 30px;
   border-style: none;
   border-width: medium;
@@ -148,7 +156,6 @@ div.drawn-upper-arm-left{
 }
 
 div.drawn-lower-arm-left{
-  background-color: red;
   border-radius: 30px;
   border-style: none;
   border-width: medium;
@@ -161,7 +168,6 @@ div.drawn-lower-arm-left{
 }
 
 div.drawn-hand-left{
-  background-color: red;
   border-radius: 10px;
   border-style: none;
   border-width: medium;
@@ -291,7 +297,7 @@ div.drawn-foot-left{
 
 .canvas-div2 {
   width: 100%;
-  height: 620px;
+  height: 720px;
   background-size: 700px 600px;
   background-color: white;
 }
@@ -321,15 +327,27 @@ div.drawn-foot-left{
 }
 
 .closeChart{
+  top: 5px;
+  width: 95%;
+  position: relative;
+}
+
+.hideNodes{
   top: 0px;
   width: 95%;
   position: relative;
 }
 
+.showNodes{
+    top: 0px;
+    width: 95%;
+    position: relative;
+}
+
 .switchChart{
   position: relative;
   width: 95%;
-  top: 5px;
+  top: 10px;
 }
 /* Tooltip text */
 div.node .tooltiptext {

@@ -1,11 +1,15 @@
 
 .info-side {
   overflow: auto;
-  height: 110vh;
-  background-color: white;
+  height: 95vh;
+  background-color: #282c34;
 }
 
 .notes {
   width: 100%;
   height: auto;
+}
+
+.white-text{
+  color:white;
 }

@@ -19,12 +19,13 @@
 	- Where/how will it integrate into their current work flow?\
 - What will clinicians need for a diagnosis tool used in ED/inpatient (\'93Start New Patient\'94)?\
 	- Where/how will it integrate into their current work flow?\
+- Will clinicians be our primary target user? What about EMS workers?
 \
 \ul Technical Questions\
 \ulnone \
 - How do we address the problem where data is missing (gaps in skeleton tracking)?\
 - How do we deal with multiple skeletons tracked?\
-- How would this tool work in 
+- How would this tool work in
 \f0\b real-time
 \f1\b0 ? What resources would we need to make this happen?\
 	- Need to convert image frames to video real-time\

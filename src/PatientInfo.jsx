@@ -21,67 +21,10 @@ class PatientInfo extends Component {
     this.database = this.app.database().ref().child('info');
     this.state = {
       loading: true,
-      test: {},
-      id: 12345,
-      name :Test[props.patientId].name,
-      date : Test[props.patientId].date,
-      preExam: Test[props.patientId].preExam,
-      loc: {
-          value: Test[props.patientId].loc.value,
-          questionValue: Test[props.patientId].loc.questionValue,
-          commandValue: Test[props.patientId].loc.commandValue,
-          notes: Test[props.patientId].loc.notes
-        },
-      bestGaze: {
-        value: Test[props.patientId].bestGaze.value,
-        notes: Test[props.patientId].bestGaze.notes
-      },
-      visual: {
-        value: Test[props.patientId].visual.value,
-        notes: Test[props.patientId].visual.notes
-      },
-      facialPalsy: {
-        value: Test[props.patientId].facialPalsy.value,
-        notes: Test[props.patientId].facialPalsy.notes
-      },
-      motorArm:{
-        left: {
-          value: Test[props.patientId].motorArm.left.value
-        },
-        right: {
-          value: Test[props.patientId].motorArm.right.value
-        },
-        notes: Test[props.patientId].motorArm.notes
-      },
-      motorLeg: {
-        left: {
-          value: Test[props.patientId].motorLeg.left.value
-        },
-        right: {
-          value: Test[props.patientId].motorLeg.left.value
-        },
-        notes: Test[props.patientId].motorLeg.notes
-      },
-      limbAtaxia: {
-        value: Test[props.patientId].limbAtaxia.value,
-        notes: Test[props.patientId].limbAtaxia.notes
-      },
-      sensory : {
-        value: Test[props.patientId].sensory.value,
-        notes: Test[props.patientId].sensory.notes
-      },
-      bestLanguage : {
-        value: Test[props.patientId].bestLanguage.value,
-        notes: Test[props.patientId].bestLanguage.notes
-      },
-      dysarthria : {
-        value: Test[props.patientId].dysarthria.value,
-        notes: Test[props.patientId].dysarthria.notes
-      },
-      extinctionAndInattention : {
-        value: Test[props.patientId].extinctionAndInattention.value,
-        notes: Test[props.patientId].extinctionAndInattention.notes
-      }
+      saved: false,
+      timeSaved: 0,
+      index: this.props.patientIndex,
+      test: {}
     };
   }
 
@@ -90,6 +33,7 @@ class PatientInfo extends Component {
       let ref = this.database;
       ref.once("value").then(dataSnapshot => {
         this.response = dataSnapshot.val().data.patientArray;
+        window.localStorage.setItem('storedDatabase', JSON.stringify(this.response));
         //once the data is back, set the loading to false so it can be rendered
         this.setState({ test: this.response, loading: false });
       });
@@ -99,97 +43,169 @@ class PatientInfo extends Component {
         this.getModules();
     }
 
+    updateNotes = e => {
+      let index = parseInt(this.state.index);
+      console.log(this.state.test);
+      this.setState({
+        test: {
+          ...this.state.test,
+          [index]: {
+              ...this.state.test[index],
+              [e.target.name]:e.target.value
+              }
+          }
+        });
+    }
+
 updateInfo = e => {
+  let index = parseInt(this.state.index);
+  console.log(this.state.test);
   this.setState({
-    [e.target.name]:{
-      ...this.state[e.target.name],
-      notes: e.target.value
+    test: {
+      ...this.state.test,
+      [index]: {
+          ...this.state.test[index],
+          ["NIHSS"]: {
+              ...this.state.test[index]["NIHSS"],
+              [e.target.name]: {
+                 ...this.state.test[index].NIHSS[e.target.name],
+                 notes: e.target.value
+              }
+          }
+      }
     }
   });
 }
 
 updateLeftArm = e => {
-let rightValue = this.state.motorArm.right;
-this.setState({
-  motorArm: {
-    left: {
-      value: e.target.value
-    },
-    right: rightValue
-  }
-});
+  let index = parseInt(this.state.index);
+  this.setState({
+    test: {
+      ...this.state.test,
+      [index]: {
+          ...this.state.test[index],
+          ["NIHSS"]: {
+              ...this.state.test[index]["NIHSS"],
+              motorArm: {
+                 ...this.state.test[index].NIHSS.motorArm,
+                 left: {
+                   value: e.target.value
+                 }
+              }
+          }
+      }
+    }
+  });
 }
 
 updateRightArm = e => {
-let leftValue = this.state.motorArm.left;
+let index = parseInt(this.state.index);
 this.setState({
-  motorArm: {
-    right: {
-      value: e.target.value
-    },
-    left: leftValue
+  test: {
+    ...this.state.test,
+    [index]: {
+        ...this.state.test[index],
+        ["NIHSS"]: {
+            ...this.state.test[index]["NIHSS"],
+            motorArm: {
+               ...this.state.test[index].NIHSS.motorArm,
+               right: {
+                 value: e.target.value
+               }
+            }
+        }
+    }
   }
 });
-console.log(this.state.motorArm);
 }
 
 updateLeftLeg = e => {
-let rightValue = this.state.motorLeg.right;
+let index = parseInt(this.state.index);
 this.setState({
-  motorLeg: {
-    left: {
-      value: e.target.value
-    },
-    right: rightValue
+  test: {
+    ...this.state.test,
+    [index]: {
+        ...this.state.test[index],
+        ["NIHSS"]: {
+            ...this.state.test[index]["NIHSS"],
+            motorLeg: {
+               ...this.state.test[index].NIHSS.motorLeg,
+               left: {
+                 value: e.target.value
+               }
+            }
+        }
+    }
   }
 });
 }
 
 updateRightLeg = e => {
-let leftValue = this.state.motorLeg.left;
+let index = parseInt(this.state.index)
 this.setState({
-  motorLeg: {
-    right: {
-      value: e.target.value
-    },
-    left: leftValue
+  test: {
+    ...this.state.test,
+    [index]: {
+        ...this.state.test[index],
+        ["NIHSS"]: {
+            ...this.state.test[index]["NIHSS"],
+            motorLeg: {
+               ...this.state.test[index].NIHSS.motorLeg,
+               right: {
+                 value: e.target.value
+               }
+            }
+        }
+    }
   }
 });
 }
 
 updateValue = e => {
+let variable = this.state.test[this.props.patientIndex];
+let index = parseInt(this.state.index);
+console.log(this.state.test);
 this.setState({
-  [e.target.id]:{
-    ...this.state[e.target.id],
-    value: e.target.value
+  test: {
+    ...this.state.test,
+    [index]: {
+        ...this.state.test[index],
+        ["NIHSS"]: {
+            ...this.state.test[index]["NIHSS"],
+            [e.target.id]: {
+               ...this.state.test[index].NIHSS[e.target.id],
+               value: e.target.value
+            }
+        }
+    }
   }
 });
 }
 
-updateCommandValue = e => {
-this.setState({
-  [e.target.id]:{
-    ...this.state[e.target.id],
-    commandValue: e.target.value
+getValue(input){
+  let returnValue = parseInt(input);
+  if(isNaN(returnValue)){
+    return 0;
   }
-});
+  return returnValue;
 }
 
-updateQuestionValue = e => {
-this.setState({
-  [e.target.id]:{
-    ...this.state[e.target.id],
-    questionValue: e.target.value
-  }
-});
-}
-
-
-updatePreExam = e => {
-this.setState({
-  [e.target.name] : e.target.value
-});
-}
+saveChanges = e => {
+  console.log("clicked!")
+  //console.log(this.test);
+  let index = parseInt(this.state.index);
+  let toSend = {data: {patientArray: this.state.test}};
+  this.database.set(toSend);
+  var today = new Date();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  //console.log(JSON.stringify(this.state.test))
+  window.localStorage.setItem('storedDatabase', JSON.stringify(this.state.test));
+  this.setState({
+    timeSaved: time,
+    saved: true
+  });
+  window.location.reload();
+};
 
   render() {
     let patientVar = this.state.test[this.props.patientIndex];
@@ -199,29 +215,32 @@ this.setState({
             </div>
         ) :(
       <div className="info-side">
-        <h1>Subject ID: {patientVar.ID}</h1>
-        <h1>Age: {patientVar.Age}</h1>
-        <h1>Visit Date: {patientVar["Visit Date"]}</h1>
-        <h1>NIHSS Total Score: {parseInt(patientVar.NIHSS.loc.value) + parseInt(this.state.loc.questionValue) + parseInt(this.state.loc.commandValue) +
-        parseInt(this.state.bestGaze.value) + parseInt(this.state.visual.value) + parseInt(this.state.facialPalsy.value) + parseInt(this.state.motorArm.left.value)
-        + parseInt(this.state.motorArm.right.value) + parseInt(this.state.motorLeg.left.value) + parseInt(this.state.motorLeg.right.value)
-        + parseInt(this.state.limbAtaxia.value) + parseInt(this.state.sensory.value) + parseInt(this.state.bestLanguage.value) + parseInt(this.state.dysarthria.value) +
-        parseInt(this.state.extinctionAndInattention.value)}</h1>
-
+        <h1 class="white-text">Subject ID: {patientVar.ID}</h1>
+        <h1 class="white-text">Age: {patientVar.Age}</h1>
+        <h1 class="white-text">Visit Date: {patientVar["Visit Date"]}</h1>
+        <h1 class="white-text">NIHSS Total Score: {this.getValue(patientVar.NIHSS.levelOfConsciousness.value) + this.getValue(patientVar.NIHSS.locQuestions.value) + this.getValue(patientVar.NIHSS.locCommands.value) +
+        this.getValue(patientVar.NIHSS.bestGaze.value) + this.getValue(patientVar.NIHSS.visual.value) + this.getValue(patientVar.NIHSS.facialPalsy.value) + this.getValue(patientVar.NIHSS.motorArm.left.value)
+        + this.getValue(patientVar.NIHSS.motorArm.right.value) + this.getValue(patientVar.NIHSS.motorLeg.left.value) + this.getValue(patientVar.NIHSS.motorLeg.right.value)
+        + this.getValue(patientVar.NIHSS.limbAtaxia.value) + this.getValue(patientVar.NIHSS.sensory.value) + this.getValue(patientVar.NIHSS.bestLanguage.value) + this.getValue(patientVar.NIHSS.dysarthria.value) +
+        this.getValue(patientVar.NIHSS.extinctionAndInattention.value)}</h1>
+        <br/>
+        <button class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Save Changes</button>
+        <br/>
+        {(this.state.saved) ? <div><p>Saved changes at {this.state.timeSaved}</p></div> : <div></div>}
         <br/><br/>
         <form>
-          <p>Diagnosis
-          <textarea rows="4" className="notes form-control" onChange={this.updatePreExam} name="diagnosis" value={patientVar.Diagnosis}/>
+          <p><p class="white-text">Diagnosis</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="Diagnosis" value={patientVar.Diagnosis}/>
           <br/>
-          History
-          <textarea rows="4" className="notes form-control" onChange={this.updatePreExam} name="preExam" value={patientVar.History}/>
+          <p class="white-text">History</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="History" value={patientVar.History}/>
           <br/>
-          Neuro-Exam
-          <textarea rows="4" className="notes form-control" onChange={this.updatePreExam} name="preExam" value={patientVar.NeuroExam}/>
+          <p class="white-text">Neuro-Exam</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="NeuroExam" value={patientVar.NeuroExam}/>
           <br/>
           <br/><br/>
-          Level of Consciousness:
-          <select class="form-control" id="loc" onChange={this.updateValue} value={this.state.loc.value}>
+            <p class="white-text">Level of Consciousness:</p>
+          <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.NIHSS.levelOfConsciousness.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = Alert; keenly responsive.</option>
             <option value="1">1 = Not alert; but arousable by minor stimulation to obey,
@@ -233,26 +252,26 @@ this.setState({
            totally unresponsive, flaccid, and areflexic. </option>
           </select>
           <br/>
-          LOC - Questions:
-          <select class="form-control" id="loc" onChange={this.updateQuestionValue} value={this.state.loc.questionValue}>
+            <p class="white-text">LOC - Questions:</p>
+          <select class="form-control" id="locQuestions" onChange={this.updateValue} value={patientVar.NIHSS.locQuestions.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = Answers both questions correctly.</option>
             <option value="1">1 = Answers one question correctly.</option>
             <option value ="2">2 = Answers neither question correctly.</option>
           </select>
           <br/>
-          LOC - Commands:
-          <select class="form-control" id="loc" onChange={this.updateCommandValue} value={this.state.loc.commandValue}>
+            <p class="white-text">LOC - Commands:</p>
+          <select class="form-control" id="locCommands" onChange={this.updateValue} value={patientVar.NIHSS.locCommands.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = Performs both tasks correctly.</option>
             <option value="1">1 = Performs one task correctly.</option>
             <option value ="2">2 = Performs neither task correctly. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="loc" value={this.state.loc.notes}/>
+          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="levelOfConsciousness" value={patientVar.NIHSS.levelOfConsciousness.notes}/>
           <br/><br/>
-          Best Gaze:
-          <select class="form-control" id="bestGaze" onChange={this.updateValue} value={this.state.bestGaze.value}>
+            <p class="white-text">Best Gaze:</p>
+          <select class="form-control" id="bestGaze" onChange={this.updateValue} value={patientVar.NIHSS.bestGaze.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = Normal.</option>
             <option value="1">1 = Partial gaze palsy; gaze is abnormal in one or both eyes,
@@ -261,10 +280,10 @@ this.setState({
             oculocephalic maneuver. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="bestGaze" value={this.state.bestGaze.notes}/>
+          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="bestGaze" value={patientVar.NIHSS.bestGaze.notes}/>
           <br/><br/>
-          Visual:
-          <select class="form-control" id="visual" onChange={this.updateValue} value={this.state.visual.value}>
+            <p class="white-text">Visual:</p>
+          <select class="form-control" id="visual" onChange={this.updateValue} value={patientVar.NIHSS.visual.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = No visual loss.</option>
             <option value="1">1 = Partial hemianopia.</option>
@@ -272,10 +291,10 @@ this.setState({
             <option value ="3">3 = Bilateral hemianopia.</option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" name="visual" onChange={this.updateInfo} value={this.state.visual.notes}/>
+          <textarea rows="10" className="notes form-control" name="visual" onChange={this.updateInfo} value={patientVar.NIHSS.visual.notes}/>
           <br/><br/>
-          Facial Palsy:
-          <select class="form-control" id="facialPalsy" onChange={this.updateValue} value={this.state.facialPalsy.value}>
+            <p class="white-text">Facial Palsy:</p>
+          <select class="form-control" id="facialPalsy" onChange={this.updateValue} value={patientVar.NIHSS.facialPalsy.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = Normal symmetrical movements.</option>
             <option value="1">1 = Minor paralysis (flattened nasolabial fold, asymmetry on
@@ -286,10 +305,10 @@ this.setState({
             facial movement in the upper and lower face). </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="facialPalsy" value={this.state.facialPalsy.notes}/>
+          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="facialPalsy" value={patientVar.NIHSS.facialPalsy.notes}/>
           <br/><br/>
-          Motor Arm Left:
-          <select class="form-control" id="leftArm" onChange={this.updateLeftArm} value={this.state.motorArm.left.value}>
+            <p class="white-text">Motor Arm Left:</p>
+          <select class="form-control" id="leftArm" onChange={this.updateLeftArm} value={patientVar.NIHSS.motorArm.left.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = No drift; limb holds 90 (or 45) degrees for full 10 seconds.</option>
             <option value="1">1 = Drift; limb holds 90 (or 45) degrees, but drifts down before
@@ -299,11 +318,11 @@ this.setState({
             but has some effort against gravity.</option>
             <option value ="3">3 = No effort against gravity; limb falls.</option>
             <option value ="4">4 = No movement.</option>
-            <option value ="5">UN = Amputation or joint fusion, explain below. </option>
+            <option value ="UN">UN = Amputation or joint fusion, explain below. </option>
           </select>
           <br/>
-          Motor Arm Right:
-          <select class="form-control" id="questionValue" onChange={this.updateRightArm} value={this.state.motorArm.right.value}>
+            <p class="white-text">Motor Arm Right:</p>
+          <select class="form-control" id="questionValue" onChange={this.updateRightArm} value={patientVar.NIHSS.motorArm.right.value}>
           <option disabled selected value> -- select an option -- </option>
           <option value="0">0 = No drift; limb holds 90 (or 45) degrees for full 10 seconds.</option>
           <option value="1">1 = Drift; limb holds 90 (or 45) degrees, but drifts down before
@@ -313,13 +332,13 @@ this.setState({
           but has some effort against gravity.</option>
           <option value ="3">3 = No effort against gravity; limb falls.</option>
           <option value ="4">4 = No movement.</option>
-          <option value ="5">UN = Amputation or joint fusion, explain below. </option>
+          <option value ="UN">UN = Amputation or joint fusion, explain below. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" name="motorArm" onChange={this.updateInfo} value={this.state.motorArm.notes}/>
+          <textarea rows="10" className="notes form-control" name="motorArm" onChange={this.updateInfo} value={patientVar.NIHSS.motorArm.notes}/>
           <br/><br/>
-          Motor Leg Left:
-          <select class="form-control" id="questionValue" onChange={this.updateLeftLeg} value={this.state.motorLeg.left.value}>
+            <p class="white-text">Motor Leg Left:</p>
+          <select class="form-control" id="questionValue" onChange={this.updateLeftLeg} value={patientVar.NIHSS.motorLeg.left.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = No drift; leg holds 30-degree position for full 5 seconds.</option>
             <option value="1">1 = Drift; leg falls by the end of the 5-second period but does
@@ -328,11 +347,11 @@ this.setState({
             seconds, but has some effort against gravity.</option>
             <option value ="3">3 = No effort against gravity; leg falls to bed immediately.</option>
             <option value ="4">4 = No movement.</option>
-            <option value ="5">UN = Amputation or joint fusion, explain below. </option>
+            <option value ="UN">UN = Amputation or joint fusion, explain below. </option>
           </select>
           <br/>
-          Motor Leg Right:
-          <select class="form-control" id="questionValue" onChange={this.updateRightLeg} value={this.state.motorLeg.right.value}>
+            <p class="white-text">Motor Leg Right:</p>
+          <select class="form-control" id="questionValue" onChange={this.updateRightLeg} value={patientVar.NIHSS.motorLeg.right.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = No drift; leg holds 30-degree position for full 5 seconds.</option>
             <option value="1">1 = Drift; leg falls by the end of the 5-second period but does
@@ -341,24 +360,24 @@ this.setState({
             seconds, but has some effort against gravity.</option>
             <option value ="3">3 = No effort against gravity; leg falls to bed immediately.</option>
             <option value ="4">4 = No movement.</option>
-            <option value ="5">UN = Amputation or joint fusion, explain below. </option>
+            <option value ="UN">UN = Amputation or joint fusion, explain below. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" name="motorLeg" onChange={this.updateInfo} value={this.state.motorLeg.notes}/>
+          <textarea rows="10" className="notes form-control" name="motorLeg" onChange={this.updateInfo} value={patientVar.NIHSS.motorLeg.notes}/>
           <br/><br/>
-          Limb Ataxia:
-          <select class="form-control" id="limbAtaxia" onChange={this.updateValue} value={this.state.limbAtaxia.value}>
+            <p class="white-text">Limb Ataxia:</p>
+          <select class="form-control" id="limbAtaxia" onChange={this.updateValue} value={patientVar.NIHSS.limbAtaxia.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = Absent.</option>
             <option value="1">1 = Present in one limb.</option>
             <option value ="2">2 = Present in two limbs.</option>
-            <option value ="3">UN = Amputation or joint fusion, explain below. </option>
+            <option value ="UN">UN = Amputation or joint fusion, explain below. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="limbAtaxia" value={this.state.limbAtaxia.notes}/>
+          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="limbAtaxia" value={patientVar.NIHSS.limbAtaxia.notes}/>
           <br/><br/>
-          Sensory:
-          <select class="form-control" id="sensory" onChange={this.updateValue} value={this.state.sensory.value}>
+            <p class="white-text">Sensory:</p>
+          <select class="form-control" id="sensory" onChange={this.updateValue} value={patientVar.NIHSS.sensory.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = Normal; no sensory loss.</option>
             <option value="1">1 = Mild-to-moderate sensory loss; patient feels pinprick is
@@ -369,10 +388,10 @@ this.setState({
             being touched in the face, arm, and leg. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="sensory" value={this.state.sensory.notes}/>
+          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="sensory" value={patientVar.NIHSS.sensory.notes}/>
           <br/><br/>
-          Best Language:
-          <select class="form-control" id="bestLanguage" onChange={this.updateValue} value={this.state.bestLanguage.value}>
+            <p class="white-text">Best Language:</p>
+          <select class="form-control" id="bestLanguage" onChange={this.updateValue} value={patientVar.NIHSS.bestLanguage.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = No aphasia; normal.</option>
             <option value="1">1 = Mild-to-moderate aphasia; some obvious loss of fluency
@@ -392,10 +411,10 @@ this.setState({
             comprehension. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="bestLanguage" value={this.state.bestLanguage.notes}/>
+          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="bestLanguage" value={patientVar.NIHSS.bestLanguage.notes}/>
           <br/><br/>
-          Dysarthria:
-          <select class="form-control" id="dysarthria" onChange={this.updateValue} value={this.state.dysarthria.value}>
+            <p class="white-text">Dysarthria:</p>
+          <select class="form-control" id="dysarthria" onChange={this.updateValue} value={patientVar.NIHSS.dysarthria.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = Normal.</option>
             <option value="1">1 = Mild-to-moderate dysarthria; patient slurs at least some
@@ -404,14 +423,14 @@ this.setState({
             <option value ="2">2 = Severe dysarthria; patient's speech is so slurred as to be
             unintelligible in the absence of or out of proportion to
             any dysphasia, or is mute/anarthric.</option>
-            <option value ="3">UN = Intubated or other physical barrier,
+            <option value ="UN">UN = Intubated or other physical barrier,
             explain below.</option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="dysarthria" value={this.state.dysarthria.notes}/>
+          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="dysarthria" value={patientVar.NIHSS.dysarthria.notes}/>
           <br/><br/>
-          Extinction and Inattention:
-          <select class="form-control" id="extinctionAndInattention" onChange={this.updateValue} value={this.state.extinctionAndInattention.value}>
+            <p class="white-text">Extinction and Inattention: </p>
+          <select class="form-control" id="extinctionAndInattention" onChange={this.updateValue} value={patientVar.NIHSS.extinctionAndInattention.value}>
             <option disabled selected value> -- select an option -- </option>
             <option value="0">0 = No abnormality.</option>
             <option value="1">1 = Visual, tactile, auditory, spatial, or personal inattention
@@ -422,7 +441,7 @@ this.setState({
             to only one side of space. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="extinctionAndInattention" value={this.state.extinctionAndInattention.notes}/>
+          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="extinctionAndInattention" value={patientVar.NIHSS.extinctionAndInattention.notes}/>
           </p>
           <br/>
         </form>

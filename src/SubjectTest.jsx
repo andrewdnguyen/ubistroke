@@ -34,6 +34,7 @@ class SubjectTest extends Component {
         this.response = dataSnapshot.val().data.patientArray;
         //once the data is back, set the loading to false so it can be rendered
         this.setState({ patientArray: this.response, loading: false });
+        window.localStorage.setItem('storedDatabase', JSON.stringify(this.response));
       });
     }
 
