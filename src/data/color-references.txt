@@ -1,0 +1,18 @@
+                            0: { tooltip: false, color: '#c95253' },
+                            1: { tooltip: false,color: '#304d48' },
+                            2: { tooltip: false,color: '#f1ca3a' },
+                            3: { tooltip: false,color: '#d17846' },
+                            4: { tooltip: false,color: '#97f3d9' },
+                            5: { tooltip: false,color: '#01dc54' },
+                            6: { tooltip: false, color: '#ed0a7c' },
+                            7: { tooltip: false,color: '#15c683' },
+                            8: { tooltip: false,color: '#bab780' },
+                            9: { tooltip: false,color: '#d241a7' },
+                            10: { tooltip: false,color: '#61673e' },
+                            11: { tooltip: false,color: '#cfed08' },
+                            12: { tooltip: false, color: '#b39ad2' },
+                            13: { tooltip: false,color: '#25e40d' },
+
+'Head0', 'Neck1', 'Left Shoulder2', 'Right Shoulder3',
+    'Left Elbow4', 'Right Elbow5', 'Left Wrist6', 'Right Wrist7', 'Spine Mid8', 'Spine Base9', 'Left Knee10', 'Right Knee11',
+    'Left Ankle12', 'Right Ankle13'

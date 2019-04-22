@@ -10,7 +10,7 @@ import data from './data/test-data.csv';
 import { Player } from 'video-react';
 import './PatientInfo.css';
 import firebase from "firebase";
-import tooltips from 'chartist-plugin-tooltips-updated';
+import Chart from 'react-google-charts';
 var config = {
   apiKey: "AIzaSyDBFvjEfVbGK6njvCN49i68K-F8S_w5mus",
   authDomain: "ubistroke.firebaseapp.com",
@@ -41,7 +41,8 @@ class PatientSkeletonNew extends Component {
       currentJoint: "None",
       nodeValue: -1,
       yAxis: true,
-      canvasSize: 0
+      canvasSize: 0,
+      googleData: []
   }
 
 console.log(this.state.time);
@@ -189,7 +190,29 @@ graphClick(){
     updateData(result) {
     const data = result.data;
     let newData = [];
+    let currentAxis = "X";
+    let googleData = [[{ type: 'string', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
+    'Left Elbow', 'Right Elbow', 'Left Wrist', 'Right Wrist', 'Spine Mid', 'Spine Base', 'Left Knee', 'Right Knee',
+    'Left Ankle', 'Right Ankle']];
+
     for (let i = 0; i < data.length; i++){
+      let tempArray = [];
+      tempArray.push(data[i].Time);
+      tempArray.push(parseFloat(data[i].HeadX));
+      tempArray.push(parseFloat(data[i].NeckX));
+      tempArray.push(parseFloat(data[i].ShoulderLeftX));
+      tempArray.push(parseFloat(data[i].ShoulderRightX));
+      tempArray.push(parseFloat(data[i].ElbowLeftX));
+      tempArray.push(parseFloat(data[i].ElbowRightX));
+      tempArray.push(parseFloat(data[i].WristLeftX));
+      tempArray.push(parseFloat(data[i].WristRightX));
+      tempArray.push(parseFloat(data[i].SpineMidX));
+      tempArray.push(parseFloat(data[i].SpineBaseX));
+      tempArray.push(parseFloat(data[i].KneeLeftX));
+      tempArray.push(parseFloat(data[i].KneeRightX));
+      tempArray.push(parseFloat(data[i].AnkleLeftX));
+      tempArray.push(parseFloat(data[i].AnkleRightX));
+      googleData.push(tempArray);
       if(i%5 === 0){
         newData.push(data[i].Time);
       }
@@ -198,499 +221,69 @@ graphClick(){
       }
 
     }
-    console.log(newData);
+    console.log(googleData);
     // Here this is available and we can call this.setState (since it's binded in the constructor)
-    this.setState({csvData: data}); // or shorter ES syntax: this.setState({ data });
+    this.setState({csvData: data, head: false, neck: false, lshoulder: false, rshoulder: false, lelbow: false, relbow: false,
+      lwrist: false, rwrist: false, midspine: false, spinebase: false, lknee: false, rknee: false, lankle: false, rankle: false, googleData: googleData, axis: currentAxis
+                  }); // or shorter ES syntax: this.setState({ data });
     this.setState({ data: { ...this.state.data, labels: newData} });
     }
 
 
-
-
-displayHeadX = e =>{
-  this.setState({ displayGraph: false });
-  let newData = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].HeadX, meta: this.state.csvData[i].Time}
-    newData.push(newObj);
-  }
-  this.setState({ data: { ...this.state.data, series: [newData]} });
-  this.setState({ currentJoint: "Head"});
-  this.setState({ nodeValue: 0});
-  this.setState({ yAxis: false});
-}
-
-displayNeckX = e =>{
-  this.setState({ displayGraph: false });
-  let newData = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].NeckX, meta: this.state.csvData[i].Time}
-    newData.push(newObj);
-  }
-  this.setState({ data: { ...this.state.data, series: [newData]} });
-  this.setState({ currentJoint: "Neck"});
-  this.setState({ nodeValue: 1});
-  this.setState({ yAxis: false});
-}
-
-displayBaseX = e =>{
-  this.setState({ displayGraph: false });
-  let newData = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].SpineBaseX, meta: this.state.csvData[i].Time}
-    newData.push(newObj);
-  }
-  this.setState({ data: { ...this.state.data, series: [newData]} });
-  this.setState({ currentJoint: "Spine Base"});
-  this.setState({ nodeValue: 2});
-  this.setState({ yAxis: false});
-}
-
-displaySpineX = e =>{
-  this.setState({ displayGraph: false });
-  let newData = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].SpineMidX, meta: this.state.csvData[i].Time}
-    newData.push(newObj);
-  }
-  this.setState({ data: { ...this.state.data, series: [newData]} });
-  this.setState({ currentJoint: "Spine Mid"});
-  this.setState({ nodeValue: 3});
-  this.setState({ yAxis: false});
-}
-
-displayShoulderX = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].ShoulderLeftX, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].ShoulderRightX, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataL);
-  newDataCombined.push(newDataR);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Left (W) vs Right (R) Shoulder"});
-  this.setState({ nodeValue: 4});
-  this.setState({ yAxis: false});
-}
-
-displayElbowX = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].ElbowLeftX, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].ElbowRightX, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataL);
-  newDataCombined.push(newDataR);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Left (W) vs Right (R) Elbow"});
-  this.setState({ nodeValue: 5});
-  this.setState({ yAxis: false});
-}
-
-displayElbowRX = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].ElbowLeftX, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].ElbowRightX, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataR);
-  newDataCombined.push(newDataL);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Right (W) vs Left (R) Elbow"});
-  this.setState({ nodeValue: 6});
-  this.setState({ yAxis: false});
-}
-
-displayShoulderRX = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].ShoulderLeftX, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].ShoulderRightX, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataR);
-  newDataCombined.push(newDataL);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Right (W) vs Left (R) Shoulder"});
-  this.setState({ nodeValue: 7});
-  this.setState({ yAxis: false});
-}
-
-displayWristX = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].WristLeftX, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].WristRightX, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataL);
-  newDataCombined.push(newDataR);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Left (W) vs Right (R) Wrist"});
-  this.setState({ nodeValue: 8});
-  this.setState({ yAxis: false});
-}
-
-displayWristRX = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].WristLeftX, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].WristRightX, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataR);
-  newDataCombined.push(newDataL);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Right (W) vs Left (R) Wrist"});
-  this.setState({ nodeValue: 9});
-  this.setState({ yAxis: false});
-}
-
-displayKneeX = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].KneeLeftX, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].KneeRightX, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataL);
-  newDataCombined.push(newDataR);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Left (W) vs Right (R) Knee"});
-  this.setState({ nodeValue: 10});
-  this.setState({ yAxis: false});
-}
-
-displayKneeRX = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].KneeLeftX, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].KneeRightX, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataR);
-  newDataCombined.push(newDataL);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Right (W) vs Left (R) Knee"});
-  this.setState({ nodeValue: 11});
-  this.setState({ yAxis: false});
-}
-
-displayAnkleX = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].AnkleLeftX, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].AnkleRightX, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataL);
-  newDataCombined.push(newDataR);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Left (W) vs Right (R) Ankle"});
-  this.setState({ nodeValue: 12});
-  this.setState({ yAxis: false});
-}
-
-displayAnkleRX = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].AnkleLeftX, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].AnkleRightX, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataR);
-  newDataCombined.push(newDataL);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Right (W) vs Left (R) Ankle"});
-  this.setState({ nodeValue: 13});
-  this.setState({ yAxis: false});
-
-}
-
 displayHead = e =>{
-  this.setState({ displayGraph: false });
-  let newData = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].HeadY, meta: this.state.csvData[i].Time}
-    newData.push(newObj);
-  }
-  this.setState({ data: { ...this.state.data, series: [newData]} });
-  this.setState({ currentJoint: "Head"});
-  this.setState({ nodeValue: 0});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, head: !this.state.head});
 }
 
 displayNeck = e =>{
-  this.setState({ displayGraph: false });
-  let newData = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].NeckY, meta: this.state.csvData[i].Time}
-    newData.push(newObj);
-  }
-  this.setState({ data: { ...this.state.data, series: [newData]} });
-  this.setState({ currentJoint: "Neck"});
-  this.setState({ nodeValue: 1});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, neck: !this.state.neck});
 }
 
 displayBase = e =>{
-  this.setState({ displayGraph: false });
-  let newData = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].SpineBaseY, meta: this.state.csvData[i].Time}
-    newData.push(newObj);
-  }
-  this.setState({ data: { ...this.state.data, series: [newData]} });
-  this.setState({ currentJoint: "Spine Base"});
-  this.setState({ nodeValue: 2});
+  this.setState({displayGraph: false, spinebase: !this.state.spinebase});
 }
 
 displaySpine = e =>{
-  this.setState({ displayGraph: false });
-  let newData = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].SpineMidY, meta: this.state.csvData[i].Time}
-    newData.push(newObj);
-  }
-  this.setState({ data: { ...this.state.data, series: [newData]} });
-  this.setState({ currentJoint: "Spine Mid"});
-  this.setState({ nodeValue: 3});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, midspine: !this.state.midspine});
 }
 
 displayShoulder = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].ShoulderLeftY, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].ShoulderRightY, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataL);
-  newDataCombined.push(newDataR);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Left (W) vs Right (R) Shoulder"});
-  this.setState({ nodeValue: 4});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, lshoulder: !this.state.lshoulder});
 }
 
 displayElbow = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].ElbowLeftY, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].ElbowRightY, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataL);
-  newDataCombined.push(newDataR);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Left (W) vs Right (R) Elbow"});
-  this.setState({ nodeValue: 5});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, lelbow: !this.state.lelbow});
 }
 
 displayElbowR = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].ElbowLeftY, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].ElbowRightY, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataR);
-  newDataCombined.push(newDataL);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Right (W) vs Left (R) Elbow"});
-  this.setState({ nodeValue: 6});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, displayGraph: false, relbow: !this.state.relbow});
 }
 
 displayShoulderR = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].ShoulderLeftY, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].ShoulderRightY, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataR);
-  newDataCombined.push(newDataL);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Right (W) vs Left (R) Shoulder"});
-  this.setState({ nodeValue: 7});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, rshoulder: !this.state.rshoulder});
 }
 
 displayWrist = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].WristLeftY, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].WristRightY, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataL);
-  newDataCombined.push(newDataR);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Left (W) vs Right (R) Wrist"});
-  this.setState({ nodeValue: 8});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, lwrist: !this.state.lwrist});
 }
 
 displayWristR = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].WristLeftY, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].WristRightY, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataR);
-  newDataCombined.push(newDataL);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Right (W) vs Left (R) Wrist"});
-  this.setState({ nodeValue: 9});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, rwrist: !this.state.rwrist});
 }
 
 displayKnee = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].KneeLeftY, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].KneeRightY, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataL);
-  newDataCombined.push(newDataR);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Left (W) vs Right (R) Knee"});
-  this.setState({ nodeValue: 10});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, lknee: !this.state.lknee});
 }
 
 displayKneeR = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].KneeLeftY, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].KneeRightY, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataR);
-  newDataCombined.push(newDataL);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Right (W) vs Left (R) Knee"});
-  this.setState({ nodeValue: 11});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, rknee: !this.state.rknee});
 }
 
 displayAnkle = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].AnkleLeftY, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].AnkleRightY, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataL);
-  newDataCombined.push(newDataR);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Left (W) vs Right (R) Ankle"});
-  this.setState({ nodeValue: 12});
-  this.setState({ yAxis: true});
+  this.setState({displayGraph: false, lankle: !this.state.lankle});
 }
 
 displayAnkleR = e =>{
-  this.setState({ displayGraph: false });
-  let newDataL = [];
-  let newDataR = [];
-  for (let i = 0; i < this.state.csvData.length; i++){
-    let newObj = {value: this.state.csvData[i].AnkleLeftY, meta: this.state.csvData[i].Time}
-    newDataL.push(newObj);
-    let newObj2 = {value: this.state.csvData[i].AnkleRightY, meta: this.state.csvData[i].Time}
-    newDataR.push(newObj2);
-  }
-  let newDataCombined = [];
-  newDataCombined.push(newDataR);
-  newDataCombined.push(newDataL);
-  this.setState({ data: { ...this.state.data, series: newDataCombined} });
-  this.setState({ currentJoint: "Right (W) vs Left (R) Ankle"});
-  this.setState({ nodeValue: 13});
-  this.setState({ yAxis: true});
-
+  this.setState({displayGraph: false, rankle: !this.state.rankle});
 }
 
 
@@ -699,115 +292,145 @@ displayOff = e =>{
   this.setState({ currentJoint: "None"});
 }
 
+displayOn = e =>{
+  this.setState({ displayGraph: false });
+}
+
 displayToggle = e =>{
   this.setState({ displayNodes: !this.state.displayNodes });
+}
+
+listDisplay(){
+  let table = [];
+  if(this.state.head){
+    table.push(<div>Head</div>)
+  }
+  if(this.state.neck){
+    table.push(<div>Neck</div>)
+  }
+  if(this.state.lshoulder){
+    table.push(<div>Left Shoulder</div>)
+  }
+  if(this.state.rshoulder){
+    table.push(<div>Right Shoulder</div>)
+  }
+  if(this.state.lelbow){
+    table.push(<div>Left Elbow</div>)
+  }
+  if(this.state.relbow){
+    table.push(<div>Right Elbow</div>)
+  }
+  if(this.state.lwrist){
+    table.push(<div>Left Wrist</div>)
+  }
+  if(this.state.rwrist){
+    table.push(<div>Right Wrist</div>)
+  }
+  if(this.state.midspine){
+    table.push(<div>Mid Spine</div>)
+  }
+  if(this.state.spinebase){
+    table.push(<div>Spine Base</div>)
+  }
+  if(this.state.lknee){
+    table.push(<div>Left Knee</div>)
+  }
+  if(this.state.rknee){
+    table.push(<div>Right Knee</div>)
+  }
+  if(this.state.lankle){
+    table.push(<div>Left Ankle</div>)
+  }
+  if(this.state.rankle){
+    table.push(<div>Right Ankle</div>)
+  }
+
+  return table;
 }
 
 
 
 switchX = e =>{
-  switch (this.state.nodeValue) {
-    case 0:
-      this.displayHeadX();
-      break;
-    case 1:
-      this.displayNeckX();
-      break;
-    case 2:
-      this.displayBaseX();
-      break;
-    case 3:
-      this.displaySpineX();
-      break;
-    case 4:
-      this.displayShoulderX();
-      break;
-    case 5:
-      this.displayElbowX();
-      break;
-    case 6:
-      this.displayElbowRX();
-      break;
-    case 7:
-      this.displayShoulderRX();
-      break;
-    case 8:
-      this.displayWristX();
-      break;
-    case 9:
-      this.displayWristRX();
-      break;
-    case 10:
-      this.displayKneeX();
-      break;
-    case 11:
-      this.displayKneeRX();
-      break;
-    case 12:
-      this.displayAnkleX();
-      break;
-    case 13:
-      this.displayAnkleRX();
-      break;
-    default:
-      break;
+  let googleData = [[{ type: 'string', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
+  'Left Elbow', 'Right Elbow', 'Left Wrist', 'Right Wrist', 'Spine Mid', 'Spine Base', 'Left Knee', 'Right Knee',
+  'Left Ankle', 'Right Ankle']];
+
+  for (let i = 0; i < this.state.csvData.length; i++){
+    let tempArray = [];
+    tempArray.push(this.state.csvData[i].Time);
+    tempArray.push(parseFloat(this.state.csvData[i].HeadX));
+    tempArray.push(parseFloat(this.state.csvData[i].NeckX));
+    tempArray.push(parseFloat(this.state.csvData[i].ShoulderLeftX));
+    tempArray.push(parseFloat(this.state.csvData[i].ShoulderRightX));
+    tempArray.push(parseFloat(this.state.csvData[i].ElbowLeftX));
+    tempArray.push(parseFloat(this.state.csvData[i].ElbowRightX));
+    tempArray.push(parseFloat(this.state.csvData[i].WristLeftX));
+    tempArray.push(parseFloat(this.state.csvData[i].WristRightX));
+    tempArray.push(parseFloat(this.state.csvData[i].SpineMidX));
+    tempArray.push(parseFloat(this.state.csvData[i].SpineBaseX));
+    tempArray.push(parseFloat(this.state.csvData[i].KneeLeftX));
+    tempArray.push(parseFloat(this.state.csvData[i].KneeRightX));
+    tempArray.push(parseFloat(this.state.csvData[i].AnkleLeftX));
+    tempArray.push(parseFloat(this.state.csvData[i].AnkleRightX));
+    googleData.push(tempArray);
   }
-  this.setState({ yAxis: false});
+  this.setState({axis: "X", googleData: googleData});
 }
 
 switchY = e =>{
-  switch (this.state.nodeValue) {
-    case 0:
-      this.displayHead();
-      break;
-    case 1:
-      this.displayNeck();
-      break;
-    case 2:
-      this.displayBase();
-      break;
-    case 3:
-      this.displaySpine();
-      break;
-    case 4:
-      this.displayShoulder();
-      break;
-    case 5:
-      this.displayElbow();
-      break;
-    case 6:
-      this.displayElbowR();
-      break;
-    case 7:
-      this.displayShoulderR();
-      break;
-    case 8:
-      this.displayWrist();
-      break;
-    case 9:
-      this.displayWristR();
-      break;
-    case 10:
-      this.displayKnee();
-      break;
-    case 11:
-      this.displayKneeR();
-      break;
-    case 12:
-      this.displayAnkle();
-      break;
-    case 13:
-      this.displayAnkleR();
-      break;
-    default:
-      break;
+  let googleData = [[{ type: 'string', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
+  'Left Elbow', 'Right Elbow', 'Left Wrist', 'Right Wrist', 'Spine Mid', 'Spine Base', 'Left Knee', 'Right Knee',
+  'Left Ankle', 'Right Ankle']];
+
+  for (let i = 0; i < this.state.csvData.length; i++){
+    let tempArray = [];
+    tempArray.push(this.state.csvData[i].Time);
+    tempArray.push(parseFloat(this.state.csvData[i].HeadY));
+    tempArray.push(parseFloat(this.state.csvData[i].NeckY));
+    tempArray.push(parseFloat(this.state.csvData[i].ShoulderLeftY));
+    tempArray.push(parseFloat(this.state.csvData[i].ShoulderRightY));
+    tempArray.push(parseFloat(this.state.csvData[i].ElbowLeftY));
+    tempArray.push(parseFloat(this.state.csvData[i].ElbowRightY));
+    tempArray.push(parseFloat(this.state.csvData[i].WristLeftY));
+    tempArray.push(parseFloat(this.state.csvData[i].WristRightY));
+    tempArray.push(parseFloat(this.state.csvData[i].SpineMidY));
+    tempArray.push(parseFloat(this.state.csvData[i].SpineBaseY));
+    tempArray.push(parseFloat(this.state.csvData[i].KneeLeftY));
+    tempArray.push(parseFloat(this.state.csvData[i].KneeRightY));
+    tempArray.push(parseFloat(this.state.csvData[i].AnkleLeftY));
+    tempArray.push(parseFloat(this.state.csvData[i].AnkleRightY));
+    googleData.push(tempArray);
   }
-  this.setState({ yAxis: true});
+  this.setState({axis: "Y", googleData: googleData});
 }
 
-test = e => {
-  console.log(this.state.time);
+switchZ = e =>{
+  let googleData = [[{ type: 'string', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
+  'Left Elbow', 'Right Elbow', 'Left Wrist', 'Right Wrist', 'Spine Mid', 'Spine Base', 'Left Knee', 'Right Knee',
+  'Left Ankle', 'Right Ankle']];
+
+  for (let i = 0; i < this.state.csvData.length; i++){
+    let tempArray = [];
+    tempArray.push(this.state.csvData[i].Time);
+    tempArray.push(parseFloat(this.state.csvData[i].HeadZ));
+    tempArray.push(parseFloat(this.state.csvData[i].NeckZ));
+    tempArray.push(parseFloat(this.state.csvData[i].ShoulderLeftZ));
+    tempArray.push(parseFloat(this.state.csvData[i].ShoulderRightZ));
+    tempArray.push(parseFloat(this.state.csvData[i].ElbowLeftZ));
+    tempArray.push(parseFloat(this.state.csvData[i].ElbowRightZ));
+    tempArray.push(parseFloat(this.state.csvData[i].WristLeftZ));
+    tempArray.push(parseFloat(this.state.csvData[i].WristRightZ));
+    tempArray.push(parseFloat(this.state.csvData[i].SpineMidZ));
+    tempArray.push(parseFloat(this.state.csvData[i].SpineBaseZ));
+    tempArray.push(parseFloat(this.state.csvData[i].KneeLeftZ));
+    tempArray.push(parseFloat(this.state.csvData[i].KneeRightZ));
+    tempArray.push(parseFloat(this.state.csvData[i].AnkleLeftZ));
+    tempArray.push(parseFloat(this.state.csvData[i].AnkleRightZ));
+    googleData.push(tempArray);
+  }
+  this.setState({axis: "Z", googleData: googleData});
 }
+
 
 listSymptoms(){
   let table = []
@@ -822,7 +445,7 @@ listSymptoms(){
         table.push(<div>{element} left: {this.state.database[index].NIHSS[element].left.value}</div>);
       }
       if(this.state.database[index].NIHSS[element].left.value != 0){
-        table.push(<div>{element} right: {this.state.database[index].NIHSS[element].left.value}</div>);
+        table.push(<div>{element} right: {this.state.database[index].NIHSS[element].right.value}</div>);
       }
 
     }
@@ -849,7 +472,9 @@ listSymptoms(){
       </Player>
 
         <div class = "displayReading">
-          <h5>Currently displaying: <br/> {this.state.currentJoint}  { (this.state.yAxis)  ? "Y" : "X"} Axis</h5>
+          {(this.state.displayGraph) ? <div></div> : <div>Currently Displaying {this.state.axis} Axis Data for:
+           <div class="joints">{this.listDisplay()}</div>
+           vs. Time (HH:MM:SS) </div>}
         </div>
 
         <h1 id="left-symbol"> R </h1>
@@ -887,20 +512,20 @@ listSymptoms(){
 
         { (this.state.displayNodes) ?
         <div class="nodes">
-        <div class="head node" onClick={this.displayHead}><span class="tooltiptext">Head</span></div>
-        <div class="neck node" onClick={this.displayNeck}><span class="tooltiptext">Neck</span></div>
-        <div class="shoulderLeft node" onClick={this.displayShoulder}><span class="tooltiptext">Right Shoulder</span></div>
-        <div class="shoulderRight node" onClick={this.displayShoulderR}><span class="tooltiptextleft">Left Shoulder</span></div>
-        <div class="elbowRight node" onClick={this.displayElbowR}><span class="tooltiptextleft">Left Elbow</span></div>
-        <div class="elbowLeft node" onClick={this.displayElbow}><span class="tooltiptext">Right Elbow</span></div>
-        <div class="wristLeft node" onClick={this.displayWrist}><span class="tooltiptext">Right Wrist</span></div>
-        <div class="wristRight node" onClick={this.displayWristR}><span class="tooltiptextleft">Left Wrist</span></div>
-        <div class="spine node" onClick={this.displaySpine}><span class="tooltiptext">Spine Mid</span></div>
-        <div class="hip node" onClick={this.displayBase}><span class="tooltiptext">Spine Base</span></div>
-        <div class="kneeLeft node" onClick={this.displayKnee}><span class="tooltiptext">Right Knee</span></div>
-        <div class="kneeRight node" onClick={this.displayKneeR}><span class="tooltiptextleft">Left Knee</span></div>
-        <div class="ankleLeft node" onClick={this.displayAnkle}><span class="tooltiptext">Right Ankle</span></div>
-        <div class="ankleRight node" onClick={this.displayAnkleR}><span class="tooltiptextleft">Left Ankle</span></div>
+        <div class="head node" style={{ backgroundColor: this.state.head ? '#c95253' : 'black'}} onClick={this.displayHead}><span class="tooltiptext">Head</span></div>
+        <div class="neck node" style={{ backgroundColor: this.state.neck ? '#304d48' : 'black'}} onClick={this.displayNeck}><span class="tooltiptext">Neck</span></div>
+        <div class="shoulderLeft node" style={{ backgroundColor: this.state.rshoulder ? '#d17846' : 'black'}} onClick={this.displayShoulderR}><span class="tooltiptext">Right Shoulder</span></div>
+        <div class="shoulderRight node" style={{ backgroundColor: this.state.lshoulder ? '#f1ca3a' : 'black'}} onClick={this.displayShoulder}><span class="tooltiptextleft">Left Shoulder</span></div>
+        <div class="elbowRight node" style={{ backgroundColor: this.state.lelbow ? '#97f3d9' : 'black'}} onClick={this.displayElbow}><span class="tooltiptextleft">Left Elbow</span></div>
+        <div class="elbowLeft node" style={{ backgroundColor: this.state.relbow ? '#01dc54' : 'black'}} onClick={this.displayElbowR}><span class="tooltiptext">Right Elbow</span></div>
+        <div class="wristLeft node" style={{ backgroundColor: this.state.rwrist ? '#15c683' : 'black'}} onClick={this.displayWristR}><span class="tooltiptext">Right Wrist</span></div>
+        <div class="wristRight node" style={{ backgroundColor: this.state.lwrist ? '#ed0a7c' : 'black'}} onClick={this.displayWrist}><span class="tooltiptextleft">Left Wrist</span></div>
+        <div class="spine node" style={{ backgroundColor: this.state.midspine ? '#bab780' : 'black'}} onClick={this.displaySpine}><span class="tooltiptext">Spine Mid</span></div>
+        <div class="hip node" style={{ backgroundColor: this.state.spinebase ? '#d241a7' : 'black'}} onClick={this.displayBase}><span class="tooltiptext">Spine Base</span></div>
+        <div class="kneeLeft node" style={{ backgroundColor: this.state.rknee ? '#cfed08' : 'black'}} onClick={this.displayKneeR}><span class="tooltiptext">Right Knee</span></div>
+        <div class="kneeRight node" style={{ backgroundColor: this.state.lknee ? '#61673e' : 'black'}} onClick={this.displayKnee}><span class="tooltiptextleft">Left Knee</span></div>
+        <div class="ankleLeft node" style={{ backgroundColor: this.state.rankle ? '#25e40d' : 'black'}} onClick={this.displayAnkleR}><span class="tooltiptext">Right Ankle</span></div>
+        <div class="ankleRight node" style={{ backgroundColor: this.state.lankle ? '#b39ad2' : 'black'}} onClick={this.displayAnkle}><span class="tooltiptextleft">Left Ankle</span></div>
         </div>
         :
         <div></div>
@@ -909,10 +534,11 @@ listSymptoms(){
       <div class="user-options">
             <h5><center>User Options</center></h5>
             <center>{ (this.state.displayNodes) ? <button class="hideNodes" onClick={this.displayToggle}>&times; Hide Nodes</button> :
-            <button class="showNodes" onClick={this.displayToggle}>&times; Show Nodes</button> } </center>
-            {(this.state.displayGraph) ? <div></div> : <div><center><button class="closeChart" onClick={this.displayOff}>&times; Close Chart</button></center>
-            { (this.state.yAxis)  ? <center><button class="switchChart" onClick={this.switchX}>Switch to X Data</button></center> : <center><button class="switchChart" onClick={this.switchY}>Switch to Y Data</button></center>
-              }
+            <button class="showNodes" onClick={this.displayToggle}>Show Nodes</button> } </center>
+            {(this.state.displayGraph) ? <div><center><button class="closeChart" onClick={this.displayOn}>Open Chart</button></center></div> : <div><center><button class="closeChart" onClick={this.displayOff}>&times; Close Chart</button></center>
+            <center><button class="switchChart" onClick={this.switchX}>Switch to X Data</button></center>
+            <center><button class="switchChart" onClick={this.switchY}>Switch to Y Data</button></center>
+            <center><button class="switchChart" onClick={this.switchZ}>Switch to Z Data</button></center>
               </div>}
 
       </div>
@@ -925,19 +551,62 @@ listSymptoms(){
       </div>
 
         { (this.state.displayGraph)  ? <div></div> : <div>
-              <div class="chart-div" onClick={this.graphClick}>
+              <div class="chart-div">
+              <Chart
+                chartType="LineChart"
+                data={this.state.googleData}
+                options={{
+                  legend: {
+                    position: 'none',
+                  },
+                  hAxis: {
+                    title: 'Time',
+                  },
+                  vAxis: {
+                    title: 'Joint Position',
+                  },
+                  series: {
+                    0: this.state.head ? {tooltip: true, color: '#c95253'} : {tooltip: false, color: 'transparent'},
+                    1: this.state.neck ? {tooltip: true, color: '#304d48'} : {tooltip: false, color: 'transparent'},
+                    2: this.state.lshoulder ? {tooltip: true, color: '#f1ca3a'} : {tooltip: false, color: 'transparent'},
+                    3: this.state.rshoulder ? {tooltip: true, color: '#d17846'} : {tooltip: false, color: 'transparent'},
+                    4: this.state.lelbow ? {tooltip: true, color: '#97f3d9'} : {tooltip: false, color: 'transparent'},
+                    5: this.state.relbow ? {tooltip: true, color: '#01dc54'} : {tooltip: false, color: 'transparent'},
+                    6: this.state.lwrist ? {tooltip: true, color: '#ed0a7c'} : {tooltip: false, color: 'transparent'},
+                    7: this.state.rwrist ? {tooltip: true, color: '#15c683'} : {tooltip: false, color: 'transparent'},
+                    8: this.state.midspine ? {tooltip: true, color: '#bab780'} : {tooltip: false, color: 'transparent'},
+                    9: this.state.spinebase ? {tooltip: true, color: '#d241a7'} : {tooltip: false, color: 'transparent'},
+                    10: this.state.lknee ? {tooltip: true, color: '#61673e'} : {tooltip: false, color: 'transparent'},
+                    11: this.state.rknee ? {tooltip: true, color: '#cfed08'} : {tooltip: false, color: 'transparent'},
+                    12: this.state.lankle ? {tooltip: true, color: '#b39ad2'} : {tooltip: false, color: 'transparent'},
+                    13: this.state.rankle ? {tooltip: true, color: '#25e40d'} : {tooltip: false, color: 'transparent'},
+                  },
+                }}
+                chartEvents={[
+                {
+                eventName: 'select',
+                callback: ({ chartWrapper }) => {
+                const chart = chartWrapper.getChart()
+                const selection = chart.getSelection()
+                if (selection.length === 1) {
+                  const [selectedItem] = selection
+                  const dataTable = chartWrapper.getDataTable()
+                  const { row, column } = selectedItem
+                  let timeString = dataTable.getValue(row, 0);
+                  console.log(timeString);
+                  var link2 = timeString.substring(3,8);
+                  var value = link2.split(':').reverse().reduce((prev, curr, i) => prev + curr*Math.pow(60, i), 0);
+                  var value2 = parseInt(value);
+                  this.refs.player.seek(value2);
+                }
+                //console.log(value);
+                },
+                },
+                ]}
+                />
 
-                      <ChartistGraph
-                      listener={{
-                        draw: this.onDrawHandler
-                      }}
-                      className="ct-chart"
-                      style={{width: this.state.canvasSize}}
-                      data={this.state.data}
-                      type="Line"
-                      options={dailySalesChart.options}
-                      plugins= {dailySalesChart.animation}
-                      /></div></div>}
+
+                      </div></div>}
       </div>
 
     )

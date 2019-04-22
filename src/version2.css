@@ -31,9 +31,14 @@ div.displayed-symptoms{
   overflow-y: auto;
 }
 
+.joints{
+  max-height: 290px;
+  overflow-y: auto;
+}
+
 div.user-options{
   position:absolute;
-  top:360px;
+  top:340px;
   left: 72%;
   width: 150px;
   height: 100px;
@@ -316,8 +321,8 @@ div.drawn-foot-left{
 
 .displayReading{
   position: absolute;
-  top:445px;
-  left: 30px;
+  top:190px;
+  left: 5%;
 }
 
 .displayNote{
@@ -347,7 +352,8 @@ div.drawn-foot-left{
 .switchChart{
   position: relative;
   width: 95%;
-  top: 10px;
+  top: 5px;
+  margin-top: 5px;
 }
 /* Tooltip text */
 div.node .tooltiptext {

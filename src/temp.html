@@ -1,0 +1,48 @@
+<Chart
+  width={'1000px'}
+  height={'400px'}
+  chartType="LineChart"
+  loader={<div>Loading Chart</div>}
+  data={this.state.googleData}
+  options={{
+    legend: {
+      position: 'none',
+    },
+    hAxis: {
+      title: 'Time',
+    },
+    vAxis: {
+      title: 'Joint Position',
+    },
+    series: {
+      0: this.state.head ? {tooltip: true, color: '#c95253'} : {tooltip: false, color: 'transparent'},
+      1: this.state.neck ? {tooltip: true, color: '#304d48'} : {tooltip: false, color: 'transparent'},
+      2: this.state.lshoulder ? {tooltip: true, color: '#f1ca3a'} : {tooltip: false, color: 'transparent'},
+      3: this.state.rshoulder ? {tooltip: true, color: '#d17846'} : {tooltip: false, color: 'transparent'},
+      4: this.state.lelbow ? {tooltip: true, color: '#97f3d9'} : {tooltip: false, color: 'transparent'},
+      5: this.state.relbow ? {tooltip: true, color: '#01dc54'} : {tooltip: false, color: 'transparent'},
+      6: this.state.lwrist ? {tooltip: true, color: '#ed0a7c'} : {tooltip: false, color: 'transparent'},
+      7: this.state.rwrist ? {tooltip: true, color: '#15c683'} : {tooltip: false, color: 'transparent'},
+      8: this.state.midspine ? {tooltip: true, color: '#bab780'} : {tooltip: false, color: 'transparent'},
+      9: this.state.spinebase ? {tooltip: true, color: '#d241a7'} : {tooltip: false, color: 'transparent'},
+      10: this.state.lknee ? {tooltip: true, color: '#61673e'} : {tooltip: false, color: 'transparent'},
+      11: this.state.rknee ? {tooltip: true, color: '#cfed08'} : {tooltip: false, color: 'transparent'},
+      12: this.state.lankle ? {tooltip: true, color: '#b39ad2'} : {tooltip: false, color: 'transparent'},
+      13: this.state.rankle ? {tooltip: true, color: '#25e40d'} : {tooltip: false, color: 'transparent'},
+    },
+  }}
+  rootProps={{ 'data-testid': '1' }}
+  chartEvents={[
+  {
+    eventName: 'select',
+    callback: ({ chartWrapper }) => {
+      const chart = chartWrapper.getChart();
+      const selection = chart.getSelection();
+        const [selectedItem] = selection;
+        const dataTable = chartWrapper.getDataTable();
+        const { row, column } = selectedItem;
+        console.log(selection);
+    },
+  },
+]}
+/>
