@@ -19,6 +19,7 @@ var config = {
   storageBucket: "ubistroke.appspot.com",
   messagingSenderId: "466560050867"
 };
+//var test = require('./data/kinect-data/Patient_10_2016330_145130327/Patient_10_2016330_145130327_kinect_video_color.mp4')
 
 
 class PatientSkeletonNew extends Component {
@@ -49,7 +50,6 @@ console.log(this.state.time);
     // Bind this to function updateData (This eliminates the error)
 this.updateData = this.updateData.bind(this);
 this.seek = this.seek.bind(this);
-this.onDrawHandler = this.onDrawHandler.bind(this);
 this.testMethod = this.testMethod.bind(this);
 this.graphClick = this.graphClick.bind(this);
 
@@ -58,7 +58,48 @@ this.graphClick = this.graphClick.bind(this);
 componentWillMount() {
 
     // Your parse code, but not seperated in a function
-    Papa.parse(data, {
+    let databaseData = JSON.parse(window.localStorage.getItem('storedDatabase'));
+    let link = databaseData[this.props.patientIndex].csv;
+    let csvFilepath;
+    switch (this.props.patientIndex) {
+        case '0':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        case '1':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        case '2':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        case '3':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        case '4':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        case '5':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        case '6':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        case '7':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        case '8':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        case '9':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        case '10':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        case '11':
+            csvFilepath = require('./data/test-data.csv');
+            break;
+        }
+    Papa.parse(csvFilepath, {
       header: true,
       download: true,
       skipEmptyLines: true,
@@ -93,23 +134,6 @@ seeking(){
 
 testMethod = e =>{
       console.log("value");
-}
-
-onDrawHandler(e){
-  if (e.type === "point") {
-    e.element._node.onclick = function() {
-      //this.setState({currentTime: data.meta});
-      e.element._node.setAttribute('style','stroke: ' + 'orange');
-      console.log(e.style);
-      var str = window.location.href;
-      var link1 = str.substring(0,36);
-      var str2 = e.meta;
-      var link2 = str2.substring(3,8);
-      var value = link2.split(':').reverse().reduce((prev, curr, i) => prev + curr*Math.pow(60, i), 0);
-      window.localStorage.setItem('queriedTime', value);
-      var getted = window.localStorage.getItem('queriedTime');
-  }
-  }
 }
 
 
@@ -188,6 +212,7 @@ graphClick(){
 }
 
     updateData(result) {
+    console.log(result);
     const data = result.data;
     let newData = [];
     let currentAxis = "X";
@@ -468,7 +493,7 @@ listSymptoms(){
         ) :(
       <div class="canvas-div2">
       <Player fluid={false} width={285} ref="player" startTime={this.state.time} onSeeked={this.seeking()}>
-        <source src="/Videos/test-video.mp4" ></source>
+        <source src={this.state.database[this.props.patientIndex].video} ></source>
       </Player>
 
         <div class = "displayReading">
