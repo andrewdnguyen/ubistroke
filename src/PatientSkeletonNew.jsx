@@ -25,19 +25,16 @@ var config = {
 class PatientSkeletonNew extends Component {
   constructor(props){
     super(props);
-    // this.app = firebase.initializeApp(config);
-    let databaseData = JSON.parse(window.localStorage.getItem('storedDatabase'));
-    console.log(databaseData);
+    !firebase.apps.length ? this.app = firebase.initializeApp(config) : this.app = firebase.app();
+
+    this.database = this.app.database().ref().child('info');
     this.state = {
-      loading: false,
+      loading: true,
       index: this.props.patientIndex,
-      database: databaseData,
+      database: {},
       displayGraph: true,
       diplayNodes: false,
-      data: {
-        labels: ["-8h",,,, "-7h",,,, "-6h",,,, "-5h",,,, "-4h",,,, "-3h",,,, "-2h",,,, "-1h",,,, "0h"],
-        series: [[157, 187, 22, 146, 61, 198, 52, 77, 194, 87, 1, 149, 131, 112, 59, 142, 37, 248, 249, 219, 35, 232, 21, 130, 225, 54, 120, 124, 18, 86, 222, 137, 238]],
-      },
+      data: {},
       csvData: {},
       currentJoint: "None",
       nodeValue: -1,
@@ -51,52 +48,48 @@ console.log(this.state.time);
 this.updateData = this.updateData.bind(this);
 this.seek = this.seek.bind(this);
 this.testMethod = this.testMethod.bind(this);
-this.graphClick = this.graphClick.bind(this);
 
 }
 
 componentWillMount() {
 
     // Your parse code, but not seperated in a function
-    let databaseData = JSON.parse(window.localStorage.getItem('storedDatabase'));
-    let link = databaseData[this.props.patientIndex].csv;
+    //let databaseData = JSON.parse(window.localStorage.getItem('storedDatabase'));
+    //let link = databaseData[this.props.patientIndex].csv;
     let csvFilepath;
     switch (this.props.patientIndex) {
         case '0':
             csvFilepath = require('./data/test-data.csv');
             break;
-        case '1':
-            csvFilepath = require('./data/test-data.csv');
-            break;
-        case '2':
-            csvFilepath = require('./data/test-data.csv');
-            break;
-        case '3':
-            csvFilepath = require('./data/test-data.csv');
-            break;
-        case '4':
-            csvFilepath = require('./data/test-data.csv');
-            break;
-        case '5':
-            csvFilepath = require('./data/test-data.csv');
-            break;
-        case '6':
-            csvFilepath = require('./data/test-data.csv');
-            break;
-        case '7':
-            csvFilepath = require('./data/test-data.csv');
-            break;
-        case '8':
-            csvFilepath = require('./data/test-data.csv');
-            break;
         case '9':
-            csvFilepath = require('./data/test-data.csv');
+            csvFilepath = require('./data/kinect-data/Patient_30_2017130_155326401/body3-jointPositionData.csv');
             break;
         case '10':
-            csvFilepath = require('./data/test-data.csv');
+            csvFilepath = require('./data/kinect-data/Patient_31_2017213_15232451/Patient_31_body5-jointPositionData.csv');
             break;
-        case '11':
-            csvFilepath = require('./data/test-data.csv');
+        case '1':
+            csvFilepath = require('./data/kinect-data/Patient_3/body1-jointPositionData.csv');
+            break;
+        case '2':
+            csvFilepath = require('./data/kinect-data/Patient_4/body0-jointPositionData.csv');
+            break;
+        case '3':
+            csvFilepath = require('./data/kinect-data/Patient_5_2016210_144452290/Patient_5_body3-jointPositionData.csv');
+            break;
+        case '4':
+            csvFilepath = require('./data/kinect-data/Patient_6_201632_153730576/body0-jointPositionData.csv');
+            break;
+        case '5':
+            csvFilepath = require('./data/kinect-data/Patient_7_201639_143050834/Patient 7_body0-jointPositionData.csv');
+            break;
+        case '6':
+            csvFilepath = require('./data/kinect-data/Patient_8_201639_152738602/Patient_8_body5-jointPositionData.csv');
+            break;
+        case '7':
+            csvFilepath = require('./data/kinect-data/Patient_9_2016330_13597929/Patient_9_body5-jointPositionData.csv');
+            break;
+        case '8':
+            csvFilepath = require('./data/kinect-data/Patient_10_2016330_145130327/Patient_10_body1-jointPositionData.csv');
             break;
         }
     Papa.parse(csvFilepath, {
@@ -108,11 +101,21 @@ componentWillMount() {
     });
 }
 
+getModules(){
+    let ref = this.database;
+    ref.once("value").then(dataSnapshot => {
+      this.response = dataSnapshot.val().data.patientArray;
+      //window.localStorage.setItem('storedDatabase', JSON.stringify(this.response));
+      //once the data is back, set the loading to false so it can be rendered
+      this.setState({ database: this.response, loading: false });
+    });
+  }
+
 componentDidMount() {
   // subscribe state change
-  this.refs.player.subscribeToStateChange(this.handleStateChange.bind(this));
+  //this.refs.player.subscribeToStateChange(this.handleStateChange.bind(this));
   // Your parse code, but not seperated in a function
-
+  this.getModules();
 }
 
 handleStateChange(state, prevState) {
@@ -129,7 +132,13 @@ handleStateChange(state, prevState) {
 }
 
 seeking(){
+  console.log(this.refs.player2.duration);
+  let current = parseInt(this.refs.player2.currentTime);
+  let duration = parseInt(this.refs.player2.duration);
+  let percentage = (current/duration);
+  let scrollValue = 15000 * percentage;
 
+  this.refs.chart.scrollLeft = scrollValue;
 }
 
 testMethod = e =>{
@@ -168,11 +177,14 @@ mouthColor(){
   let patientVariable = this.state.database[index].NIHSS;
   //console.log(this.state.database);
   let locQuestions = this.getValue(patientVariable.locQuestions.value);
-  let determinator = locQuestions;
-  if(determinator == 0){
+  let dysarthria = this.getValue(patientVariable.dysarthria.value);
+  let bestLanguage = this.getValue(patientVariable.bestLanguage.value);
+  let facialPalsy = this.getValue(patientVariable.facialPalsy.value);
+  let determinator = locQuestions + dysarthria + bestLanguage + facialPalsy;
+  if(determinator < 4){
     return "green";
   }
-  else if(determinator == 1){
+  else if(determinator < 8){
     return "yellow";
   }
   else{
@@ -199,16 +211,95 @@ leftArmColor(){
 
 }
 
+leftLegColor(){
+  let index = parseInt(this.state.index);
+  let patientVariable = this.state.database[index].NIHSS;
+  //console.log(this.state.database);
+  let motorLegLeft = this.getValue(patientVariable.motorLeg.left.value);
+  let determinator = motorLegLeft;
+  if(determinator <= 1){
+    return "green";
+  }
+  else if(determinator <= 3){
+    return "yellow";
+  }
+  else{
+    return "red";
+  }
+
+}
+
+rightLegColor(){
+  let index = parseInt(this.state.index);
+  let patientVariable = this.state.database[index].NIHSS;
+  //console.log(this.state.database);
+  let motorLegRight = this.getValue(patientVariable.motorLeg.right.value);
+  let determinator = motorLegRight;
+  if(determinator <= 1){
+    return "green";
+  }
+  else if(determinator <= 3){
+    return "yellow";
+  }
+  else{
+    return "red";
+  }
+
+}
+
+rightEyeColor(){
+  let index = parseInt(this.state.index);
+  let patientVariable = this.state.database[index].NIHSS;
+  //console.log(this.state.database);
+  let bestGaze = 0;
+  if(patientVariable.bestGaze.side > 1 ){
+    bestGaze = this.getValue(patientVariable.bestGaze.value);
+  }
+  let determinator = bestGaze;
+  if(determinator == 0){
+    return "green";
+  }
+  else if(determinator == 1){
+    return "yellow";
+  }
+  else{
+    return "red";
+  }
+
+}
+
+leftEyeColor(){
+  let index = parseInt(this.state.index);
+  let patientVariable = this.state.database[index].NIHSS;
+  //console.log(this.state.database);
+  let bestGaze = 0;
+  if(patientVariable.bestGaze.side != 2 ){
+    bestGaze = this.getValue(patientVariable.bestGaze.value);
+  }
+  let determinator = bestGaze;
+  if(determinator == 0){
+    return "green";
+  }
+  else if(determinator == 1){
+    return "yellow";
+  }
+  else{
+    return "red";
+  }
+
+}
+
 seek(seconds) {
   return () => {
-    this.refs.player.seek(seconds);
+    //this.refs.player.seek(seconds);
   };
 }
 
-graphClick(){
-  var getted = window.localStorage.getItem('queriedTime');
-  var value = parseInt(getted);
-  this.refs.player.seek(value);
+jump(seconds) {
+  return () => {
+    console.log("Going to:" + seconds);
+    this.refs.player2.currentTime = seconds;
+  };
 }
 
     updateData(result) {
@@ -459,7 +550,7 @@ switchZ = e =>{
 
 listSymptoms(){
   let table = []
-  let index = parseInt(this.state.index);
+  let index = parseInt(this.props.patientIndex);
   let array = this.state.database[index].NIHSS;
   // Outer loop to create parent
   for (let element in array) {
@@ -469,7 +560,7 @@ listSymptoms(){
       if(this.state.database[index].NIHSS[element].left.value != 0){
         table.push(<div>{element} left: {this.state.database[index].NIHSS[element].left.value}</div>);
       }
-      if(this.state.database[index].NIHSS[element].left.value != 0){
+      if(this.state.database[index].NIHSS[element].right.value != 0){
         table.push(<div>{element} right: {this.state.database[index].NIHSS[element].right.value}</div>);
       }
 
@@ -492,9 +583,10 @@ listSymptoms(){
             </div>
         ) :(
       <div class="canvas-div2">
-      <Player fluid={false} width={285} ref="player" startTime={this.state.time} onSeeked={this.seeking()}>
-        <source src={this.state.database[this.props.patientIndex].video} ></source>
-      </Player>
+
+      <video controls fluid={false} width={285} ref="player2" onSeeked={this.seeking.bind(this)}>
+        <source src={this.state.database[this.props.patientIndex].Video} ></source>
+      </video>
 
         <div class = "displayReading">
           {(this.state.displayGraph) ? <div></div> : <div>Currently Displaying {this.state.axis} Axis Data for:
@@ -522,17 +614,16 @@ listSymptoms(){
         <div class="drawn-body-left"></div>
         <div class="drawn-body-right"></div>
 
-        <div class="drawn-upper-leg-left"></div>
-        <div class="drawn-lower-leg-left"></div>
-        <div class="drawn-foot-left"></div>
+        <div class="drawn-upper-leg-left" style={{backgroundColor: this.rightLegColor()}}></div>
+        <div class="drawn-lower-leg-left" style={{backgroundColor: this.rightLegColor()}}></div>
+        <div class="drawn-foot-left" style={{backgroundColor: this.rightLegColor()}}></div>
 
-        <div class="drawn-upper-leg-right"></div>
-        <div class="drawn-lower-leg-right"></div>
-        <div class="drawn-foot-right"></div>
+        <div class="drawn-upper-leg-right" style={{backgroundColor: this.leftLegColor()}}></div>
+        <div class="drawn-lower-leg-right" style={{backgroundColor: this.leftLegColor()}}></div>
+        <div class="drawn-foot-right" style={{backgroundColor: this.leftLegColor()}}></div>
 
-        <div class="drawn-leg-right"></div>
-        <div class="drawn-eye-left"></div>
-        <div class="drawn-eye-right"></div>
+        <div class="drawn-eye-left" style={{backgroundColor: this.rightEyeColor()}}></div>
+        <div class="drawn-eye-right" style={{backgroundColor: this.leftEyeColor()}}></div>
         <div class="drawn-mouth" style={{backgroundColor: this.mouthColor()}}></div>
 
         { (this.state.displayNodes) ?
@@ -576,8 +667,10 @@ listSymptoms(){
       </div>
 
         { (this.state.displayGraph)  ? <div></div> : <div>
-              <div class="chart-div">
+              <div ref="chart" class="chart-div">
               <Chart
+                width={15000}
+                height={250}
                 chartType="LineChart"
                 data={this.state.googleData}
                 options={{
@@ -622,7 +715,9 @@ listSymptoms(){
                   var link2 = timeString.substring(3,8);
                   var value = link2.split(':').reverse().reduce((prev, curr, i) => prev + curr*Math.pow(60, i), 0);
                   var value2 = parseInt(value);
-                  this.refs.player.seek(value2);
+                  this.refs.player2.currentTime = value2;;
+                  //this.refs.player.seek(value2);
+
                 }
                 //console.log(value);
                 },

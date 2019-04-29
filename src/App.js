@@ -7,6 +7,7 @@ import ChartistGraph from "react-chartist";
 import SubjectTest from './SubjectTest.jsx';
 import Patients from './Patients.jsx';
 import Chart from 'react-google-charts';
+import ExperimentResponse1 from './ExperimentResponse1.jsx';
 import {
   dailySalesChart
 } from "./charts.jsx";
@@ -31,6 +32,7 @@ const App = () => (
       <Route path="/subjects/:subjectID/:time?" component={Subject} />
       <Route path="/subjecttest/:subjectID/:time?" component={SubjectTest} />
       <Route path="/charttest" component={Test} />
+      <Route path="/response1/:subjectID" component={ExperimentResponse1} />
     </div>
   </Router>
 );

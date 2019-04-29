@@ -1,257 +1,831 @@
 {
-  "12345": {
-    "name" : "John Doe",
-    "dob" :"04-20-64",
-    "date" : "12-25-18",
-    "hospital" : "Hillcrest Clinic",
-    "preExam": "Lorem ipsum",
-    "loc": {
-          "value": 0,
-          "questionValue": 2,
-          "commandValue": 1,
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur egestas condimentum tempor. Fusce laoreet, leo nec tempus ultrices, nisi sem pellentesque quam, eget sollicitudin est risus vitae augue. Fusce id bibendum justo. Duis massa ipsum, auctor in odio non, accumsan luctus tellus. Aenean sed tempus magna. Nulla quis quam at nisl rhoncus lacinia id vitae magna. Donec lacinia elit eu elementum dictum. Sed faucibus dui enim, in laoreet nisl tempus non. Donec eget justo cursus, malesuada lorem nec, porttitor ipsum. Praesent in augue magna. Vivamus sed diam maximus, ullamcorper diam ac, finibus eros. Fusce dictum nibh et enim volutpat pharetra."
-        },
-      "bestGaze": {
-        "value": 1,
-        "notes": "Cras maximus nisi magna, eget commodo massa placerat vel. In hac habitasse platea dictumst. In venenatis sollicitudin viverra. Quisque ultricies lectus sit amet tincidunt hendrerit. Morbi risus erat, placerat id consequat sit amet, lobortis at urna. In hac habitasse platea dictumst. Sed finibus ipsum in ligula laoreet, sed accumsan mi bibendum. Quisque eget nunc ullamcorper, euismod est sed, molestie tortor. Duis consectetur risus vitae quam placerat, vel rhoncus sem maximus. Ut mauris quam, gravida iaculis enim et, dictum congue enim. Curabitur sodales enim nec nulla rhoncus fermentum. Duis felis mi, malesuada sit amet pretium quis, malesuada et lorem. Fusce vitae iaculis risus. Duis porttitor pharetra magna eu lobortis."
-      },
-      "visual": {
-        "value": 2,
-        "notes": "Integer volutpat tellus accumsan, imperdiet nisi eu, bibendum ligula. Aenean arcu ante, pulvinar mollis turpis id, placerat finibus ante. Mauris id libero sit amet ex pulvinar aliquet. Sed bibendum ut elit at pulvinar. Vestibulum et nulla ut ipsum molestie tempus. Suspendisse commodo eu lorem sed porttitor. Phasellus et rhoncus ipsum, eget feugiat justo. Proin volutpat dignissim ex in finibus. Nullam molestie, velit eu rutrum dapibus, nulla tortor aliquam erat, quis placerat turpis lorem quis quam. Cras non magna interdum, consequat risus vel, commodo nulla. Maecenas accumsan magna quis ipsum blandit, ac convallis sem luctus. Fusce sed sapien purus. Quisque a mi a mi convallis tincidunt vitae id lectus."
-      },
-      "facialPalsy": {
-        "value": 0,
-        "notes": "Aenean dapibus dui accumsan turpis dapibus ullamcorper. Praesent mollis pretium libero, vitae consequat lacus ullamcorper eget. Maecenas imperdiet molestie nibh, ac placerat risus pretium et. Pellentesque id dui malesuada, rutrum ligula molestie, molestie nibh. Nunc eleifend odio vitae nunc tempor, a gravida ex porta. Pellentesque nec facilisis magna. Fusce efficitur ipsum a ante convallis ultrices. Fusce libero elit, volutpat vitae sapien ac, mollis consectetur lectus. Maecenas efficitur, nunc in pretium facilisis, metus felis ultrices erat, quis tincidunt leo odio nec libero. Morbi sit amet euismod justo. Nullam eget blandit mauris. Donec gravida mi vitae sem sagittis facilisis vel vitae ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
-      },
-      "motorArm":{
-        "left": {
-          "value": 2
-        },
-        "right": {
-          "value": 2
-        },
-        "notes": "Phasellus vel ornare tellus, eget cursus dui. Integer nec tincidunt erat. In interdum consectetur felis a suscipit. Ut dignissim, felis lacinia scelerisque sollicitudin, diam velit finibus mauris, eu rutrum nisi nibh non nisi. Vivamus dolor elit, interdum sit amet lacus ac, gravida porttitor nulla. Fusce laoreet est libero. Nam ipsum turpis, porttitor in velit et, porta faucibus enim. Phasellus dolor nisi, aliquet ut metus vitae, finibus venenatis odio. Donec eu est placerat, dictum lacus ac, pharetra lorem. Duis varius ex vitae lacus faucibus cursus. Nunc scelerisque vel dolor eu finibus. Nullam pellentesque venenatis quam, et lacinia nunc facilisis scelerisque. Donec eget tellus libero. Morbi eu blandit metus. Suspendisse potenti."
-      },
-      "motorLeg": {
-        "left": {
-          "value": 1
-        },
-        "right": {
-          "value": 1
-        },
-        "notes": "Mauris in orci in nibh ultrices vestibulum. Praesent commodo dolor at lorem mattis elementum. Morbi et hendrerit massa, id convallis est. In hac habitasse platea dictumst. Fusce hendrerit mi at consectetur cursus. Nulla non vulputate ligula, ac porttitor nisl. Praesent non lobortis neque. Morbi nec leo rutrum, iaculis lorem nec, pulvinar ligula. Curabitur placerat nisl eu nulla bibendum, in imperdiet velit accumsan. Duis id tellus tincidunt, bibendum neque et, pulvinar est. In id massa in nisl consequat viverra id non ligula."
-      },
-      "limbAtaxia": {
-        "value": 2,
-        "notes": "Quisque et porta sapien. Pellentesque at porta dolor, non lobortis dolor. Fusce sit amet feugiat felis. Donec at tristique lorem. Sed porta augue a mauris ultricies imperdiet. Nam nec faucibus nunc. Quisque viverra lobortis enim vitae laoreet. Ut cursus odio orci, dapibus placerat erat aliquam et. Etiam nec justo et dolor euismod pharetra."
-      },
-      "sensory" : {
-        "value": 1,
-        "notes": "Suspendisse lobortis, dolor feugiat efficitur mattis, eros lorem ultricies urna, vel ultricies purus sem ac nulla. Vestibulum nec accumsan ligula. Mauris accumsan velit dolor, at rhoncus magna aliquam at. Fusce tortor nunc, posuere ac hendrerit eu, faucibus in neque. Proin non gravida lacus, at venenatis justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean auctor semper risus a bibendum. Aliquam ullamcorper ut nisl ac consectetur. Aliquam interdum pretium porta. Etiam eget tempor nulla, non tristique ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras hendrerit, lacus vel ornare faucibus, diam tellus rutrum purus, sed aliquam libero ipsum nec elit. Aenean rutrum euismod enim, at pellentesque quam viverra hendrerit. Morbi tincidunt sit amet erat ac ornare. Donec in velit molestie, porta nisi ornare, aliquam enim."
-      },
-      "bestLanguage" : {
-        "value": 0,
-        "notes": "Suspendisse tempor, erat id venenatis pharetra, dolor sem congue magna, ac rutrum orci ipsum id tortor. Praesent nulla ipsum, convallis quis facilisis id, porttitor ac lorem. Nam et tellus quis mi convallis tempor id id est. Pellentesque non condimentum quam. Suspendisse at orci non magna ultricies vehicula id non ipsum. Donec pulvinar leo sit amet ipsum imperdiet, a laoreet justo faucibus. Morbi id elementum mi. Aliquam ut justo ipsum. Phasellus quis bibendum magna. Praesent sed leo pulvinar, condimentum erat vel, sodales est. Vivamus porta est ac commodo condimentum. Praesent vitae dui lobortis, tincidunt elit eu, consectetur tellus. Ut semper ac nisl sed elementum."
-      },
-      "dysarthria" : {
-        "value": 1,
-        "notes": "Phasellus imperdiet efficitur dictum. Nunc quis libero sit amet mauris finibus condimentum non et massa. Sed hendrerit eleifend orci. Aliquam interdum sagittis tellus ac auctor. Duis viverra sem neque, vitae convallis nunc posuere gravida. Quisque eleifend tristique odio dapibus accumsan. Cras nunc orci, eleifend vel congue scelerisque, posuere at magna. Curabitur ultricies elementum justo sed aliquet. Donec consequat, lorem vitae vehicula suscipit, metus massa ultricies urna, ut pellentesque nibh leo in leo. Donec nec arcu nulla."
-      },
-      "extinctionAndInattention" : {
-        "value": 2,
-        "notes": "Aenean sodales tempor tortor, eu euismod elit feugiat vitae. Maecenas posuere congue enim, tempor viverra lectus tempus et. Proin gravida sapien felis, ut molestie ipsum convallis non. Ut fringilla odio vitae augue vulputate, in rhoncus velit aliquet. Praesent vitae tellus ac diam aliquam fermentum eget et turpis. Nullam ac enim vitae tellus commodo tincidunt eget sed justo. Nunc eu augue dapibus, malesuada urna et, sollicitudin sapien. Suspendisse malesuada est nec libero congue convallis. Praesent rutrum sem et varius tincidunt. Phasellus ultrices felis vulputate orci consequat ullamcorper. Suspendisse eget orci dignissim nulla ullamcorper eleifend ut ut orci. Etiam non enim risus."
+      "data": {
+            "patientArray": [
+              {
+                    "Video": "/Videos/test-video.mp4",
+                    "UbiStroke Label": "Patient_Example",
+                    "Visit Date": "1/27/2016",
+                    "Age": "63",
+                    "Gender": "male",
+                    "History": "",
+                    "Diagnosis": "Diagnosis (bleeding stroke): Left basal ganglia hemorrhage (bleed in the deep parts of the brain on the left side) caused by high blood pressure",
+                    "NeuroExam": "Exam: Right facial droop, mild weakness (some drift noted) of the right arm, right leg intact, slow finger taps (incoordination) of the R hand, increased (brisk) reflexes in the right arm",
+                    "NIHSS Text": "NIHSS: 2 (1-R facial droop, 1-R leg weakness)",
+                    "NIHSS": {
+                      "locQuestions": {
+                        "value" : 0
+                      },
+                      "locCommands": {
+                        "value" : 0
+                      },
+                          "bestGaze": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "bestLanguage": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "dysarthria": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "extinctionAndInattention": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "facialPalsy": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "limbAtaxia": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "levelOfConsciousness": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "motorArm": {
+                                "left": {
+                                      "notes": "",
+                                      "value": 0
+                                },
+                                "right": {
+                                      "notes": "",
+                                      "value": 0
+                                }
+                          },
+                          "motorLeg": {
+                                "left": {
+                                      "notes": "",
+                                      "value": 0
+                                },
+                                "right": {
+                                      "notes": "",
+                                      "value": 0
+                                }
+                          },
+                          "sensory": {
+                                "notes": "",
+                                "value": 0
+                          },
+                          "visual": {
+                                "notes": "",
+                                "value": 0
+                          }
+                    }
+              },
+                  {
+                        "Video": "/Videos/Patient_3_kinect_video_color.mp4",
+                        "UbiStroke Label": "Patient_3",
+                        "Visit Date": "1/27/2016",
+                        "Age": "63",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (bleeding stroke): Left basal ganglia hemorrhage (bleed in the deep parts of the brain on the left side) caused by high blood pressure",
+                        "NeuroExam": "Exam: Right facial droop, mild weakness (some drift noted) of the right arm, right leg intact, slow finger taps (incoordination) of the R hand, increased (brisk) reflexes in the right arm",
+                        "NIHSS Text": "NIHSS: 2 (1-R facial droop, 1-R leg weakness)",
+                        "NIHSS": {
+                          "locQuestions": {
+                            "value" : 0
+                          },
+                          "locCommands": {
+                            "value" : 0
+                          },
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "Video": "/Videos/Patient_4_kinect_video_color.mp4",
+                        "UbiStroke Label": "Patient_4",
+                        "Visit Date": "1/27/2016",
+                        "Age": "47",
+                        "Gender": "female",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (no stroke): Evaluation for risk of stroke. No formal stroke diagnosis",
+                        "NeuroExam": "Exam: Neurological examination is completely normal and intact",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                          "locQuestions": {
+                            "value" : 0
+                          },
+                          "locCommands": {
+                            "value" : 0
+                          },
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "Video": "/Videos/Patient_5_2016210_144452290_kinect_video_color.mp4",
+                        "UbiStroke Label": "Patient_5",
+                        "Visit Date": "2/10/2016\t",
+                        "Age": "65",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (nonbleeding stroke): Left lateral medullary stroke (stroke on the left of the brainstem in an area called the medulla)",
+                        "NeuroExam": "Exam: Cannot see out of the left eye (due to previous surgery, not due to stroke), mild weakness of the left arm (drifts) and mild weakness of the left thigh",
+                        "NIHSS Text": "NIHSS: 2 (1-L arm weakness, 1-L leg weakness)",
+                        "NIHSS": {
+                          "locQuestions": {
+                            "value" : 0
+                          },
+                          "locCommands": {
+                            "value" : 0
+                          },
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "Video": "/Videos/Patient_6_201632_153730576_kinect_video_color.mp4",
+                        "UbiStroke Label": "Patient_6",
+                        "Visit Date": "3/2/2016",
+                        "Age": "68",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (nonbleeding stroke): Left middle cerebral artery stroke (stroke of the left side of the brain) along with stenting of the left internal carotid artery",
+                        "NeuroExam": "Exam: Neurological examination is completely normal and intact",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                          "locQuestions": {
+                            "value" : 0
+                          },
+                          "locCommands": {
+                            "value" : 0
+                          },
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "Video": "/Videos/Patient_7_201639_143050834_kinect_video_color.mp4",
+                        "UbiStroke Label": "Patient_7",
+                        "Visit Date": "3/9/2016",
+                        "Age": "24",
+                        "Gender": "female",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (stroke of the brain veins): Cerebral venous thrombosis (clot in vein of brain)",
+                        "NeuroExam": "Exam: Neurological examination is completely normal and intact",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                          "locQuestions": {
+                            "value" : 0
+                          },
+                          "locCommands": {
+                            "value" : 0
+                          },
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "Video": "/Videos/Patient_8_201639_152738602_kinect_video_color.mp4",
+                        "UbiStroke Label": "Patient_8",
+                        "Visit Date": "3/9/2016",
+                        "Age": "52",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis: Amaurosis fugax (transient right eye blindness) with severe narrowing of the left internal carotid artery (left neck blood vessel) and received carotid endarterectomy (surgery to open up the blood vessel)",
+                        "NeuroExam": "Exam: Neurological examination is completely normal and intact",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                          "locQuestions": {
+                            "value" : 0
+                          },
+                          "locCommands": {
+                            "value" : 0
+                          },
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "Video": "/Videos/Patient_9_2016330_13597929_kinect_video_color.mp4",
+                        "UbiStroke Label": "Patient_9",
+                        "Visit Date": "3/30/2016",
+                        "Age": "27",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (non-bleeding stroke): Left distal middle cerebral artery infarct (stroke of the left side of the brain) possibly caused by cardioembolic phenomenon (clot traveling to the brain from the heart)",
+                        "NeuroExam": "Exam: Neurological examination is completely normal and intact",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                          "locQuestions": {
+                            "value" : 0
+                          },
+                          "locCommands": {
+                            "value" : 0
+                          },
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "Video": "/Videos/Patient_10_2016330_145130327_kinect_video_color.mp4",
+                        "UbiStroke Label": "Patient_10",
+                        "Visit Date": "3/30/2016",
+                        "Age": "52",
+                        "Gender": "male",
+                        "History": "",
+                        "Diagnosis": "Diagnosis (non-bleeding stroke): Small left medial longitudinal fasciculus stroke (stroke within the left side of the brainstem responsible for controlling movement of the left eye towards the right side)",
+                        "NeuroExam": "Exam: Very mild nystagmus (jerking eye movements) of the left eye when looking to the right side, otherwise normal neurological examination",
+                        "NIHSS Text": "NIHSS: 0",
+                        "NIHSS": {
+                          "locQuestions": {
+                            "value" : 0
+                          },
+                          "locCommands": {
+                            "value" : 0
+                          },
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "Video": "/Videos/Patient_30_2017130_155326401_kinect_video_color.mp4",
+                        "UbiStroke Label": "Patient_30",
+                        "Visit Date": "4/6/2016",
+                        "Age": "31",
+                        "Gender": "M",
+                        "History": "History: 31 M presented with symptoms of dizziness, unsteadiness on the left side, possible numbness of the left side, and blurry vision. Patient was diagnosed with a stroke located in the left cerebellum (responsible for coordination of movements) and in the L lateral medullary region (also responsible for coordination, sensation, and can lead to dizziness). Cause of stroke unknown, but likely due to a dissection (tear in the vertebral artery, located in the back of the neck)",
+                        "Diagnosis": "",
+                        "NeuroExam": "Neurological exam: nystagmus (rapid beating movements of the eyes) towards the left while looking towards the left, normal vision, mild incoordination of the L arm and leg, no weakness of any of the arms or legs, mild numbness to soft touch on the left arm and leg, mild difficulty walking towards the left.",
+                        "NIHSS Text": "NIHSS: 3 (2-L arm and leg ataxia, 1-numbness left side)",
+                        "NIHSS": {
+                          "locQuestions": {
+                            "value" : 0
+                          },
+                          "locCommands": {
+                            "value" : 0
+                          },
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  },
+                  {
+                        "Video": "/Videos/Patient_31_2017213_15232451_kinect_video_color.mp4",
+                        "UbiStroke Label": "Patient_31",
+                        "Visit Date": "4/6/2016",
+                        "Age": "55",
+                        "Gender": "M",
+                        "History": "History: 55 M presented with difficulty seeing out of the R side of his vision. Patient was diagnosed with stroke located in the left occipital area (the area of the brain responsible for visual perception towards the R side) and the left frontal area.",
+                        "Diagnosis": "Diagnosis: L occipital and L frontal lobe strokes likely due to hypercoagulable state (body is prone to making clots due to some other medical condition, such as cancer or liver disease) versus cardioembolic phenomenon (clots potentially forming from the heart, unknown why)",
+                        "NeuroExam": "Neurological exam: No visual perception on the right side of each eye (R homonymous hemianopsia), otherwise remainder of neurological exam is intact. ",
+                        "NIHSS Text": "NIHSS: 2 (2-complete visual field cut)",
+                        "NIHSS": {
+                              "locQuestions": {
+                                "value" : 0
+                              },
+                              "locCommands": {
+                                "value" : 0
+                              },
+                              "bestGaze": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "bestLanguage": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "dysarthria": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "extinctionAndInattention": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "facialPalsy": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "limbAtaxia": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "levelOfConsciousness": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "motorArm": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "motorLeg": {
+                                    "left": {
+                                          "notes": "",
+                                          "value": 0
+                                    },
+                                    "right": {
+                                          "notes": "",
+                                          "value": 0
+                                    }
+                              },
+                              "sensory": {
+                                    "notes": "",
+                                    "value": 0
+                              },
+                              "visual": {
+                                    "notes": "",
+                                    "value": 0
+                              }
+                        }
+                  }
+            ]
       }
-  },
-
-  "24680": {
-    "name" : "Jane Doe",
-    "dob" :"02-15-54",
-    "date" : "01-24-19",
-    "hospital": "Jacobs Medical Center",
-    "preExam": "Lorem ipsum",
-    "loc": {
-          "value": 0,
-          "questionValue": 2,
-          "commandValue": 1,
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur egestas condimentum tempor. Fusce laoreet, leo nec tempus ultrices, nisi sem pellentesque quam, eget sollicitudin est risus vitae augue. Fusce id bibendum justo. Duis massa ipsum, auctor in odio non, accumsan luctus tellus. Aenean sed tempus magna. Nulla quis quam at nisl rhoncus lacinia id vitae magna. Donec lacinia elit eu elementum dictum. Sed faucibus dui enim, in laoreet nisl tempus non. Donec eget justo cursus, malesuada lorem nec, porttitor ipsum. Praesent in augue magna. Vivamus sed diam maximus, ullamcorper diam ac, finibus eros. Fusce dictum nibh et enim volutpat pharetra."
-        },
-      "bestGaze": {
-        "value": 1,
-        "notes": "Cras maximus nisi magna, eget commodo massa placerat vel. In hac habitasse platea dictumst. In venenatis sollicitudin viverra. Quisque ultricies lectus sit amet tincidunt hendrerit. Morbi risus erat, placerat id consequat sit amet, lobortis at urna. In hac habitasse platea dictumst. Sed finibus ipsum in ligula laoreet, sed accumsan mi bibendum. Quisque eget nunc ullamcorper, euismod est sed, molestie tortor. Duis consectetur risus vitae quam placerat, vel rhoncus sem maximus. Ut mauris quam, gravida iaculis enim et, dictum congue enim. Curabitur sodales enim nec nulla rhoncus fermentum. Duis felis mi, malesuada sit amet pretium quis, malesuada et lorem. Fusce vitae iaculis risus. Duis porttitor pharetra magna eu lobortis."
-      },
-      "visual": {
-        "value": 2,
-        "notes": "Integer volutpat tellus accumsan, imperdiet nisi eu, bibendum ligula. Aenean arcu ante, pulvinar mollis turpis id, placerat finibus ante. Mauris id libero sit amet ex pulvinar aliquet. Sed bibendum ut elit at pulvinar. Vestibulum et nulla ut ipsum molestie tempus. Suspendisse commodo eu lorem sed porttitor. Phasellus et rhoncus ipsum, eget feugiat justo. Proin volutpat dignissim ex in finibus. Nullam molestie, velit eu rutrum dapibus, nulla tortor aliquam erat, quis placerat turpis lorem quis quam. Cras non magna interdum, consequat risus vel, commodo nulla. Maecenas accumsan magna quis ipsum blandit, ac convallis sem luctus. Fusce sed sapien purus. Quisque a mi a mi convallis tincidunt vitae id lectus."
-      },
-      "facialPalsy": {
-        "value": 0,
-        "notes": "Aenean dapibus dui accumsan turpis dapibus ullamcorper. Praesent mollis pretium libero, vitae consequat lacus ullamcorper eget. Maecenas imperdiet molestie nibh, ac placerat risus pretium et. Pellentesque id dui malesuada, rutrum ligula molestie, molestie nibh. Nunc eleifend odio vitae nunc tempor, a gravida ex porta. Pellentesque nec facilisis magna. Fusce efficitur ipsum a ante convallis ultrices. Fusce libero elit, volutpat vitae sapien ac, mollis consectetur lectus. Maecenas efficitur, nunc in pretium facilisis, metus felis ultrices erat, quis tincidunt leo odio nec libero. Morbi sit amet euismod justo. Nullam eget blandit mauris. Donec gravida mi vitae sem sagittis facilisis vel vitae ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
-      },
-      "motorArm":{
-        "left": {
-          "value": 2
-        },
-        "right": {
-          "value": 2
-        },
-        "notes": "Phasellus vel ornare tellus, eget cursus dui. Integer nec tincidunt erat. In interdum consectetur felis a suscipit. Ut dignissim, felis lacinia scelerisque sollicitudin, diam velit finibus mauris, eu rutrum nisi nibh non nisi. Vivamus dolor elit, interdum sit amet lacus ac, gravida porttitor nulla. Fusce laoreet est libero. Nam ipsum turpis, porttitor in velit et, porta faucibus enim. Phasellus dolor nisi, aliquet ut metus vitae, finibus venenatis odio. Donec eu est placerat, dictum lacus ac, pharetra lorem. Duis varius ex vitae lacus faucibus cursus. Nunc scelerisque vel dolor eu finibus. Nullam pellentesque venenatis quam, et lacinia nunc facilisis scelerisque. Donec eget tellus libero. Morbi eu blandit metus. Suspendisse potenti."
-      },
-      "motorLeg": {
-        "left": {
-          "value": 1
-        },
-        "right": {
-          "value": 1
-        },
-        "notes": "Mauris in orci in nibh ultrices vestibulum. Praesent commodo dolor at lorem mattis elementum. Morbi et hendrerit massa, id convallis est. In hac habitasse platea dictumst. Fusce hendrerit mi at consectetur cursus. Nulla non vulputate ligula, ac porttitor nisl. Praesent non lobortis neque. Morbi nec leo rutrum, iaculis lorem nec, pulvinar ligula. Curabitur placerat nisl eu nulla bibendum, in imperdiet velit accumsan. Duis id tellus tincidunt, bibendum neque et, pulvinar est. In id massa in nisl consequat viverra id non ligula."
-      },
-      "limbAtaxia": {
-        "value": 2,
-        "notes": "Quisque et porta sapien. Pellentesque at porta dolor, non lobortis dolor. Fusce sit amet feugiat felis. Donec at tristique lorem. Sed porta augue a mauris ultricies imperdiet. Nam nec faucibus nunc. Quisque viverra lobortis enim vitae laoreet. Ut cursus odio orci, dapibus placerat erat aliquam et. Etiam nec justo et dolor euismod pharetra."
-      },
-      "sensory" : {
-        "value": 1,
-        "notes": "Suspendisse lobortis, dolor feugiat efficitur mattis, eros lorem ultricies urna, vel ultricies purus sem ac nulla. Vestibulum nec accumsan ligula. Mauris accumsan velit dolor, at rhoncus magna aliquam at. Fusce tortor nunc, posuere ac hendrerit eu, faucibus in neque. Proin non gravida lacus, at venenatis justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean auctor semper risus a bibendum. Aliquam ullamcorper ut nisl ac consectetur. Aliquam interdum pretium porta. Etiam eget tempor nulla, non tristique ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras hendrerit, lacus vel ornare faucibus, diam tellus rutrum purus, sed aliquam libero ipsum nec elit. Aenean rutrum euismod enim, at pellentesque quam viverra hendrerit. Morbi tincidunt sit amet erat ac ornare. Donec in velit molestie, porta nisi ornare, aliquam enim."
-      },
-      "bestLanguage" : {
-        "value": 0,
-        "notes": "Suspendisse tempor, erat id venenatis pharetra, dolor sem congue magna, ac rutrum orci ipsum id tortor. Praesent nulla ipsum, convallis quis facilisis id, porttitor ac lorem. Nam et tellus quis mi convallis tempor id id est. Pellentesque non condimentum quam. Suspendisse at orci non magna ultricies vehicula id non ipsum. Donec pulvinar leo sit amet ipsum imperdiet, a laoreet justo faucibus. Morbi id elementum mi. Aliquam ut justo ipsum. Phasellus quis bibendum magna. Praesent sed leo pulvinar, condimentum erat vel, sodales est. Vivamus porta est ac commodo condimentum. Praesent vitae dui lobortis, tincidunt elit eu, consectetur tellus. Ut semper ac nisl sed elementum."
-      },
-      "dysarthria" : {
-        "value": 1,
-        "notes": "Phasellus imperdiet efficitur dictum. Nunc quis libero sit amet mauris finibus condimentum non et massa. Sed hendrerit eleifend orci. Aliquam interdum sagittis tellus ac auctor. Duis viverra sem neque, vitae convallis nunc posuere gravida. Quisque eleifend tristique odio dapibus accumsan. Cras nunc orci, eleifend vel congue scelerisque, posuere at magna. Curabitur ultricies elementum justo sed aliquet. Donec consequat, lorem vitae vehicula suscipit, metus massa ultricies urna, ut pellentesque nibh leo in leo. Donec nec arcu nulla."
-      },
-      "extinctionAndInattention" : {
-        "value": 2,
-        "notes": "Aenean sodales tempor tortor, eu euismod elit feugiat vitae. Maecenas posuere congue enim, tempor viverra lectus tempus et. Proin gravida sapien felis, ut molestie ipsum convallis non. Ut fringilla odio vitae augue vulputate, in rhoncus velit aliquet. Praesent vitae tellus ac diam aliquam fermentum eget et turpis. Nullam ac enim vitae tellus commodo tincidunt eget sed justo. Nunc eu augue dapibus, malesuada urna et, sollicitudin sapien. Suspendisse malesuada est nec libero congue convallis. Praesent rutrum sem et varius tincidunt. Phasellus ultrices felis vulputate orci consequat ullamcorper. Suspendisse eget orci dignissim nulla ullamcorper eleifend ut ut orci. Etiam non enim risus."
-      }
-  },
-
-  "92122": {
-    "name" :"Andrew Nguyen",
-    "date" : "05-16-98",
-    "dob" : "11-24-64",
-    "hospital" : "Loma Linda",
-    "preExam": "Lorem ipsum",
-    "loc": {
-          "value": 0,
-          "questionValue": 2,
-          "commandValue": 1,
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur egestas condimentum tempor. Fusce laoreet, leo nec tempus ultrices, nisi sem pellentesque quam, eget sollicitudin est risus vitae augue. Fusce id bibendum justo. Duis massa ipsum, auctor in odio non, accumsan luctus tellus. Aenean sed tempus magna. Nulla quis quam at nisl rhoncus lacinia id vitae magna. Donec lacinia elit eu elementum dictum. Sed faucibus dui enim, in laoreet nisl tempus non. Donec eget justo cursus, malesuada lorem nec, porttitor ipsum. Praesent in augue magna. Vivamus sed diam maximus, ullamcorper diam ac, finibus eros. Fusce dictum nibh et enim volutpat pharetra."
-        },
-      "bestGaze": {
-        "value": 1,
-        "notes": "Cras maximus nisi magna, eget commodo massa placerat vel. In hac habitasse platea dictumst. In venenatis sollicitudin viverra. Quisque ultricies lectus sit amet tincidunt hendrerit. Morbi risus erat, placerat id consequat sit amet, lobortis at urna. In hac habitasse platea dictumst. Sed finibus ipsum in ligula laoreet, sed accumsan mi bibendum. Quisque eget nunc ullamcorper, euismod est sed, molestie tortor. Duis consectetur risus vitae quam placerat, vel rhoncus sem maximus. Ut mauris quam, gravida iaculis enim et, dictum congue enim. Curabitur sodales enim nec nulla rhoncus fermentum. Duis felis mi, malesuada sit amet pretium quis, malesuada et lorem. Fusce vitae iaculis risus. Duis porttitor pharetra magna eu lobortis."
-      },
-      "visual": {
-        "value": 2,
-        "notes": "Integer volutpat tellus accumsan, imperdiet nisi eu, bibendum ligula. Aenean arcu ante, pulvinar mollis turpis id, placerat finibus ante. Mauris id libero sit amet ex pulvinar aliquet. Sed bibendum ut elit at pulvinar. Vestibulum et nulla ut ipsum molestie tempus. Suspendisse commodo eu lorem sed porttitor. Phasellus et rhoncus ipsum, eget feugiat justo. Proin volutpat dignissim ex in finibus. Nullam molestie, velit eu rutrum dapibus, nulla tortor aliquam erat, quis placerat turpis lorem quis quam. Cras non magna interdum, consequat risus vel, commodo nulla. Maecenas accumsan magna quis ipsum blandit, ac convallis sem luctus. Fusce sed sapien purus. Quisque a mi a mi convallis tincidunt vitae id lectus."
-      },
-      "facialPalsy": {
-        "value": 0,
-        "notes": "Aenean dapibus dui accumsan turpis dapibus ullamcorper. Praesent mollis pretium libero, vitae consequat lacus ullamcorper eget. Maecenas imperdiet molestie nibh, ac placerat risus pretium et. Pellentesque id dui malesuada, rutrum ligula molestie, molestie nibh. Nunc eleifend odio vitae nunc tempor, a gravida ex porta. Pellentesque nec facilisis magna. Fusce efficitur ipsum a ante convallis ultrices. Fusce libero elit, volutpat vitae sapien ac, mollis consectetur lectus. Maecenas efficitur, nunc in pretium facilisis, metus felis ultrices erat, quis tincidunt leo odio nec libero. Morbi sit amet euismod justo. Nullam eget blandit mauris. Donec gravida mi vitae sem sagittis facilisis vel vitae ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
-      },
-      "motorArm":{
-        "left": {
-          "value": 2
-        },
-        "right": {
-          "value": 2
-        },
-        "notes": "Phasellus vel ornare tellus, eget cursus dui. Integer nec tincidunt erat. In interdum consectetur felis a suscipit. Ut dignissim, felis lacinia scelerisque sollicitudin, diam velit finibus mauris, eu rutrum nisi nibh non nisi. Vivamus dolor elit, interdum sit amet lacus ac, gravida porttitor nulla. Fusce laoreet est libero. Nam ipsum turpis, porttitor in velit et, porta faucibus enim. Phasellus dolor nisi, aliquet ut metus vitae, finibus venenatis odio. Donec eu est placerat, dictum lacus ac, pharetra lorem. Duis varius ex vitae lacus faucibus cursus. Nunc scelerisque vel dolor eu finibus. Nullam pellentesque venenatis quam, et lacinia nunc facilisis scelerisque. Donec eget tellus libero. Morbi eu blandit metus. Suspendisse potenti."
-      },
-      "motorLeg": {
-        "left": {
-          "value": 1
-        },
-        "right": {
-          "value": 1
-        },
-        "notes": "Mauris in orci in nibh ultrices vestibulum. Praesent commodo dolor at lorem mattis elementum. Morbi et hendrerit massa, id convallis est. In hac habitasse platea dictumst. Fusce hendrerit mi at consectetur cursus. Nulla non vulputate ligula, ac porttitor nisl. Praesent non lobortis neque. Morbi nec leo rutrum, iaculis lorem nec, pulvinar ligula. Curabitur placerat nisl eu nulla bibendum, in imperdiet velit accumsan. Duis id tellus tincidunt, bibendum neque et, pulvinar est. In id massa in nisl consequat viverra id non ligula."
-      },
-      "limbAtaxia": {
-        "value": 2,
-        "notes": "Quisque et porta sapien. Pellentesque at porta dolor, non lobortis dolor. Fusce sit amet feugiat felis. Donec at tristique lorem. Sed porta augue a mauris ultricies imperdiet. Nam nec faucibus nunc. Quisque viverra lobortis enim vitae laoreet. Ut cursus odio orci, dapibus placerat erat aliquam et. Etiam nec justo et dolor euismod pharetra."
-      },
-      "sensory" : {
-        "value": 1,
-        "notes": "Suspendisse lobortis, dolor feugiat efficitur mattis, eros lorem ultricies urna, vel ultricies purus sem ac nulla. Vestibulum nec accumsan ligula. Mauris accumsan velit dolor, at rhoncus magna aliquam at. Fusce tortor nunc, posuere ac hendrerit eu, faucibus in neque. Proin non gravida lacus, at venenatis justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean auctor semper risus a bibendum. Aliquam ullamcorper ut nisl ac consectetur. Aliquam interdum pretium porta. Etiam eget tempor nulla, non tristique ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras hendrerit, lacus vel ornare faucibus, diam tellus rutrum purus, sed aliquam libero ipsum nec elit. Aenean rutrum euismod enim, at pellentesque quam viverra hendrerit. Morbi tincidunt sit amet erat ac ornare. Donec in velit molestie, porta nisi ornare, aliquam enim."
-      },
-      "bestLanguage" : {
-        "value": 0,
-        "notes": "Suspendisse tempor, erat id venenatis pharetra, dolor sem congue magna, ac rutrum orci ipsum id tortor. Praesent nulla ipsum, convallis quis facilisis id, porttitor ac lorem. Nam et tellus quis mi convallis tempor id id est. Pellentesque non condimentum quam. Suspendisse at orci non magna ultricies vehicula id non ipsum. Donec pulvinar leo sit amet ipsum imperdiet, a laoreet justo faucibus. Morbi id elementum mi. Aliquam ut justo ipsum. Phasellus quis bibendum magna. Praesent sed leo pulvinar, condimentum erat vel, sodales est. Vivamus porta est ac commodo condimentum. Praesent vitae dui lobortis, tincidunt elit eu, consectetur tellus. Ut semper ac nisl sed elementum."
-      },
-      "dysarthria" : {
-        "value": 1,
-        "notes": "Phasellus imperdiet efficitur dictum. Nunc quis libero sit amet mauris finibus condimentum non et massa. Sed hendrerit eleifend orci. Aliquam interdum sagittis tellus ac auctor. Duis viverra sem neque, vitae convallis nunc posuere gravida. Quisque eleifend tristique odio dapibus accumsan. Cras nunc orci, eleifend vel congue scelerisque, posuere at magna. Curabitur ultricies elementum justo sed aliquet. Donec consequat, lorem vitae vehicula suscipit, metus massa ultricies urna, ut pellentesque nibh leo in leo. Donec nec arcu nulla."
-      },
-      "extinctionAndInattention" : {
-        "value": 2,
-        "notes": "Aenean sodales tempor tortor, eu euismod elit feugiat vitae. Maecenas posuere congue enim, tempor viverra lectus tempus et. Proin gravida sapien felis, ut molestie ipsum convallis non. Ut fringilla odio vitae augue vulputate, in rhoncus velit aliquet. Praesent vitae tellus ac diam aliquam fermentum eget et turpis. Nullam ac enim vitae tellus commodo tincidunt eget sed justo. Nunc eu augue dapibus, malesuada urna et, sollicitudin sapien. Suspendisse malesuada est nec libero congue convallis. Praesent rutrum sem et varius tincidunt. Phasellus ultrices felis vulputate orci consequat ullamcorper. Suspendisse eget orci dignissim nulla ullamcorper eleifend ut ut orci. Etiam non enim risus."
-      }
-  },
-
-  "13579": {
-      "name" :"Lisa Grega",
-      "date" : "1-5-18",
-      "dob" : "3-11-96",
-      "hospital" : "Kaiser Permanente",
-      "preExam": "Everything seems to check out.",
-      "loc": {
-            "value": 0,
-            "questionValue": 2,
-            "commandValue": 1,
-            "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur egestas condimentum tempor. Fusce laoreet, leo nec tempus ultrices, nisi sem pellentesque quam, eget sollicitudin est risus vitae augue. Fusce id bibendum justo. Duis massa ipsum, auctor in odio non, accumsan luctus tellus. Aenean sed tempus magna. Nulla quis quam at nisl rhoncus lacinia id vitae magna. Donec lacinia elit eu elementum dictum. Sed faucibus dui enim, in laoreet nisl tempus non. Donec eget justo cursus, malesuada lorem nec, porttitor ipsum. Praesent in augue magna. Vivamus sed diam maximus, ullamcorper diam ac, finibus eros. Fusce dictum nibh et enim volutpat pharetra."
-          },
-        "bestGaze": {
-          "value": 1,
-          "notes": "Cras maximus nisi magna, eget commodo massa placerat vel. In hac habitasse platea dictumst. In venenatis sollicitudin viverra. Quisque ultricies lectus sit amet tincidunt hendrerit. Morbi risus erat, placerat id consequat sit amet, lobortis at urna. In hac habitasse platea dictumst. Sed finibus ipsum in ligula laoreet, sed accumsan mi bibendum. Quisque eget nunc ullamcorper, euismod est sed, molestie tortor. Duis consectetur risus vitae quam placerat, vel rhoncus sem maximus. Ut mauris quam, gravida iaculis enim et, dictum congue enim. Curabitur sodales enim nec nulla rhoncus fermentum. Duis felis mi, malesuada sit amet pretium quis, malesuada et lorem. Fusce vitae iaculis risus. Duis porttitor pharetra magna eu lobortis."
-        },
-        "visual": {
-          "value": 2,
-          "notes": "Integer volutpat tellus accumsan, imperdiet nisi eu, bibendum ligula. Aenean arcu ante, pulvinar mollis turpis id, placerat finibus ante. Mauris id libero sit amet ex pulvinar aliquet. Sed bibendum ut elit at pulvinar. Vestibulum et nulla ut ipsum molestie tempus. Suspendisse commodo eu lorem sed porttitor. Phasellus et rhoncus ipsum, eget feugiat justo. Proin volutpat dignissim ex in finibus. Nullam molestie, velit eu rutrum dapibus, nulla tortor aliquam erat, quis placerat turpis lorem quis quam. Cras non magna interdum, consequat risus vel, commodo nulla. Maecenas accumsan magna quis ipsum blandit, ac convallis sem luctus. Fusce sed sapien purus. Quisque a mi a mi convallis tincidunt vitae id lectus."
-        },
-        "facialPalsy": {
-          "value": 0,
-          "notes": "Aenean dapibus dui accumsan turpis dapibus ullamcorper. Praesent mollis pretium libero, vitae consequat lacus ullamcorper eget. Maecenas imperdiet molestie nibh, ac placerat risus pretium et. Pellentesque id dui malesuada, rutrum ligula molestie, molestie nibh. Nunc eleifend odio vitae nunc tempor, a gravida ex porta. Pellentesque nec facilisis magna. Fusce efficitur ipsum a ante convallis ultrices. Fusce libero elit, volutpat vitae sapien ac, mollis consectetur lectus. Maecenas efficitur, nunc in pretium facilisis, metus felis ultrices erat, quis tincidunt leo odio nec libero. Morbi sit amet euismod justo. Nullam eget blandit mauris. Donec gravida mi vitae sem sagittis facilisis vel vitae ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
-        },
-        "motorArm":{
-          "left": {
-            "value": 2
-          },
-          "right": {
-            "value": 2
-          },
-          "notes": "Phasellus vel ornare tellus, eget cursus dui. Integer nec tincidunt erat. In interdum consectetur felis a suscipit. Ut dignissim, felis lacinia scelerisque sollicitudin, diam velit finibus mauris, eu rutrum nisi nibh non nisi. Vivamus dolor elit, interdum sit amet lacus ac, gravida porttitor nulla. Fusce laoreet est libero. Nam ipsum turpis, porttitor in velit et, porta faucibus enim. Phasellus dolor nisi, aliquet ut metus vitae, finibus venenatis odio. Donec eu est placerat, dictum lacus ac, pharetra lorem. Duis varius ex vitae lacus faucibus cursus. Nunc scelerisque vel dolor eu finibus. Nullam pellentesque venenatis quam, et lacinia nunc facilisis scelerisque. Donec eget tellus libero. Morbi eu blandit metus. Suspendisse potenti."
-        },
-        "motorLeg": {
-          "left": {
-            "value": 1
-          },
-          "right": {
-            "value": 1
-          },
-          "notes": "Mauris in orci in nibh ultrices vestibulum. Praesent commodo dolor at lorem mattis elementum. Morbi et hendrerit massa, id convallis est. In hac habitasse platea dictumst. Fusce hendrerit mi at consectetur cursus. Nulla non vulputate ligula, ac porttitor nisl. Praesent non lobortis neque. Morbi nec leo rutrum, iaculis lorem nec, pulvinar ligula. Curabitur placerat nisl eu nulla bibendum, in imperdiet velit accumsan. Duis id tellus tincidunt, bibendum neque et, pulvinar est. In id massa in nisl consequat viverra id non ligula."
-        },
-        "limbAtaxia": {
-          "value": 2,
-          "notes": "Quisque et porta sapien. Pellentesque at porta dolor, non lobortis dolor. Fusce sit amet feugiat felis. Donec at tristique lorem. Sed porta augue a mauris ultricies imperdiet. Nam nec faucibus nunc. Quisque viverra lobortis enim vitae laoreet. Ut cursus odio orci, dapibus placerat erat aliquam et. Etiam nec justo et dolor euismod pharetra."
-        },
-        "sensory" : {
-          "value": 1,
-          "notes": "Suspendisse lobortis, dolor feugiat efficitur mattis, eros lorem ultricies urna, vel ultricies purus sem ac nulla. Vestibulum nec accumsan ligula. Mauris accumsan velit dolor, at rhoncus magna aliquam at. Fusce tortor nunc, posuere ac hendrerit eu, faucibus in neque. Proin non gravida lacus, at venenatis justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean auctor semper risus a bibendum. Aliquam ullamcorper ut nisl ac consectetur. Aliquam interdum pretium porta. Etiam eget tempor nulla, non tristique ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras hendrerit, lacus vel ornare faucibus, diam tellus rutrum purus, sed aliquam libero ipsum nec elit. Aenean rutrum euismod enim, at pellentesque quam viverra hendrerit. Morbi tincidunt sit amet erat ac ornare. Donec in velit molestie, porta nisi ornare, aliquam enim."
-        },
-        "bestLanguage" : {
-          "value": 0,
-          "notes": "Suspendisse tempor, erat id venenatis pharetra, dolor sem congue magna, ac rutrum orci ipsum id tortor. Praesent nulla ipsum, convallis quis facilisis id, porttitor ac lorem. Nam et tellus quis mi convallis tempor id id est. Pellentesque non condimentum quam. Suspendisse at orci non magna ultricies vehicula id non ipsum. Donec pulvinar leo sit amet ipsum imperdiet, a laoreet justo faucibus. Morbi id elementum mi. Aliquam ut justo ipsum. Phasellus quis bibendum magna. Praesent sed leo pulvinar, condimentum erat vel, sodales est. Vivamus porta est ac commodo condimentum. Praesent vitae dui lobortis, tincidunt elit eu, consectetur tellus. Ut semper ac nisl sed elementum."
-        },
-        "dysarthria" : {
-          "value": 1,
-          "notes": "Phasellus imperdiet efficitur dictum. Nunc quis libero sit amet mauris finibus condimentum non et massa. Sed hendrerit eleifend orci. Aliquam interdum sagittis tellus ac auctor. Duis viverra sem neque, vitae convallis nunc posuere gravida. Quisque eleifend tristique odio dapibus accumsan. Cras nunc orci, eleifend vel congue scelerisque, posuere at magna. Curabitur ultricies elementum justo sed aliquet. Donec consequat, lorem vitae vehicula suscipit, metus massa ultricies urna, ut pellentesque nibh leo in leo. Donec nec arcu nulla."
-        },
-        "extinctionAndInattention" : {
-          "value": 2,
-          "notes": "Aenean sodales tempor tortor, eu euismod elit feugiat vitae. Maecenas posuere congue enim, tempor viverra lectus tempus et. Proin gravida sapien felis, ut molestie ipsum convallis non. Ut fringilla odio vitae augue vulputate, in rhoncus velit aliquet. Praesent vitae tellus ac diam aliquam fermentum eget et turpis. Nullam ac enim vitae tellus commodo tincidunt eget sed justo. Nunc eu augue dapibus, malesuada urna et, sollicitudin sapien. Suspendisse malesuada est nec libero congue convallis. Praesent rutrum sem et varius tincidunt. Phasellus ultrices felis vulputate orci consequat ullamcorper. Suspendisse eget orci dignissim nulla ullamcorper eleifend ut ut orci. Etiam non enim risus."
-        }
-  }
 }

@@ -12,7 +12,7 @@ var config = {
 };
 
 
-class PatientInfo extends Component {
+class ResponseLog extends Component {
   constructor(props){
     super(props);
     // this.app = firebase.initializeApp(config);
@@ -32,7 +32,7 @@ class PatientInfo extends Component {
   getModules(){
       let ref = this.database;
       ref.once("value").then(dataSnapshot => {
-        this.response = dataSnapshot.val().data.patientArray;
+        this.response = dataSnapshot.val().response.video;
         window.localStorage.setItem('storedDatabase', JSON.stringify(this.response));
         //once the data is back, set the loading to false so it can be rendered
         this.setState({ test: this.response, loading: false });
@@ -273,16 +273,9 @@ saveChanges = e => {
         {(this.state.saved) ? <div><p>Saved changes at {this.state.timeSaved}</p></div> : <div></div>}
         <br/><br/>
         <form>
-          <p><p class="white-text">Diagnosis</p>
+          <p><p class="white-text">General Notes:</p>
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="Diagnosis" value={patientVar.Diagnosis}/>
           <br/>
-          <p class="white-text">History</p>
-          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="History" value={patientVar.History}/>
-          <br/>
-          <p class="white-text">Neuro-Exam</p>
-          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="NeuroExam" value={patientVar.NeuroExam}/>
-          <br/>
-          <br/><br/>
             <p class="white-text">Level of Consciousness:</p>
           <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.NIHSS.levelOfConsciousness.value}>
             <option disabled selected value> -- select an option -- </option>
@@ -312,8 +305,6 @@ saveChanges = e => {
             <option value ="2">2 = Performs neither task correctly. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="levelOfConsciousness" value={patientVar.NIHSS.levelOfConsciousness.notes}/>
-          <br/><br/>
             <p class="white-text">Best Gaze:</p>
           <select class="form-control" id="bestGaze" onChange={this.updateValue} value={patientVar.NIHSS.bestGaze.value}>
             <option disabled selected value> -- select an option -- </option>
@@ -332,8 +323,6 @@ saveChanges = e => {
           <option value ="3">Both</option>
         </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="bestGaze" value={patientVar.NIHSS.bestGaze.notes}/>
-          <br/><br/>
             <p class="white-text">Visual:</p>
           <select class="form-control" id="visual" onChange={this.updateValue} value={patientVar.NIHSS.visual.value}>
             <option disabled selected value> -- select an option -- </option>
@@ -351,8 +340,6 @@ saveChanges = e => {
           <option value ="3">Both</option>
         </select>
           <br/>
-          <textarea rows="10" className="notes form-control" name="visual" onChange={this.updateInfo} value={patientVar.NIHSS.visual.notes}/>
-          <br/><br/>
             <p class="white-text">Facial Palsy:</p>
           <select class="form-control" id="facialPalsy" onChange={this.updateValue} value={patientVar.NIHSS.facialPalsy.value}>
             <option disabled selected value> -- select an option -- </option>
@@ -373,8 +360,6 @@ saveChanges = e => {
           <option value ="3">Both</option>
         </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="facialPalsy" value={patientVar.NIHSS.facialPalsy.notes}/>
-          <br/><br/>
             <p class="white-text">Motor Arm Left:</p>
           <select class="form-control" id="leftArm" onChange={this.updateLeftArm} value={patientVar.NIHSS.motorArm.left.value}>
             <option disabled selected value> -- select an option -- </option>
@@ -403,8 +388,6 @@ saveChanges = e => {
           <option value ="UN">UN = Amputation or joint fusion, explain below. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" name="motorArm" onChange={this.updateInfo} value={patientVar.NIHSS.motorArm.notes}/>
-          <br/><br/>
             <p class="white-text">Motor Leg Left:</p>
           <select class="form-control" id="questionValue" onChange={this.updateLeftLeg} value={patientVar.NIHSS.motorLeg.left.value}>
             <option disabled selected value> -- select an option -- </option>
@@ -431,8 +414,6 @@ saveChanges = e => {
             <option value ="UN">UN = Amputation or joint fusion, explain below. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" name="motorLeg" onChange={this.updateInfo} value={patientVar.NIHSS.motorLeg.notes}/>
-          <br/><br/>
             <p class="white-text">Limb Ataxia:</p>
           <select class="form-control" id="limbAtaxia" onChange={this.updateValue} value={patientVar.NIHSS.limbAtaxia.value}>
             <option disabled selected value> -- select an option -- </option>
@@ -458,8 +439,6 @@ saveChanges = e => {
             <option value ="3">Both</option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="limbAtaxia" value={patientVar.NIHSS.limbAtaxia.notes}/>
-          <br/><br/>
             <p class="white-text">Sensory:</p>
           <select class="form-control" id="sensory" onChange={this.updateValue} value={patientVar.NIHSS.sensory.value}>
             <option disabled selected value> -- select an option -- </option>
@@ -480,8 +459,6 @@ saveChanges = e => {
           <option value ="3">Both</option>
         </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="sensory" value={patientVar.NIHSS.sensory.notes}/>
-          <br/><br/>
             <p class="white-text">Best Language:</p>
           <select class="form-control" id="bestLanguage" onChange={this.updateValue} value={patientVar.NIHSS.bestLanguage.value}>
             <option disabled selected value> -- select an option -- </option>
@@ -503,8 +480,6 @@ saveChanges = e => {
             comprehension. </option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="bestLanguage" value={patientVar.NIHSS.bestLanguage.notes}/>
-          <br/><br/>
             <p class="white-text">Dysarthria:</p>
           <select class="form-control" id="dysarthria" onChange={this.updateValue} value={patientVar.NIHSS.dysarthria.value}>
             <option disabled selected value> -- select an option -- </option>
@@ -519,8 +494,6 @@ saveChanges = e => {
             explain below.</option>
           </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="dysarthria" value={patientVar.NIHSS.dysarthria.notes}/>
-          <br/><br/>
             <p class="white-text">Extinction and Inattention: </p>
           <select class="form-control" id="extinctionAndInattention" onChange={this.updateValue} value={patientVar.NIHSS.extinctionAndInattention.value}>
             <option disabled selected value> -- select an option -- </option>
@@ -541,7 +514,6 @@ saveChanges = e => {
           <option value ="3">Both</option>
         </select>
           <br/>
-          <textarea rows="10" className="notes form-control" onChange={this.updateInfo} name="extinctionAndInattention" value={patientVar.NIHSS.extinctionAndInattention.notes}/>
           </p>
           <br/>
         </form>
@@ -550,4 +522,4 @@ saveChanges = e => {
   }
 }
 
-export default PatientInfo;
+export default ResponseLog;

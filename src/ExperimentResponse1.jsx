@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import PatientInfo from './PatientInfo';
+import ResponseLog from './ResponseLog.jsx';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PatientSkeleton from './PatientSkeleton.jsx';
 import PatientSkeletonNew from './PatientSkeletonNew.jsx';
+import PatientVideo from './PatientVideo.jsx';
 import firebase from "firebase";
 var config = {
   apiKey: "AIzaSyDBFvjEfVbGK6njvCN49i68K-F8S_w5mus",
@@ -13,7 +14,7 @@ var config = {
   messagingSenderId: "466560050867"
 };
 
-class SubjectTest extends Component {
+class ExperimentResponse1 extends Component {
   constructor() {
     super();
 
@@ -33,8 +34,8 @@ class SubjectTest extends Component {
       ref.once("value").then(dataSnapshot => {
         this.response = dataSnapshot.val().data.patientArray;
         //once the data is back, set the loading to false so it can be rendered
-        window.localStorage.setItem('storedDatabase', JSON.stringify(this.response));
         this.setState({ patientArray: this.response, loading: false });
+        window.localStorage.setItem('storedDatabase', JSON.stringify(this.response));
       });
     }
 
@@ -54,11 +55,11 @@ class SubjectTest extends Component {
       <div class="white-background">
       <Link to="/patients"><button id="back-button" class="btn btn-block btn-primary">&lt;&lt; Back</button></Link>
       </div>
-      <PatientInfo patientId="12345" patientIndex={this.props.match.params.subjectID} order="0"/>
+      <ResponseLog patientIndex={this.props.match.params.subjectID}/>
       </div>
       <div class="col-md-6">
         <br/>
-        <PatientSkeletonNew patientIndex={this.props.match.params.subjectID} time={this.props.match.params.time}/>
+        <PatientVideo patientIndex={this.props.match.params.subjectID}/>
       </div>
 
       </div>
@@ -66,4 +67,4 @@ class SubjectTest extends Component {
   }
 };
 
-export default SubjectTest;
+export default ExperimentResponse1;
