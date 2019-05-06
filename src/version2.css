@@ -311,12 +311,15 @@ div.drawn-foot-left{
   position: absolute;
   top: 550px;
   height: 210px;
-  width: 97%;
-  overflow: scroll;
+  width: 99%;
 }
 
 .kinect-video{
   position: absolute;
+}
+
+#player{
+  top: 500px;
 }
 
 .displayReading{

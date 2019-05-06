@@ -235,11 +235,12 @@ getValue(input){
 }
 
 saveChanges = e => {
-  console.log("clicked!")
+  console.log(this.state.test);
   //console.log(this.test);
-  let index = parseInt(this.state.index);
-  let toSend = {data: {patientArray: this.state.test}};
-  this.database.set(toSend);
+  let index = this.props.patientIndex;
+  let newData = this.state.test;
+  let updates = {['/data/patientArray']:newData};
+  this.database.update(updates);
   var today = new Date();
   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   //console.log(JSON.stringify(this.state.test))

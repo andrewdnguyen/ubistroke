@@ -21,6 +21,21 @@ var config = {
 };
 //var test = require('./data/kinect-data/Patient_10_2016330_145130327/Patient_10_2016330_145130327_kinect_video_color.mp4')
 
+let testData = [
+    ['x', 'dogs'],
+    [0, 0],
+    [1, 10],
+    [2, 23],
+    [3, 17],
+    [4, 18],
+    [5, 9],
+    [6, 11],
+    [7, 27],
+    [8, 33],
+    [9, 40],
+    [10, 32],
+    [11, 35],
+  ];
 
 class PatientSkeletonNew extends Component {
   constructor(props){
@@ -307,13 +322,29 @@ jump(seconds) {
     const data = result.data;
     let newData = [];
     let currentAxis = "X";
-    let googleData = [[{ type: 'string', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
+    let googleData = [[{ type: 'timeofday', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
     'Left Elbow', 'Right Elbow', 'Left Wrist', 'Right Wrist', 'Spine Mid', 'Spine Base', 'Left Knee', 'Right Knee',
     'Left Ankle', 'Right Ankle']];
 
+    console.log(data[1500].Time);
+    let time = data[1500].Time;
+    let minutes = parseInt(time.substring(3, 5));
+    let seconds = parseInt(time.substring(6, 8));
+    let thirdThing = parseInt(time.substring(9, 12));
+    console.log(minutes + " " + seconds + " " + thirdThing);
+
     for (let i = 0; i < data.length; i++){
+      let timeArray = [];
+      let time = data[i].Time;
+      let minutes = parseInt(time.substring(3, 5));
+      let seconds = parseInt(time.substring(6, 8));
+      let thirdThing = parseInt(time.substring(9, 12));
+      timeArray.push(0);
+      timeArray.push(minutes);
+      timeArray.push(seconds);
+      timeArray.push(thirdThing);
       let tempArray = [];
-      tempArray.push(data[i].Time);
+      tempArray.push(timeArray);
       tempArray.push(parseFloat(data[i].HeadX));
       tempArray.push(parseFloat(data[i].NeckX));
       tempArray.push(parseFloat(data[i].ShoulderLeftX));
@@ -669,11 +700,17 @@ listSymptoms(){
         { (this.state.displayGraph)  ? <div></div> : <div>
               <div ref="chart" class="chart-div">
               <Chart
-                width={15000}
-                height={250}
+                width="100%"
+                height={400}
                 chartType="LineChart"
                 data={this.state.googleData}
                 options={{
+                  explorer: {
+                     maxZoomOut: 1,
+                     maxZoomIn: .01,
+                     keepInBounds: true,
+                     rightClickToReset: true
+                  },
                   legend: {
                     position: 'none',
                   },

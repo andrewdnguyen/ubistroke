@@ -56,8 +56,8 @@ getModules(){
             </div>
         ) :(
       <div class="canvas-div2">
-      <Player fluid={false} width={285} ref="player">
-        <source src={this.state.test[this.props.patientIndex].video} ></source>
+      <Player fluid={true} width="100%" ref="player">
+        <source src={this.state.test[this.props.patientIndex].Video}></source>
       </Player>
       </div>
     )

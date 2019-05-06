@@ -13,7 +13,9 @@ var config = {
 };
 
 
-class ResponseLog extends Component {
+
+
+class ResponseLog2 extends Component {
   constructor(props){
     super(props);
     // this.app = firebase.initializeApp(config);
@@ -21,76 +23,29 @@ class ResponseLog extends Component {
 
     this.database = this.app.database().ref().child('info');
 
+    let data = localStorage.getItem('responseData');
+    data = JSON.parse(data);
+    console.log(data);
+
     this.state = {
+      loading: true,
       redirect: false,
       saved: false,
       timeSaved: 0,
       index: this.props.patientIndex,
       test: {},
-      response: {
-        subjectID: "",
-        notes: "",
-        locQuestions: {
-          value : 0
-        },
-        locCommands: {
-          value : 0
-        },
-        bestGaze: {
-              value: 0
-        },
-        bestLanguage: {
-              value: 0
-        },
-        dysarthria: {
-              value: 0
-        },
-        extinctionAndInattention: {
-              value: 0
-        },
-        facialPalsy: {
-              value: 0
-        },
-        limbAtaxia: {
-              value: 0
-        },
-        levelOfConsciousness: {
-              value: 0
-        },
-        motorArm: {
-              left: {
-                    value: 0
-              },
-              right: {
-                    value: 0
-              }
-        },
-        motorLeg: {
-              left: {
-                    value: 0
-              },
-              right: {
-                    value: 0
-              }
-        },
-        sensory: {
-              value: 0
-        },
-        visual: {
-              value: 0
-        }
+      response: data
       }
     };
-  }
 
 
   getModules(){
-      this.database.on('value', snap => {
-        console.log(JSON.stringify(snap.val().responseArrayOne));
-        this.setState({
-          test:snap.val().responseArrayOne,
-        });
+    this.database.on('value', snap => {
+      console.log(JSON.stringify(snap.val().responseArrayTwo));
+      this.setState({
+        test:snap.val().responseArrayTwo,
       });
+    });
     }
 
     componentDidMount(){
@@ -198,11 +153,9 @@ getValue(input){
 saveChanges = e => {
   console.log("clicked!")
   //console.log(this.test);
-  let savedData = JSON.stringify(this.state.response);
-  localStorage.setItem('responseData', savedData);
   let newData = this.state.test;
   newData.push(this.state.response);
-  let updates = {['/responseArrayOne']:newData};
+  let updates = {['/responseArrayTwo']:newData};
   this.database.update(updates);
   var today = new Date();
   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -216,7 +169,7 @@ saveChanges = e => {
 };
 
   render() {
-    let redirectlink = '/response2/' + this.props.patientIndex;
+    let redirectlink = '/questionnaire';
     let patientVar = this.state.response;
     return this.state.redirect ? (
         <Redirect to={redirectlink} />
@@ -424,4 +377,4 @@ saveChanges = e => {
   }
 }
 
-export default ResponseLog;
+export default ResponseLog2;
