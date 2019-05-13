@@ -224,15 +224,10 @@ saveChanges = e => {
       <div className="info-side">
       <form>
         <br/>
-        <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Save Changes</submit>
-        <br/>
-        {(this.state.saved) ? <div><p>Saved changes at {this.state.timeSaved}</p></div> : <div></div>}
+        <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Submit Responses</submit>
         <br/>
           <p><h2 class="white-text">Input Your Subject ID:</h2>
           <input class="form-control" id="subjectID" onChange={this.updateID} value={patientVar.subjectID} required></input>
-          <br/>
-          <p class="white-text">General Notes and Comments:</p>
-          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="Diagnosis" value={patientVar.notes}/>
           <br/>
             <p class="white-text">Level of Consciousness:</p>
           <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.levelOfConsciousness.value}>
@@ -415,6 +410,9 @@ saveChanges = e => {
             one modality; does not recognize own hand or orients
             to only one side of space. </option>
           </select>
+          <br/>
+          <p class="white-text">General Notes and Comments:</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="Diagnosis" value={patientVar.notes}/>
           <br/>
           </p>
           <br/>

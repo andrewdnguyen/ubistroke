@@ -27,7 +27,7 @@ div.displayed-symptoms{
 }
 
 .symptoms{
-  max-height: 290px;
+  max-height: 240px;
   overflow-y: auto;
 }
 
@@ -38,11 +38,18 @@ div.displayed-symptoms{
 
 div.user-options{
   position:absolute;
-  top:340px;
+  top:305px;
   left: 72%;
   width: 150px;
   height: 100px;
 }
+
+.skeleton{
+  position:absolute;
+  top: 50px;
+  left:12%;
+}
+
 div.drawn-head{
   background-color: green;
   border-radius: 110px;
@@ -311,7 +318,7 @@ div.drawn-foot-left{
   position: absolute;
   top: 550px;
   height: 210px;
-  width: 99%;
+  width: 96%;
 }
 
 .kinect-video{
@@ -434,72 +441,146 @@ div.node:hover{
 
 }
 
-div.head{
-  top: 90px;
-  left: 383px;
+@media (min-width:1200px){
+  div.head{
+    top: 90px;
+    left: 56.5%;
+  }
+
+  div.neck{
+    top: 130px;
+    left: 56.5%;
+  }
+
+  div.shoulderLeft{
+    top: 150px;
+    left: 63%;
+  }
+
+  div.shoulderRight{
+    top: 150px;
+    left: 50%;
+  }
+
+  div.elbowLeft{
+    top: 215px;
+    left: 64%;
+  }
+
+  div.elbowRight{
+    top: 215px;
+    left: 49%;
+  }
+
+  div.wristLeft{
+    top: 285px;
+    left: 66.5%;
+  }
+
+  div.wristRight{
+    top: 285px;
+    left: 46.5%;
+  }
+
+  div.spine{
+    top: 200px;
+    left: 56.5%;
+  }
+
+  div.hip{
+    top: 270px;
+    left: 56.5%;
+  }
+
+  div.kneeLeft{
+    top: 390px;
+    left: 60%;
+  }
+
+  div.kneeRight{
+    top: 390px;
+    left: 53%;
+  }
+
+  div.ankleLeft{
+    top: 480px;
+    left: 60%;
+  }
+
+  div.ankleRight{
+    top: 480px;
+    left: 53%;
+  }
 }
 
-div.neck{
-  top: 150px;
-  left: 383px;
-}
+@media (min-width:1400px){
+  div.head{
+    top: 90px;
+    left: 47.5%;
+  }
 
-div.shoulderLeft{
-  top: 170px;
-  left: 430px;
-}
+  div.neck{
+    top: 130px;
+    left: 47.5%;
+  }
 
-div.shoulderRight{
-  top: 170px;
-  left: 325px;
-}
+  div.shoulderLeft{
+    top: 150px;
+    left: 53%;
+  }
 
-div.elbowLeft{
-  top: 240px;
-  left: 455px;
-}
+  div.shoulderRight{
+    top: 150px;
+    left: 42%;
+  }
 
-div.elbowRight{
-  top: 240px;
-  left: 310px;
-}
+  div.elbowLeft{
+    top: 215px;
+    left: 54%;
+  }
 
-div.wristLeft{
-  top: 305px;
-  left: 455px;
-}
+  div.elbowRight{
+    top: 215px;
+    left: 41%;
+  }
 
-div.wristRight{
-  top: 305px;
-  left: 310px;
-}
+  div.wristLeft{
+    top: 285px;
+    left: 55.5%;
+  }
 
-div.spine{
-  top: 220px;
-  left: 383px;
-}
+  div.wristRight{
+    top: 285px;
+    left: 39.5%;
+  }
 
-div.hip{
-  top: 325px;
-  left: 383px;
-}
+  div.spine{
+    top: 200px;
+    left: 47.5%;
+  }
 
-div.kneeLeft{
-  top: 440px;
-  left: 403px;
-}
+  div.hip{
+    top: 270px;
+    left: 47.5%;
+  }
 
-div.kneeRight{
-  top: 440px;
-  left: 360px;
-}
+  div.kneeLeft{
+    top: 390px;
+    left: 50%;
+  }
 
-div.ankleLeft{
-  top: 515px;
-  left: 400px;
-}
+  div.kneeRight{
+    top: 390px;
+    left: 45%;
+  }
 
-div.ankleRight{
-  top: 515px;
-  left: 364px;
+  div.ankleLeft{
+    top: 480px;
+    left: 50%;
+  }
+
+  div.ankleRight{
+    top: 480px;
+    left: 45%;
+  }
 }

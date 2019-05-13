@@ -69,9 +69,10 @@ getModules(){
 
         <h1 style={{color: 'white'}}><center>Patients</center></h1>
           <div class = "patient-buttons">
+          <center><Link to="/"><button class="btn btn-lg btn-primary btn-block">&lt;&lt; Go Back</button></Link></center><br/><br/>
           {this.generateButtons()}
           </div>
-          <center><Link to="/"><button class="btn btn-lg btn-primary btn-block back-button">&lt;&lt; Go Back</button></Link></center>
+
       </div>
     );
   }

@@ -11,6 +11,7 @@ import { Player } from 'video-react';
 import './PatientInfo.css';
 import firebase from "firebase";
 import Chart from 'react-google-charts';
+import Skeleton from './Skeleton.jsx'
 var config = {
   apiKey: "AIzaSyDBFvjEfVbGK6njvCN49i68K-F8S_w5mus",
   authDomain: "ubistroke.firebaseapp.com",
@@ -45,6 +46,10 @@ class PatientSkeletonNew extends Component {
     this.database = this.app.database().ref().child('info');
     this.state = {
       loading: true,
+      trueMin: [],
+      trueMax: [],
+      minimum: [],
+      maximum: [],
       index: this.props.patientIndex,
       database: {},
       displayGraph: true,
@@ -149,11 +154,43 @@ handleStateChange(state, prevState) {
 seeking(){
   console.log(this.refs.player2.duration);
   let current = parseInt(this.refs.player2.currentTime);
-  let duration = parseInt(this.refs.player2.duration);
-  let percentage = (current/duration);
-  let scrollValue = 15000 * percentage;
+  //console.log(current);
+  let array = [];
+  let minutes = parseInt(current/60);
+  let seconds = parseInt(current%60);
+  let maxSeconds = seconds + 5;
+  let minSeconds = seconds - 5;
+  let maxMinutes = minutes;
+  let minMinutes = minutes;
+  if(maxSeconds >= 60){
+    maxMinutes++;
+    maxSeconds = maxSeconds - 60;
+  }
+  if(minSeconds <= 0){
+    if(minMinutes > 0){
+      minMinutes--;
+    }
+    else{
+      minMinutes = 0;
+    }
 
-  this.refs.chart.scrollLeft = scrollValue;
+    minSeconds = 60 - minSeconds;
+  }
+  let array2 = [];
+  array.push(0);
+  array.push(maxMinutes);
+  array.push(maxSeconds);
+  array.push(0);
+  array2.push(0);
+  array2.push(minMinutes);
+  array2.push(minSeconds);
+  array2.push(0);
+  console.log(array);
+  console.log(array2);
+  if(array > this.state.trueMax){
+    array = this.state.trueMax;
+  }
+  this.setState({minimum: array2, maximum: array});
 }
 
 testMethod = e =>{
@@ -174,11 +211,21 @@ rightArmColor(){
   let patientVariable = this.state.database[index].NIHSS;
   //console.log(this.state.database);
   let motorArmRight = this.getValue(patientVariable.motorArm.right.value);
-  let determinator = motorArmRight;
-  if(determinator <= 1){
+  let sensory = 0;
+  if(patientVariable.sensory.side != 1){
+    sensory = this.getValue(patientVariable.sensory.value);
+  }
+  let limbAtaxia = 0;
+  if(patientVariable.limbAtaxia.side != 1){
+    if(patientVariable.limbAtaxia.limb != 2){
+      limbAtaxia = 1;
+    }
+  }
+  let determinator = motorArmRight+limbAtaxia+sensory;
+  if(determinator <= 2){
     return "green";
   }
-  else if(determinator <= 3){
+  else if(determinator <= 4){
     return "yellow";
   }
   else{
@@ -213,11 +260,21 @@ leftArmColor(){
   let patientVariable = this.state.database[index].NIHSS;
   //console.log(this.state.database);
   let motorArmLeft = this.getValue(patientVariable.motorArm.left.value);
-  let determinator = motorArmLeft;
-  if(determinator <= 1){
+  let sensory = 0;
+  if(patientVariable.sensory.side != 2){
+    sensory = this.getValue(patientVariable.sensory.value);
+  }
+  let limbAtaxia = 0;
+  if(patientVariable.limbAtaxia.side != 2){
+    if(patientVariable.limbAtaxia.limb != 2){
+      limbAtaxia = 1;
+    }
+  }
+  let determinator = motorArmLeft + limbAtaxia + sensory;
+  if(determinator <= 2){
     return "green";
   }
-  else if(determinator <= 3){
+  else if(determinator <= 4){
     return "yellow";
   }
   else{
@@ -231,11 +288,113 @@ leftLegColor(){
   let patientVariable = this.state.database[index].NIHSS;
   //console.log(this.state.database);
   let motorLegLeft = this.getValue(patientVariable.motorLeg.left.value);
-  let determinator = motorLegLeft;
-  if(determinator <= 1){
+  let sensory = 0;
+  if(patientVariable.sensory.side != 2){
+    sensory = this.getValue(patientVariable.sensory.value);
+  }
+  let limbAtaxia = 0;
+  if(patientVariable.limbAtaxia.side != 2){
+    if(patientVariable.limbAtaxia.limb != 1){
+      limbAtaxia = 1;
+    }
+  }
+  let determinator = motorLegLeft+limbAtaxia+sensory;
+  if(determinator <= 2){
     return "green";
   }
-  else if(determinator <= 3){
+  else if(determinator <= 4){
+    return "yellow";
+  }
+  else{
+    return "red";
+  }
+
+}
+
+rightFaceColor(){
+  let index = parseInt(this.state.index);
+  let patientVariable = this.state.database[index].NIHSS;
+  let sensory = 0;
+  let facialPalsy = 0;
+  if(patientVariable.sensory.side != 1){
+    sensory = this.getValue(patientVariable.sensory.value);
+  }
+  if(patientVariable.facialPalsy.side != 1){
+    facialPalsy = this.getValue(patientVariable.facialPalsy.value);
+  }
+  let determinator = sensory+facialPalsy;
+  if(determinator <= 2){
+    return "green";
+  }
+  else if(determinator <= 4){
+    return "yellow";
+  }
+  else{
+    return "red";
+  }
+
+}
+
+leftFaceColor(){
+  let index = parseInt(this.state.index);
+  let patientVariable = this.state.database[index].NIHSS;
+  let sensory = 0;
+  let facialPalsy = 0;
+  if(patientVariable.facialPalsy.side != 2){
+    facialPalsy = this.getValue(patientVariable.facialPalsy.value);
+  }
+  if(patientVariable.sensory.side != 2){
+    sensory = this.getValue(patientVariable.sensory.value);
+  }
+  let determinator = sensory + facialPalsy;
+  if(determinator <= 2){
+    return "green";
+  }
+  else if(determinator <= 4){
+    return "yellow";
+  }
+  else{
+    return "red";
+  }
+
+}
+
+rightHeadColor(){
+  let index = parseInt(this.state.index);
+  let patientVariable = this.state.database[index].NIHSS;
+  let ei = 0;
+  let loc = this.getValue(patientVariable.levelOfConsciousness.value);
+  let commands = this.getValue(patientVariable.locCommands.value);
+  if(patientVariable.extinctionAndInattention.side != 2){
+    ei = this.getValue(patientVariable.extinctionAndInattention.value);
+  }
+  let determinator = ei+loc+commands;
+  if(determinator < 3){
+    return "green";
+  }
+  else if(determinator <= 6){
+    return "yellow";
+  }
+  else{
+    return "red";
+  }
+
+}
+
+leftHeadColor(){
+  let index = parseInt(this.state.index);
+  let patientVariable = this.state.database[index].NIHSS;
+  let loc = this.getValue(patientVariable.levelOfConsciousness.value);
+  let commands = this.getValue(patientVariable.locCommands.value);
+  let ei = 0;
+  if(patientVariable.extinctionAndInattention.side != 1){
+    ei = this.getValue(patientVariable.extinctionAndInattention.value);
+  }
+  let determinator = ei + loc+commands;
+  if(determinator < 3){
+    return "green";
+  }
+  else if(determinator <= 6){
     return "yellow";
   }
   else{
@@ -249,11 +408,21 @@ rightLegColor(){
   let patientVariable = this.state.database[index].NIHSS;
   //console.log(this.state.database);
   let motorLegRight = this.getValue(patientVariable.motorLeg.right.value);
-  let determinator = motorLegRight;
-  if(determinator <= 1){
+  let sensory = 0;
+  if(patientVariable.sensory.side != 1){
+    sensory = this.getValue(patientVariable.sensory.value);
+  }
+  let limbAtaxia = 0;
+  if(patientVariable.limbAtaxia.side != 1){
+    if(patientVariable.limbAtaxia.limb != 1){
+      limbAtaxia = 1;
+    }
+  }
+  let determinator = motorLegRight+limbAtaxia+sensory;
+  if(determinator <= 2){
     return "green";
   }
-  else if(determinator <= 3){
+  else if(determinator <= 4){
     return "yellow";
   }
   else{
@@ -267,14 +436,15 @@ rightEyeColor(){
   let patientVariable = this.state.database[index].NIHSS;
   //console.log(this.state.database);
   let bestGaze = 0;
+  let visual = this.getValue(patientVariable.visual.value);
   if(patientVariable.bestGaze.side > 1 ){
     bestGaze = this.getValue(patientVariable.bestGaze.value);
   }
-  let determinator = bestGaze;
-  if(determinator == 0){
+  let determinator = bestGaze+visual;
+  if(determinator <= 2){
     return "green";
   }
-  else if(determinator == 1){
+  else if(determinator <= 4){
     return "yellow";
   }
   else{
@@ -287,15 +457,16 @@ leftEyeColor(){
   let index = parseInt(this.state.index);
   let patientVariable = this.state.database[index].NIHSS;
   //console.log(this.state.database);
+  let visual = this.getValue(patientVariable.visual.value);
   let bestGaze = 0;
   if(patientVariable.bestGaze.side != 2 ){
     bestGaze = this.getValue(patientVariable.bestGaze.value);
   }
-  let determinator = bestGaze;
-  if(determinator == 0){
+  let determinator = bestGaze+visual;
+  if(determinator <= 2){
     return "green";
   }
-  else if(determinator == 1){
+  else if(determinator <= 4){
     return "yellow";
   }
   else{
@@ -332,7 +503,8 @@ jump(seconds) {
     let seconds = parseInt(time.substring(6, 8));
     let thirdThing = parseInt(time.substring(9, 12));
     console.log(minutes + " " + seconds + " " + thirdThing);
-
+    let minimum;
+    let maximum;
     for (let i = 0; i < data.length; i++){
       let timeArray = [];
       let time = data[i].Time;
@@ -343,6 +515,12 @@ jump(seconds) {
       timeArray.push(minutes);
       timeArray.push(seconds);
       timeArray.push(thirdThing);
+      if(i == 0){
+        minimum = timeArray;
+      }
+      if(i == data.length-1){
+        maximum = timeArray;
+      }
       let tempArray = [];
       tempArray.push(timeArray);
       tempArray.push(parseFloat(data[i].HeadX));
@@ -373,7 +551,7 @@ jump(seconds) {
     this.setState({csvData: data, head: false, neck: false, lshoulder: false, rshoulder: false, lelbow: false, relbow: false,
       lwrist: false, rwrist: false, midspine: false, spinebase: false, lknee: false, rknee: false, lankle: false, rankle: false, googleData: googleData, axis: currentAxis
                   }); // or shorter ES syntax: this.setState({ data });
-    this.setState({ data: { ...this.state.data, labels: newData} });
+    this.setState({ data: { ...this.state.data, labels: newData}, minimum: minimum, maximum: maximum, trueMax: maximum, trueMin: minimum });
     }
 
 
@@ -441,6 +619,10 @@ displayOff = e =>{
 
 displayOn = e =>{
   this.setState({ displayGraph: false });
+}
+
+refocus = e =>{
+  this.setState({ minimum: this.state.trueMin, maximum: this.state.trueMax });
 }
 
 displayToggle = e =>{
@@ -615,6 +797,11 @@ listSymptoms(){
         ) :(
       <div class="canvas-div2">
 
+      <Skeleton leftLegColor={this.leftLegColor()} rightLegColor={this.rightLegColor()}
+      chestColor="#000000" rightArmColor={this.rightArmColor()} leftArmColor={this.leftArmColor()}
+      leftHead={this.leftHeadColor()} rightEyeColor={this.rightEyeColor()} rightFace={this.rightFaceColor()}
+      mouthColor={this.mouthColor()} leftEyeColor={this.leftEyeColor()} leftFace={this.leftFaceColor()} rightHead={this.rightHeadColor()}/>
+
       <video controls fluid={false} width={285} ref="player2" onSeeked={this.seeking.bind(this)}>
         <source src={this.state.database[this.props.patientIndex].Video} ></source>
       </video>
@@ -628,34 +815,7 @@ listSymptoms(){
         <h1 id="left-symbol"> R </h1>
         <h1 id="right-symbol"> L </h1>
 
-        <div class="drawn-head"></div>
-        <div class="drawn-arm-left"></div>
-        <div class="drawn-arm-right">
-        <div class="drawn-upper-arm-right" style={{backgroundColor: this.leftArmColor()}}></div>
-        <div class="drawn-lower-arm-right" style={{backgroundColor: this.leftArmColor()}}></div>
-        <div class="drawn-hand-right" style={{backgroundColor: this.leftArmColor()}}></div>
-        </div>
 
-        <div class="drawn-arm-left">
-        <div class="drawn-upper-arm-left" style={{backgroundColor: this.rightArmColor()}}></div>
-        <div class="drawn-lower-arm-left" style={{backgroundColor: this.rightArmColor()}}></div>
-        <div class="drawn-hand-left" style={{backgroundColor: this.rightArmColor()}}></div>
-        </div>
-
-        <div class="drawn-body-left"></div>
-        <div class="drawn-body-right"></div>
-
-        <div class="drawn-upper-leg-left" style={{backgroundColor: this.rightLegColor()}}></div>
-        <div class="drawn-lower-leg-left" style={{backgroundColor: this.rightLegColor()}}></div>
-        <div class="drawn-foot-left" style={{backgroundColor: this.rightLegColor()}}></div>
-
-        <div class="drawn-upper-leg-right" style={{backgroundColor: this.leftLegColor()}}></div>
-        <div class="drawn-lower-leg-right" style={{backgroundColor: this.leftLegColor()}}></div>
-        <div class="drawn-foot-right" style={{backgroundColor: this.leftLegColor()}}></div>
-
-        <div class="drawn-eye-left" style={{backgroundColor: this.rightEyeColor()}}></div>
-        <div class="drawn-eye-right" style={{backgroundColor: this.leftEyeColor()}}></div>
-        <div class="drawn-mouth" style={{backgroundColor: this.mouthColor()}}></div>
 
         { (this.state.displayNodes) ?
         <div class="nodes">
@@ -683,6 +843,7 @@ listSymptoms(){
             <center>{ (this.state.displayNodes) ? <button class="hideNodes" onClick={this.displayToggle}>&times; Hide Nodes</button> :
             <button class="showNodes" onClick={this.displayToggle}>Show Nodes</button> } </center>
             {(this.state.displayGraph) ? <div><center><button class="closeChart" onClick={this.displayOn}>Open Chart</button></center></div> : <div><center><button class="closeChart" onClick={this.displayOff}>&times; Close Chart</button></center>
+            <center><button class="switchChart" onClick={this.refocus}>Reset Chart Focus</button></center>
             <center><button class="switchChart" onClick={this.switchX}>Switch to X Data</button></center>
             <center><button class="switchChart" onClick={this.switchY}>Switch to Y Data</button></center>
             <center><button class="switchChart" onClick={this.switchZ}>Switch to Z Data</button></center>
@@ -701,7 +862,7 @@ listSymptoms(){
               <div ref="chart" class="chart-div">
               <Chart
                 width="100%"
-                height={400}
+                height={200}
                 chartType="LineChart"
                 data={this.state.googleData}
                 options={{
@@ -709,13 +870,17 @@ listSymptoms(){
                      maxZoomOut: 1,
                      maxZoomIn: .01,
                      keepInBounds: true,
-                     rightClickToReset: true
+                     rightClickToReset: true,
                   },
                   legend: {
                     position: 'none',
                   },
                   hAxis: {
                     title: 'Time',
+                    viewWindow: {  // <-- set view window
+                      min: this.state.minimum,
+                      max: this.state.maximum
+                    },
                   },
                   vAxis: {
                     title: 'Joint Position',
@@ -749,9 +914,9 @@ listSymptoms(){
                   const { row, column } = selectedItem
                   let timeString = dataTable.getValue(row, 0);
                   console.log(timeString);
-                  var link2 = timeString.substring(3,8);
-                  var value = link2.split(':').reverse().reduce((prev, curr, i) => prev + curr*Math.pow(60, i), 0);
-                  var value2 = parseInt(value);
+                  let minutes = timeString[1] * 60;
+                  let seconds = timeString[2];
+                  let value2 = minutes+seconds;
                   this.refs.player2.currentTime = value2;;
                   //this.refs.player.seek(value2);
 
