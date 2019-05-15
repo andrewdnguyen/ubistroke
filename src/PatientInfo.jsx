@@ -287,6 +287,7 @@ saveChanges = e => {
             <p class="white-text">Level of Consciousness:</p>
           <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.NIHSS.levelOfConsciousness.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = Alert; keenly responsive.</option>
             <option value="1">1 = Not alert; but arousable by minor stimulation to obey,
            answer, or respond.</option>
@@ -300,6 +301,7 @@ saveChanges = e => {
             <p class="white-text">LOC - Questions:</p>
           <select class="form-control" id="locQuestions" onChange={this.updateValue} value={patientVar.NIHSS.locQuestions.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = Answers both questions correctly.</option>
             <option value="1">1 = Answers one question correctly.</option>
             <option value ="2">2 = Answers neither question correctly.</option>
@@ -308,6 +310,7 @@ saveChanges = e => {
             <p class="white-text">LOC - Commands:</p>
           <select class="form-control" id="locCommands" onChange={this.updateValue} value={patientVar.NIHSS.locCommands.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = Performs both tasks correctly.</option>
             <option value="1">1 = Performs one task correctly.</option>
             <option value ="2">2 = Performs neither task correctly. </option>
@@ -318,6 +321,7 @@ saveChanges = e => {
             <p class="white-text">Best Gaze:</p>
           <select class="form-control" id="bestGaze" onChange={this.updateValue} value={patientVar.NIHSS.bestGaze.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = Normal.</option>
             <option value="1">1 = Partial gaze palsy; gaze is abnormal in one or both eyes,
             but forced deviation or total gaze paresis is not present.</option>
@@ -338,6 +342,7 @@ saveChanges = e => {
             <p class="white-text">Visual:</p>
           <select class="form-control" id="visual" onChange={this.updateValue} value={patientVar.NIHSS.visual.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = No visual loss.</option>
             <option value="1">1 = Partial hemianopia.</option>
             <option value ="2">2 = Complete hemianopia.</option>
@@ -357,6 +362,7 @@ saveChanges = e => {
             <p class="white-text">Facial Palsy:</p>
           <select class="form-control" id="facialPalsy" onChange={this.updateValue} value={patientVar.NIHSS.facialPalsy.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = Normal symmetrical movements.</option>
             <option value="1">1 = Minor paralysis (flattened nasolabial fold, asymmetry on
             smiling).</option>
@@ -379,6 +385,7 @@ saveChanges = e => {
             <p class="white-text">Motor Arm Left:</p>
           <select class="form-control" id="leftArm" onChange={this.updateLeftArm} value={patientVar.NIHSS.motorArm.left.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = No drift; limb holds 90 (or 45) degrees for full 10 seconds.</option>
             <option value="1">1 = Drift; limb holds 90 (or 45) degrees, but drifts down before
             full 10 seconds; does not hit bed or other support.</option>
@@ -393,6 +400,7 @@ saveChanges = e => {
             <p class="white-text">Motor Arm Right:</p>
           <select class="form-control" id="questionValue" onChange={this.updateRightArm} value={patientVar.NIHSS.motorArm.right.value}>
           <option disabled selected value> -- select an option -- </option>
+          <option value="N/A">Can't be Determined /w Current Information</option>
           <option value="0">0 = No drift; limb holds 90 (or 45) degrees for full 10 seconds.</option>
           <option value="1">1 = Drift; limb holds 90 (or 45) degrees, but drifts down before
           full 10 seconds; does not hit bed or other support.</option>
@@ -409,6 +417,7 @@ saveChanges = e => {
             <p class="white-text">Motor Leg Left:</p>
           <select class="form-control" id="questionValue" onChange={this.updateLeftLeg} value={patientVar.NIHSS.motorLeg.left.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = No drift; leg holds 30-degree position for full 5 seconds.</option>
             <option value="1">1 = Drift; leg falls by the end of the 5-second period but does
             not hit bed.</option>
@@ -422,6 +431,7 @@ saveChanges = e => {
             <p class="white-text">Motor Leg Right:</p>
           <select class="form-control" id="questionValue" onChange={this.updateRightLeg} value={patientVar.NIHSS.motorLeg.right.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = No drift; leg holds 30-degree position for full 5 seconds.</option>
             <option value="1">1 = Drift; leg falls by the end of the 5-second period but does
             not hit bed.</option>
@@ -437,6 +447,7 @@ saveChanges = e => {
             <p class="white-text">Limb Ataxia:</p>
           <select class="form-control" id="limbAtaxia" onChange={this.updateValue} value={patientVar.NIHSS.limbAtaxia.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = Absent.</option>
             <option value="1">1 = Present in one limb.</option>
             <option value ="2">2 = Present in two limbs.</option>
@@ -464,6 +475,7 @@ saveChanges = e => {
             <p class="white-text">Sensory:</p>
           <select class="form-control" id="sensory" onChange={this.updateValue} value={patientVar.NIHSS.sensory.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = Normal; no sensory loss.</option>
             <option value="1">1 = Mild-to-moderate sensory loss; patient feels pinprick is
             less sharp or is dull on the affected side; or there is a
@@ -486,6 +498,7 @@ saveChanges = e => {
             <p class="white-text">Best Language:</p>
           <select class="form-control" id="bestLanguage" onChange={this.updateValue} value={patientVar.NIHSS.bestLanguage.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = No aphasia; normal.</option>
             <option value="1">1 = Mild-to-moderate aphasia; some obvious loss of fluency
             or facility of comprehension, without significant
@@ -509,6 +522,7 @@ saveChanges = e => {
             <p class="white-text">Dysarthria:</p>
           <select class="form-control" id="dysarthria" onChange={this.updateValue} value={patientVar.NIHSS.dysarthria.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = Normal.</option>
             <option value="1">1 = Mild-to-moderate dysarthria; patient slurs at least some
             words and, at worst, can be understood with some
@@ -525,6 +539,7 @@ saveChanges = e => {
             <p class="white-text">Extinction and Inattention: </p>
           <select class="form-control" id="extinctionAndInattention" onChange={this.updateValue} value={patientVar.NIHSS.extinctionAndInattention.value}>
             <option disabled selected value> -- select an option -- </option>
+            <option value="N/A">Can't be Determined /w Current Information</option>
             <option value="0">0 = No abnormality.</option>
             <option value="1">1 = Visual, tactile, auditory, spatial, or personal inattention
             or extinction to bilateral simultaneous stimulation in one

@@ -32,7 +32,8 @@ class Questions extends Component {
       test: {},
       response: {
           notes: "",
-          subjectID: ""
+          subjectID: "",
+          question1: ""
       }
       }
     };
@@ -56,7 +57,7 @@ updateNotes = e => {
   this.setState({
     response: {
       ...this.state.response,
-      notes: e.target.value
+      [e.target.name]: e.target.value
 
       }
     });
@@ -115,8 +116,25 @@ saveChanges = e => {
           <h2 class="white-text">Input Your Subject ID:</h2>
           <input class="form-control" id="subjectID" onChange={this.updateID} value={patientVar.subjectID} required></input>
           <br/>
+          <p class="white-text">Were there any symptoms in particular which you found difficult to diagnose with just the information we give you?</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question1" value={patientVar.question1}/>
+          <br/>
+          <p class="white-text">Was any of the given information largely unnecessary or unused?</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question2" value={patientVar.question2}/>
+          <br/>
+          <p class="white-text">How confident are you in your own NIHSS diagnoses when done in-person?</p>
+          <select class="form-control" name="question3" onChange={this.updateNotes} value={patientVar.question3}>
+            <option value="1">1 = No Confidence</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value ="4">4</option>
+            <option value ="5">5</option>
+            <option value ="6">6</option>
+            <option value ="7">7 = Full Confidence</option>
+          </select>
+          <br/>
           <p class="white-text">General Questions and Comments:</p>
-          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="Diagnosis" value={patientVar.notes}/>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="notes" value={patientVar.notes}/>
           <br/>
         </form>
       </div>
