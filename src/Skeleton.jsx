@@ -1,7 +1,6 @@
 import React from "react";
 
 const Skeleton = props => (
-  <div class = "skeleton">
   <svg width="600px" height="500px" viewBox="0 0 1200 1200" >
   <g>
   	<g>
@@ -1099,7 +1098,6 @@ const Skeleton = props => (
   	</g>
   </g>
   </svg>
-  </div>
 );
 
 export default Skeleton;

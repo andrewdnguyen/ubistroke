@@ -797,10 +797,7 @@ listSymptoms(){
         ) :(
       <div class="canvas-div2">
 
-      <Skeleton leftLegColor={this.leftLegColor()} rightLegColor={this.rightLegColor()}
-      chestColor="#000000" rightArmColor={this.rightArmColor()} leftArmColor={this.leftArmColor()}
-      leftHead={this.leftHeadColor()} rightEyeColor={this.rightEyeColor()} rightFace={this.rightFaceColor()}
-      mouthColor={this.mouthColor()} leftEyeColor={this.leftEyeColor()} leftFace={this.leftFaceColor()} rightHead={this.rightHeadColor()}/>
+
 
       <video controls fluid={false} width={285} ref="player2" onSeeked={this.seeking.bind(this)}>
         <source src={this.state.database[this.props.patientIndex].Video} ></source>
@@ -810,13 +807,18 @@ listSymptoms(){
           {(this.state.displayGraph) ? <div></div> : <div>Currently Displaying {this.state.axis} Axis Data for:
            <div class="joints">{this.listDisplay()}</div>
            vs. Time (HH:MM:SS) </div>}
+           <br/><br/>
+           <p >Skeleton Region Legend:</p>
+           <p ><div class="square" style={{backgroundColor: "green"}} ></div> Symptoms in area are mild.</p>
+           <p ><div class="square" style={{backgroundColor: "yellow"}} ></div> Symptoms in area are moderate.</p>
+           <p ><div class="square" style={{backgroundColor: "red"}} ></div> Symptoms in area are severe.</p>
         </div>
 
         <h1 id="left-symbol"> R </h1>
         <h1 id="right-symbol"> L </h1>
 
 
-
+        <div class = "skeleton">
         { (this.state.displayNodes) ?
         <div class="nodes">
         <div class="head node" style={{ backgroundColor: this.state.head ? '#c95253' : 'black'}} onClick={this.displayHead}><span class="tooltiptext">Head</span></div>
@@ -837,7 +839,11 @@ listSymptoms(){
         :
         <div></div>
       }
-
+      <Skeleton leftLegColor={this.leftLegColor()} rightLegColor={this.rightLegColor()}
+      chestColor="#727882" rightArmColor={this.rightArmColor()} leftArmColor={this.leftArmColor()}
+      leftHead={this.leftHeadColor()} rightEyeColor={this.rightEyeColor()} rightFace={this.rightFaceColor()}
+      mouthColor={this.mouthColor()} leftEyeColor={this.leftEyeColor()} leftFace={this.leftFaceColor()} rightHead={this.rightHeadColor()}/>
+      </div>
       <div class="user-options">
             <h5><center>User Options</center></h5>
             <center>{ (this.state.displayNodes) ? <button class="hideNodes" onClick={this.displayToggle}>&times; Hide Nodes</button> :
