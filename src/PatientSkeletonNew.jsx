@@ -185,11 +185,14 @@ seeking(){
   array2.push(minMinutes);
   array2.push(minSeconds);
   array2.push(0);
-  console.log(array);
-  console.log(array2);
-  if(array > this.state.trueMax){
-    array = this.state.trueMax;
-  }
+  // console.log(array);
+  // console.log(array2);
+  // if(array[1] > this.state.trueMax[1] || (array[1] == this.state.trueMax[1] && array[2] > this.state.trueMax[2])){
+  //   array = this.state.trueMax;
+  // }
+  // if(array2[1] < this.state.trueMin[1] || (array2[1] == this.state.trueMin[1] && array2[2] < this.state.trueMin[2])){
+  //   array2 = this.state.trueMin;
+  // }
   this.setState({minimum: array2, maximum: array});
 }
 
@@ -798,11 +801,6 @@ listSymptoms(){
       <div class="canvas-div2">
 
 
-
-      <video controls fluid={false} width={285} ref="player2" onSeeked={this.seeking.bind(this)}>
-        <source src={this.state.database[this.props.patientIndex].Video} ></source>
-      </video>
-
         <div class = "displayReading">
           {(this.state.displayGraph) ? <div></div> : <div>Currently Displaying {this.state.axis} Axis Data for:
            <div class="joints">{this.listDisplay()}</div>
@@ -844,6 +842,9 @@ listSymptoms(){
       leftHead={this.leftHeadColor()} rightEyeColor={this.rightEyeColor()} rightFace={this.rightFaceColor()}
       mouthColor={this.mouthColor()} leftEyeColor={this.leftEyeColor()} leftFace={this.leftFaceColor()} rightHead={this.rightHeadColor()}/>
       </div>
+      <video controls fluid={false} width={285} ref="player2" onSeeked={this.seeking.bind(this)}>
+        <source src={this.state.database[this.props.patientIndex].Video} ></source>
+      </video>
       <div class="user-options">
             <h5><center>User Options</center></h5>
             <center>{ (this.state.displayNodes) ? <button class="hideNodes" onClick={this.displayToggle}>&times; Hide Nodes</button> :
