@@ -109,21 +109,29 @@ saveChanges = e => {
       <div className="info-side">
       <form>
         <br/>
-        <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Save Changes</submit>
+        <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Submit Your Answers</submit>
         <br/>
-        {(this.state.saved) ? <div><p>Saved changes at {this.state.timeSaved}</p></div> : <div></div>}
         <br/>
           <h2 class="white-text">Input Your Subject ID:</h2>
           <input class="form-control" id="subjectID" onChange={this.updateID} value={patientVar.subjectID} required></input>
           <br/>
-          <p class="white-text">Were there any symptoms in particular which you found difficult to diagnose with just the information we give you?</p>
+          <p class="white-text">What is your current medical occupation or status?</p>
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question1" value={patientVar.question1}/>
           <br/>
-          <p class="white-text">Was any of the given information largely unnecessary or unused?</p>
+          <p class="white-text">Were there any symptoms in particular which you found difficult to diagnose with just the information we give you?</p>
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question2" value={patientVar.question2}/>
           <br/>
+          <p class="white-text">Was any of the given information largely unnecessary or unused?</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question3" value={patientVar.question3}/>
+          <br/>
+          <p class="white-text">Which piece of information was most helpful for you?</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question4" value={patientVar.question4}/>
+          <br/>
+          <p class="white-text">Which piece of information was most helpful for your diagnoses?</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question5" value={patientVar.question5}/>
+          <br/>
           <p class="white-text">How confident are you in your own NIHSS diagnoses when done in-person?</p>
-          <select class="form-control" name="question3" onChange={this.updateNotes} value={patientVar.question3}>
+          <select class="form-control" name="question6" onChange={this.updateNotes} value={patientVar.question6}>
             <option value="1">1 = No Confidence</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -133,9 +141,22 @@ saveChanges = e => {
             <option value ="7">7 = Full Confidence</option>
           </select>
           <br/>
+          <p class="white-text">In general, do you often trust or rely on information provided from your team? What about other teams? Outside of your own hospital system?</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question7" value={patientVar.question7}/>
+          <br/>
+          <p class="white-text">Do you feel that the information provided by this application is reliable and accurate?</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question8" value={patientVar.question8}/>
+          <br/>
+          <p class="white-text">Did you feel that there any errors in any of the data we provided?</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question9" value={patientVar.question9}/>
+          <br/>
+          <p class="white-text">In your daily work, is there any software program that helps you make medical decisions for your patients? If so, what is the name of the software and what does it tell you?</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question10" value={patientVar.question10}/>
+          <br/>
           <p class="white-text">General Questions and Comments:</p>
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="notes" value={patientVar.notes}/>
           <br/>
+
         </form>
       </div>
     )

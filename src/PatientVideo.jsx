@@ -47,6 +47,19 @@ getModules(){
       this.getModules();
   }
 
+  seeking(){
+    console.log(this.refs.player.duration);
+    let current = parseInt(this.refs.player.currentTime);
+    this.refs.audio.currentTime = current;
+  }
+
+  playAudio(){
+    this.refs.audio.play();
+  }
+
+  pauseAudio(){
+    this.refs.audio.pause();
+  }
 
 
   render() {
@@ -56,9 +69,14 @@ getModules(){
             </div>
         ) :(
       <div class="canvas-div2">
-      <Player fluid={true} width="100%" ref="player">
-        <source src={this.state.test[this.props.patientIndex].Video}></source>
-      </Player>
+      <video controls fluid={false} width={776} ref="player" onSeeked={this.seeking.bind(this)} onPlay={this.playAudio.bind(this)} onPause={this.pauseAudio.bind(this)}>
+        <source src={this.state.test[this.props.patientIndex].Video} ></source>
+      </video>
+
+      <audio ref="audio">
+        <source src="/audio/Patient_31_audio.wav" type="audio/wav"></source>
+      Your browser does not support the audio element.
+      </audio>
       </div>
     )
   }

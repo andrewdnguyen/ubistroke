@@ -151,9 +151,18 @@ handleStateChange(state, prevState) {
 
 }
 
+playAudio(){
+  this.refs.audio.play();
+}
+
+pauseAudio(){
+  this.refs.audio.pause();
+}
+
 seeking(){
   console.log(this.refs.player2.duration);
   let current = parseInt(this.refs.player2.currentTime);
+  this.refs.audio.currentTime = current;
   //console.log(current);
   let array = [];
   let minutes = parseInt(current/60);
@@ -842,9 +851,13 @@ listSymptoms(){
       leftHead={this.leftHeadColor()} rightEyeColor={this.rightEyeColor()} rightFace={this.rightFaceColor()}
       mouthColor={this.mouthColor()} leftEyeColor={this.leftEyeColor()} leftFace={this.leftFaceColor()} rightHead={this.rightHeadColor()}/>
       </div>
-      <video controls fluid={false} width={285} ref="player2" onSeeked={this.seeking.bind(this)}>
+      <video controls fluid={false} width={285} ref="player2" onSeeked={this.seeking.bind(this)} onPlay={this.playAudio.bind(this)} onPause={this.pauseAudio.bind(this)}>
         <source src={this.state.database[this.props.patientIndex].Video} ></source>
       </video>
+      <audio ref="audio">
+        <source src={this.state.database[this.props.patientIndex].audio} type="audio/wav"></source>
+      Your browser does not support the audio element.
+      </audio>
       <div class="user-options">
             <h5><center>User Options</center></h5>
             <center>{ (this.state.displayNodes) ? <button class="hideNodes" onClick={this.displayToggle}>&times; Hide Nodes</button> :
