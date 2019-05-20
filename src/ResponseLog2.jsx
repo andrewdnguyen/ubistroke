@@ -23,11 +23,13 @@ class ResponseLog2 extends Component {
 
     this.database = this.app.database().ref().child('info');
 
-    let data = localStorage.getItem('responseData');
+    let data = localStorage.getItem('storedDatabase');
     data = JSON.parse(data);
     console.log(data);
 
     this.state = {
+      progress: 0,
+      name: this.props.participantID,
       loading: true,
       redirect: false,
       saved: false,
@@ -41,9 +43,12 @@ class ResponseLog2 extends Component {
 
   getModules(){
     this.database.on('value', snap => {
-      console.log(JSON.stringify(snap.val().responseArrayTwo));
+      console.log(JSON.stringify(snap.val().responses));
+      console.log(JSON.stringify(snap.val().data.patientArray.length));
       this.setState({
-        test:snap.val().responseArrayTwo,
+        test:snap.val().responses,
+        progress: snap.val().data.patientArray.length,
+        loading: false
       });
     });
     }
@@ -154,13 +159,13 @@ saveChanges = e => {
   console.log("clicked!")
   //console.log(this.test);
   let newData = this.state.test;
-  newData.push(this.state.response);
-  let updates = {['/responseArrayTwo']:newData};
+  newData[this.state.name]["Patient Index: " + this.state.index + " Skeleton"] = this.state.response;
+  let updates = {['/responses']:newData};
   this.database.update(updates);
   var today = new Date();
   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   //console.log(JSON.stringify(this.state.test))
-  window.localStorage.setItem('storedDatabase', JSON.stringify(this.state.test));
+  //window.localStorage.setItem('storedDatabase', JSON.stringify(this.state.test));
   this.setState({
     timeSaved: time,
     saved: true,
@@ -169,18 +174,33 @@ saveChanges = e => {
 };
 
   render() {
-    let redirectlink = '/questionnaire';
+    let redirectlink;
+    let nextIndex = parseInt(this.props.patientIndex)+1;
+    console.log(nextIndex);
+    console.log(this.state.progress);
+    if(nextIndex >= (parseInt(this.state.progress))){
+      redirectlink = '/questionnaire/' + this.props.participantID;
+    }
+    else{
+      redirectlink = '/experiment1/' + this.props.participantID + '/' + nextIndex;
+    }
     let patientVar = this.state.response;
-    return this.state.redirect ? (
-        <Redirect to={redirectlink} />
-        ) :(
+
+    if(this.state.loading){
+      return (            <div>
+                      loading...
+                  </div>)
+    }
+    else if(this.state.redirect){
+      return (<Redirect to={redirectlink} />)
+    }
+
+    else{ return(
       <div className="info-side">
       <form>
         <br/>
-        <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Submit Responses</submit>
         <br/>
-          <p><h2 class="white-text">Input Your Subject ID:</h2>
-          <input class="form-control" id="subjectID" onChange={this.updateID} value={patientVar.subjectID} required></input>
+          <p><h2 class="white-text">Current session for: {this.state.name}</h2>
           <br/>
             <p class="white-text">Level of Consciousness:</p>
           <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.levelOfConsciousness.value}>
@@ -382,11 +402,25 @@ saveChanges = e => {
           <p class="white-text">General Notes and Comments:</p>
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="Diagnosis" value={patientVar.notes}/>
           <br/>
+          <p class="white-text">How confident are you with this NIHSS diagnosis?</p>
+          <select class="form-control" name="confidence" onChange={this.updateNotes} value={patientVar.confidence}>
+            <option value="1">1 = No Confidence</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value ="4">4</option>
+            <option value ="5">5</option>
+            <option value ="6">6</option>
+            <option value ="7">7 = Full Confidence</option>
+          </select>          <br/>
           </p>
+          <br/>
+          <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Submit Responses</submit>
+          <br/><br/>
           <br/>
         </form>
       </div>
     )
+  }
   }
 }
 

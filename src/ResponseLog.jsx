@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Test from './test.json';
 import './PatientInfo.css';
 import firebase from "firebase";
@@ -27,8 +28,11 @@ class ResponseLog extends Component {
       timeSaved: 0,
       index: this.props.patientIndex,
       test: {},
+      name: this.props.participantID,
       response: {
-        subjectID: "",
+        condition: "Video-Only",
+        confidence: "",
+        subjectID: this.props.patientIndex,
         notes: "",
         locQuestions: {
           value : 0
@@ -86,9 +90,9 @@ class ResponseLog extends Component {
 
   getModules(){
       this.database.on('value', snap => {
-        console.log(JSON.stringify(snap.val().responseArrayOne));
+        console.log(JSON.stringify(snap.val().responses));
         this.setState({
-          test:snap.val().responseArrayOne,
+          test:snap.val().responses,
         });
       });
     }
@@ -104,6 +108,15 @@ updateNotes = e => {
       ...this.state.response,
       notes: e.target.value
 
+      }
+    });
+}
+
+updateConfidence = e => {
+  this.setState({
+    response: {
+      ...this.state.response,
+      confidence: e.target.value
       }
     });
 }
@@ -198,25 +211,28 @@ getValue(input){
 saveChanges = e => {
   console.log("clicked!")
   //console.log(this.test);
-  let savedData = JSON.stringify(this.state.response);
-  localStorage.setItem('responseData', savedData);
+  // let savedData = JSON.stringify(this.state.response);
+  // localStorage.setItem('responseData', savedData);
+
   let newData = this.state.test;
-  newData.push(this.state.response);
-  let updates = {['/responseArrayOne']:newData};
+  console.log(newData);
+  console.log(this.state.name);
+  newData[this.state.name]["Patient Index: " + this.state.index + " Video Only"] = this.state.response;
+  // newData.push(this.state.response);
+  let updates = {['/responses']:newData};
   this.database.update(updates);
-  var today = new Date();
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  //console.log(JSON.stringify(this.state.test))
-  window.localStorage.setItem('storedDatabase', JSON.stringify(this.state.test));
+  // var today = new Date();
+  // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  console.log(JSON.stringify(this.state.response))
+  window.localStorage.setItem('storedDatabase', JSON.stringify(this.state.response));
   this.setState({
-    timeSaved: time,
-    saved: true,
-    redirect: true
-  });
+     saved: true,
+     redirect: true
+   });
 };
 
   render() {
-    let redirectlink = '/response2/' + this.props.patientIndex;
+    let redirectlink = '/experiment2/' + this.props.participantID + '/' + this.props.patientIndex;
     let patientVar = this.state.response;
     return this.state.redirect ? (
         <Redirect to={redirectlink} />
@@ -224,10 +240,7 @@ saveChanges = e => {
       <div className="info-side">
       <form>
         <br/>
-        <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Submit Responses</submit>
-        <br/>
-          <p><h2 class="white-text">Input Your Subject ID:</h2>
-          <input class="form-control" id="subjectID" onChange={this.updateID} value={patientVar.subjectID} required></input>
+          <p><h2 class="white-text">Current session for: {this.state.name}</h2>
           <br/>
             <p class="white-text">Level of Consciousness:</p>
           <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.levelOfConsciousness.value}>
@@ -429,8 +442,20 @@ saveChanges = e => {
           <p class="white-text">General Notes and Comments:</p>
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="Diagnosis" value={patientVar.notes}/>
           <br/>
+          <p class="white-text">How confident are you with this NIHSS diagnosis?</p>
+          <select class="form-control" name="confidence" onChange={this.updateConfidence} value={patientVar.confidence}>
+            <option value="1">1 = No Confidence</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value ="4">4</option>
+            <option value ="5">5</option>
+            <option value ="6">6</option>
+            <option value ="7">7 = Full Confidence</option>
+          </select>          <br/>
           </p>
           <br/>
+          <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Submit Responses</submit>
+          <br/><br/>
         </form>
       </div>
     )

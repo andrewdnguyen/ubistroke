@@ -24,6 +24,7 @@ class Questions extends Component {
     this.database = this.app.database().ref().child('info');
 
     this.state = {
+      name: this.props.match.params.participantID,
       loading: true,
       redirect: false,
       saved: false,
@@ -41,9 +42,9 @@ class Questions extends Component {
 
   getModules(){
     this.database.on('value', snap => {
-      console.log(JSON.stringify(snap.val().responseArrayThree));
+      console.log(JSON.stringify(snap.val().responses));
       this.setState({
-        test:snap.val().responseArrayThree,
+        test:snap.val().responses,
       });
     });
     }
@@ -86,8 +87,8 @@ saveChanges = e => {
   console.log("clicked!")
   //console.log(this.test);
   let newData = this.state.test;
-  newData.push(this.state.response);
-  let updates = {['/responseArrayThree']:newData};
+  newData[this.state.name]["Questionnaire Responses"] = this.state.response;
+  let updates = {['/responses']:newData};
   this.database.update(updates);
   var today = new Date();
   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -112,8 +113,7 @@ saveChanges = e => {
         <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Submit Your Answers</submit>
         <br/>
         <br/>
-          <h2 class="white-text">Input Your Subject ID:</h2>
-          <input class="form-control" id="subjectID" onChange={this.updateID} value={patientVar.subjectID} required></input>
+          <h2 class="white-text">Congrats on Completing the Experiment</h2>
           <br/>
           <p class="white-text">What is your current medical occupation or status?</p>
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question1" value={patientVar.question1}/>
@@ -129,17 +129,6 @@ saveChanges = e => {
           <br/>
           <p class="white-text">Which piece of information was most helpful for your diagnoses?</p>
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question5" value={patientVar.question5}/>
-          <br/>
-          <p class="white-text">How confident are you in your own NIHSS diagnoses when done in-person?</p>
-          <select class="form-control" name="question6" onChange={this.updateNotes} value={patientVar.question6}>
-            <option value="1">1 = No Confidence</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value ="4">4</option>
-            <option value ="5">5</option>
-            <option value ="6">6</option>
-            <option value ="7">7 = Full Confidence</option>
-          </select>
           <br/>
           <p class="white-text">In general, do you often trust or rely on information provided from your team? What about other teams? Outside of your own hospital system?</p>
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="question7" value={patientVar.question7}/>

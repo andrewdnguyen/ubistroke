@@ -7,9 +7,14 @@ import ChartistGraph from "react-chartist";
 import SubjectTest from './SubjectTest.jsx';
 import Patients from './Patients.jsx';
 import Chart from 'react-google-charts';
+import Experiment from './Experiment.jsx';
 import ExperimentResponse1 from './ExperimentResponse1.jsx';
 import ExperimentResponse2 from './ExperimentResponse2.jsx';
 import Questions from './Questions.jsx';
+import Debrief from './Debrief.jsx';
+import Tutorial from './Tutorial.jsx';
+import Experiment1 from './Experiment1.jsx';
+import Experiment2 from './Experiment2.jsx';
 import {
   dailySalesChart
 } from "./charts.jsx";
@@ -36,7 +41,13 @@ const App = () => (
       <Route path="/charttest" component={Test} />
       <Route path="/response1/:subjectID" component={ExperimentResponse1} />
       <Route path="/response2/:subjectID" component={ExperimentResponse2} />
-      <Route path="/questionnaire" component={Questions} />
+      <Route path="/questionnaire/:participantID" component={Questions} />
+      <Route path="/experiment" component={Experiment} />
+      <Route path="/debrief/:participantID" component={Debrief} />
+      <Route path="/tutorial/:participantID" component={Tutorial} />
+      <Route path="/experiment1/:participantID/:subjectID" component={Experiment1} />
+      <Route path="/experiment2/:participantID/:subjectID" component={Experiment2} />
+
     </div>
   </Router>
 );
@@ -83,10 +94,13 @@ const Home = () => (
         transform: 'translate(-50%, -50%)'
     }}>
       <img src={require('./logo.svg')}></img>
-      <button class="btn btn-lg btn-primary">Start New Patient (Disabled)</button>
+      <button class="btn btn-lg btn-primary" style={{width: 300}}>Start New Patient (Disabled)</button>
       <br/>
       <br/>
-      <Link to="/patients"><button class="btn btn-lg btn-primary">Open Patient Files (Enabled)</button></Link>
+      <Link to="/patients"><button class="btn btn-lg btn-primary" style={{width: 300}}>Open Patient Files (Enabled)</button></Link>
+      <br/>
+      <br/>
+      <Link to="/experiment"><button class="btn btn-lg btn-primary" style={{width: 300}}>Begin Experiment Session</button></Link>
 </div>
 );
 
