@@ -41,9 +41,10 @@ class Experiment extends Component {
 
   getModules(){
     this.database.on('value', snap => {
-      console.log(JSON.stringify(snap.val().responseArrayThree));
+      console.log(JSON.stringify(snap.val().responses));
       this.setState({
-        test:snap.val().responseArrayThree,
+        test:snap.val().responses,
+        loading: false
       });
     });
     }
@@ -85,8 +86,8 @@ getValue(input){
 saveChanges = e => {
   console.log("clicked!")
   //console.log(this.test);
-  let newData = {[this.state.response.name]:{role: this.state.response.occupation, confidence: this.state.response.confidence}}
-  //console.log(variable);
+  let newData = this.state.test;
+  newData[this.state.response.name] = {role: this.state.response.occupation, confidence: this.state.response.confidence};
   let updates = {['/responses']:newData};
   this.database.update(updates);
   var today = new Date();
@@ -103,9 +104,19 @@ saveChanges = e => {
   render() {
     let redirectlink = '/';
     let patientVar = this.state.response;
-    return this.state.redirect ? (
-        <Redirect to={'/debrief/' + this.state.response.name} />
-        ) :(
+
+    if(this.state.loading){
+      return (            <div>
+                      loading...
+                  </div>)
+    }
+    else if(this.state.redirect){
+      return (<Redirect to={'/debrief/' + this.state.response.name} />)
+    }
+
+    else{
+
+      return(
       <div className="info-side container">
       <form>
         <br/>
@@ -135,6 +146,7 @@ saveChanges = e => {
         </form>
       </div>
     )
+  }
   }
 }
 
