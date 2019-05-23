@@ -15,6 +15,7 @@ import Debrief from './Debrief.jsx';
 import Tutorial from './Tutorial.jsx';
 import Experiment1 from './Experiment1.jsx';
 import Experiment2 from './Experiment2.jsx';
+import Finished from './Finished.jsx';
 import {
   dailySalesChart
 } from "./charts.jsx";
@@ -47,6 +48,7 @@ const App = () => (
       <Route path="/tutorial/:participantID" component={Tutorial} />
       <Route path="/experiment1/:participantID/:subjectID" component={Experiment1} />
       <Route path="/experiment2/:participantID/:subjectID" component={Experiment2} />
+      <Route path="/finished/:participantID" component={Finished} />
 
     </div>
   </Router>

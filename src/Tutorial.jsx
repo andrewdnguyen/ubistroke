@@ -42,9 +42,9 @@ class Tutorial extends Component {
 
   getModules(){
     this.database.on('value', snap => {
-      console.log(JSON.stringify(snap.val().responseArrayThree));
+      console.log(JSON.stringify(snap.val().responses));
       this.setState({
-        test:snap.val().responseArrayThree,
+        test:snap.val().responses,
       });
     });
     }
@@ -64,18 +64,20 @@ saveChanges = e => {
 };
 
   render() {
-    let redirectlink = '/';
     let patientVar = this.state.response;
+    let name = this.state.response.name;
+    let splitName = name.split(" ");
+    let firstName = splitName[0];
     return this.state.redirect ? (
         <Redirect to={'/experiment1/' + this.state.response.name + '/1'} />
         ) :(
       <div className="info-side container" align="center" >
         <br/>
-        <h2 class="white-text">Alright {this.state.response.name}, let's do a quick run through of the UI....</h2>
+        <h2 class="white-text">Alright {firstName}, let's do a quick run through of the Ubistroke Interface. Please ask the research assistant running this experiment to guide you through it.</h2>
         <br/><br/>
-        <Link to="/subjecttest/0" target="_blank"><button class = "btn btn-lg btn-primary btn-width" onClick={this.openWindow}>Click Here To See an Example UI</button></Link>
+        <Link to="/subjecttest/0" target="_blank"><button class = "btn btn-lg btn-primary btn-width" onClick={this.openWindow}>Click Here To Demo the Interface</button></Link>
         <br/><br/>
-        <button class = "btn btn-lg btn-primary btn-width" onClick={this.saveChanges}>Click Here Once You're Ready to Begin</button>
+        <button class = "btn btn-lg btn-primary btn-width" onClick={this.saveChanges}>The Research Assistant Should Click Here Once You're Ready to Begin</button>
 
       </div>
     )
