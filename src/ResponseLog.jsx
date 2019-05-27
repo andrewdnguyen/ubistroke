@@ -30,58 +30,57 @@ class ResponseLog extends Component {
       test: {},
       name: this.props.participantID,
       response: {
-        condition: "Video-Only",
         confidence: "",
         subjectID: this.props.patientIndex,
         notes: "",
         locQuestions: {
-          value : 0
+          value : ""
         },
         locCommands: {
-          value : 0
+          value : ""
         },
         bestGaze: {
-              value: 0
+              value: ""
         },
         bestLanguage: {
-              value: 0
+              value: ""
         },
         dysarthria: {
-              value: 0
+              value: ""
         },
         extinctionAndInattention: {
-              value: 0
+              value: ""
         },
         facialPalsy: {
-              value: 0
+              value: ""
         },
         limbAtaxia: {
-              value: 0
+              value: ""
         },
         levelOfConsciousness: {
-              value: 0
+              value: ""
         },
         motorArm: {
               left: {
-                    value: 0
+                    value: ""
               },
               right: {
-                    value: 0
+                    value: ""
               }
         },
         motorLeg: {
               left: {
-                    value: 0
+                    value: ""
               },
               right: {
-                    value: 0
+                    value: ""
               }
         },
         sensory: {
-              value: 0
+              value: ""
         },
         visual: {
-              value: 0
+              value: ""
         }
       }
     };
@@ -209,6 +208,7 @@ getValue(input){
 }
 
 saveChanges = e => {
+  e.preventDefault();
   console.log("clicked!")
   //console.log(this.test);
   // let savedData = JSON.stringify(this.state.response);
@@ -238,13 +238,13 @@ saveChanges = e => {
         <Redirect to={redirectlink} />
         ) :(
       <div className="info-side">
-      <form>
+      <form onSubmit={this.saveChanges}>
         <br/>
           <p><h2 class="white-text">Current session for: {this.state.name}</h2>
           <br/>
             <p class="white-text">Level of Consciousness:</p>
-          <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.levelOfConsciousness.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.levelOfConsciousness.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = Alert; keenly responsive.</option>
             <option value="1">1 = Not alert; but arousable by minor stimulation to obey,
@@ -257,8 +257,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">LOC - Questions:</p>
-          <select class="form-control" id="locQuestions" onChange={this.updateValue} value={patientVar.locQuestions.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="locQuestions" onChange={this.updateValue} value={patientVar.locQuestions.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = Answers both questions correctly.</option>
             <option value="1">1 = Answers one question correctly.</option>
@@ -266,8 +266,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">LOC - Commands:</p>
-          <select class="form-control" id="locCommands" onChange={this.updateValue} value={patientVar.locCommands.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="locCommands" onChange={this.updateValue} value={patientVar.locCommands.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = Performs both tasks correctly.</option>
             <option value="1">1 = Performs one task correctly.</option>
@@ -275,8 +275,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Best Gaze:</p>
-          <select class="form-control" id="bestGaze" onChange={this.updateValue} value={patientVar.bestGaze.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="bestGaze" onChange={this.updateValue} value={patientVar.bestGaze.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = Normal.</option>
             <option value="1">1 = Partial gaze palsy; gaze is abnormal in one or both eyes,
@@ -286,8 +286,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Visual:</p>
-          <select class="form-control" id="visual" onChange={this.updateValue} value={patientVar.visual.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="visual" onChange={this.updateValue} value={patientVar.visual.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = No visual loss.</option>
             <option value="1">1 = Partial hemianopia.</option>
@@ -296,8 +296,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Facial Palsy:</p>
-          <select class="form-control" id="facialPalsy" onChange={this.updateValue} value={patientVar.facialPalsy.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="facialPalsy" onChange={this.updateValue} value={patientVar.facialPalsy.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = Normal symmetrical movements.</option>
             <option value="1">1 = Minor paralysis (flattened nasolabial fold, asymmetry on
@@ -309,8 +309,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Motor Arm Left:</p>
-          <select class="form-control" id="leftArm" onChange={this.updateLeftArm} value={patientVar.motorArm.left.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="leftArm" onChange={this.updateLeftArm} value={patientVar.motorArm.left.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = No drift; limb holds 90 (or 45) degrees for full 10 seconds.</option>
             <option value="1">1 = Drift; limb holds 90 (or 45) degrees, but drifts down before
@@ -324,8 +324,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Motor Arm Right:</p>
-          <select class="form-control" id="questionValue" onChange={this.updateRightArm} value={patientVar.motorArm.right.value}>
-          <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="questionValue" onChange={this.updateRightArm} value={patientVar.motorArm.right.value} required>
+          <option disabled selected value=""> -- select an option -- </option>
           <option value="N/A">NA = Can't be Determined /w Current Information</option>
           <option value="0">0 = No drift; limb holds 90 (or 45) degrees for full 10 seconds.</option>
           <option value="1">1 = Drift; limb holds 90 (or 45) degrees, but drifts down before
@@ -339,8 +339,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Motor Leg Left:</p>
-          <select class="form-control" id="questionValue" onChange={this.updateLeftLeg} value={patientVar.motorLeg.left.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="questionValue" onChange={this.updateLeftLeg} value={patientVar.motorLeg.left.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = No drift; leg holds 30-degree position for full 5 seconds.</option>
             <option value="1">1 = Drift; leg falls by the end of the 5-second period but does
@@ -353,8 +353,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Motor Leg Right:</p>
-          <select class="form-control" id="questionValue" onChange={this.updateRightLeg} value={patientVar.motorLeg.right.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="questionValue" onChange={this.updateRightLeg} value={patientVar.motorLeg.right.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = No drift; leg holds 30-degree position for full 5 seconds.</option>
             <option value="1">1 = Drift; leg falls by the end of the 5-second period but does
@@ -367,8 +367,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Limb Ataxia:</p>
-          <select class="form-control" id="limbAtaxia" onChange={this.updateValue} value={patientVar.limbAtaxia.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="limbAtaxia" onChange={this.updateValue} value={patientVar.limbAtaxia.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = Absent.</option>
             <option value="1">1 = Present in one limb.</option>
@@ -377,8 +377,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Sensory:</p>
-          <select class="form-control" id="sensory" onChange={this.updateValue} value={patientVar.sensory.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="sensory" onChange={this.updateValue} value={patientVar.sensory.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = Normal; no sensory loss.</option>
             <option value="1">1 = Mild-to-moderate sensory loss; patient feels pinprick is
@@ -390,8 +390,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Best Language:</p>
-          <select class="form-control" id="bestLanguage" onChange={this.updateValue} value={patientVar.bestLanguage.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="bestLanguage" onChange={this.updateValue} value={patientVar.bestLanguage.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = No aphasia; normal.</option>
             <option value="1">1 = Mild-to-moderate aphasia; some obvious loss of fluency
@@ -412,8 +412,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Dysarthria:</p>
-          <select class="form-control" id="dysarthria" onChange={this.updateValue} value={patientVar.dysarthria.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="dysarthria" onChange={this.updateValue} value={patientVar.dysarthria.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = Normal.</option>
             <option value="1">1 = Mild-to-moderate dysarthria; patient slurs at least some
@@ -427,8 +427,8 @@ saveChanges = e => {
           </select>
           <br/>
             <p class="white-text">Extinction and Inattention: </p>
-          <select class="form-control" id="extinctionAndInattention" onChange={this.updateValue} value={patientVar.extinctionAndInattention.value}>
-            <option disabled selected value> -- select an option -- </option>
+          <select class="form-control" id="extinctionAndInattention" onChange={this.updateValue} value={patientVar.extinctionAndInattention.value} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="N/A">NA = Can't be Determined /w Current Information</option>
             <option value="0">0 = No abnormality.</option>
             <option value="1">1 = Visual, tactile, auditory, spatial, or personal inattention
@@ -443,7 +443,8 @@ saveChanges = e => {
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="Diagnosis" value={patientVar.notes}/>
           <br/>
           <p class="white-text">How confident are you with this NIHSS diagnosis?</p>
-          <select class="form-control" name="confidence" onChange={this.updateConfidence} value={patientVar.confidence}>
+          <select class="form-control" name="confidence" onChange={this.updateConfidence} value={patientVar.confidence} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="1">1 = No Confidence</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -454,7 +455,7 @@ saveChanges = e => {
           </select>          <br/>
           </p>
           <br/>
-          <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Submit Responses</submit>
+          <input type="submit" class = "btn btn-lg btn-primary"/>
           <br/><br/>
         </form>
       </div>

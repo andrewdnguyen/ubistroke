@@ -53,7 +53,12 @@ getModules(){
     for (let element in array) {
       console.log(element == "placeholder");
       if(element != "placeholder"){
-        table.push(<div><Link to={`/saved/` + element + '/' + array[element].progress}><button class="btn btn-lg btn-primary btn-block">{element}</button></Link><br/><br/></div>)
+        if(array[element].progress == 0){
+          table.push(<div><Link to={`/tutorial/` + element}><button class="btn btn-lg btn-primary btn-block">{element}</button></Link><br/><br/></div>)
+        }
+        else{
+          table.push(<div><Link to={`/saved/` + element + '/' + array[element].progress}><button class="btn btn-lg btn-primary btn-block">{element}</button></Link><br/><br/></div>)
+        }
       }
     }
     return table

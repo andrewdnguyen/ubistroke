@@ -33,7 +33,7 @@ class Experiment extends Component {
       response: {
           occupation: "",
           name: "",
-          confidence: "1",
+          confidence: "",
           progress: "0"
       }
       }
@@ -85,6 +85,7 @@ getValue(input){
 }
 
 saveChanges = e => {
+  e.preventDefault();
   console.log("clicked!")
   //console.log(this.test);
   let newData = this.state.test;
@@ -119,7 +120,7 @@ saveChanges = e => {
 
       return(
       <div className="info-side container">
-      <form>
+      <form onSubmit={this.saveChanges}>
         <br/>
 
         <h2 class="white-text">Welcome to our the Ubistroke experiment! Before we begin please answer these quick questions, please make sure to answer them all.</h2>
@@ -129,10 +130,11 @@ saveChanges = e => {
           <input class="form-control" id="name" onChange={this.updateID} value={patientVar.name} required></input>
           <br/>
           <p class="white-text">What is your current medical occupation or status?</p>
-          <textarea rows="1" className="notes form-control" onChange={this.updateNotes} name="occupation" value={patientVar.occupation}/>
+          <textarea rows="1" className="notes form-control" onChange={this.updateNotes} name="occupation" value={patientVar.occupation} required/>
           <br/>
           <p class="white-text">How confident are you in your own NIHSS diagnoses when done in-person?</p>
-          <select class="form-control" name="confidence" onChange={this.updateNotes} value={patientVar.confidence}>
+          <select class="form-control" name="confidence" onChange={this.updateNotes} value={patientVar.confidence} required>
+            <option disabled selected value=""> -- select an option -- </option>
             <option value="1">1 = No Confidence</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -141,7 +143,7 @@ saveChanges = e => {
             <option value ="6">6</option>
             <option value ="7">7 = Full Confidence</option>
           </select>          <br/>
-          <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Submit Your Answers</submit>
+          <input type="submit" class="btn btn-lg btn-primary"/>
 
 
         </form>
