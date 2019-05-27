@@ -68,6 +68,17 @@ updateNotes = e => {
     });
 }
 
+updateConfidence = e => {
+  console.log(this.state.test);
+  this.setState({
+    response: {
+      ...this.state.response,
+      confidence: e.target.value
+
+      }
+    });
+}
+
 updateID = e => {
   this.setState({
     response: {
@@ -174,18 +185,8 @@ saveChanges = e => {
 };
 
   render() {
-    let redirectlink;
-    let nextIndex = parseInt(this.props.patientIndex)+1;
-    console.log(nextIndex);
-    console.log(this.state.progress);
-    if(nextIndex >= (parseInt(this.state.progress))){
-      redirectlink = '/questionnaire/' + this.props.participantID;
-    }
-    else{
-      redirectlink = '/experiment1/' + this.props.participantID + '/' + nextIndex;
-    }
+    let redirectlink = '/saved/' + this.props.participantID + '/' + this.props.patientIndex;
     let patientVar = this.state.response;
-
     if(this.state.loading){
       return (            <div>
                       loading...
@@ -403,7 +404,7 @@ saveChanges = e => {
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="Diagnosis" value={patientVar.notes}/>
           <br/>
           <p class="white-text">How confident are you with this NIHSS diagnosis?</p>
-          <select class="form-control" name="confidence" onChange={this.updateNotes} value={patientVar.confidence}>
+          <select class="form-control" name="confidence" onChange={this.updateConfidence} value={patientVar.confidence}>
             <option value="1">1 = No Confidence</option>
             <option value="2">2</option>
             <option value="3">3</option>

@@ -11,8 +11,10 @@ import Experiment from './Experiment.jsx';
 import ExperimentResponse1 from './ExperimentResponse1.jsx';
 import ExperimentResponse2 from './ExperimentResponse2.jsx';
 import Questions from './Questions.jsx';
+import Saved from './Saved.jsx';
 import Debrief from './Debrief.jsx';
 import Tutorial from './Tutorial.jsx';
+import Profiles from './Profiles.jsx';
 import Experiment1 from './Experiment1.jsx';
 import Experiment2 from './Experiment2.jsx';
 import Finished from './Finished.jsx';
@@ -38,7 +40,7 @@ const App = () => (
       <Route path="/about" component={About} />
       <Route path="/patients" component={Patients} />
       <Route path="/subjects/:subjectID/:time?" component={Subject} />
-      <Route path="/subjecttest/:subjectID/:time?" component={SubjectTest} />
+      <Route path="/edit/:subjectID/:time?" component={SubjectTest} />
       <Route path="/charttest" component={Test} />
       <Route path="/response1/:subjectID" component={ExperimentResponse1} />
       <Route path="/response2/:subjectID" component={ExperimentResponse2} />
@@ -48,7 +50,9 @@ const App = () => (
       <Route path="/tutorial/:participantID" component={Tutorial} />
       <Route path="/experiment1/:participantID/:subjectID" component={Experiment1} />
       <Route path="/experiment2/:participantID/:subjectID" component={Experiment2} />
+      <Route path="/saved/:participantID/:subjectID" component={Saved} />
       <Route path="/finished/:participantID" component={Finished} />
+      <Route path="/return" component={Profiles} />
 
     </div>
   </Router>
@@ -103,6 +107,9 @@ const Home = () => (
       <br/>
       <br/>
       <Link to="/experiment"><button class="btn btn-lg btn-primary" style={{width: 300}}>Begin Experiment Session</button></Link>
+      <br/>
+      <br/>
+      <Link to="/return"><button class="btn btn-lg btn-primary" style={{width: 300}}>Continue Experiment Session</button></Link>
 </div>
 );
 

@@ -108,9 +108,10 @@ saveChanges = e => {
         <Redirect to={redirectlink} />
         ) :(
       <div className="info-side">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczvxJbKKBTyurJwdzbCF3ZDpX1dUzkY2P0IpqkYWsn6NGlJQ/viewform?embedded=true" width="640" height="397" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
       <form>
         <br/>
-        <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Submit Your Answers</submit>
+        <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Click Here When You are Finished</submit>
         <br/>
         <br/>
           <h2 class="white-text">Please Answer All of the Following Questions</h2>

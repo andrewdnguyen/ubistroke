@@ -33,7 +33,8 @@ class Experiment extends Component {
       response: {
           occupation: "",
           name: "",
-          confidence: "1"
+          confidence: "1",
+          progress: "0"
       }
       }
     };
@@ -87,7 +88,7 @@ saveChanges = e => {
   console.log("clicked!")
   //console.log(this.test);
   let newData = this.state.test;
-  newData[this.state.response.name] = {role: this.state.response.occupation, confidence: this.state.response.confidence};
+  newData[this.state.response.name] = {role: this.state.response.occupation, confidence: this.state.response.confidence, progress: this.state.response.progress};
   let updates = {['/responses']:newData};
   this.database.update(updates);
   var today = new Date();
