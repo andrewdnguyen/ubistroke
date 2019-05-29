@@ -75,10 +75,9 @@ saveChanges = e => {
         <br/>
         <h2 class="white-text">Alright {firstName}, let's do a quick run through of the Ubistroke Interface. Please ask the research assistant running this experiment to guide you through it.</h2>
         <br/><br/>
-        <Link to="/subjecttest/0" target="_blank"><button class = "btn btn-lg btn-primary btn-width" onClick={this.openWindow}>Click Here To Demo the Interface</button></Link>
+        <Link to="/edit/0" target="_blank"><button class = "btn btn-lg btn-primary btn-width" onClick={this.openWindow}>Click Here To Demo the Interface</button></Link>
         <br/><br/>
         <button class = "btn btn-lg btn-primary btn-width" onClick={this.saveChanges}>The Research Assistant Should Click Here Once You're Ready to Begin</button>
-
       </div>
     )
   }

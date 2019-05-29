@@ -79,6 +79,17 @@ updateConfidence = e => {
     });
 }
 
+updateIncorrect = e => {
+  console.log(this.state.test);
+  this.setState({
+    response: {
+      ...this.state.response,
+      incorrect: e.target.value
+
+      }
+    });
+}
+
 updateID = e => {
   this.setState({
     response: {
@@ -198,7 +209,7 @@ saveChanges = e => {
 
     else{ return(
       <div className="info-side">
-      <form>
+      <form onSubmit={this.saveChanges}>
         <br/>
         <br/>
           <p><h2 class="white-text">Current session for: {this.state.name}</h2>
@@ -412,10 +423,18 @@ saveChanges = e => {
             <option value ="5">5</option>
             <option value ="6">6</option>
             <option value ="7">7 = Full Confidence</option>
-          </select>          <br/>
+          </select>
+          <br/>
+          <p class="white-text">Do you feel that any of the displayed symptoms are wrong?</p>
+          <select class="form-control" name="incorrect" onChange={this.updateIncorrect} value={patientVar.incorrect} required>
+            <option disabled selected value=""> -- select an option -- </option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <br/>
           </p>
           <br/>
-          <submit class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Submit Responses</submit>
+          <input type="submit" class = "btn btn-lg btn-primary"/>
           <br/><br/>
           <br/>
         </form>
