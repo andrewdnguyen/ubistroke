@@ -108,6 +108,7 @@ saveChanges = e => {
         <Redirect to={redirectlink} />
         ) :(
       <div className="info-side">
+        <br/>
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczvxJbKKBTyurJwdzbCF3ZDpX1dUzkY2P0IpqkYWsn6NGlJQ/viewform?embedded=true" width="100%" height="85%" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         <br/><br/>
         <center><button class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Click Here Once You Have Recieved Your Email Receipt</button></center>

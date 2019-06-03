@@ -52,14 +52,14 @@ saveAndContinue = e => {
     let nextIndex = parseInt(this.props.match.params.subjectID);
     nextIndex = nextIndex + 1;
     console.log(nextIndex);
-    if(nextIndex >= progress){
+    if(nextIndex >= 5){
       redirectLink = '/questionnaire/' + this.props.match.params.participantID;
     }
     else{
       redirectLink = '/experiment1/' + this.props.match.params.participantID + '/' + nextIndex;
     }
 
-    newData[this.props.match.params.participantID]["progress"] = this.props.match.params.subjectID;
+    newData[this.props.match.params.participantID]["progress"] = parseInt(this.props.match.params.subjectID)+1;
     // newData.push(this.state.response);
     let updates = {['/responses']:newData};
     this.database.update(updates);
@@ -79,7 +79,7 @@ saveAndContinue = e => {
       let newData = this.state.test;
       let redirectLink = '/';
 
-      newData[this.props.match.params.participantID]["progress"] = this.props.match.params.subjectID;
+      newData[this.props.match.params.participantID]["progress"] = parseInt(this.props.match.params.subjectID)+1;
       // newData.push(this.state.response);
       let updates = {['/responses']:newData};
       this.database.update(updates);
@@ -116,7 +116,7 @@ saveAndContinue = e => {
 
       <div>
         <br/><br/>
-        <h1 style={{color: 'white'}}><center>{this.props.match.params.participantID}'s progress for patient {this.props.match.params.subjectID} out of {this.state.progress-1} has been saved!</center></h1>
+        <h1 style={{color: 'white'}}><center>{parseInt(this.props.match.params.subjectID)+1} out of 5 patients complete!<br/>Make sure to click one of the buttons below to save your progress.</center></h1>
           <div class = "patient-buttons">
           <center><button onClick={this.saveAndQuit} class="btn btn-lg btn-primary btn-block">Pause Experiment</button></center><br/><br/>
           <center><button onClick={this.saveAndContinue} class="btn btn-lg btn-primary btn-block">Continue Experiment</button></center><br/><br/>

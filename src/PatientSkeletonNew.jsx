@@ -77,38 +77,41 @@ componentWillMount() {
     //let databaseData = JSON.parse(window.localStorage.getItem('storedDatabase'));
     //let link = databaseData[this.props.patientIndex].csv;
     let csvFilepath;
-    switch (this.props.patientIndex) {
-        case '0':
+    console.log("Switch Case: " + this.props.patientIndex);
+    let indexVal = parseInt(this.props.patientIndex);
+    console.log(indexVal);
+    switch (indexVal) {
+        case 0:
             csvFilepath = require('./data/test-data.csv');
             break;
-        case '9':
+        case 9:
             csvFilepath = require('./data/kinect-data/Patient_30_2017130_155326401/body3-jointPositionData.csv');
             break;
-        case '10':
+        case 10:
             csvFilepath = require('./data/kinect-data/Patient_31_2017213_15232451/Patient_31_body5-jointPositionData.csv');
             break;
-        case '1':
+        case 1:
             csvFilepath = require('./data/kinect-data/Patient_3/body1-jointPositionData.csv');
             break;
-        case '2':
+        case 2:
             csvFilepath = require('./data/kinect-data/Patient_4/body0-jointPositionData.csv');
             break;
-        case '3':
+        case 3:
             csvFilepath = require('./data/kinect-data/Patient_5_2016210_144452290/Patient_5_body3-jointPositionData.csv');
             break;
-        case '4':
+        case 4:
             csvFilepath = require('./data/kinect-data/Patient_6_201632_153730576/body0-jointPositionData.csv');
             break;
-        case '5':
+        case 5:
             csvFilepath = require('./data/kinect-data/Patient_7_201639_143050834/Patient 7_body0-jointPositionData.csv');
             break;
-        case '6':
+        case 6:
             csvFilepath = require('./data/kinect-data/Patient_8_201639_152738602/Patient_8_body5-jointPositionData.csv');
             break;
-        case '7':
+        case 7:
             csvFilepath = require('./data/kinect-data/Patient_9_2016330_13597929/Patient_9_body5-jointPositionData.csv');
             break;
-        case '8':
+        case 8:
             csvFilepath = require('./data/kinect-data/Patient_10_2016330_145130327/Patient_10_body1-jointPositionData.csv');
             break;
         }
@@ -814,7 +817,7 @@ listSymptoms(){
           {(this.state.displayGraph) ? <div></div> : <div>Currently Displaying {this.state.axis} Axis Data for:
            <div class="joints">{this.listDisplay()}</div>
            vs. Time (HH:MM:SS) </div>}
-           <br/><br/>
+           <img style={{height: 120}} src={require('./xyz.gif')}></img>
            <p >Skeleton Region Legend:</p>
            <p ><div class="square" style={{backgroundColor: "green"}} ></div> Symptoms in area are mild.</p>
            <p ><div class="square" style={{backgroundColor: "yellow"}} ></div> Symptoms in area are moderate.</p>

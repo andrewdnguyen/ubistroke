@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ResponseLog from './ResponseLog.jsx';
+import ResponseLogTest from './ResponseLogTest.jsx';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PatientSkeleton from './PatientSkeleton.jsx';
 import PatientSkeletonNew from './PatientSkeletonNew.jsx';
@@ -24,7 +24,8 @@ class ExperimentResponse1 extends Component {
     this.database = this.app.database().ref().child('info');
 
     this.state = {
-      patientArray: []
+      patientArray: [],
+      loading: true
     };
   }
 
@@ -52,14 +53,11 @@ class ExperimentResponse1 extends Component {
         ) :(
       <div class = "row">
       <div class="col-md-6">
-      <div class="white-background">
-      <Link to="/patients"><button id="back-button" class="btn btn-block btn-primary">&lt;&lt; Back</button></Link>
-      </div>
-      <ResponseLog patientIndex={this.props.match.params.subjectID}/>
+      <ResponseLogTest patientIndex="0" participantID={this.props.match.params.participantID}/>
       </div>
       <div class="col-md-6">
         <br/>
-        <PatientVideo patientIndex={this.props.match.params.subjectID}/>
+        <PatientVideo patientIndex="0"/>
       </div>
 
       </div>

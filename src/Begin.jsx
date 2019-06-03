@@ -16,7 +16,7 @@ var config = {
 
 
 
-class Tutorial extends Component {
+class Begin extends Component {
   constructor(props){
     super(props);
     // this.app = firebase.initializeApp(config);
@@ -68,18 +68,16 @@ saveChanges = e => {
     let name = this.state.response.name;
     let splitName = name.split(" ");
     let firstName = splitName[0];
-    return this.state.redirect ? (
-        <Redirect to={'/experiment1/' + this.state.response.name + '/0'} />
-        ) :(
+    return(
       <div className="info-side container" align="center" >
         <br/>
-        <h2 class="white-text">Alright {firstName}, let's do a quick run through of this experiment.
-        The following patient will be a demo, feel free to play around with everything. Your results will NOT be recorded.</h2>
+        <h2 class="white-text">Good job {firstName}, this marks the end of the tutorial phase.
+        After this the real experiment will begin, please consider your answers carefully. Your responses WILL be recorded.</h2>
         <br/><br/>
-        <Link to={"/response1/" + this.props.match.params.participantID}><button class = "btn btn-lg btn-primary btn-width">Click Here To Get to the Demo</button></Link>
+        <Link to={'/experiment1/' + this.state.response.name + '/0'}><button class = "btn btn-lg btn-primary btn-width">Click Here To Get to the Demo</button></Link>
       </div>
     )
   }
 }
 
-export default Tutorial;
+export default Begin;

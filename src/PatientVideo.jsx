@@ -63,13 +63,15 @@ getModules(){
 
 
   render() {
+    console.log(this.props);
     return this.state.loading ? (
             <div>
                 loading...
             </div>
         ) :(
       <div class="canvas-div2">
-      <video controls fluid={false} width={776} ref="player" onSeeked={this.seeking.bind(this)} onPlay={this.playAudio.bind(this)} onPause={this.pauseAudio.bind(this)}>
+      <div class="container">
+      <video controls fluid={false} width="100%" ref="player" onSeeked={this.seeking.bind(this)} onPlay={this.playAudio.bind(this)} onPause={this.pauseAudio.bind(this)}>
         <source src={this.state.test[this.props.patientIndex].Video} ></source>
       </video>
 
@@ -77,6 +79,7 @@ getModules(){
         <source src="/audio/Patient_31_audio.wav" type="audio/wav"></source>
       Your browser does not support the audio element.
       </audio>
+      </div>
       </div>
     )
   }

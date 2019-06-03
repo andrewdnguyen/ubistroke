@@ -57,7 +57,7 @@ getModules(){
           table.push(<div><Link to={`/tutorial/` + element}><button class="btn btn-lg btn-primary btn-block">{element}</button></Link><br/><br/></div>)
         }
         else{
-          table.push(<div><Link to={`/saved/` + element + '/' + array[element].progress}><button class="btn btn-lg btn-primary btn-block">{element}</button></Link><br/><br/></div>)
+          table.push(<div><Link to={`/saved/` + element + '/' + (parseInt(array[element].progress)-1)}><button class="btn btn-lg btn-primary btn-block">{element}</button></Link><br/><br/></div>)
         }
       }
     }

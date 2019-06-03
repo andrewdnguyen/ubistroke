@@ -18,6 +18,8 @@ import Profiles from './Profiles.jsx';
 import Experiment1 from './Experiment1.jsx';
 import Experiment2 from './Experiment2.jsx';
 import Finished from './Finished.jsx';
+import Randomizer from './Randomizer.jsx';
+import Begin from './Begin.jsx';
 import {
   dailySalesChart
 } from "./charts.jsx";
@@ -42,8 +44,8 @@ const App = () => (
       <Route path="/subjects/:subjectID/:time?" component={Subject} />
       <Route path="/edit/:subjectID/:time?" component={SubjectTest} />
       <Route path="/charttest" component={Test} />
-      <Route path="/response1/:subjectID" component={ExperimentResponse1} />
-      <Route path="/response2/:subjectID" component={ExperimentResponse2} />
+      <Route path="/response1/:participantID" component={ExperimentResponse1} />
+      <Route path="/response2/:participantID" component={ExperimentResponse2} />
       <Route path="/questionnaire/:participantID" component={Questions} />
       <Route path="/experiment" component={Experiment} />
       <Route path="/debrief/:participantID" component={Debrief} />
@@ -53,6 +55,8 @@ const App = () => (
       <Route path="/saved/:participantID/:subjectID" component={Saved} />
       <Route path="/finished/:participantID" component={Finished} />
       <Route path="/return" component={Profiles} />
+      <Route path="/randomizer" component={Randomizer} />
+      <Route path="/begin/:participantID" component={Begin} />
 
     </div>
   </Router>
@@ -99,7 +103,9 @@ const Home = () => (
         position: 'absolute', left: '50%', top: '50%',
         transform: 'translate(-50%, -50%)'
     }}>
-      <img src={require('./logo.svg')}></img>
+      <img style={{width: 300}} src={require('./logo.png')}></img>
+      <br/>
+      <br/>
       <button class="btn btn-lg btn-primary" style={{width: 300}}>Start New Patient (Disabled)</button>
       <br/>
       <br/>

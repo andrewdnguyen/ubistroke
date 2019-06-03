@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ResponseLog2 from './ResponseLog2.jsx';
+import ResponseLogTest2 from './ResponseLogTest2.jsx';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PatientSkeleton from './PatientSkeleton.jsx';
 import PatientSkeletonNew from './PatientSkeletonNew.jsx';
@@ -52,13 +52,11 @@ class ExperimentResponse2 extends Component {
         ) :(
       <div class = "row">
       <div class="col-md-6">
-      <div class="white-background">
-      </div>
-      <ResponseLog2 patientIndex={this.props.match.params.subjectID}/>
+      <ResponseLogTest2 patientIndex="0" participantID={this.props.match.params.participantID}/>
       </div>
       <div class="col-md-6">
         <br/>
-        <PatientSkeletonNew patientIndex={this.props.match.params.subjectID}/>
+        <PatientSkeletonNew patientIndex="0"/>
       </div>
 
       </div>

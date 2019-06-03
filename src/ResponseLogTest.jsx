@@ -14,7 +14,7 @@ var config = {
 };
 
 
-class ResponseLog extends Component {
+class ResponseLogTest extends Component {
   constructor(props){
     super(props);
     // this.app = firebase.initializeApp(config);
@@ -199,6 +199,19 @@ this.setState({
 });
 }
 
+
+    saveChanges = e => {
+      e.preventDefault();
+      // var today = new Date();
+      // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      console.log(JSON.stringify(this.state.response))
+      window.localStorage.setItem('demoResponses', JSON.stringify(this.state.response));
+      this.setState({
+         saved: true,
+         redirect: true
+       });
+    };
+
 getValue(input){
   let returnValue = parseInt(input);
   if(isNaN(returnValue)){
@@ -207,40 +220,15 @@ getValue(input){
   return returnValue;
 }
 
-saveChanges = e => {
-  e.preventDefault();
-  console.log("clicked!")
-  //console.log(this.test);
-  // let savedData = JSON.stringify(this.state.response);
-  // localStorage.setItem('responseData', savedData);
-
-  let newData = this.state.test;
-  console.log(newData);
-  console.log(this.state.name);
-  newData[this.state.name]["Patient Index: " + this.state.index + " Video Only"] = this.state.response;
-  // newData.push(this.state.response);
-  let updates = {['/responses']:newData};
-  this.database.update(updates);
-  // var today = new Date();
-  // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  console.log(JSON.stringify(this.state.response))
-  window.localStorage.setItem('storedResponses', JSON.stringify(this.state.response));
-  this.setState({
-     saved: true,
-     redirect: true
-   });
-};
-
   render() {
-    let redirectlink = '/experiment2/' + this.props.participantID + '/' + this.props.experimentIndex;
     let patientVar = this.state.response;
-    return this.state.redirect ? (
-        <Redirect to={redirectlink} />
-        ) :(
+    return (this.state.redirect) ? (
+        <Redirect to={'/response2/' + this.props.participantID} />
+    ) : (
       <div className="info-side">
       <form onSubmit={this.saveChanges}>
         <br/>
-          <p><h2 class="white-text">Current session for: {this.state.name}</h2>
+          <p><h2 class="white-text">This is a Tutorial Page.</h2>
           <br/>
             <p class="white-text">Level of Consciousness:</p>
           <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.levelOfConsciousness.value} required>
@@ -463,4 +451,4 @@ saveChanges = e => {
   }
 }
 
-export default ResponseLog;
+export default ResponseLogTest;

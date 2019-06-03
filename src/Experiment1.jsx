@@ -24,7 +24,7 @@ class Experiment1 extends Component {
     this.database = this.app.database().ref().child('info');
 
     this.state = {
-      patientArray: []
+      loading: true
     };
   }
 
@@ -32,16 +32,16 @@ class Experiment1 extends Component {
   getModules(){
       let ref = this.database;
       ref.once("value").then(dataSnapshot => {
-        this.response = dataSnapshot.val().data.patientArray;
+        this.response = dataSnapshot.val().settings;
         //once the data is back, set the loading to false so it can be rendered
-        this.setState({ patientArray: this.response, loading: false });
-        window.localStorage.setItem('storedDatabase', JSON.stringify(this.response));
+        this.setState({ settings: this.response, loading: false });
       });
     }
 
     componentDidMount(){
         this.getModules();
     }
+
 
   render(){
 
@@ -54,11 +54,11 @@ class Experiment1 extends Component {
       <div class="col-md-6">
       <div class="white-background">
       </div>
-      <ResponseLog participantID={this.props.match.params.participantID} patientIndex={this.props.match.params.subjectID}/>
+      <ResponseLog participantID={this.props.match.params.participantID} experimentIndex={this.props.match.params.subjectID} patientIndex={this.state.settings.orderArray[this.props.match.params.subjectID]}/>
       </div>
       <div class="col-md-6">
         <br/>
-        <PatientVideo patientIndex={this.props.match.params.subjectID}/>
+        <PatientVideo patientIndex={this.state.settings.orderArray[this.props.match.params.subjectID]}/>
       </div>
 
       </div>

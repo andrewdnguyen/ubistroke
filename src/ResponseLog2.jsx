@@ -23,7 +23,7 @@ class ResponseLog2 extends Component {
 
     this.database = this.app.database().ref().child('info');
 
-    let data = localStorage.getItem('storedDatabase');
+    let data = localStorage.getItem('storedResponses');
     data = JSON.parse(data);
     console.log(data);
 
@@ -196,7 +196,7 @@ saveChanges = e => {
 };
 
   render() {
-    let redirectlink = '/saved/' + this.props.participantID + '/' + this.props.patientIndex;
+    let redirectlink = '/saved/' + this.props.participantID + '/' + this.props.experimentIndex;
     let patientVar = this.state.response;
     if(this.state.loading){
       return (            <div>

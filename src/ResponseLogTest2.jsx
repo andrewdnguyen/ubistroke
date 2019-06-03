@@ -14,13 +14,16 @@ var config = {
 };
 
 
-class ResponseLog extends Component {
+class ResponseLogTest2 extends Component {
   constructor(props){
     super(props);
     // this.app = firebase.initializeApp(config);
     !firebase.apps.length ? this.app = firebase.initializeApp(config) : this.app = firebase.app();
 
     this.database = this.app.database().ref().child('info');
+
+    let data = localStorage.getItem('demoResponses');
+    data = JSON.parse(data);
 
     this.state = {
       redirect: false,
@@ -29,75 +32,11 @@ class ResponseLog extends Component {
       index: this.props.patientIndex,
       test: {},
       name: this.props.participantID,
-      response: {
-        confidence: "",
-        subjectID: this.props.patientIndex,
-        notes: "",
-        locQuestions: {
-          value : ""
-        },
-        locCommands: {
-          value : ""
-        },
-        bestGaze: {
-              value: ""
-        },
-        bestLanguage: {
-              value: ""
-        },
-        dysarthria: {
-              value: ""
-        },
-        extinctionAndInattention: {
-              value: ""
-        },
-        facialPalsy: {
-              value: ""
-        },
-        limbAtaxia: {
-              value: ""
-        },
-        levelOfConsciousness: {
-              value: ""
-        },
-        motorArm: {
-              left: {
-                    value: ""
-              },
-              right: {
-                    value: ""
-              }
-        },
-        motorLeg: {
-              left: {
-                    value: ""
-              },
-              right: {
-                    value: ""
-              }
-        },
-        sensory: {
-              value: ""
-        },
-        visual: {
-              value: ""
-        }
-      }
+      response: data
     };
   }
 
-
-  getModules(){
-      this.database.on('value', snap => {
-        console.log(JSON.stringify(snap.val().responses));
-        this.setState({
-          test:snap.val().responses,
-        });
-      });
-    }
-
     componentDidMount(){
-        this.getModules();
     }
 
 updateNotes = e => {
@@ -207,40 +146,23 @@ getValue(input){
   return returnValue;
 }
 
-saveChanges = e => {
-  e.preventDefault();
-  console.log("clicked!")
-  //console.log(this.test);
-  // let savedData = JSON.stringify(this.state.response);
-  // localStorage.setItem('responseData', savedData);
 
-  let newData = this.state.test;
-  console.log(newData);
-  console.log(this.state.name);
-  newData[this.state.name]["Patient Index: " + this.state.index + " Video Only"] = this.state.response;
-  // newData.push(this.state.response);
-  let updates = {['/responses']:newData};
-  this.database.update(updates);
-  // var today = new Date();
-  // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  console.log(JSON.stringify(this.state.response))
-  window.localStorage.setItem('storedResponses', JSON.stringify(this.state.response));
-  this.setState({
-     saved: true,
-     redirect: true
-   });
-};
+    saveChanges = e => {
+      e.preventDefault();
+      this.setState({
+         redirect: true
+       });
+    };
 
   render() {
-    let redirectlink = '/experiment2/' + this.props.participantID + '/' + this.props.experimentIndex;
     let patientVar = this.state.response;
-    return this.state.redirect ? (
-        <Redirect to={redirectlink} />
-        ) :(
+    return(this.state.redirect) ? (
+        <Redirect to={'/begin/' + this.props.participantID} />
+    ) : (
       <div className="info-side">
       <form onSubmit={this.saveChanges}>
         <br/>
-          <p><h2 class="white-text">Current session for: {this.state.name}</h2>
+          <p><h2 class="white-text">This is a Tutorial Page.</h2>
           <br/>
             <p class="white-text">Level of Consciousness:</p>
           <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.levelOfConsciousness.value} required>
@@ -452,7 +374,15 @@ saveChanges = e => {
             <option value ="5">5</option>
             <option value ="6">6</option>
             <option value ="7">7 = Full Confidence</option>
-          </select>          <br/>
+          </select>
+          <br/>
+          <p class="white-text">Do you feel that any of the displayed symptoms are wrong?</p>
+          <select class="form-control" name="incorrect" onChange={this.updateIncorrect} value={patientVar.incorrect} required>
+            <option disabled selected value=""> -- select an option -- </option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <br/>
           </p>
           <br/>
           <input type="submit" class = "btn btn-lg btn-primary"/>
@@ -463,4 +393,4 @@ saveChanges = e => {
   }
 }
 
-export default ResponseLog;
+export default ResponseLogTest2;
