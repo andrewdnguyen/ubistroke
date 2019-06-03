@@ -74,7 +74,7 @@ saveChanges = e => {
         <h2 class="white-text">Good job {firstName}, this marks the end of the tutorial phase.
         After this the real experiment will begin, please consider your answers carefully. Your responses WILL be recorded.</h2>
         <br/><br/>
-        <Link to={'/experiment1/' + this.state.response.name + '/0'}><button class = "btn btn-lg btn-primary btn-width">Click Here To Get to the Demo</button></Link>
+        <Link to={'/experiment1/' + this.state.response.name + '/0'}><button class = "btn btn-lg btn-primary btn-width">Click Here To Get to Begin the Experiment</button></Link>
       </div>
     )
   }

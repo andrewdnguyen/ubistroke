@@ -939,8 +939,8 @@ listSymptoms(){
                   console.log(timeString);
                   let minutes = timeString[1] * 60;
                   let seconds = timeString[2];
-                  let value2 = minutes+seconds;
-                  this.refs.player2.currentTime = value2;;
+                  let value2 = parseInt(minutes+seconds);
+                  this.refs.player2.currentTime = value2;
                   //this.refs.player.seek(value2);
 
                 }
