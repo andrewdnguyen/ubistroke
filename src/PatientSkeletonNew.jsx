@@ -708,82 +708,112 @@ listDisplay(){
 
 
 switchX = e =>{
-  let googleData = [[{ type: 'string', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
+  let googleData = [[{ type: 'timeofday', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
   'Left Elbow', 'Right Elbow', 'Left Wrist', 'Right Wrist', 'Spine Mid', 'Spine Base', 'Left Knee', 'Right Knee',
   'Left Ankle', 'Right Ankle']];
-
-  for (let i = 0; i < this.state.csvData.length; i++){
+  let data = this.state.csvData;
+  for (let i = 0; i < data.length; i++){
+    let timeArray = [];
+    let time = data[i].Time;
+    let minutes = parseInt(time.substring(3, 5));
+    let seconds = parseInt(time.substring(6, 8));
+    let thirdThing = parseInt(time.substring(9, 12));
+    timeArray.push(0);
+    timeArray.push(minutes);
+    timeArray.push(seconds);
+    timeArray.push(thirdThing);
     let tempArray = [];
-    tempArray.push(this.state.csvData[i].Time);
-    tempArray.push(parseFloat(this.state.csvData[i].HeadX));
-    tempArray.push(parseFloat(this.state.csvData[i].NeckX));
-    tempArray.push(parseFloat(this.state.csvData[i].ShoulderLeftX));
-    tempArray.push(parseFloat(this.state.csvData[i].ShoulderRightX));
-    tempArray.push(parseFloat(this.state.csvData[i].ElbowLeftX));
-    tempArray.push(parseFloat(this.state.csvData[i].ElbowRightX));
-    tempArray.push(parseFloat(this.state.csvData[i].WristLeftX));
-    tempArray.push(parseFloat(this.state.csvData[i].WristRightX));
-    tempArray.push(parseFloat(this.state.csvData[i].SpineMidX));
-    tempArray.push(parseFloat(this.state.csvData[i].SpineBaseX));
-    tempArray.push(parseFloat(this.state.csvData[i].KneeLeftX));
-    tempArray.push(parseFloat(this.state.csvData[i].KneeRightX));
-    tempArray.push(parseFloat(this.state.csvData[i].AnkleLeftX));
-    tempArray.push(parseFloat(this.state.csvData[i].AnkleRightX));
+    tempArray.push(timeArray);
+    tempArray.push(parseFloat(data[i].HeadX));
+    tempArray.push(parseFloat(data[i].NeckX));
+    tempArray.push(parseFloat(data[i].ShoulderLeftX));
+    tempArray.push(parseFloat(data[i].ShoulderRightX));
+    tempArray.push(parseFloat(data[i].ElbowLeftX));
+    tempArray.push(parseFloat(data[i].ElbowRightX));
+    tempArray.push(parseFloat(data[i].WristLeftX));
+    tempArray.push(parseFloat(data[i].WristRightX));
+    tempArray.push(parseFloat(data[i].SpineMidX));
+    tempArray.push(parseFloat(data[i].SpineBaseX));
+    tempArray.push(parseFloat(data[i].KneeLeftX));
+    tempArray.push(parseFloat(data[i].KneeRightX));
+    tempArray.push(parseFloat(data[i].AnkleLeftX));
+    tempArray.push(parseFloat(data[i].AnkleRightX));
     googleData.push(tempArray);
+
   }
   this.setState({axis: "X", googleData: googleData});
 }
 
 switchY = e =>{
-  let googleData = [[{ type: 'string', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
+  let googleData = [[{ type: 'timeofday', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
   'Left Elbow', 'Right Elbow', 'Left Wrist', 'Right Wrist', 'Spine Mid', 'Spine Base', 'Left Knee', 'Right Knee',
   'Left Ankle', 'Right Ankle']];
-
-  for (let i = 0; i < this.state.csvData.length; i++){
+  let data = this.state.csvData;
+  for (let i = 0; i < data.length; i++){
+    let timeArray = [];
+    let time = data[i].Time;
+    let minutes = parseInt(time.substring(3, 5));
+    let seconds = parseInt(time.substring(6, 8));
+    let thirdThing = parseInt(time.substring(9, 12));
+    timeArray.push(0);
+    timeArray.push(minutes);
+    timeArray.push(seconds);
+    timeArray.push(thirdThing);
     let tempArray = [];
-    tempArray.push(this.state.csvData[i].Time);
-    tempArray.push(parseFloat(this.state.csvData[i].HeadY));
-    tempArray.push(parseFloat(this.state.csvData[i].NeckY));
-    tempArray.push(parseFloat(this.state.csvData[i].ShoulderLeftY));
-    tempArray.push(parseFloat(this.state.csvData[i].ShoulderRightY));
-    tempArray.push(parseFloat(this.state.csvData[i].ElbowLeftY));
-    tempArray.push(parseFloat(this.state.csvData[i].ElbowRightY));
-    tempArray.push(parseFloat(this.state.csvData[i].WristLeftY));
-    tempArray.push(parseFloat(this.state.csvData[i].WristRightY));
-    tempArray.push(parseFloat(this.state.csvData[i].SpineMidY));
-    tempArray.push(parseFloat(this.state.csvData[i].SpineBaseY));
-    tempArray.push(parseFloat(this.state.csvData[i].KneeLeftY));
-    tempArray.push(parseFloat(this.state.csvData[i].KneeRightY));
-    tempArray.push(parseFloat(this.state.csvData[i].AnkleLeftY));
-    tempArray.push(parseFloat(this.state.csvData[i].AnkleRightY));
+    tempArray.push(timeArray);
+    tempArray.push(parseFloat(data[i].HeadY));
+    tempArray.push(parseFloat(data[i].NeckY));
+    tempArray.push(parseFloat(data[i].ShoulderLeftY));
+    tempArray.push(parseFloat(data[i].ShoulderRightY));
+    tempArray.push(parseFloat(data[i].ElbowLeftY));
+    tempArray.push(parseFloat(data[i].ElbowRightY));
+    tempArray.push(parseFloat(data[i].WristLeftY));
+    tempArray.push(parseFloat(data[i].WristRightY));
+    tempArray.push(parseFloat(data[i].SpineMidY));
+    tempArray.push(parseFloat(data[i].SpineBaseY));
+    tempArray.push(parseFloat(data[i].KneeLeftY));
+    tempArray.push(parseFloat(data[i].KneeRightY));
+    tempArray.push(parseFloat(data[i].AnkleLeftY));
+    tempArray.push(parseFloat(data[i].AnkleRightY));
     googleData.push(tempArray);
+
   }
   this.setState({axis: "Y", googleData: googleData});
 }
 
 switchZ = e =>{
-  let googleData = [[{ type: 'string', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
+  let googleData = [[{ type: 'timeofday', label: 'Time' }, 'Head', 'Neck', 'Left Shoulder', 'Right Shoulder',
   'Left Elbow', 'Right Elbow', 'Left Wrist', 'Right Wrist', 'Spine Mid', 'Spine Base', 'Left Knee', 'Right Knee',
   'Left Ankle', 'Right Ankle']];
-
-  for (let i = 0; i < this.state.csvData.length; i++){
+  let data = this.state.csvData;
+  for (let i = 0; i < data.length; i++){
+    let timeArray = [];
+    let time = data[i].Time;
+    let minutes = parseInt(time.substring(3, 5));
+    let seconds = parseInt(time.substring(6, 8));
+    let thirdThing = parseInt(time.substring(9, 12));
+    timeArray.push(0);
+    timeArray.push(minutes);
+    timeArray.push(seconds);
+    timeArray.push(thirdThing);
     let tempArray = [];
-    tempArray.push(this.state.csvData[i].Time);
-    tempArray.push(parseFloat(this.state.csvData[i].HeadZ));
-    tempArray.push(parseFloat(this.state.csvData[i].NeckZ));
-    tempArray.push(parseFloat(this.state.csvData[i].ShoulderLeftZ));
-    tempArray.push(parseFloat(this.state.csvData[i].ShoulderRightZ));
-    tempArray.push(parseFloat(this.state.csvData[i].ElbowLeftZ));
-    tempArray.push(parseFloat(this.state.csvData[i].ElbowRightZ));
-    tempArray.push(parseFloat(this.state.csvData[i].WristLeftZ));
-    tempArray.push(parseFloat(this.state.csvData[i].WristRightZ));
-    tempArray.push(parseFloat(this.state.csvData[i].SpineMidZ));
-    tempArray.push(parseFloat(this.state.csvData[i].SpineBaseZ));
-    tempArray.push(parseFloat(this.state.csvData[i].KneeLeftZ));
-    tempArray.push(parseFloat(this.state.csvData[i].KneeRightZ));
-    tempArray.push(parseFloat(this.state.csvData[i].AnkleLeftZ));
-    tempArray.push(parseFloat(this.state.csvData[i].AnkleRightZ));
+    tempArray.push(timeArray);
+    tempArray.push(parseFloat(data[i].HeadZ));
+    tempArray.push(parseFloat(data[i].NeckZ));
+    tempArray.push(parseFloat(data[i].ShoulderLeftZ));
+    tempArray.push(parseFloat(data[i].ShoulderRightZ));
+    tempArray.push(parseFloat(data[i].ElbowLeftZ));
+    tempArray.push(parseFloat(data[i].ElbowRightZ));
+    tempArray.push(parseFloat(data[i].WristLeftZ));
+    tempArray.push(parseFloat(data[i].WristRightZ));
+    tempArray.push(parseFloat(data[i].SpineMidZ));
+    tempArray.push(parseFloat(data[i].SpineBaseZ));
+    tempArray.push(parseFloat(data[i].KneeLeftZ));
+    tempArray.push(parseFloat(data[i].KneeRightZ));
+    tempArray.push(parseFloat(data[i].AnkleLeftZ));
+    tempArray.push(parseFloat(data[i].AnkleRightZ));
     googleData.push(tempArray);
+
   }
   this.setState({axis: "Z", googleData: googleData});
 }
@@ -953,6 +983,7 @@ listSymptoms(){
                   let minutes = timeString[1] * 60;
                   let seconds = timeString[2];
                   let value2 = parseInt(minutes+seconds);
+                  console.log(value2);
                   this.refs.player2.currentTime = value2;
                   //this.refs.player.seek(value2);
 
