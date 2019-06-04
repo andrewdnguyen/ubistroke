@@ -42,6 +42,25 @@ class Experiment2 extends Component {
         this.getModules();
     }
 
+    skeletonRender(){
+      let value1 = this.state.settings.slightFakeIndex;
+      let value2 = this.state.settings.randomIndex;
+      let value3 = this.state.settings.comboIndex;
+      console.log(value3 == this.props.match.params.subjectID);
+      if(value1 == this.props.match.params.subjectID){
+        return <PatientSkeletonNew patientIndex={this.state.settings.orderArray[this.props.match.params.subjectID]} dataState="1"/>
+      }
+      else if(value2 == this.props.match.params.subjectID){
+        return <PatientSkeletonNew patientIndex={this.state.settings.orderArray[this.props.match.params.subjectID]} dataState="2"/>
+      }
+      else if(value3 == this.props.match.params.subjectID){
+        return <PatientSkeletonNew patientIndex={this.state.settings.orderArray[this.props.match.params.subjectID]} dataState="3"/>
+      }
+      else{
+        return <PatientSkeletonNew patientIndex={this.state.settings.orderArray[this.props.match.params.subjectID]} dataState="0"/>        
+      }
+    }
+
   render(){
 
     return this.state.loading ? (
@@ -57,7 +76,7 @@ class Experiment2 extends Component {
       </div>
       <div class="col-md-6">
         <br/>
-        <PatientSkeletonNew patientIndex={this.state.settings.orderArray[this.props.match.params.subjectID]}/>
+        {this.skeletonRender()}
       </div>
 
       </div>

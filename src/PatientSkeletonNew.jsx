@@ -127,9 +127,22 @@ componentWillMount() {
 getModules(){
     let ref = this.database;
     ref.once("value").then(dataSnapshot => {
-      this.response = dataSnapshot.val().data.patientArray;
+
+      if(this.props.dataState == 1){
+        this.response = dataSnapshot.val().data.badArray.slightChange;
+      }
+      else if(this.props.dataState == 2){
+        this.response = dataSnapshot.val().data.badArray.random;
+      }
+      else if(this.props.dataState == 3){
+        this.response = dataSnapshot.val().data.badArray.combo;
+      }
+      else{
+        this.response = dataSnapshot.val().data.patientArray[this.props.patientIndex];
+      }
       //window.localStorage.setItem('storedDatabase', JSON.stringify(this.response));
       //once the data is back, set the loading to false so it can be rendered
+      console.log("Data state: " + this.props.dataState);
       this.setState({ database: this.response, loading: false });
     });
   }
@@ -223,7 +236,7 @@ getValue(input){
 
 rightArmColor(){
   let index = parseInt(this.state.index);
-  let patientVariable = this.state.database[index].NIHSS;
+  let patientVariable = this.state.database.NIHSS;
   //console.log(this.state.database);
   let motorArmRight = this.getValue(patientVariable.motorArm.right.value);
   let sensory = 0;
@@ -251,7 +264,7 @@ rightArmColor(){
 
 mouthColor(){
   let index = parseInt(this.state.index);
-  let patientVariable = this.state.database[index].NIHSS;
+  let patientVariable = this.state.database.NIHSS;
   //console.log(this.state.database);
   let locQuestions = this.getValue(patientVariable.locQuestions.value);
   let dysarthria = this.getValue(patientVariable.dysarthria.value);
@@ -272,7 +285,7 @@ mouthColor(){
 
 leftArmColor(){
   let index = parseInt(this.state.index);
-  let patientVariable = this.state.database[index].NIHSS;
+  let patientVariable = this.state.database.NIHSS;
   //console.log(this.state.database);
   let motorArmLeft = this.getValue(patientVariable.motorArm.left.value);
   let sensory = 0;
@@ -300,7 +313,7 @@ leftArmColor(){
 
 leftLegColor(){
   let index = parseInt(this.state.index);
-  let patientVariable = this.state.database[index].NIHSS;
+  let patientVariable = this.state.database.NIHSS;
   //console.log(this.state.database);
   let motorLegLeft = this.getValue(patientVariable.motorLeg.left.value);
   let sensory = 0;
@@ -328,7 +341,7 @@ leftLegColor(){
 
 rightFaceColor(){
   let index = parseInt(this.state.index);
-  let patientVariable = this.state.database[index].NIHSS;
+  let patientVariable = this.state.database.NIHSS;
   let sensory = 0;
   let facialPalsy = 0;
   if(patientVariable.sensory.side != 1){
@@ -352,7 +365,7 @@ rightFaceColor(){
 
 leftFaceColor(){
   let index = parseInt(this.state.index);
-  let patientVariable = this.state.database[index].NIHSS;
+  let patientVariable = this.state.database.NIHSS;
   let sensory = 0;
   let facialPalsy = 0;
   if(patientVariable.facialPalsy.side != 2){
@@ -376,7 +389,7 @@ leftFaceColor(){
 
 rightHeadColor(){
   let index = parseInt(this.state.index);
-  let patientVariable = this.state.database[index].NIHSS;
+  let patientVariable = this.state.database.NIHSS;
   let ei = 0;
   let loc = this.getValue(patientVariable.levelOfConsciousness.value);
   let commands = this.getValue(patientVariable.locCommands.value);
@@ -398,7 +411,7 @@ rightHeadColor(){
 
 leftHeadColor(){
   let index = parseInt(this.state.index);
-  let patientVariable = this.state.database[index].NIHSS;
+  let patientVariable = this.state.database.NIHSS;
   let loc = this.getValue(patientVariable.levelOfConsciousness.value);
   let commands = this.getValue(patientVariable.locCommands.value);
   let ei = 0;
@@ -420,7 +433,7 @@ leftHeadColor(){
 
 rightLegColor(){
   let index = parseInt(this.state.index);
-  let patientVariable = this.state.database[index].NIHSS;
+  let patientVariable = this.state.database.NIHSS;
   //console.log(this.state.database);
   let motorLegRight = this.getValue(patientVariable.motorLeg.right.value);
   let sensory = 0;
@@ -448,7 +461,7 @@ rightLegColor(){
 
 rightEyeColor(){
   let index = parseInt(this.state.index);
-  let patientVariable = this.state.database[index].NIHSS;
+  let patientVariable = this.state.database.NIHSS;
   //console.log(this.state.database);
   let bestGaze = 0;
   let visual = this.getValue(patientVariable.visual.value);
@@ -470,7 +483,7 @@ rightEyeColor(){
 
 leftEyeColor(){
   let index = parseInt(this.state.index);
-  let patientVariable = this.state.database[index].NIHSS;
+  let patientVariable = this.state.database.NIHSS;
   //console.log(this.state.database);
   let visual = this.getValue(patientVariable.visual.value);
   let bestGaze = 0;
@@ -779,23 +792,23 @@ switchZ = e =>{
 listSymptoms(){
   let table = []
   let index = parseInt(this.props.patientIndex);
-  let array = this.state.database[index].NIHSS;
+  let array = this.state.database.NIHSS;
   // Outer loop to create parent
   for (let element in array) {
     //Create the parent and add the children
     if(element === "motorArm" || element === "motorLeg"){
       //console.log(this.state.database[index].NIHSS[element]);
-      if(this.state.database[index].NIHSS[element].left.value != 0){
-        table.push(<div>{element} left: {this.state.database[index].NIHSS[element].left.value}</div>);
+      if(this.state.database.NIHSS[element].left.value != 0){
+        table.push(<div>{element} left: {this.state.database.NIHSS[element].left.value}</div>);
       }
-      if(this.state.database[index].NIHSS[element].right.value != 0){
-        table.push(<div>{element} right: {this.state.database[index].NIHSS[element].right.value}</div>);
+      if(this.state.database.NIHSS[element].right.value != 0){
+        table.push(<div>{element} right: {this.state.database.NIHSS[element].right.value}</div>);
       }
 
     }
     else{
-      if(this.state.database[index].NIHSS[element].value != 0){
-        table.push(<div>{element} : {this.state.database[index].NIHSS[element].value}</div>);
+      if(this.state.database.NIHSS[element].value != 0){
+        table.push(<div>{element} : {this.state.database.NIHSS[element].value}</div>);
       }
     }
   }
@@ -855,10 +868,10 @@ listSymptoms(){
       mouthColor={this.mouthColor()} leftEyeColor={this.leftEyeColor()} leftFace={this.leftFaceColor()} rightHead={this.rightHeadColor()}/>
       </div>
       <video controls fluid={false} width={285} ref="player2" onSeeked={this.seeking.bind(this)} onPlay={this.playAudio.bind(this)} onPause={this.pauseAudio.bind(this)}>
-        <source src={this.state.database[this.props.patientIndex].Video} ></source>
+        <source src={this.state.database.Video} ></source>
       </video>
       <audio ref="audio">
-        <source src={this.state.database[this.props.patientIndex].audio} type="audio/wav"></source>
+        <source src={this.state.database.audio} type="audio/wav"></source>
       Your browser does not support the audio element.
       </audio>
       <div class="user-options">

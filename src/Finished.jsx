@@ -66,8 +66,8 @@ saveChanges = e => {
     return(
       <div className="info-side container" align="center" >
         <br/>
-        <h2 class="white-text">Congratualations {firstName}, you have completed the experiment. Our goal with this information is to see if phycisians
-        overrely on technology in the case of stroke diagnoses. If you have any further questions feel free to contact Andrew Nguyen (adn047@ucsd.edu) or Vishwajith Ramesh (vramesh@eng.ucsd.edu).</h2>
+        <h2 class="white-text">Congratualations {firstName}, you have completed the experiment. Our goal with this information is to guage how much
+        physicians rely on technology in the case of stroke diagnoses. If you have any further questions feel free to contact Andrew Nguyen (adn047@ucsd.edu) or Vishwajith Ramesh (vramesh@eng.ucsd.edu).</h2>
         <br/><br/>
         <Link to="/"><button class = "btn btn-lg btn-primary btn-width">Click Here To Return to Home</button></Link>
 
