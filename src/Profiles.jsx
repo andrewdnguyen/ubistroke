@@ -76,7 +76,7 @@ getModules(){
 
         <h1 style={{color: 'white'}}><center>Saved Profiles</center></h1>
           <div class = "patient-buttons">
-          <center><Link to="/"><button class="btn btn-lg btn-primary btn-block">&lt;&lt; Go Back</button></Link></center><br/><br/>
+          <center><Link to="/home"><button class="btn btn-lg btn-primary btn-block">&lt;&lt; Go Back</button></Link></center><br/><br/>
           {this.generateButtons()}
           </div>
 

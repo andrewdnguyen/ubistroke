@@ -20,6 +20,7 @@ import Experiment2 from './Experiment2.jsx';
 import Finished from './Finished.jsx';
 import Randomizer from './Randomizer.jsx';
 import Begin from './Begin.jsx';
+import Password from './Password.jsx'
 import {
   dailySalesChart
 } from "./charts.jsx";
@@ -38,7 +39,8 @@ const App = () => (
 
   <Router>
     <div>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={Password} />
+      <Route exact path="/home" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/patients" component={Patients} />
       <Route path="/subjects/:subjectID/:time?" component={Subject} />

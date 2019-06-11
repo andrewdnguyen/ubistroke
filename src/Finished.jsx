@@ -58,7 +58,7 @@ saveChanges = e => {
 };
 
   render() {
-    let redirectlink = '/';
+    let redirectlink = '/home';
     let patientVar = this.state.response;
     let name = this.state.name;
     let splitName = name.split(" ");
@@ -69,7 +69,7 @@ saveChanges = e => {
         <h2 class="white-text">Congratualations {firstName}, you have completed the experiment. Our goal with this information is to guage how much
         physicians rely on technology in the case of stroke diagnoses. If you have any further questions feel free to contact Andrew Nguyen (adn047@ucsd.edu) or Vishwajith Ramesh (vramesh@eng.ucsd.edu).</h2>
         <br/><br/>
-        <Link to="/"><button class = "btn btn-lg btn-primary btn-width">Click Here To Return to Home</button></Link>
+        <Link to="/home"><button class = "btn btn-lg btn-primary btn-width">Click Here To Return to Home</button></Link>
 
 
       </div>
