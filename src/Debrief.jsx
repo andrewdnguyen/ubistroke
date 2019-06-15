@@ -86,8 +86,19 @@ saveChanges = e => {
         ) :(
       <div className="info-side container" align="center">
         <br/>
-        <h2 class="white-text">Good {adjective + " " + firstName}, in this experiment we will be asking you to perform a brief NIHSS diagnosis on several patients through video.
-        after each video diagnosis, we will then ask you to reevaluate your diagnosis after providing you with more information through our Ubistroke interface.</h2>
+        <h4 class="white-text">Good {adjective + " " + firstName}, in this experiment we will be asking you to perform a brief NIHSS diagnosis on several patients through video.
+        after each video diagnosis, we will then ask you to reevaluate your diagnosis after providing you with more information through our Ubistroke interface.
+        <br/><br/>
+        <h2><strong>A few important notes before you begin:</strong></h2>
+        - This experiment requires that you are able to hear some videos, so please make sure that you have access to a speaker or headphones.
+        <br/>
+        - This experiment is optimized for Google Chrome so please change browsers if you are not currently on Chrome.
+        <br/>
+        - This experiment may also be resource intensive so it is recommended that you close any other tabs before proceeding.
+        <br/>
+        - Should you encounter any bugs or technical issues, please let us know by sending an email to vramesh@eng.ucsd.edu.
+
+        </h4>
         <br/><br/>
         <button class = "btn btn-lg btn-primary btn-width" onClick={this.saveChanges}>Click Here When You're Ready</button>
       </div>

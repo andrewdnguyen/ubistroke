@@ -260,7 +260,7 @@ saveChanges = e => {
             </div>
         ) :(
       <div className="info-side">
-        <h1 class="white-text">Subject ID: {patientVar.ID}</h1>
+        <h1 class="white-text">Subject ID: {patientVar["UbiStroke Label"]}</h1>
         <h1 class="white-text">Age: {patientVar.Age}</h1>
         <h1 class="white-text">Visit Date: {patientVar["Visit Date"]}</h1>
         <h1 class="white-text">NIHSS Total Score: {this.getValue(patientVar.NIHSS.levelOfConsciousness.value) + this.getValue(patientVar.NIHSS.locQuestions.value) + this.getValue(patientVar.NIHSS.locCommands.value) +
@@ -282,6 +282,9 @@ saveChanges = e => {
           <br/>
           <p class="white-text">Neuro-Exam</p>
           <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="NeuroExam" value={patientVar.NeuroExam}/>
+          <br/>
+          <p class="white-text">NIHSS</p>
+          <textarea rows="4" className="notes form-control" onChange={this.updateNotes} name="NIHSSText" value={patientVar["NIHSS Text"]}/>
           <br/>
           <br/><br/>
             <p class="white-text">Level of Consciousness:</p>

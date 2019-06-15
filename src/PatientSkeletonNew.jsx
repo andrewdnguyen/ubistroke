@@ -82,37 +82,28 @@ componentWillMount() {
     console.log(indexVal);
     switch (indexVal) {
         case 0:
-            csvFilepath = require('./data/test-data.csv');
-            break;
-        case 9:
-            csvFilepath = require('./data/kinect-data/Patient_30_2017130_155326401/body3-jointPositionData.csv');
-            break;
-        case 10:
-            csvFilepath = require('./data/kinect-data/Patient_31_2017213_15232451/Patient_31_body5-jointPositionData.csv');
+            csvFilepath = require('./data/kinect-data/Patient_38_2017124_133218739/Patient_38_body4-jointPositionData.csv');
             break;
         case 1:
-            csvFilepath = require('./data/kinect-data/Patient_3/body1-jointPositionData.csv');
-            break;
-        case 2:
-            csvFilepath = require('./data/kinect-data/Patient_4/body0-jointPositionData.csv');
-            break;
-        case 3:
             csvFilepath = require('./data/kinect-data/Patient_5_2016210_144452290/Patient_5_body3-jointPositionData.csv');
             break;
+        case 2:
+            csvFilepath = require('./data/kinect-data/Patient_20_20161017_14726193/Patient_20_body0-jointPositionData.csv');
+            break;
+        case 3:
+            csvFilepath = require('./data/kinect-data/Patient_21_20161018_102849451/Patient_21_body0-jointPositionData.csv');
+            break;
         case 4:
-            csvFilepath = require('./data/kinect-data/Patient_6_201632_153730576/body0-jointPositionData.csv');
-            break;
-        case 5:
-            csvFilepath = require('./data/kinect-data/Patient_7_201639_143050834/Patient 7_body0-jointPositionData.csv');
-            break;
-        case 6:
             csvFilepath = require('./data/kinect-data/Patient_8_201639_152738602/Patient_8_body5-jointPositionData.csv');
             break;
-        case 7:
+        case 5:
             csvFilepath = require('./data/kinect-data/Patient_9_2016330_13597929/Patient_9_body5-jointPositionData.csv');
             break;
-        case 8:
+        case 6:
             csvFilepath = require('./data/kinect-data/Patient_10_2016330_145130327/Patient_10_body1-jointPositionData.csv');
+            break;
+        case 7:
+            csvFilepath = require('./data/kinect-data/Patient_31_2017213_15232451/Patient_31_body5-jointPositionData.csv');
             break;
         }
     Papa.parse(csvFilepath, {
@@ -168,10 +159,12 @@ handleStateChange(state, prevState) {
 }
 
 playAudio(){
+  this.refs.audio.currentTime = this.refs.player2.currentTime;
   this.refs.audio.play();
 }
 
 pauseAudio(){
+  this.refs.audio.currentTime = this.refs.player2.currentTime;
   this.refs.audio.pause();
 }
 
@@ -244,17 +237,19 @@ rightArmColor(){
     sensory = this.getValue(patientVariable.sensory.value);
   }
   let limbAtaxia = 0;
-  if(patientVariable.limbAtaxia.side != 1){
-    if(patientVariable.limbAtaxia.limb != 2){
-      limbAtaxia = 1;
+  if(this.getValue(patientVariable.limbAtaxia.value) != 0){
+    if(patientVariable.limbAtaxia.side != 1){
+      if(patientVariable.limbAtaxia.limb != 2){
+        limbAtaxia = 1;
+      }
     }
   }
   let determinator = motorArmRight+limbAtaxia+sensory;
-  if(determinator <= 2){
+  if(determinator == 0){
     return "green";
   }
-  else if(determinator <= 4){
-    return "yellow";
+  else if(determinator <= 3){
+    return "#d8d217";
   }
   else{
     return "red";
@@ -271,11 +266,11 @@ mouthColor(){
   let bestLanguage = this.getValue(patientVariable.bestLanguage.value);
   let facialPalsy = this.getValue(patientVariable.facialPalsy.value);
   let determinator = locQuestions + dysarthria + bestLanguage + facialPalsy;
-  if(determinator < 4){
+  if(determinator == 0){
     return "green";
   }
-  else if(determinator < 8){
-    return "yellow";
+  else if(determinator < 4){
+    return "#d8d217";
   }
   else{
     return "red";
@@ -293,17 +288,19 @@ leftArmColor(){
     sensory = this.getValue(patientVariable.sensory.value);
   }
   let limbAtaxia = 0;
-  if(patientVariable.limbAtaxia.side != 2){
-    if(patientVariable.limbAtaxia.limb != 2){
-      limbAtaxia = 1;
+  if(this.getValue(patientVariable.limbAtaxia.value) != 0){
+    if(patientVariable.limbAtaxia.side != 2){
+      if(patientVariable.limbAtaxia.limb != 2){
+        limbAtaxia = 1;
+      }
     }
   }
   let determinator = motorArmLeft + limbAtaxia + sensory;
-  if(determinator <= 2){
+  if(determinator == 0){
     return "green";
   }
-  else if(determinator <= 4){
-    return "yellow";
+  else if(determinator <= 3){
+    return "#d8d217";
   }
   else{
     return "red";
@@ -321,17 +318,19 @@ leftLegColor(){
     sensory = this.getValue(patientVariable.sensory.value);
   }
   let limbAtaxia = 0;
-  if(patientVariable.limbAtaxia.side != 2){
-    if(patientVariable.limbAtaxia.limb != 1){
-      limbAtaxia = 1;
+  if(this.getValue(patientVariable.limbAtaxia.value) != 0){
+    if(patientVariable.limbAtaxia.side != 2){
+      if(patientVariable.limbAtaxia.limb != 1){
+        limbAtaxia = 1;
+      }
     }
   }
   let determinator = motorLegLeft+limbAtaxia+sensory;
-  if(determinator <= 2){
+  if(determinator == 0){
     return "green";
   }
-  else if(determinator <= 4){
-    return "yellow";
+  else if(determinator <= 3){
+    return "#d8d217";
   }
   else{
     return "red";
@@ -351,11 +350,11 @@ rightFaceColor(){
     facialPalsy = this.getValue(patientVariable.facialPalsy.value);
   }
   let determinator = sensory+facialPalsy;
-  if(determinator <= 2){
+  if(determinator == 0){
     return "green";
   }
-  else if(determinator <= 4){
-    return "yellow";
+  else if(determinator <= 3){
+    return "#d8d217";
   }
   else{
     return "red";
@@ -375,11 +374,11 @@ leftFaceColor(){
     sensory = this.getValue(patientVariable.sensory.value);
   }
   let determinator = sensory + facialPalsy;
-  if(determinator <= 2){
+  if(determinator == 0){
     return "green";
   }
-  else if(determinator <= 4){
-    return "yellow";
+  else if(determinator <= 2){
+    return "#d8d217";
   }
   else{
     return "red";
@@ -397,11 +396,11 @@ rightHeadColor(){
     ei = this.getValue(patientVariable.extinctionAndInattention.value);
   }
   let determinator = ei+loc+commands;
-  if(determinator < 3){
+  if(determinator == 0){
     return "green";
   }
-  else if(determinator <= 6){
-    return "yellow";
+  else if(determinator <= 3){
+    return "#d8d217";
   }
   else{
     return "red";
@@ -419,11 +418,11 @@ leftHeadColor(){
     ei = this.getValue(patientVariable.extinctionAndInattention.value);
   }
   let determinator = ei + loc+commands;
-  if(determinator < 3){
+  if(determinator == 0){
     return "green";
   }
-  else if(determinator <= 6){
-    return "yellow";
+  else if(determinator <= 3){
+    return "#d8d217";
   }
   else{
     return "red";
@@ -441,17 +440,20 @@ rightLegColor(){
     sensory = this.getValue(patientVariable.sensory.value);
   }
   let limbAtaxia = 0;
-  if(patientVariable.limbAtaxia.side != 1){
-    if(patientVariable.limbAtaxia.limb != 1){
-      limbAtaxia = 1;
+  if(this.getValue(patientVariable.limbAtaxia.value) != 0){
+    if(patientVariable.limbAtaxia.side != 1){
+      if(patientVariable.limbAtaxia.limb != 1){
+        limbAtaxia = 1;
+      }
     }
   }
   let determinator = motorLegRight+limbAtaxia+sensory;
-  if(determinator <= 2){
+  console.log(limbAtaxia);
+  if(determinator == 0){
     return "green";
   }
-  else if(determinator <= 4){
-    return "yellow";
+  else if(determinator <= 3){
+    return "#d8d217";
   }
   else{
     return "red";
@@ -469,11 +471,11 @@ rightEyeColor(){
     bestGaze = this.getValue(patientVariable.bestGaze.value);
   }
   let determinator = bestGaze+visual;
-  if(determinator <= 2){
+  if(determinator == 0){
     return "green";
   }
-  else if(determinator <= 4){
-    return "yellow";
+  else if(determinator <= 3){
+    return "#d8d217";
   }
   else{
     return "red";
@@ -491,11 +493,11 @@ leftEyeColor(){
     bestGaze = this.getValue(patientVariable.bestGaze.value);
   }
   let determinator = bestGaze+visual;
-  if(determinator <= 2){
+  if(determinator == 0){
     return "green";
   }
-  else if(determinator <= 4){
-    return "yellow";
+  else if(determinator <= 3){
+    return "#d8d217";
   }
   else{
     return "red";
@@ -854,40 +856,25 @@ listSymptoms(){
             </div>
         ) :(
       <div class="canvas-div2">
-
-
-        <div class = "displayReading">
-          {(this.state.displayGraph) ? <div></div> : <div>Currently Displaying {this.state.axis} Axis Data for:
-           <div class="joints">{this.listDisplay()}</div>
-           vs. Time (HH:MM:SS) </div>}
-           <img style={{height: 120}} src={require('./xyz.gif')}></img>
-           <p >Skeleton Region Legend:</p>
-           <p ><div class="square" style={{backgroundColor: "green"}} ></div> Symptoms in area are mild.</p>
-           <p ><div class="square" style={{backgroundColor: "yellow"}} ></div> Symptoms in area are moderate.</p>
-           <p ><div class="square" style={{backgroundColor: "red"}} ></div> Symptoms in area are severe.</p>
-        </div>
-
+        <div class = "skeleton">
         <h1 id="left-symbol"> R </h1>
         <h1 id="right-symbol"> L </h1>
-
-
-        <div class = "skeleton">
         { (this.state.displayNodes) ?
         <div class="nodes">
-        <div class="head node" style={{ backgroundColor: this.state.head ? '#c95253' : 'black'}} onClick={this.displayHead}><span class="tooltiptext">Head</span></div>
-        <div class="neck node" style={{ backgroundColor: this.state.neck ? '#304d48' : 'black'}} onClick={this.displayNeck}><span class="tooltiptext">Neck</span></div>
-        <div class="shoulderLeft node" style={{ backgroundColor: this.state.rshoulder ? '#d17846' : 'black'}} onClick={this.displayShoulderR}><span class="tooltiptext">Right Shoulder</span></div>
-        <div class="shoulderRight node" style={{ backgroundColor: this.state.lshoulder ? '#f1ca3a' : 'black'}} onClick={this.displayShoulder}><span class="tooltiptextleft">Left Shoulder</span></div>
-        <div class="elbowRight node" style={{ backgroundColor: this.state.lelbow ? '#97f3d9' : 'black'}} onClick={this.displayElbow}><span class="tooltiptextleft">Left Elbow</span></div>
-        <div class="elbowLeft node" style={{ backgroundColor: this.state.relbow ? '#01dc54' : 'black'}} onClick={this.displayElbowR}><span class="tooltiptext">Right Elbow</span></div>
-        <div class="wristLeft node" style={{ backgroundColor: this.state.rwrist ? '#15c683' : 'black'}} onClick={this.displayWristR}><span class="tooltiptext">Right Wrist</span></div>
-        <div class="wristRight node" style={{ backgroundColor: this.state.lwrist ? '#ed0a7c' : 'black'}} onClick={this.displayWrist}><span class="tooltiptextleft">Left Wrist</span></div>
-        <div class="spine node" style={{ backgroundColor: this.state.midspine ? '#bab780' : 'black'}} onClick={this.displaySpine}><span class="tooltiptext">Spine Mid</span></div>
-        <div class="hip node" style={{ backgroundColor: this.state.spinebase ? '#d241a7' : 'black'}} onClick={this.displayBase}><span class="tooltiptext">Spine Base</span></div>
-        <div class="kneeLeft node" style={{ backgroundColor: this.state.rknee ? '#cfed08' : 'black'}} onClick={this.displayKneeR}><span class="tooltiptext">Right Knee</span></div>
-        <div class="kneeRight node" style={{ backgroundColor: this.state.lknee ? '#61673e' : 'black'}} onClick={this.displayKnee}><span class="tooltiptextleft">Left Knee</span></div>
-        <div class="ankleLeft node" style={{ backgroundColor: this.state.rankle ? '#25e40d' : 'black'}} onClick={this.displayAnkleR}><span class="tooltiptext">Right Ankle</span></div>
-        <div class="ankleRight node" style={{ backgroundColor: this.state.lankle ? '#b39ad2' : 'black'}} onClick={this.displayAnkle}><span class="tooltiptextleft">Left Ankle</span></div>
+        <div class="head node" style={{ backgroundColor: this.state.head ? '#ff80ff' : 'black'}} onClick={this.displayHead}><span class="tooltiptext">Head</span></div>
+        <div class="neck node" style={{ backgroundColor: this.state.neck ? '#ff1aff' : 'black'}} onClick={this.displayNeck}><span class="tooltiptext">Neck</span></div>
+        <div class="shoulderRight node" style={{ backgroundColor: this.state.rshoulder ? '#ff8080' : 'black'}} onClick={this.displayShoulderR}><span class="tooltiptext">Right Shoulder</span></div>
+        <div class="shoulderLeft node" style={{ backgroundColor: this.state.lshoulder ? '#b3b3ff' : 'black'}} onClick={this.displayShoulder}><span class="tooltiptextleft">Left Shoulder</span></div>
+        <div class="elbowLeft node" style={{ backgroundColor: this.state.lelbow ? '#4d4dff' : 'black'}} onClick={this.displayElbow}><span class="tooltiptextleft">Left Elbow</span></div>
+        <div class="elbowRight node" style={{ backgroundColor: this.state.relbow ? '#ff4d4d' : 'black'}} onClick={this.displayElbowR}><span class="tooltiptext">Right Elbow</span></div>
+        <div class="wristRight node" style={{ backgroundColor: this.state.rwrist ? '#ff1a1a' : 'black'}} onClick={this.displayWristR}><span class="tooltiptext">Right Wrist</span></div>
+        <div class="wristLeft node" style={{ backgroundColor: this.state.lwrist ? '#1a1aff' : 'black'}} onClick={this.displayWrist}><span class="tooltiptextleft">Left Wrist</span></div>
+        <div class="spine node" style={{ backgroundColor: this.state.midspine ? '#b300b2' : 'black'}} onClick={this.displaySpine}><span class="tooltiptext">Spine Mid</span></div>
+        <div class="hip node" style={{ backgroundColor: this.state.spinebase ? '#4d004c' : 'black'}} onClick={this.displayBase}><span class="tooltiptext">Spine Base</span></div>
+        <div class="kneeRight node" style={{ backgroundColor: this.state.rknee ? '#800000' : 'black'}} onClick={this.displayKneeR}><span class="tooltiptext">Right Knee</span></div>
+        <div class="kneeLeft node" style={{ backgroundColor: this.state.lknee ? '#0000e6' : 'black'}} onClick={this.displayKnee}><span class="tooltiptextleft">Left Knee</span></div>
+        <div class="ankleRight node" style={{ backgroundColor: this.state.rankle ? '#4d0000' : 'black'}} onClick={this.displayAnkleR}><span class="tooltiptext">Right Ankle</span></div>
+        <div class="ankleLeft node" style={{ backgroundColor: this.state.lankle ? '#000080' : 'black'}} onClick={this.displayAnkle}><span class="tooltiptextleft">Left Ankle</span></div>
         </div>
         :
         <div></div>
@@ -896,6 +883,16 @@ listSymptoms(){
       chestColor="#727882" rightArmColor={this.rightArmColor()} leftArmColor={this.leftArmColor()}
       leftHead={this.leftHeadColor()} rightEyeColor={this.rightEyeColor()} rightFace={this.rightFaceColor()}
       mouthColor={this.mouthColor()} leftEyeColor={this.leftEyeColor()} leftFace={this.leftFaceColor()} rightHead={this.rightHeadColor()}/>
+      </div>
+      <div class = "displayReading">
+        {(this.state.displayGraph) ? <div></div> : <div>Currently Displaying {this.state.axis} Axis Data for:
+         <div class="joints">{this.listDisplay()}</div>
+         vs. Time (MM:SS) </div>}
+         <img style={{height: 120}} src={require('./xyz.gif')}></img>
+         <p >Skeleton Region Legend:</p>
+         <p ><div class="square" style={{backgroundColor: "green"}} ></div> Symptoms in area are mild.</p>
+         <p ><div class="square" style={{backgroundColor: "#d8d217"}} ></div> Symptoms in area are moderate.</p>
+         <p ><div class="square" style={{backgroundColor: "red"}} ></div> Symptoms in area are severe.</p>
       </div>
       <video controls fluid={false} width={285} ref="player2" onSeeked={this.seeking.bind(this)} onPlay={this.playAudio.bind(this)} onPause={this.pauseAudio.bind(this)}>
         <source src={this.state.database.Video} ></source>
@@ -918,7 +915,7 @@ listSymptoms(){
       </div>
 
       <div class="displayed-symptoms">
-        <h5><center>Symptoms</center></h5>
+        <h5><center>Deficits</center></h5>
         <div class = "symptoms">
         {this.listSymptoms()}
         </div>
@@ -942,6 +939,7 @@ listSymptoms(){
                     position: 'none',
                   },
                   hAxis: {
+                    format: 'mm:ss',
                     title: 'Time',
                     viewWindow: {  // <-- set view window
                       min: this.state.minimum,
@@ -952,20 +950,20 @@ listSymptoms(){
                     title: 'Joint Position',
                   },
                   series: {
-                    0: this.state.head ? {tooltip: true, color: '#c95253'} : {tooltip: false, color: 'transparent'},
-                    1: this.state.neck ? {tooltip: true, color: '#304d48'} : {tooltip: false, color: 'transparent'},
-                    2: this.state.lshoulder ? {tooltip: true, color: '#f1ca3a'} : {tooltip: false, color: 'transparent'},
-                    3: this.state.rshoulder ? {tooltip: true, color: '#d17846'} : {tooltip: false, color: 'transparent'},
-                    4: this.state.lelbow ? {tooltip: true, color: '#97f3d9'} : {tooltip: false, color: 'transparent'},
-                    5: this.state.relbow ? {tooltip: true, color: '#01dc54'} : {tooltip: false, color: 'transparent'},
-                    6: this.state.lwrist ? {tooltip: true, color: '#ed0a7c'} : {tooltip: false, color: 'transparent'},
-                    7: this.state.rwrist ? {tooltip: true, color: '#15c683'} : {tooltip: false, color: 'transparent'},
-                    8: this.state.midspine ? {tooltip: true, color: '#bab780'} : {tooltip: false, color: 'transparent'},
-                    9: this.state.spinebase ? {tooltip: true, color: '#d241a7'} : {tooltip: false, color: 'transparent'},
-                    10: this.state.lknee ? {tooltip: true, color: '#61673e'} : {tooltip: false, color: 'transparent'},
-                    11: this.state.rknee ? {tooltip: true, color: '#cfed08'} : {tooltip: false, color: 'transparent'},
-                    12: this.state.lankle ? {tooltip: true, color: '#b39ad2'} : {tooltip: false, color: 'transparent'},
-                    13: this.state.rankle ? {tooltip: true, color: '#25e40d'} : {tooltip: false, color: 'transparent'},
+                    0: this.state.head ? {tooltip: true, color: '#ff80ff', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    1: this.state.neck ? {tooltip: true, color: '#ff1aff', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    2: this.state.lshoulder ? {tooltip: true, color: '#b3b3ff', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    3: this.state.rshoulder ? {tooltip: true, color: '#ff8080', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    4: this.state.lelbow ? {tooltip: true, color: '#4d4dff', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    5: this.state.relbow ? {tooltip: true, color: '#ff4d4d', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    6: this.state.lwrist ? {tooltip: true, color: '#1a1aff', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    7: this.state.rwrist ? {tooltip: true, color: '#ff1a1a', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    8: this.state.midspine ? {tooltip: true, color: '#b300b2', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    9: this.state.spinebase ? {tooltip: true, color: '#4d004c', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    10: this.state.lknee ? {tooltip: true, color: '#0000e6', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    11: this.state.rknee ? {tooltip: true, color: '#800000', enableInteractivity: true} : {tooltip: false, color: 'transparent'}, enableInteractivity: false,
+                    12: this.state.lankle ? {tooltip: true, color: '#000080', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
+                    13: this.state.rankle ? {tooltip: true, color: '#4d0000', enableInteractivity: true} : {tooltip: false, color: 'transparent', enableInteractivity: false},
                   },
                 }}
                 chartEvents={[

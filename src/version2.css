@@ -1,13 +1,13 @@
 #left-symbol{
   position: absolute;
-  left: 440px;
-  top: 70px;
+  left: 330px;
+  top: 20px;
 }
 
 #right-symbol{
   position: absolute;
-  left: 310px;
-  top: 70px;
+  left: 250px;
+  top: 20px;
 }
 
 .overlay-image{
@@ -32,7 +32,7 @@ div.displayed-symptoms{
 }
 
 .joints{
-  max-height: 290px;
+  max-height: 50px;
   overflow-y: auto;
 }
 

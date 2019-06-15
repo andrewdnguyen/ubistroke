@@ -52,8 +52,8 @@ class Randomizer extends Component {
 generateArray(){
   let newArray = [];
   let i = 0;
-  while(i < 5){
-    let newNum = Math.floor(Math.random() * Math.floor(10)) + 1;
+  while(i < 7){
+    let newNum = Math.floor(Math.random() * Math.floor(7)) + 1;
     if(!newArray.includes(newNum)){
       newArray.push(newNum);
       i++;
@@ -68,15 +68,15 @@ shift(slightFake){
     if(e !== "motorArm" && e !== "motorLeg"){
       if(toReturn.NIHSS[e].value != 0 && typeof(toReturn.NIHSS[e].value) !== 'undefined'){
         console.log(toReturn.NIHSS[e].value != 0);
-        toReturn.NIHSS[e].value = Math.floor(Math.random() * Math.floor(3));
+        toReturn.NIHSS[e].value = Math.floor(Math.random() * Math.floor(2))+1;
       }
     }
     else{
       if(toReturn.NIHSS[e].left.value !== 0 && typeof(toReturn.NIHSS[e].left.value) !== 'undefined'){
-        toReturn.NIHSS[e].left.value = Math.floor(Math.random() * Math.floor(5));
+        toReturn.NIHSS[e].left.value = Math.floor(Math.random() * Math.floor(4))+1;
       }
       if(toReturn.NIHSS[e].right.value !== 0 && typeof(toReturn.NIHSS[e].right.value) !== 'undefined'){
-        toReturn.NIHSS[e].right.value = Math.floor(Math.random() * Math.floor(5));
+        toReturn.NIHSS[e].right.value = Math.floor(Math.random() * Math.floor(4)+1);
       }
     }
   }
@@ -88,10 +88,10 @@ randInsert(randomFake){
   for(let e in toReturn.NIHSS){
     if(e !== "motorArm" && e !== "motorLeg"){
       if(toReturn.NIHSS[e].value == 0 || typeof(toReturn.NIHSS[e].value) == 'undefined'){
-        let chance = Math.floor(Math.random() * Math.floor(10));
+        let chance = Math.floor(Math.random() * Math.floor(7));
         if(chance == 0){
           if (e == 'bestGaze' || e == 'visual' || e == 'facialPalsy' || e == 'limbAtaxia' || e == 'sensory' || e == 'extinctionAndInattention'){
-            toReturn.NIHSS[e].side = Math.floor(Math.random() * Math.floor(3))+1;
+            toReturn.NIHSS[e].side = Math.floor(Math.random() * Math.floor(2))+1;
             console.log(e);
           }
           toReturn.NIHSS[e].value = 1;
@@ -100,13 +100,13 @@ randInsert(randomFake){
     }
     else{
       if(toReturn.NIHSS[e].left.value == 0 || typeof(toReturn.NIHSS[e].left.value) == 'undefined'){
-        let chance  = Math.floor(Math.random() * Math.floor(10));
+        let chance  = Math.floor(Math.random() * Math.floor(7));
         if(chance == 0){
           toReturn.NIHSS[e].left.value = 1;
         }
       }
       if(toReturn.NIHSS[e].right.value == 0 || typeof(toReturn.NIHSS[e].right.value) == 'undefined'){
-        let chance = Math.floor(Math.random() * Math.floor(10));
+        let chance = Math.floor(Math.random() * Math.floor(7));
         if(chance == 0){
           toReturn.NIHSS[e].right.value = 1;
         }
@@ -132,16 +132,16 @@ saveChanges = e => {
     this.setState({numClicks: parseInt(this.state.numClicks)+1});
     return;
   }
-  //let newArray = this.generateArray();
-  let newArray = [10,6,7,8,3];
-  let rand1 = Math.floor(Math.random() * Math.floor(5));
+  let newArray = this.generateArray();
+  //let newArray = [10,6,7,8,3];
+  let rand1 = Math.floor(Math.random() * Math.floor(7));
   let rand2 = rand1;
   while(rand2 === rand1){
-    rand2 = Math.floor(Math.random() * Math.floor(5));
+    rand2 = Math.floor(Math.random() * Math.floor(7));
   }
   let rand3 = rand2;
   while(rand3 === rand1 || rand3 === rand2){
-    rand3 = Math.floor(Math.random() * Math.floor(5));
+    rand3 = Math.floor(Math.random() * Math.floor(7));
   }
   let newSettings = {};
   newSettings["orderArray"] = newArray;
@@ -149,12 +149,13 @@ saveChanges = e => {
   newSettings["randomIndex"] = rand2;
   newSettings["comboIndex"] = rand3;
   let slightFake = this.state.patientData[newArray[rand1]];
+  console.log(newArray);
   let randomFake = this.state.patientData[newArray[rand2]];
   let comboIndex = this.state.patientData[newArray[rand3]];
   let faked = this.shift(slightFake);
   let faked2 = this.randInsert(randomFake);
-  let faked3 = this.shift(comboIndex);
-  let faked3new = this.randInsert(faked3);
+  let faked3 = this.randInsert(comboIndex);
+  let faked3new = this.shift(faked3);
   let newBad = {};
   newBad["slightChange"] = faked;
   newBad["random"] = faked2;
@@ -179,7 +180,7 @@ saveChanges = e => {
         </div>
         <div class = "container">
         <br/>
-        <center><h1 class="white-text">
+        <center><h3 class="white-text">
           Current Patient Index: {JSON.stringify(this.state.settings.orderArray)}
           <br/>
           Shifted Value Patient: {this.state.settings.orderArray[this.state.settings.slightFakeIndex]}
@@ -188,7 +189,7 @@ saveChanges = e => {
           <br/>
           Both Manipulations Patient: {this.state.settings.orderArray[this.state.settings.comboIndex]}
           <br/>
-        </h1></center>
+        </h3></center>
         </div>
       </div>
     )

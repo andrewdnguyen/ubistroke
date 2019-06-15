@@ -108,12 +108,6 @@ const Home = () => (
       <img style={{width: 300}} src={require('./logo.png')}></img>
       <br/>
       <br/>
-      <button class="btn btn-lg btn-primary" style={{width: 300}}>Start New Patient (Disabled)</button>
-      <br/>
-      <br/>
-      <Link to="/patients"><button class="btn btn-lg btn-primary" style={{width: 300}}>Open Patient Files (Enabled)</button></Link>
-      <br/>
-      <br/>
       <Link to="/experiment"><button class="btn btn-lg btn-primary" style={{width: 300}}>Begin Experiment Session</button></Link>
       <br/>
       <br/>

@@ -50,9 +50,9 @@ getModules(){
     let array = this.state.patientArray;
     // Outer loop to create parent
     table.push(<div><Link to={`edit/0`}><button class="btn btn-lg btn-primary btn-block">{array[0]["UbiStroke Label"]}</button></Link><br/><br/></div>)
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 7; i++) {
       //Create the parent and add the children
-      table.push(<div><Link to={`response1/` + i}><button class="btn btn-lg btn-primary btn-block">{array[i]["UbiStroke Label"]}</button></Link><br/><br/></div>)
+      table.push(<div><Link to={`edit/` + i}><button class="btn btn-lg btn-primary btn-block">{array[i]["UbiStroke Label"]}</button></Link><br/><br/></div>)
     }
     return table
   }
