@@ -78,7 +78,7 @@ getModules(){
       </video>
 
       <audio ref="audio">
-        <source src="/audio/Patient_31_audio.wav" type="audio/wav"></source>
+        <source src={this.state.test[this.props.patientIndex].audio} type="audio/wav"></source>
       Your browser does not support the audio element.
       </audio>
       </div>
