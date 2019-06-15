@@ -52,7 +52,7 @@ saveAndContinue = e => {
     let nextIndex = parseInt(this.props.match.params.subjectID);
     nextIndex = nextIndex + 1;
     console.log(nextIndex);
-    if(nextIndex >= 5){
+    if(nextIndex >= 7){
       redirectLink = '/questionnaire/' + this.props.match.params.participantID;
     }
     else{
@@ -116,7 +116,7 @@ saveAndContinue = e => {
 
       <div>
         <br/><br/>
-        <h1 style={{color: 'white'}}><center>{parseInt(this.props.match.params.subjectID)+1} out of 5 patients complete!<br/>Make sure to click one of the buttons below to save your progress.</center></h1>
+        <h1 style={{color: 'white'}}><center>{parseInt(this.props.match.params.subjectID)+1} out of 7 patients complete!<br/>Make sure to click one of the buttons below to save your progress.</center></h1>
           <div class = "patient-buttons">
           <center><button onClick={this.saveAndQuit} class="btn btn-lg btn-primary btn-block">Pause Experiment</button></center><br/><br/>
           <center><button onClick={this.saveAndContinue} class="btn btn-lg btn-primary btn-block">Continue Experiment</button></center><br/><br/>
