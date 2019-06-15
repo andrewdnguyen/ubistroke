@@ -34,7 +34,8 @@ class Questions extends Component {
       response: {
           notes: "",
           subjectID: "",
-          question1: ""
+          question1: "",
+          name: ""
       }
       }
     };
@@ -109,9 +110,13 @@ saveChanges = e => {
         ) :(
       <div className="info-side">
         <br/>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczvxJbKKBTyurJwdzbCF3ZDpX1dUzkY2P0IpqkYWsn6NGlJQ/viewform?embedded=true" width="100%" height="85%" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczvxJbKKBTyurJwdzbCF3ZDpX1dUzkY2P0IpqkYWsn6NGlJQ/viewform?embedded=true" width="100%" height="75%" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         <br/><br/>
-        <center><button class = "btn btn-lg btn-primary" onClick={this.saveChanges}>Click Here Once You Have Recieved Your Email Receipt</button></center>
+        <form onSubmit={this.saveChanges}>
+        <center><input name="name" style={{width: 600}} onChange={this.updateNotes} value={this.state.response.name} placeholder="Enter your name here to confirm that you have recieved your confirmation email" required/></center>
+        <br/>
+        <center><input class="btn-lg btn-primary" type="submit" value="Click Here to Submit Once You Have Your Confirmation Email"/></center>
+        </form>
       </div>
     )
   }
