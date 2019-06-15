@@ -54,12 +54,12 @@ getModules(){
   }
 
   playAudio(){
-    this.refs.audio.currentTime = this.refs.player2.currentTime;
+    this.refs.audio.currentTime = this.refs.player.currentTime;
     this.refs.audio.play();
   }
 
   pauseAudio(){
-    this.refs.audio.currentTime = this.refs.player2.currentTime;
+    this.refs.audio.currentTime = this.refs.player.currentTime;
     this.refs.audio.pause();
   }
 
