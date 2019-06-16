@@ -11,15 +11,15 @@
 }
 
 #left-symbol-video{
-  position: absolute;
+  position: relative;
   left: 545px;
-  top: 370px;
+  top: 10px;
 }
 
 #right-symbol-video{
-  position: absolute;
+  position: relative;
   left: 40px;
-  top: 370px;
+  top: -40px;
 }
 
 .videoBox{
