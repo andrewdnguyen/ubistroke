@@ -112,12 +112,8 @@ saveChanges = e => {
         <br/>
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczvxJbKKBTyurJwdzbCF3ZDpX1dUzkY2P0IpqkYWsn6NGlJQ/viewform?embedded=true" width="100%" height="75%" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         <br/><br/>
-        <form onSubmit={this.saveChanges}>
-        <center><input name="name" style={{width: 600}} onChange={this.updateNotes} value={this.state.response.name} placeholder="Enter your name here to confirm that you have recieved your confirmation email" required/></center>
-        <br/>
-        <center><input class="btn-lg btn-primary" type="submit" value="Click Here to Submit Once You Have Your Confirmation Email"/></center>
-        </form>
-      </div>
+        <center><button class="btn btn-primary" onClick={this.saveChanges}>Click Here to Submit Once You Have Your Confirmation Email</button></center>
+        </div>
     )
   }
 }
