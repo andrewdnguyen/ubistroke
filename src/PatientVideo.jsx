@@ -72,7 +72,7 @@ getModules(){
             </div>
         ) :(
       <div class="canvas-div2">
-      <div class="container">
+      <div class="container videoBox">
       <video controls fluid={false} width="100%" ref="player" onSeeked={this.seeking.bind(this)} onPlay={this.playAudio.bind(this)} onPause={this.pauseAudio.bind(this)}>
         <source src={this.state.test[this.props.patientIndex].Video} ></source>
       </video>
@@ -81,11 +81,11 @@ getModules(){
         <source src={this.state.test[this.props.patientIndex].audio} type="audio/wav"></source>
       Your browser does not support the audio element.
       </audio>
-
-
-      </div>
       <h1 id="left-symbol-video"> R </h1>
       <h1 id="right-symbol-video"> L </h1>
+
+      </div>
+
       </div>
     )
   }

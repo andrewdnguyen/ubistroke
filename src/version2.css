@@ -12,7 +12,7 @@
 
 #left-symbol-video{
   position: absolute;
-  left: 585px;
+  left: 545px;
   top: 370px;
 }
 
@@ -20,6 +20,13 @@
   position: absolute;
   left: 40px;
   top: 370px;
+}
+
+.videoBox{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 .overlay-image{
