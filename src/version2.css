@@ -12,13 +12,13 @@
 
 #left-symbol-video{
   position: relative;
-  left: 545px;
+  left: 80%;
   top: 10px;
 }
 
 #right-symbol-video{
   position: relative;
-  left: 40px;
+  left: 10%;
   top: -40px;
 }
 
