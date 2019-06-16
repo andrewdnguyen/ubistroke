@@ -73,8 +73,13 @@ saveChanges = e => {
         ) :(
       <div className="info-side container" align="center" >
         <br/>
-        <h2 class="white-text">Alright {firstName}, let's do a quick run through of this experiment.
-        The following patient will be a demo, feel free to play around with everything. Your results will NOT be recorded.</h2>
+        <h2 class="white-text">Alright {firstName}, let's do a quick run through of this experiment. Please watch the video below if this is your first time with this experiment:
+        <br/><br/>
+        <video controls fluid={false} width="100%" height="400px" ref="player">
+          <source src="/Videos/Ubistroke_Tutorial.mp4" ></source>
+        </video>
+        <br/><br/>
+        Click the button below to move on to a demo patient, feel free to play around with everything yourself. Some of the following patient's data may be faked for tutorial purposes. Your results will NOT be recorded.</h2>
         <br/><br/>
         <Link to={"/response1/" + this.props.match.params.participantID}><button class = "btn btn-lg btn-primary btn-width">Click Here To Get to the Demo</button></Link>
       </div>

@@ -10,6 +10,18 @@
   top: 20px;
 }
 
+#left-symbol-video{
+  position: absolute;
+  left: 585px;
+  top: 370px;
+}
+
+#right-symbol-video{
+  position: absolute;
+  left: 40px;
+  top: 370px;
+}
+
 .overlay-image{
   position:absolute;
   left: 300px;

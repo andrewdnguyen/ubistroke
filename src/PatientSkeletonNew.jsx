@@ -890,9 +890,9 @@ listSymptoms(){
          vs. Time (MM:SS) </div>}
          <img style={{height: 120}} src={require('./xyz.gif')}></img>
          <p >Skeleton Region Legend:</p>
-         <p ><div class="square" style={{backgroundColor: "green"}} ></div> Symptoms in area are mild.</p>
-         <p ><div class="square" style={{backgroundColor: "#d8d217"}} ></div> Symptoms in area are moderate.</p>
-         <p ><div class="square" style={{backgroundColor: "red"}} ></div> Symptoms in area are severe.</p>
+         <p ><div class="square" style={{backgroundColor: "green"}} ></div> No deficits or deficits in area are mild.</p>
+         <p ><div class="square" style={{backgroundColor: "#d8d217"}} ></div> Deficits in area are moderate.</p>
+         <p ><div class="square" style={{backgroundColor: "red"}} ></div> Deficits in area are severe.</p>
       </div>
       <video controls fluid={false} width={285} ref="player2" onSeeked={this.seeking.bind(this)} onPlay={this.playAudio.bind(this)} onPause={this.pauseAudio.bind(this)}>
         <source src={this.state.database.Video} ></source>
