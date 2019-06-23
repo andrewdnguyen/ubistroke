@@ -25,6 +25,7 @@ class ResponseLog2 extends Component {
 
     let data = localStorage.getItem('storedResponses');
     data = JSON.parse(data);
+    data.confidence = "";
     console.log(data);
 
     this.state = {
@@ -421,6 +422,7 @@ saveChanges = e => {
           <br/>
           <p class="white-text">How confident are you with this NIHSS diagnosis?</p>
           <select class="form-control" name="confidence" onChange={this.updateConfidence} value={patientVar.confidence}>
+          <option disabled selected value=""> -- select an option -- </option>
             <option value="1">1 = No Confidence</option>
             <option value="2">2</option>
             <option value="3">3</option>
