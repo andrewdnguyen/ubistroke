@@ -116,7 +116,10 @@ saveAndContinue = e => {
 
       <div>
         <br/><br/>
-        <h1 style={{color: 'white'}}><center>{parseInt(this.props.match.params.subjectID)+1} out of 7 patients complete!<br/>Make sure to click one of the buttons below to save your progress.</center></h1>
+        <div class="container">
+        <h5 style={{color: 'white'}}><center>{parseInt(this.props.match.params.subjectID)+1} out of 7 patients complete!<br/>Make sure to click one of the buttons below to save your progress.
+        If you choose "Pause Experiment", you can return by reentering the emailed passcode and clicking on "Continue Experiment Session". From there simply select your name and you will be redirected to this page.</center></h5>
+        </div>
           <div class = "patient-buttons">
           <center><button onClick={this.saveAndQuit} class="btn btn-lg btn-primary btn-block">Pause Experiment</button></center><br/><br/>
           <center><button onClick={this.saveAndContinue} class="btn btn-lg btn-primary btn-block">Continue Experiment</button></center><br/><br/>

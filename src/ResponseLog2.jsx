@@ -219,6 +219,7 @@ saveChanges = e => {
           + this.getValue(patientVar.motorArm.right.value) + this.getValue(patientVar.motorLeg.left.value) + this.getValue(patientVar.motorLeg.right.value)
           + this.getValue(patientVar.limbAtaxia.value) + this.getValue(patientVar.sensory.value) + this.getValue(patientVar.bestLanguage.value) + this.getValue(patientVar.dysarthria.value) +
           this.getValue(patientVar.extinctionAndInattention.value)}</h2>
+          <h4 class="white-text">Remember to change your responses if you find anything new with the data provided!</h4>
           <br/>
             <p class="white-text">Level of Consciousness:</p>
           <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.levelOfConsciousness.value}>
