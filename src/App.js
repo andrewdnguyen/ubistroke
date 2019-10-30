@@ -21,9 +21,9 @@ import Finished from './Finished.jsx';
 import Randomizer from './Randomizer.jsx';
 import Begin from './Begin.jsx';
 import Password from './Password.jsx'
-import {
-  dailySalesChart
-} from "./charts.jsx";
+import {line as Line} from 'zingchart-react';
+import {zingchart} from 'zingchart';
+
 
 var config = {
   apiKey: "AIzaSyDBFvjEfVbGK6njvCN49i68K-F8S_w5mus",
@@ -33,6 +33,19 @@ var config = {
   storageBucket: "ubistroke.appspot.com",
   messagingSenderId: "466560050867"
 };
+
+var myLineValues = [
+  { text : "First Series", values : [0,1,2,2,4,6,7] },
+  { text : "Second Series", values : [18,12,7,14,1,19,4] },
+  { text : "Third Series", values : [0,1,12,12,4,6,17] },
+  { text : "Fourth Series", values : [18,22,17,4,1,9,4] },
+  { text : "Fifth Series", values : [4,2,7,3,23,7,2] },
+  { text : "Sixth Series", values : [10,6,8,2,6,3,9] },
+];
+
+zingchart.bind('chart1', 'node_click', function(e) {
+  console.log(e);
+});
 
     //removed header/ element
 const App = () => (
@@ -116,53 +129,7 @@ const Home = () => (
 );
 
 const Test = () => (
-  <Chart
-    width={'1000px'}
-    height={'400px'}
-    chartType="LineChart"
-    loader={<div>Loading Chart</div>}
-    data={[['x', 'hi', 'hey', 'hello']
-[1,  37.8, 80.8, 41.8],
-[2,  30.9, 69.5, 32.4],
-[3,  25.4,   57, 25.7],
-[4,  11.7, 18.8, 10.5],
-[5,  11.9, 17.6, 10.4],
-[6,   8.8, 13.6,  7.7],
-[7,   7.6, 12.3,  9.6],
-[8,  12.3, 29.2, 10.6],
-[9,  16.9, 42.9, 14.8],
-[10, 12.8, 30.9, 11.6],
-[11,  5.3,  7.9,  4.7],
-[12,  6.6,  8.4,  5.2],
-[13,  4.8,  6.3,  3.6],
-[14,  4.2,  6.2,  3.4]
-]}
-    options={{
-      legend: {
-        position: 'none',
-      },
-      hAxis: {
-        title: 'Time',
-      },
-      vAxis: {
-        title: 'Joint Position',
-      },
-    }}
-    rootProps={{ 'data-testid': '2' }}
-    chartEvents={[
-    {
-      eventName: 'select',
-      callback: ({ chartWrapper }) => {
-        const chart = chartWrapper.getChart();
-        const selection = chart.getSelection();
-          const [selectedItem] = selection;
-          const dataTable = chartWrapper.getDataTable();
-          const { row, column } = selectedItem;
-          console.log(selection);
-      },
-    },
-  ]}
-  />
+  <Line id="chart1" height="300" width="600" series={myLineValues} legend="true" theme="light" title="Hello Line Chart"/>
 );
 
 const About = () => <h2>About</h2>;

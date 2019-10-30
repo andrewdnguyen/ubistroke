@@ -11,7 +11,9 @@ import { Player } from 'video-react';
 import './PatientInfo.css';
 import firebase from "firebase";
 import Chart from 'react-google-charts';
-import Skeleton from './Skeleton.jsx'
+import Skeleton from './Skeleton.jsx';
+import {line as Line} from 'zingchart-react';
+import {zingchart} from 'zingchart';
 var config = {
   apiKey: "AIzaSyDBFvjEfVbGK6njvCN49i68K-F8S_w5mus",
   authDomain: "ubistroke.firebaseapp.com",
@@ -22,21 +24,10 @@ var config = {
 };
 //var test = require('./data/kinect-data/Patient_10_2016330_145130327/Patient_10_2016330_145130327_kinect_video_color.mp4')
 
-let testData = [
-    ['x', 'dogs'],
-    [0, 0],
-    [1, 10],
-    [2, 23],
-    [3, 17],
-    [4, 18],
-    [5, 9],
-    [6, 11],
-    [7, 27],
-    [8, 33],
-    [9, 40],
-    [10, 32],
-    [11, 35],
-  ];
+
+zingchart.bind('ubistrokeData', 'node_click', function(e) {
+  console.log(e);
+});
 
 class PatientSkeletonNew extends Component {
   constructor(props){
@@ -60,7 +51,9 @@ class PatientSkeletonNew extends Component {
       nodeValue: -1,
       yAxis: true,
       canvasSize: 0,
-      googleData: []
+      googleData: [],
+      displayZing: true,
+      myLineValues: null
   }
 
 console.log(this.state.time);
@@ -535,48 +528,67 @@ jump(seconds) {
     console.log(minutes + " " + seconds + " " + thirdThing);
     let minimum;
     let maximum;
+    let headArray = [];
+    let neckArray = [];
     for (let i = 0; i < data.length; i++){
-      let timeArray = [];
-      let time = data[i].Time;
-      let minutes = parseInt(time.substring(3, 5));
-      let seconds = parseInt(time.substring(6, 8));
-      let thirdThing = parseInt(time.substring(9, 12));
-      timeArray.push(0);
-      timeArray.push(minutes);
-      timeArray.push(seconds);
-      timeArray.push(thirdThing);
-      if(i == 0){
-        minimum = timeArray;
-      }
-      if(i == data.length-1){
-        maximum = timeArray;
-      }
-      let tempArray = [];
-      tempArray.push(timeArray);
-      tempArray.push(parseFloat(data[i].HeadX));
-      tempArray.push(parseFloat(data[i].NeckX));
-      tempArray.push(parseFloat(data[i].ShoulderLeftX));
-      tempArray.push(parseFloat(data[i].ShoulderRightX));
-      tempArray.push(parseFloat(data[i].ElbowLeftX));
-      tempArray.push(parseFloat(data[i].ElbowRightX));
-      tempArray.push(parseFloat(data[i].WristLeftX));
-      tempArray.push(parseFloat(data[i].WristRightX));
-      tempArray.push(parseFloat(data[i].SpineMidX));
-      tempArray.push(parseFloat(data[i].SpineBaseX));
-      tempArray.push(parseFloat(data[i].KneeLeftX));
-      tempArray.push(parseFloat(data[i].KneeRightX));
-      tempArray.push(parseFloat(data[i].AnkleLeftX));
-      tempArray.push(parseFloat(data[i].AnkleRightX));
-      googleData.push(tempArray);
-      if(i%5 === 0){
+      if(i%29 === 0){
+        let timeArray = [];
+        let time = data[i].Time;
+        let minutes = parseInt(time.substring(3, 5));
+        let seconds = parseInt(time.substring(6, 8));
+        let thirdThing = parseInt(time.substring(9, 12));
+        timeArray.push(0);
+        timeArray.push(minutes);
+        timeArray.push(seconds);
+        timeArray.push(thirdThing);
+        if(i == 0){
+          minimum = timeArray;
+        }
+        if(i == data.length-1){
+          maximum = timeArray;
+        }
+        let tempArray = [];
+        tempArray.push(timeArray);
+        tempArray.push(parseFloat(data[i].HeadX));
+        tempArray.push(parseFloat(data[i].NeckX));
+        tempArray.push(parseFloat(data[i].ShoulderLeftX));
+        tempArray.push(parseFloat(data[i].ShoulderRightX));
+        tempArray.push(parseFloat(data[i].ElbowLeftX));
+        tempArray.push(parseFloat(data[i].ElbowRightX));
+        tempArray.push(parseFloat(data[i].WristLeftX));
+        tempArray.push(parseFloat(data[i].WristRightX));
+        tempArray.push(parseFloat(data[i].SpineMidX));
+        tempArray.push(parseFloat(data[i].SpineBaseX));
+        tempArray.push(parseFloat(data[i].KneeLeftX));
+        tempArray.push(parseFloat(data[i].KneeRightX));
+        tempArray.push(parseFloat(data[i].AnkleLeftX));
+        tempArray.push(parseFloat(data[i].AnkleRightX));
+        googleData.push(tempArray);
+        // if(i%5 === 0){
         newData.push(data[i].Time);
+        // }
+        // else{
+          // newData.push(null);
+        // }
       }
-      else{
-        newData.push(null);
-      }
+      // if(i%73 === 0){
+      //   let tempHeadArray = [];
+      //   let tempNeckArray = [];
+      //   tempHeadArray.push(data[i].Time);
+      //   tempHeadArray.push(parseFloat(data[i].HeadX));
+      //   tempNeckArray.push(data[i].Time);
+      //   tempNeckArray.push(parseFloat(data[i].NeckX));
+      //   headArray.push(tempHeadArray);
+      //   neckArray.push(tempNeckArray);
+      // }
 
     }
     console.log(googleData);
+    // let zingData = [
+    //   { text : "Head", values : headArray },
+    //   { text : "Neck", values : neckArray }
+    // ];
+    // this.setState({myLineValues: zingData});
     // Here this is available and we can call this.setState (since it's binded in the constructor)
     this.setState({csvData: data, head: false, neck: false, lshoulder: false, rshoulder: false, lelbow: false, relbow: false,
       lwrist: false, rwrist: false, midspine: false, spinebase: false, lknee: false, rknee: false, lankle: false, rankle: false, googleData: googleData, axis: currentAxis
@@ -715,32 +727,34 @@ switchX = e =>{
   'Left Ankle', 'Right Ankle']];
   let data = this.state.csvData;
   for (let i = 0; i < data.length; i++){
-    let timeArray = [];
-    let time = data[i].Time;
-    let minutes = parseInt(time.substring(3, 5));
-    let seconds = parseInt(time.substring(6, 8));
-    let thirdThing = parseInt(time.substring(9, 12));
-    timeArray.push(0);
-    timeArray.push(minutes);
-    timeArray.push(seconds);
-    timeArray.push(thirdThing);
-    let tempArray = [];
-    tempArray.push(timeArray);
-    tempArray.push(parseFloat(data[i].HeadX));
-    tempArray.push(parseFloat(data[i].NeckX));
-    tempArray.push(parseFloat(data[i].ShoulderLeftX));
-    tempArray.push(parseFloat(data[i].ShoulderRightX));
-    tempArray.push(parseFloat(data[i].ElbowLeftX));
-    tempArray.push(parseFloat(data[i].ElbowRightX));
-    tempArray.push(parseFloat(data[i].WristLeftX));
-    tempArray.push(parseFloat(data[i].WristRightX));
-    tempArray.push(parseFloat(data[i].SpineMidX));
-    tempArray.push(parseFloat(data[i].SpineBaseX));
-    tempArray.push(parseFloat(data[i].KneeLeftX));
-    tempArray.push(parseFloat(data[i].KneeRightX));
-    tempArray.push(parseFloat(data[i].AnkleLeftX));
-    tempArray.push(parseFloat(data[i].AnkleRightX));
-    googleData.push(tempArray);
+    if(i%29 === 0){
+      let timeArray = [];
+      let time = data[i].Time;
+      let minutes = parseInt(time.substring(3, 5));
+      let seconds = parseInt(time.substring(6, 8));
+      let thirdThing = parseInt(time.substring(9, 12));
+      timeArray.push(0);
+      timeArray.push(minutes);
+      timeArray.push(seconds);
+      timeArray.push(thirdThing);
+      let tempArray = [];
+      tempArray.push(timeArray);
+      tempArray.push(parseFloat(data[i].HeadX));
+      tempArray.push(parseFloat(data[i].NeckX));
+      tempArray.push(parseFloat(data[i].ShoulderLeftX));
+      tempArray.push(parseFloat(data[i].ShoulderRightX));
+      tempArray.push(parseFloat(data[i].ElbowLeftX));
+      tempArray.push(parseFloat(data[i].ElbowRightX));
+      tempArray.push(parseFloat(data[i].WristLeftX));
+      tempArray.push(parseFloat(data[i].WristRightX));
+      tempArray.push(parseFloat(data[i].SpineMidX));
+      tempArray.push(parseFloat(data[i].SpineBaseX));
+      tempArray.push(parseFloat(data[i].KneeLeftX));
+      tempArray.push(parseFloat(data[i].KneeRightX));
+      tempArray.push(parseFloat(data[i].AnkleLeftX));
+      tempArray.push(parseFloat(data[i].AnkleRightX));
+      googleData.push(tempArray);
+    }
 
   }
   this.setState({axis: "X", googleData: googleData});
@@ -752,32 +766,34 @@ switchY = e =>{
   'Left Ankle', 'Right Ankle']];
   let data = this.state.csvData;
   for (let i = 0; i < data.length; i++){
-    let timeArray = [];
-    let time = data[i].Time;
-    let minutes = parseInt(time.substring(3, 5));
-    let seconds = parseInt(time.substring(6, 8));
-    let thirdThing = parseInt(time.substring(9, 12));
-    timeArray.push(0);
-    timeArray.push(minutes);
-    timeArray.push(seconds);
-    timeArray.push(thirdThing);
-    let tempArray = [];
-    tempArray.push(timeArray);
-    tempArray.push(parseFloat(data[i].HeadY));
-    tempArray.push(parseFloat(data[i].NeckY));
-    tempArray.push(parseFloat(data[i].ShoulderLeftY));
-    tempArray.push(parseFloat(data[i].ShoulderRightY));
-    tempArray.push(parseFloat(data[i].ElbowLeftY));
-    tempArray.push(parseFloat(data[i].ElbowRightY));
-    tempArray.push(parseFloat(data[i].WristLeftY));
-    tempArray.push(parseFloat(data[i].WristRightY));
-    tempArray.push(parseFloat(data[i].SpineMidY));
-    tempArray.push(parseFloat(data[i].SpineBaseY));
-    tempArray.push(parseFloat(data[i].KneeLeftY));
-    tempArray.push(parseFloat(data[i].KneeRightY));
-    tempArray.push(parseFloat(data[i].AnkleLeftY));
-    tempArray.push(parseFloat(data[i].AnkleRightY));
-    googleData.push(tempArray);
+    if(i%29 === 0) {
+      let timeArray = [];
+      let time = data[i].Time;
+      let minutes = parseInt(time.substring(3, 5));
+      let seconds = parseInt(time.substring(6, 8));
+      let thirdThing = parseInt(time.substring(9, 12));
+      timeArray.push(0);
+      timeArray.push(minutes);
+      timeArray.push(seconds);
+      timeArray.push(thirdThing);
+      let tempArray = [];
+      tempArray.push(timeArray);
+      tempArray.push(parseFloat(data[i].HeadY));
+      tempArray.push(parseFloat(data[i].NeckY));
+      tempArray.push(parseFloat(data[i].ShoulderLeftY));
+      tempArray.push(parseFloat(data[i].ShoulderRightY));
+      tempArray.push(parseFloat(data[i].ElbowLeftY));
+      tempArray.push(parseFloat(data[i].ElbowRightY));
+      tempArray.push(parseFloat(data[i].WristLeftY));
+      tempArray.push(parseFloat(data[i].WristRightY));
+      tempArray.push(parseFloat(data[i].SpineMidY));
+      tempArray.push(parseFloat(data[i].SpineBaseY));
+      tempArray.push(parseFloat(data[i].KneeLeftY));
+      tempArray.push(parseFloat(data[i].KneeRightY));
+      tempArray.push(parseFloat(data[i].AnkleLeftY));
+      tempArray.push(parseFloat(data[i].AnkleRightY));
+      googleData.push(tempArray);
+    }
 
   }
   this.setState({axis: "Y", googleData: googleData});
@@ -789,33 +805,34 @@ switchZ = e =>{
   'Left Ankle', 'Right Ankle']];
   let data = this.state.csvData;
   for (let i = 0; i < data.length; i++){
-    let timeArray = [];
-    let time = data[i].Time;
-    let minutes = parseInt(time.substring(3, 5));
-    let seconds = parseInt(time.substring(6, 8));
-    let thirdThing = parseInt(time.substring(9, 12));
-    timeArray.push(0);
-    timeArray.push(minutes);
-    timeArray.push(seconds);
-    timeArray.push(thirdThing);
-    let tempArray = [];
-    tempArray.push(timeArray);
-    tempArray.push(parseFloat(data[i].HeadZ));
-    tempArray.push(parseFloat(data[i].NeckZ));
-    tempArray.push(parseFloat(data[i].ShoulderLeftZ));
-    tempArray.push(parseFloat(data[i].ShoulderRightZ));
-    tempArray.push(parseFloat(data[i].ElbowLeftZ));
-    tempArray.push(parseFloat(data[i].ElbowRightZ));
-    tempArray.push(parseFloat(data[i].WristLeftZ));
-    tempArray.push(parseFloat(data[i].WristRightZ));
-    tempArray.push(parseFloat(data[i].SpineMidZ));
-    tempArray.push(parseFloat(data[i].SpineBaseZ));
-    tempArray.push(parseFloat(data[i].KneeLeftZ));
-    tempArray.push(parseFloat(data[i].KneeRightZ));
-    tempArray.push(parseFloat(data[i].AnkleLeftZ));
-    tempArray.push(parseFloat(data[i].AnkleRightZ));
-    googleData.push(tempArray);
-
+    if(i%29 === 0){
+      let timeArray = [];
+      let time = data[i].Time;
+      let minutes = parseInt(time.substring(3, 5));
+      let seconds = parseInt(time.substring(6, 8));
+      let thirdThing = parseInt(time.substring(9, 12));
+      timeArray.push(0);
+      timeArray.push(minutes);
+      timeArray.push(seconds);
+      timeArray.push(thirdThing);
+      let tempArray = [];
+      tempArray.push(timeArray);
+      tempArray.push(parseFloat(data[i].HeadZ));
+      tempArray.push(parseFloat(data[i].NeckZ));
+      tempArray.push(parseFloat(data[i].ShoulderLeftZ));
+      tempArray.push(parseFloat(data[i].ShoulderRightZ));
+      tempArray.push(parseFloat(data[i].ElbowLeftZ));
+      tempArray.push(parseFloat(data[i].ElbowRightZ));
+      tempArray.push(parseFloat(data[i].WristLeftZ));
+      tempArray.push(parseFloat(data[i].WristRightZ));
+      tempArray.push(parseFloat(data[i].SpineMidZ));
+      tempArray.push(parseFloat(data[i].SpineBaseZ));
+      tempArray.push(parseFloat(data[i].KneeLeftZ));
+      tempArray.push(parseFloat(data[i].KneeRightZ));
+      tempArray.push(parseFloat(data[i].AnkleLeftZ));
+      tempArray.push(parseFloat(data[i].AnkleRightZ));
+      googleData.push(tempArray);
+    }
   }
   this.setState({axis: "Z", googleData: googleData});
 }
@@ -905,6 +922,7 @@ listSymptoms(){
             <h5><center>User Options</center></h5>
             <center>{ (this.state.displayNodes) ? <button class="hideNodes" onClick={this.displayToggle}>&times; Hide Nodes</button> :
             <button class="showNodes" onClick={this.displayToggle}>Show Nodes</button> } </center>
+            {/* <center><button class="switchChart" onClick={this.setupZingchart}>Open Zingchart</button></center> */}
             {(this.state.displayGraph) ? <div><center><button class="closeChart" onClick={this.displayOn}>Open Chart</button></center></div> : <div><center><button class="closeChart" onClick={this.displayOff}>&times; Close Chart</button></center>
             <center><button class="switchChart" onClick={this.refocus}>Reset Chart Focus</button></center>
             <center><button class="switchChart" onClick={this.switchX}>Switch to X Data</button></center>
@@ -920,6 +938,18 @@ listSymptoms(){
         {this.listSymptoms()}
         </div>
       </div>
+
+      {/* { (this.state.displayZing)  ? <div></div> : <div>
+          <div ref="zingchart" class="chart-div">
+            <Line 
+              id="ubistrokeData" 
+              height="200" 
+              width="100%" 
+              series={this.state.myLineValues} 
+              legend="true" 
+              theme="light" title="Hello Line Chart"/>
+          </div>
+      </div>} */}
 
         { (this.state.displayGraph)  ? <div></div> : <div>
               <div ref="chart" class="chart-div">
