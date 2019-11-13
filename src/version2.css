@@ -12,14 +12,14 @@
 
 #left-symbol-video{
   position: relative;
-  left: 80%;
+  left: 65%;
   top: 10px;
 }
 
 #right-symbol-video{
   position: relative;
-  left: 10%;
-  top: -40px;
+  left: 15%;
+  top: -30px;
 }
 
 .videoBox{

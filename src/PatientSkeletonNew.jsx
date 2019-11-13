@@ -905,7 +905,7 @@ listSymptoms(){
         {(this.state.displayGraph) ? <div></div> : <div>Currently Displaying {this.state.axis} Axis Data for:
          <div class="joints">{this.listDisplay()}</div>
          vs. Time (MM:SS) </div>}
-         <img style={{height: 120}} src={require('./xyz.gif')}></img>
+         <img style={{height: 120}} src={require('./xyz.png')}></img>
          <p >Skeleton Region Legend:</p>
          <p ><div class="square" style={{backgroundColor: "green"}} ></div> No deficits or deficits in area are mild.</p>
          <p ><div class="square" style={{backgroundColor: "#d8d217"}} ></div> Deficits in area are moderate.</p>
@@ -925,9 +925,9 @@ listSymptoms(){
             {/* <center><button class="switchChart" onClick={this.setupZingchart}>Open Zingchart</button></center> */}
             {(this.state.displayGraph) ? <div><center><button class="closeChart" onClick={this.displayOn}>Open Chart</button></center></div> : <div><center><button class="closeChart" onClick={this.displayOff}>&times; Close Chart</button></center>
             <center><button class="switchChart" onClick={this.refocus}>Reset Chart Focus</button></center>
-            <center><button class="switchChart" onClick={this.switchX}>Switch to X Data</button></center>
-            <center><button class="switchChart" onClick={this.switchY}>Switch to Y Data</button></center>
-            <center><button class="switchChart" onClick={this.switchZ}>Switch to Z Data</button></center>
+            <center><button class="switchChart" onClick={this.switchX}>Horizontal Data</button></center>
+            <center><button class="switchChart" onClick={this.switchY}>Vertical Data</button></center>
+            <center><button class="switchChart" onClick={this.switchZ}>Depth Data</button></center>
               </div>}
 
       </div>

@@ -81,8 +81,8 @@ getModules(){
         <source src={this.state.test[this.props.patientIndex].audio} type="audio/wav"></source>
       Your browser does not support the audio element.
       </audio>
-      <h1 id="left-symbol-video"> R </h1>
-      <h1 id="right-symbol-video"> L </h1>
+      <h3 id="left-symbol-video"> Patient's Right </h3>
+      <h3 id="right-symbol-video"> Patient's Left </h3>
 
       </div>
 

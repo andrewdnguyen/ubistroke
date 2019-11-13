@@ -29,6 +29,11 @@ class Debrief extends Component {
       saved: false,
       timeSaved: 0,
       index: this.props.patientIndex,
+      check1: false,
+      check2: false,
+      check3: false,
+      check4: false,
+      warning: false,
       test: {},
       response: {
           occupation: "",
@@ -56,11 +61,42 @@ class Debrief extends Component {
 saveChanges = e => {
   //console.log(JSON.stringify(this.state.test))
 //window.localStorage.setItem('storedDatabase', JSON.stringify(this.state.test));
-  this.setState({
-    saved: true,
-    redirect: true
-  });
+  if(this.state.check1 && this.state.check2 && this.state.check3 && this.state.check4){
+    this.setState({
+      saved: true,
+      redirect: true
+    });
+  }
+  else{
+    this.setState({
+      warning: true,
+    });
+  }
 };
+
+handleCheckOne = e => {
+  this.setState({
+    check1: !this.state.check1
+  });
+}
+
+handleCheckTwo = e => {
+  this.setState({
+    check2: !this.state.check2
+  });
+}
+
+handleCheckThree = e => {
+  this.setState({
+    check3: !this.state.check3
+  });
+}
+
+handleCheckFour = e => {
+  this.setState({
+    check4: !this.state.check4
+  });
+}
 
   render() {
     let redirectlink = '/';
@@ -89,18 +125,39 @@ saveChanges = e => {
         <p class="white-text">Good {adjective + " " + firstName}, in this experiment we will be asking you to perform a brief NIHSS diagnosis on several patients through video.
         after each video diagnosis, we will then ask you to reevaluate your diagnosis after providing you with more information through our Ubistroke interface.
         <br/><br/>
-        <h2><strong>A few important notes before you begin:</strong></h2>
+        <h2><strong>A few important notes before you begin (please checkmark each as you read them):</strong></h2>
         <h5>
-        - This experiment requires that you are able to hear some videos, so please make sure that you have access to a speaker or headphones.
+        <input
+          name="check1"
+          type="checkbox"
+          checked={this.state.check1}
+          onChange={this.handleCheckOne} />
+        This experiment requires that you are able to hear some videos, so please make sure that you have access to a speaker or headphones.
         <br/><br/>
-        - This experiment is optimized for Google Chrome so please change browsers if you are not currently on Chrome.
+        <input
+          name="check1"
+          type="checkbox"
+          checked={this.state.check2}
+          onChange={this.handleCheckTwo} />
+        This experiment is optimized for Google Chrome so please change browsers if you are not currently on Chrome.
         <br/><br/>
-        - This experiment may also be resource intensive so it is recommended that you close any other tabs before proceeding.
+        <input
+          name="check1"
+          type="checkbox"
+          checked={this.state.check3}
+          onChange={this.handleCheckThree} />
+        This experiment may also be resource intensive so it is recommended that you close any other tabs before proceeding.
         <br/><br/>
-        - Should you encounter any bugs or technical issues, please let us know by sending an email to vramesh@eng.ucsd.edu.
+        <input
+          name="check1"
+          type="checkbox"
+          checked={this.state.check4}
+          onChange={this.handleCheckFour} />
+        Should you encounter any bugs or technical issues, please let us know by sending an email to vramesh@eng.ucsd.edu.
         </h5>
         </p>
         <br/><br/>
+        <h5 style={{color:"red"}} hidden={!this.state.warning}>Make sure you read and check all of the boxes.</h5>
         <button class = "btn btn-lg btn-primary btn-width" onClick={this.saveChanges}>Click Here When You're Ready</button>
       </div>
     )

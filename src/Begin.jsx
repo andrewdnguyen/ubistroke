@@ -71,8 +71,8 @@ saveChanges = e => {
     return(
       <div className="info-side container" align="center" >
         <br/>
-        <h2 class="white-text">Good job {firstName}, this marks the end of the tutorial phase.
-        After this the real experiment will begin, please consider your answers carefully. Your responses WILL be recorded.</h2>
+        <h2 class="white-text">Good job {firstName}, this marks the end of the tutorial phase. <br/><br/>
+        The real experiment will begin NOW, please consider your answers carefully as your responses WILL be recorded.</h2>
         <br/><br/>
         <Link to={'/experiment1/' + this.state.response.name + '/0'}><button class = "btn btn-lg btn-primary btn-width">Click Here To Get to Begin the Experiment</button></Link>
       </div>
