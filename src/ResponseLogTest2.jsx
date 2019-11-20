@@ -162,7 +162,7 @@ getValue(input){
       <div className="info-side">
       <form onSubmit={this.saveChanges}>
         <br/>
-          <p><h2 class="white-text">This is a Tutorial Page.</h2>
+          <p><h2 class="white-text">This is a Tutorial Page. Note that as this is the tutorial, the displayed symptom data on the right may be inaccuate in order to showcase the interface's full functionality.</h2>
           <br/>
             <p class="white-text">Level of Consciousness:</p>
           <select class="form-control" id="levelOfConsciousness" onChange={this.updateValue} value={patientVar.levelOfConsciousness.value} required>
