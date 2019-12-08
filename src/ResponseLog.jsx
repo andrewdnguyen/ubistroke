@@ -218,6 +218,10 @@ saveChanges = e => {
   console.log(newData);
   console.log(this.state.name);
   newData[this.state.name]["Patient Index: " + this.state.index + " Video Only"] = this.state.response;
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  newData[this.state.name]["Patient Index: " + this.state.index + " Video Only"]["Submission Time"] = date + " " + time;
   // newData.push(this.state.response);
   let updates = {['/responses']:newData};
   this.database.update(updates);
